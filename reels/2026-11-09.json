@@ -1,0 +1,163 @@
+{
+  "title": "The jet that ran out of fuel because of one unit",
+  "category": "disaster",
+  "hook": "In 1983 a jet with 69 people ran out of fuel in midair.",
+  "summary": "Air Canada Flight 143 was fuelled using pounds instead of kilograms, lost both engines over Manitoba, and glided to a safe landing at Gimli thanks to a glider-pilot captain.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia / Transport Canada inquiry: Air Canada Flight 143 (Gimli Glider), 23 July 1983, Boeing 767, 69 people aboard, all survived",
+    "Fuel loaded in pounds instead of kilograms during Canada's metric changeover; Captain Robert Pearson was an experienced glider pilot; landed at former RCAF Gimli base then used as a racetrack; nose gear collapsed; aircraft retired 2008"
+  ],
+  "lines": [
+    {
+      "text": "In nineteen eighty-three, a jet carrying sixty-nine people ran out of fuel.",
+      "caps": "In *1983, | a *jet carrying | *69 people | ran out of *fuel",
+      "scene": {
+        "type": "date",
+        "text": "1983",
+        "sub": "Over Canada",
+        "subOn": "nineteen",
+        "setting": "day"
+      }
+    },
+    {
+      "text": "Canada was switching to metric, and the fuel was counted in pounds, not kilograms.",
+      "caps": "Canada was *switching | to *metric, | fuel counted in *pounds, | not *kilograms",
+      "scene": {
+        "type": "object",
+        "object": "clock",
+        "text": "Pounds, not kg",
+        "on": "pounds",
+        "setting": "room"
+      }
+    },
+    {
+      "text": "A pound is under half a kilogram, so the tanks were far too empty.",
+      "caps": "A *pound | is under *half | a *kilogram, | so the *tanks | were too *empty",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "1 kg",
+            "on": "kilogram"
+          },
+          {
+            "text": "2.2 pounds",
+            "on": "pound"
+          }
+        ],
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "Over Manitoba, both engines went silent.",
+      "caps": "Over *Manitoba, | both *engines | went *silent",
+      "scene": {
+        "type": "map",
+        "title": "Canada, 1983",
+        "places": [
+          {
+            "name": "Montreal",
+            "x": 0.8,
+            "y": 0.7
+          },
+          {
+            "name": "Manitoba",
+            "x": 0.5,
+            "y": 0.6
+          },
+          {
+            "name": "Edmonton",
+            "x": 0.2,
+            "y": 0.45
+          }
+        ],
+        "mover": "plane",
+        "focus": "Manitoba"
+      }
+    },
+    {
+      "text": "The captain, Robert Pearson, happened to fly gliders.",
+      "caps": "The *captain, | Robert *Pearson, | flew *gliders",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "pilot",
+            "label": "Robert Pearson"
+          }
+        ],
+        "action": "stand",
+        "setting": "sea",
+        "text": "Glider pilot",
+        "on": "gliders"
+      }
+    },
+    {
+      "text": "He steered for an old air base at Gimli, now a racetrack.",
+      "caps": "He steered for *Gimli, | an old *air base, | now a *racetrack",
+      "scene": {
+        "type": "map",
+        "title": "Manitoba",
+        "places": [
+          {
+            "name": "Winnipeg",
+            "x": 0.6,
+            "y": 0.7
+          },
+          {
+            "name": "Gimli",
+            "x": 0.65,
+            "y": 0.35
+          }
+        ],
+        "mover": "plane",
+        "focus": "Gimli"
+      }
+    },
+    {
+      "text": "The jet landed, the nose wheel folded, and everyone lived.",
+      "caps": "The jet *landed, | the nose wheel *folded, | and everyone *lived",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "69 aboard",
+            "on": "jet"
+          },
+          {
+            "text": "69 survived",
+            "on": "lived"
+          }
+        ],
+        "setting": "field"
+      }
+    },
+    {
+      "text": "It flew again until two thousand eight.",
+      "caps": "It *flew again | until *2008",
+      "scene": {
+        "type": "timeline",
+        "title": "Gimli Glider",
+        "years": [
+          "1983",
+          "2008"
+        ],
+        "active": 1
+      }
+    }
+  ],
+  "post": {
+    "caption": "One wrong unit nearly brought down a brand new jet, and a glider pilot saved everyone.\nWould you have trusted the fuel gauge?\nFollow @untoldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#aviation",
+      "#disaster",
+      "#gimliglider"
+    ],
+    "youtubeTitle": "A jet with 69 people ran out of fuel in midair #shorts",
+    "xText": "In 1983 a jet ran out of fuel at cruising height because someone mixed up pounds and kilograms. Everyone survived."
+  }
+}

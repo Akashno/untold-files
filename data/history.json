@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-11-09",
+    "title": "The jet that ran out of fuel because of one unit",
+    "category": "disaster",
+    "summary": "Air Canada Flight 143 was fuelled using pounds instead of kilograms, lost both engines over Manitoba, and glided to a safe landing at Gimli thanks to a glider-pilot captain.",
+    "status": "test"
+  }
+]
