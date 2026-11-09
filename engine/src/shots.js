@@ -9,9 +9,13 @@
 //   count     { setting?, night?, items: [{ text, on? }] }            slips that pop in on their words
 //   timeline  { years: [..], active?, title? }
 //   end       { }                                                     added automatically after the last line
+//
+// Around the scenes: a case-file header with the title over the first line (the frame people decide on), and an end
+// card that asks for the follow. script.file is the running file number (set by scripts/make.ts).
 import { ctx, W, H, TAU, clamp, lerp, seg, eo, eio, eob, rnd, rr, circle, line } from './core/lib.js';
 import { L, Le, Wd, T } from './core/timing.js';
 import * as K from './core/kit.js';
+import { PROPS } from './props.js';
 const { P, cut, P_rr, P_poly, P_circ } = K;
 
 export const BRAND = { name: 'UNTOLD FILES', handle: '@untoldfiles', seal: 'U', sub: 'A new story every day' };
@@ -95,6 +99,7 @@ const OBJECTS = {
   scroll: (s, t, sc) => scroll(540, 900, 1.05 * sc, s.headline || ''),
   key: (s, t, sc) => key(540, 900, 1.3 * sc),
   lightbulb: (s, t, sc) => bulb(540, 900, 1.3 * sc, t),
+  ...PROPS,
 };
 export const OBJECT_NAMES = Object.keys(OBJECTS);
 
@@ -154,6 +159,7 @@ export function buildShots(script) {
     const sc = ln.scene; if (!sc) return;
     const st = i === 0 ? 0 : L(i) - 0.08;
     const pop = (word, a = 0.3) => at(word, i, a) - st;
+    const top = i === 0 ? 480 : 300; // the intro header covers the top of the first scene
     const base = { id: `S${String(S.length + 1).padStart(2, '0')}`, at: st, note: `${sc.type}: ${ln.text.slice(0, 50)}` };
     cue(st, 'whoosh', { gain: 0.6 });
     if (sc.type === 'date') {
@@ -161,7 +167,7 @@ export function buildShots(script) {
       S.push({ ...base, cam: [540, 800], zoom: 0.07, draw(lt, d, t) { setting(sc.setting || 'parchment', sc.night, t); K.ribbon(String(sc.text), 540, 620, eob(seg(lt, o, o + 0.4)), 120); if (sc.sub) K.slip(sc.sub.toUpperCase(), 540, 860, eob(seg(lt, sub, sub + 0.3)), 0.03, 52); } });
       cue(st + o, 'thud', { gain: 0.7 }); if (sc.sub) cue(st + sub, 'pop', { gain: 0.5 });
     } else if (sc.type === 'map') {
-      S.push({ ...base, cam: [540, 860], zoom: 0.05, draw(lt, d, t) { mapPage(sc, lt, d, t); } });
+      S.push({ ...base, cam: [540, 860], zoom: 0.05, draw(lt, d, t) { mapPage(i === 0 ? { ...sc, title: undefined } : sc, lt, d, t); } });
       (sc.places || []).forEach((_, k) => cue(st + 0.1 + k * 0.15, 'pop', { gain: 0.35 }));
       if (sc.route !== false && (sc.places || []).length > 1) cue(st + 0.35, 'slide', { dur: 1.4, gain: 0.5 });
     } else if (sc.type === 'people') {
@@ -176,7 +182,7 @@ export function buildShots(script) {
           K.figure({ x, y, h, role: f.role, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm });
           if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h - 90, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
         });
-        if (sc.text) K.slip(sc.text.toUpperCase(), 540, 300, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
+        if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
       } });
       if (sc.text) cue(st + txt, 'pop', { gain: 0.5 });
     } else if (sc.type === 'object') {
@@ -184,7 +190,7 @@ export function buildShots(script) {
       S.push({ ...base, cam: [540, 950], zoom: 0.12, draw(lt, d, t) {
         setting(sc.setting || 'parchment', sc.night, t);
         const p = eob(seg(lt, 0.05, 0.45)); ctx.save(); ctx.translate(0, (1 - p) * 300); ctx.globalAlpha = clamp(p * 2); draw(sc, t, 1); ctx.restore();
-        if (sc.text) K.slip(sc.text.toUpperCase(), 540, 300, eob(seg(lt, txt, txt + 0.3)), 0.02, 56);
+        if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), 0.02, 56);
       } });
       cue(st + 0.1, 'pop', { gain: 0.5 }); if (sc.text) cue(st + txt, 'pop', { gain: 0.5 });
     } else if (sc.type === 'count') {
@@ -208,15 +214,58 @@ export function buildShots(script) {
       cue(st + 0.3, 'slide', { dur: 1.2, gain: 0.5 });
     }
   });
-  // end card during the outro
-  const endAt = Le(lines.length - 1) + 0.15;
+  // case-file header over the first line: the title is readable from the very first frame
+  const file = Number(script.file) || 0, title = String(script.title || '');
+  const liftAt = lines.length > 1 ? L(1) : 3;
+  const overlay = (t) => {
+    const lift = eio(seg(t, liftAt - 0.25, liftAt + 0.2)); if (lift >= 1) return;
+    ctx.save(); ctx.translate(0, -lift * 460);
+    cut(P_rr(80, 60, 400, 90, 14), MANILA_DARK);
+    K.label(file ? `FILE NO. ${file}` : 'CASE FILE', 280, 106, 44, P.ink);
+    cut(P_rr(60, 130, 960, 270, 10), MANILA);
+    fitText(title, 540, 265, 880, 2, [76, 68, 60, 52, 46]);
+    stamp('UNTOLD', 800, 92, -0.08, seg(t, 0.12, 0.3), 46);
+    ctx.restore();
+  };
+  cue(0.12, 'thud', { gain: 0.7 });
+  // end card: plays in the padded silence after the voice. Whisper can stretch the last word into that silence,
+  // so the card starts at most 2.2 s before the end, whatever the timing says.
+  const endAt = Math.max(L(lines.length - 1) + 0.6, Math.min(Le(lines.length - 1) + 0.15, T.dur - 2.2));
   S.push({ id: 'END', at: endAt, cam: [540, 900], zoom: 0.04, note: 'end card', draw(lt, d, t) {
     K.parchment(12);
-    K.seal(540, 620, eob(seg(lt, 0.05, 0.35)) * 1.6, BRAND.seal);
-    K.ribbon(BRAND.name, 540, 900, eob(seg(lt, 0.2, 0.55)), 80);
-    K.slip(BRAND.handle, 540, 1110, eob(seg(lt, 0.35, 0.65)), -0.02, 58);
-    K.label(BRAND.sub.toUpperCase(), 540, 1260, 38, P.sepia);
+    const p = eob(seg(lt, 0, 0.35)); ctx.save(); ctx.translate(0, (1 - p) * 600);
+    cut(P_rr(130, 436, 400, 90, 14), MANILA_DARK);
+    K.label(file ? `FILE NO. ${file}` : 'CASE FILE', 330, 482, 44, P.ink);
+    cut(P_rr(110, 500, 860, 820, 12), MANILA);
+    K.seal(540, 690, eob(seg(lt, 0.15, 0.45)) * 1.2, BRAND.seal);
+    K.ribbon(BRAND.name, 540, 910, eob(seg(lt, 0.25, 0.55)), 76);
+    K.slip(BRAND.handle, 540, 1075, eob(seg(lt, 0.35, 0.65)), -0.02, 58);
+    K.label(file ? `FILE NO. ${file + 1} TOMORROW` : BRAND.sub.toUpperCase(), 540, 1215, 46, P.ink);
+    ctx.restore();
+    stamp('FOLLOW', 540, 1420, -0.06, seg(lt, 0.75, 0.92), 80);
   } });
-  cue(endAt, 'whoosh', { gain: 0.6 }); cue(endAt + 0.1, 'thud', { gain: 0.6 });
-  return { shots: S, cues: CUES };
+  cue(endAt, 'whoosh', { gain: 0.6 }); cue(endAt + 0.1, 'thud', { gain: 0.6 }); cue(endAt + 0.75, 'thud', { gain: 0.8 });
+  return { shots: S, cues: CUES, overlay, endAt };
+}
+
+const MANILA = '#D9B77A', MANILA_DARK = '#C29B5A';
+/** a red rubber stamp that slams down as p goes 0 -> 1 */
+function stamp(text, x, y, rot, p, size) {
+  if (p <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); const k = 1 + (1 - eo(p)) * 1.4; ctx.scale(k, k); ctx.globalAlpha = 0.9 * clamp(p * 3);
+  ctx.font = `900 ${size}px Inter`; ctx.letterSpacing = '6px'; const w = ctx.measureText(text).width + size * 0.9, h = size * 1.6;
+  ctx.strokeStyle = P.crimson; ctx.lineWidth = size * 0.14; ctx.strokeRect(-w / 2, -h / 2, w, h);
+  ctx.fillStyle = P.crimson; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 3, size * 0.06);
+  ctx.restore(); ctx.letterSpacing = '0px';
+}
+/** the largest size (from sizes) at which text fits maxLines lines of maxW, centred on (x, y) */
+function fitText(text, x, y, maxW, maxLines, sizes) {
+  let lines = [], size = sizes[sizes.length - 1];
+  for (const sz of sizes) {
+    ctx.font = `700 ${sz}px Caladea`; const out = []; let cur = '';
+    for (const w of text.split(/\s+/)) { const t = cur ? cur + ' ' + w : w; if (ctx.measureText(t).width > maxW && cur) { out.push(cur); cur = w; } else cur = t; }
+    if (cur) out.push(cur); lines = out; size = sz; if (out.length <= maxLines) break;
+  }
+  ctx.font = `700 ${size}px Caladea`; ctx.fillStyle = P.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  lines.forEach((l, k) => ctx.fillText(l, x, y + (k - (lines.length - 1) / 2) * size * 1.12));
 }

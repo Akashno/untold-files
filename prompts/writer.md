@@ -46,8 +46,13 @@ sentence split over two lines). Never the same scene type three times in a row. 
 - `people`: 1-3 paper figures with a `role` and an optional name `label`, in a `setting`, doing an `action`, and an
   optional `text` slip that pops on the word `on`. Roles: king, queen, sailor, scholar, guard, merchant, worker,
   soldier, officer, pilot, civilian, woman, child.
-- `object`: a close-up of one object (plane, ship, letter, telegram, radio, newspaper with a `headline`, clock,
-  crown, diamond, coins, moneybag, train, flag, scroll, key, lightbulb), optional `text` slip on the word `on`.
+- `object`: a close-up of one object, optional `text` slip that pops on the word `on`. Pick the most specific one:
+  - travel and war: plane, ship, submarine, train, car, tank, rocket, balloon, helmet, sword, medal, anchor, compass
+  - messages and records: letter, telegram, radio, telephone, newspaper, typewriter, book, scroll, folder, camera
+    (newspaper, scroll, folder and typewriter print a short `headline`; folder is a secret file, e.g. "CLASSIFIED")
+  - treasure and money: crown, diamond, ring, coins, goldbars, moneybag, key
+  - places: castle, lighthouse, pyramid, temple, volcano
+  - other: clock, flag (with `color`), lightbulb, lantern, bottle (a message in a bottle), fire
 - `count`: 1-3 big slips (numbers, totals, short facts) that pop on their words. Perfect for the payoff.
 - `timeline`: 2-5 years with the marker ending on `active`. Use when time passing IS the point.
 

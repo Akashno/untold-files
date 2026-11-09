@@ -24,10 +24,9 @@ function draw(t) {
   ctx.restore();
   ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
 
-  // fade from / to black on the first and last 0.25 s
-  const fade = Math.min(clamp(t / 0.25), clamp((T.dur - t) / 0.35));
-  if (fade < 1) { ctx.fillStyle = '#000'; ctx.globalAlpha = 1 - fade; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
-  drawCaption(t);
+  // no fade from or to black: the first frame is the title (what people decide on) and the reel loops cleanly
+  OP._overlay(t); ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
+  if (t < OP._endAt) drawCaption(t);
 }
 
 (async () => {
@@ -36,7 +35,8 @@ function draw(t) {
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
     await loadTiming();
     buildCaptions(script);
-    const { shots, cues } = buildShots(script);
+    const { shots, cues, overlay, endAt } = buildShots(script);
+    OP._overlay = overlay; OP._endAt = endAt;
     shots.sort((a, b) => a.at - b.at);
     OP._shots = shots; OP.script = script;
     OP.duration = () => T.dur;

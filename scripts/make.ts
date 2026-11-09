@@ -61,7 +61,11 @@ export async function make(file: string, opts: { kokoro?: boolean } = {}): Promi
   // The engine reads script.json and data/ from its own folder.
   rmSync(join(ENGINE, 'data'), { recursive: true, force: true })
   mkdirSync(join(ENGINE, 'data'), { recursive: true })
-  writeFileSync(join(ENGINE, 'script.json'), JSON.stringify({ ...story, voice: 'bm_george', speed: 1.0, lead: 0.35, outro: 2.2, gap: 0.3 }, null, 1))
+  // The running file number on the header and end card: stories made (not tests) before this date, plus one.
+  const histFile = join(ROOT, 'data/history.json')
+  const history: Array<{ date: string, status: string }> = existsSync(histFile) ? JSON.parse(readFileSync(histFile, 'utf8')) : []
+  const fileNo = history.filter(h => h.status !== 'test' && h.status !== 'failed' && h.date < name).length + 1
+  writeFileSync(join(ENGINE, 'script.json'), JSON.stringify({ ...story, file: fileNo, voice: 'bm_george', speed: 1.0, lead: 0.35, outro: 2.2, gap: 0.3 }, null, 1))
   const env = { ...process.env, CHROME: chrome() }
   const run = (cmd: string, args: string[]) => {
     const r = spawnSync(cmd, args, { cwd: ENGINE, env, encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 })

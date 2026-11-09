@@ -59,8 +59,8 @@
           "text": { "$ref": "#/definitions/slip" }, "on": { "$ref": "#/definitions/word" } } },
         { "type": "object", "additionalProperties": false, "required": ["type", "object"], "properties": {
           "type": { "const": "object" },
-          "object": { "enum": ["plane", "ship", "letter", "telegram", "radio", "newspaper", "clock", "crown", "diamond", "coins", "moneybag", "train", "flag", "scroll", "key", "lightbulb"] },
-          "headline": { "type": "string", "maxLength": 30, "description": "Words printed on a newspaper or scroll" },
+          "object": { "enum": ["plane", "ship", "letter", "telegram", "radio", "newspaper", "clock", "crown", "diamond", "coins", "moneybag", "train", "flag", "scroll", "key", "lightbulb", "tank", "submarine", "car", "rocket", "balloon", "telephone", "camera", "book", "medal", "ring", "sword", "helmet", "compass", "lantern", "anchor", "bottle", "typewriter", "goldbars", "folder", "castle", "lighthouse", "pyramid", "temple", "volcano", "fire"] },
+          "headline": { "type": "string", "maxLength": 30, "description": "Words printed on a newspaper, scroll, folder stamp or typewriter page" },
           "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$", "description": "Flag colour" },
           "setting": { "$ref": "#/definitions/setting" }, "night": { "type": "boolean" },
           "text": { "$ref": "#/definitions/slip" }, "on": { "$ref": "#/definitions/word" } } },
