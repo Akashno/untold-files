@@ -1,11 +1,12 @@
 // Writes today's story with ONE headless Claude Code call (your Claude subscription, no API key).
 //
-//   npm run write                         -> reels/<today>.json
-//   npm run write -- --date 2026-11-09    another day
+//   npm run write                              -> reels/<next slot>.json (scripts/slot.mjs)
+//   npm run write -- --id 2026-11-10-1900      a given slot
 //
 // Claude gets the brief, today's category (the one used least recently) and every past title, and returns
 // JSON matching story.schema.json. The result is checked; only if it fails is Claude asked once more,
 // with the exact problems.
+import { nextSlot } from './slot.mjs'
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
@@ -126,7 +127,7 @@ function pickCategory(history: HistoryEntry[], date: string) {
 }
 function buildPrompt(date: string, cat: { id: string, brief: string }, history: HistoryEntry[]) {
   return [
-    `# Today\n\nDate: ${date}. Category: **${cat.id}**: ${cat.brief}\nSet "category" to exactly "${cat.id}".`,
+    `# Today\n\nVideo: ${date} (date and post time). Category: **${cat.id}**: ${cat.brief}\nSet "category" to exactly "${cat.id}".`,
     '# Past videos (never repeat these stories, people or events)',
     history.length ? history.slice(-300).reverse().map(h => `- ${h.title}`).join('\n') : '(none yet: this is the first one)',
   ].join('\n\n')
@@ -189,8 +190,8 @@ export function record(date: string, s: Story, status: HistoryEntry['status']) {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const i = process.argv.indexOf('--date')
-  const date = i > 0 ? process.argv[i + 1] : today()
+  const i = Math.max(process.argv.indexOf('--id'), process.argv.indexOf('--date'))
+  const date = i > 0 ? process.argv[i + 1] : nextSlot({ any: true })
   if (process.argv.includes('--check')) {
     const errors = checkStory(JSON.parse(readFileSync(process.argv.at(-1)!, 'utf8')))
     console.log(errors.length ? `✗ ${errors.join('\n  ')}` : '✓ story passes the checks')

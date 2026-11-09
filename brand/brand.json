@@ -2,8 +2,8 @@
   "name": "Untold Files",
   "handle": "@untoldfiles",
   "hashtag": "#untoldfiles",
-  "pitch": "one short, true, little-known story a day: wars, mysteries, disasters, inventions, India's history and things that sound made up but really happened",
+  "pitch": "short, true, little-known stories, three a day: wars, mysteries, disasters, inventions, India's history and things that sound made up but really happened",
   "audience": "curious people of every age, worldwide (many in India), many speaking English as a second language, scrolling fast, often with the sound off",
   "timezone": { "label": "India", "offsetMinutes": 330 },
-  "postAt": "19:00"
+  "slots": ["09:00", "14:00", "19:00"]
 }

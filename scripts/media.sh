@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Adds a day's video to the `media` branch, which GitHub Pages serves at
-#   https://<owner>.github.io/<repo>/<date>.mp4
+# Adds a video to the `media` branch, which GitHub Pages serves at
+#   https://<owner>.github.io/<repo>/<id>.mp4   (id = date and slot, e.g. 2026-11-10-1900)
 # The branch is one commit holding the last KEEP_DAYS days, force-pushed each time, so the
-# repository doesn't grow by a video a day. Usage: scripts/media.sh <date> <mp4> <reel.json>
+# repository does not keep growing. Usage: scripts/media.sh <id> <mp4> <reel.json>
 set -euo pipefail
 date="$1"; mp4="$2"; reel="$3"
-keep="${KEEP_DAYS:-14}"
+keep="${KEEP_DAYS:-7}"
 dir="$(mktemp -d)"
 
 if git ls-remote --exit-code --heads origin media >/dev/null 2>&1; then
@@ -19,15 +19,16 @@ fi
 cp "$mp4" "$dir/$date.mp4"
 cp "$reel" "$dir/$date.json"
 touch "$dir/.nojekyll"
-cutoff="$(date -u -d "$date -$keep days" +%F 2>/dev/null || date -u -j -v-"$keep"d -f %F "$date" +%F)"
-for f in "$dir"/????-??-??.*; do
+day="${date:0:10}"
+cutoff="$(date -u -d "$day -$keep days" +%F 2>/dev/null || date -u -j -v-"$keep"d -f %F "$day" +%F)"
+for f in "$dir"/????-??-??*; do
   d="$(basename "$f" | cut -c1-10)"
   [[ "$d" < "$cutoff" ]] && rm -f "$f"
 done
 # A plain index so the Pages root isn't a 404.
 {
   echo '<!doctype html><meta charset="utf-8"><title>Untold Files</title><ul>'
-  for f in $(ls "$dir" | grep -E '^[0-9-]{10}\.mp4$' | sort -r); do echo "<li><a href=\"$f\">$f</a></li>"; done
+  for f in $(ls "$dir" | grep -E '^[0-9-]{10,15}\.mp4$' | sort -r); do echo "<li><a href=\"$f\">$f</a></li>"; done
   echo '</ul>'
 } > "$dir/index.html"
 

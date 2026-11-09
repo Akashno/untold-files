@@ -1,6 +1,6 @@
 # Untold Files
 
-One short, true, little-known story a day, drawn in a flat illustrated style and posted automatically to Instagram (and YouTube,
+Short, true, little-known stories, three a day (09:00, 14:00 and 19:00 India time), drawn in a flat illustrated style and posted automatically to Instagram (and YouTube,
 Facebook and X if you add them in Buffer).
 
 ```mermaid
@@ -55,5 +55,5 @@ flowchart LR
 npm ci
 bash ~/Downloads/faceless-shorts/scripts/setup.sh   # Python tools, Kokoro and Whisper (once)
 npm run make -- brand/example-story.json            # render the example to out/
-npm run daily -- --test                             # write and render today's story
+npm run daily -- --test                             # write and render the next slot's story
 ```

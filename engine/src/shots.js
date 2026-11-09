@@ -218,7 +218,7 @@ export function buildShots(script) {
     K.seal(540, 690, eob(seg(lt, 0.15, 0.45)) * 1.2, BRAND.seal);
     K.ribbon(BRAND.name, 540, 910, eob(seg(lt, 0.25, 0.55)), 76);
     K.slip(BRAND.handle, 540, 1075, eob(seg(lt, 0.35, 0.65)), -0.02, 58);
-    K.label(file ? `FILE NO. ${file + 1} TOMORROW` : BRAND.sub.toUpperCase(), 540, 1215, 46, P.ink);
+    K.label(file ? `NEXT: FILE NO. ${file + 1}` : BRAND.sub.toUpperCase(), 540, 1215, 46, P.ink);
     ctx.restore();
     stamp('FOLLOW', 540, 1420, -0.06, seg(lt, 0.75, 0.92), 80);
   } });

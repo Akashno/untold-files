@@ -8,7 +8,7 @@ export interface Brand {
   pitch: string
   audience: string
   timezone: { label: string, offsetMinutes: number }
-  postAt: string // HH:MM in that timezone
+  slots: string[] // HH:MM post times in that timezone, one video each (scripts/slot.mjs)
 }
 
 export const BRAND = raw as Brand
