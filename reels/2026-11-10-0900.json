@@ -1,0 +1,188 @@
+{
+  "title": "The pope who put a dead pope on trial",
+  "category": "unbelievable",
+  "hook": "A pope put a dead pope on trial.",
+  "headline": {
+    "top": "A POPE PUT A",
+    "bottom": "CORPSE ON TRIAL"
+  },
+  "summary": "In 897 Pope Stephen VI had his dead predecessor Formosus dug up and tried in court; it ended with Stephen jailed and a ban on trials of the dead.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica, Pope Formosus and Pope Stephen VI (VII): Formosus died 896; posthumous trial in 897 (the Cadaver Synod); Stephen imprisoned and died in 897.",
+    "Catholic Encyclopedia, Pope Formosus: body exhumed, tried, declared guilty; later popes Theodore II and John IX annulled the verdict in 898."
+  ],
+  "props": [
+    {
+      "name": "throne",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"110\" y=\"50\" width=\"180\" height=\"200\" rx=\"20\" fill=\"#8B2E2E\"/><rect x=\"240\" y=\"50\" width=\"50\" height=\"200\" rx=\"20\" fill=\"#6B1F1F\"/><rect x=\"90\" y=\"200\" width=\"40\" height=\"100\" rx=\"8\" fill=\"#C9A24A\"/><rect x=\"270\" y=\"200\" width=\"40\" height=\"100\" rx=\"8\" fill=\"#A8832F\"/><rect x=\"90\" y=\"250\" width=\"220\" height=\"50\" rx=\"8\" fill=\"#C9A24A\"/><rect x=\"250\" y=\"250\" width=\"60\" height=\"50\" rx=\"8\" fill=\"#A8832F\"/><rect x=\"100\" y=\"300\" width=\"30\" height=\"45\" fill=\"#A8832F\"/><rect x=\"270\" y=\"300\" width=\"30\" height=\"45\" fill=\"#8A6A22\"/><rect x=\"125\" y=\"65\" width=\"18\" height=\"170\" rx=\"9\" fill=\"#fff\" opacity=\".3\"/><circle cx=\"200\" cy=\"40\" r=\"22\" fill=\"#E6C15C\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A pope put a dead pope on trial.",
+      "caps": "A *pope | put a *dead pope | on *trial",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "prop:throne",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "still"
+          },
+          {
+            "art": "person:oldman",
+            "x": 0.2,
+            "y": 0.68,
+            "size": "medium",
+            "move": "shake",
+            "on": "trial",
+            "hair": "grey",
+            "skin": "light"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In eight ninety-seven, Stephen the Sixth had Formosus dug up.",
+      "caps": "In *897, | *Stephen the Sixth | had *Formosus | *dug up",
+      "scene": {
+        "type": "date",
+        "text": "897",
+        "setting": "parchment",
+        "sub": "Rome",
+        "subOn": "Formosus"
+      }
+    },
+    {
+      "text": "The body was dressed in robes and seated on a throne.",
+      "caps": "Dressed in *robes | and *seated | on a *throne",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "prop:throne",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "grow",
+            "on": "throne"
+          }
+        ]
+      }
+    },
+    {
+      "text": "A young deacon had to answer the questions for him.",
+      "caps": "A young *deacon | answered the *questions | *for him",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown",
+            "label": "Deacon"
+          },
+          {
+            "role": "oldman",
+            "skin": "light",
+            "hair": "grey",
+            "label": "Stephen"
+          }
+        ],
+        "item": "prop:throne"
+      }
+    },
+    {
+      "text": "The dead pope was found guilty.",
+      "caps": "Found *guilty",
+      "scene": {
+        "type": "object",
+        "object": "scroll",
+        "headline": "GUILTY",
+        "setting": "hall"
+      }
+    },
+    {
+      "text": "But Romans were outraged, and Stephen was jailed, where he died.",
+      "caps": "But Romans were *outraged, | Stephen was *jailed, | where he *died",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "person:civilian",
+            "x": 0.3,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:woman",
+            "x": 0.7,
+            "y": 0.7,
+            "size": "medium",
+            "move": "shake",
+            "on": "outraged"
+          },
+          {
+            "art": "person:man",
+            "x": 0.5,
+            "y": 0.72,
+            "size": "medium",
+            "move": "walk",
+            "dir": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Within two years, a new pope banned trials of the dead.",
+      "caps": "Within *two years, | a new pope *banned | trials of the *dead",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "NEW LAW",
+            "on": "banned"
+          },
+          {
+            "text": "NO DEAD TRIALS",
+            "on": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Yes, someone had to write that law.",
+      "caps": "Yes, *someone | had to *write | that *law",
+      "scene": {
+        "type": "object",
+        "object": "scroll",
+        "headline": "NO TRIALS FOR THE DEAD",
+        "setting": "hall"
+      }
+    }
+  ],
+  "post": {
+    "caption": "In 897 a dead pope was dug up, seated on a throne and put on trial. It is called the Cadaver Synod.\nWhich weird law do you think should never have needed writing?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#medieval",
+      "#weirdhistory",
+      "#unbelievable"
+    ],
+    "youtubeTitle": "A pope put a dead pope on trial #shorts",
+    "xText": "In 897, a pope put his dead predecessor on trial. Then a law had to ban it."
+  }
+}
