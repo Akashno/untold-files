@@ -1,3 +1,5 @@
 {
-  "channels": []
+  "channels": [
+    { "service": "instagram", "name": "unt.oldfiles", "id": "6af16ca462b70b94b0cbcde3", "key": "BUFFER_API_KEY_1" }
+  ]
 }
