@@ -5,5 +5,12 @@
     "category": "disaster",
     "summary": "Air Canada Flight 143 was fuelled using pounds instead of kilograms, lost both engines over Manitoba, and glided to a safe landing at Gimli thanks to a glider-pilot captain.",
     "status": "test"
+  },
+  {
+    "date": "2026-11-09-1900",
+    "title": "The wall cleaner that became Play-Doh",
+    "category": "invention",
+    "summary": "Play-Doh began in the 1930s as a wallpaper cleaner, nearly died when coal heating faded, and was saved when a teacher gave it to children.",
+    "status": "test"
   }
 ]
