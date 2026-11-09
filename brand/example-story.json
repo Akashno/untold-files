@@ -1,0 +1,187 @@
+{
+  "title": "The soldier who fought for 29 years after the war ended",
+  "category": "war",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica, 'Onoda Hiroo' (sent to Lubang Island in December 1944, held out until 1974, relieved of duty by his former commander)",
+    "The New York Times obituary, 17 January 2014"
+  ],
+  "lines": [
+    {
+      "text": "In nineteen forty-four, a young Japanese officer was sent to a tiny island.",
+      "caps": "In *1944, | a young *officer | sent to a tiny *island.",
+      "scene": {
+        "type": "date",
+        "text": "1944",
+        "sub": "Lubang Island",
+        "subOn": "island",
+        "setting": "jungle"
+      }
+    },
+    {
+      "text": "His orders were simple: never surrender.",
+      "caps": "His *orders: | never *surrender.",
+      "scene": {
+        "type": "people",
+        "setting": "jungle",
+        "figures": [
+          {
+            "role": "officer",
+            "label": "Hiroo Onoda"
+          }
+        ],
+        "action": "stand",
+        "text": "Never surrender",
+        "on": "never"
+      }
+    },
+    {
+      "text": "A year later, the war ended.",
+      "caps": "A year *later, | the war *ended.",
+      "scene": {
+        "type": "object",
+        "object": "newspaper",
+        "headline": "WAR IS OVER",
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "But nobody he trusted came to tell him,",
+      "caps": "But *nobody | came to *tell him,",
+      "scene": {
+        "type": "map",
+        "title": "Philippines",
+        "land": "islands",
+        "places": [
+          {
+            "name": "Manila",
+            "x": 0.6,
+            "y": 0.25
+          },
+          {
+            "name": "Lubang",
+            "x": 0.3,
+            "y": 0.6
+          }
+        ],
+        "route": false,
+        "focus": "Lubang"
+      }
+    },
+    {
+      "text": "so he stayed hidden in the jungle, still fighting.",
+      "caps": "He stayed *hidden | still *fighting.",
+      "scene": {
+        "type": "people",
+        "setting": "jungle",
+        "night": true,
+        "figures": [
+          {
+            "role": "soldier"
+          }
+        ],
+        "action": "walk"
+      }
+    },
+    {
+      "text": "Leaflets said the war was over. He called them a trick.",
+      "caps": "*Leaflets said | it was *over. | He thought: *trick.",
+      "scene": {
+        "type": "object",
+        "object": "letter",
+        "setting": "jungle",
+        "text": "A trick?",
+        "on": "trick"
+      }
+    },
+    {
+      "text": "Years passed. Then decades.",
+      "caps": "Years *passed. | Then *decades.",
+      "scene": {
+        "type": "timeline",
+        "years": [
+          "1945",
+          "1955",
+          "1965",
+          "1974"
+        ],
+        "active": 3
+      }
+    },
+    {
+      "text": "In nineteen seventy-four, his old commander flew to the island",
+      "caps": "In *1974, | his old *commander",
+      "scene": {
+        "type": "map",
+        "title": "1974",
+        "land": "islands",
+        "places": [
+          {
+            "name": "Tokyo",
+            "x": 0.85,
+            "y": 0.1
+          },
+          {
+            "name": "Lubang",
+            "x": 0.3,
+            "y": 0.7
+          }
+        ],
+        "mover": "plane"
+      }
+    },
+    {
+      "text": "and gave him one last order: you can stop now.",
+      "caps": "One last *order: | you can *stop now.",
+      "scene": {
+        "type": "people",
+        "setting": "jungle",
+        "figures": [
+          {
+            "role": "officer",
+            "label": "Commander"
+          },
+          {
+            "role": "soldier",
+            "label": "Onoda"
+          }
+        ],
+        "action": "point",
+        "text": "You can stop now",
+        "on": "stop"
+      }
+    },
+    {
+      "text": "He had fought for twenty-nine years, for a war that was already over.",
+      "caps": "*29 years | for a *war | already *over.",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "29 years",
+            "on": "twenty"
+          },
+          {
+            "text": "War already over",
+            "on": "already"
+          }
+        ]
+      }
+    }
+  ],
+  "hook": "A soldier fought on for 29 years after his war ended",
+  "summary": "Hiroo Onoda kept fighting in the Philippine jungle until 1974 because no one he trusted told him the war was over; his old commander finally relieved him.",
+  "post": {
+    "caption": "He kept fighting for 29 years after the war ended.\nWould you have believed the leaflets?\nFollow @untoldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#hiroonoda"
+    ],
+    "youtubeTitle": "He fought for 29 years after the war ended #shorts",
+    "xText": "He fought on for 29 years after WW2 ended, because no one he trusted told him."
+  }
+}

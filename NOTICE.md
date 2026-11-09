@@ -1,10 +1,8 @@
 # Notice
 
-The MIT licence in `LICENSE` covers the code in this repository. It does not cover:
+The MIT licence in `LICENSE` covers the code written for this repository. It does not cover:
 
-- Remotion (the video renderer, an npm dependency), which has its own licence: free for
-  individuals and for companies with up to 3 people; larger for-profit companies need a paid
-  Remotion company licence. See https://www.remotion.dev/license.
-- The files in brand/, which are the Random Talker worked example. See brand/ASSETS.md for
-  each asset's licence; the Random Talker name, logo, app recordings and game artwork are
-  not licensed for reuse. Replace them with your own.
+- `engine/`: the Paper Atlas engine from the free "Faceless Shorts" Claude skill (its kit, capture, mixer, voice and
+  word-timing tools), adapted here. Its own terms apply.
+- `engine/fonts/`: Inter and Caladea, under the SIL Open Font License 1.1.
+- Models downloaded at run time: Kokoro-82M (Apache-2.0) via kokoro-onnx (MIT), Whisper small.en via faster-whisper (MIT).

@@ -26,7 +26,7 @@ for f in "$dir"/????-??-??.*; do
 done
 # A plain index so the Pages root isn't a 404.
 {
-  echo '<!doctype html><meta charset="utf-8"><title>Reels</title><ul>'
+  echo '<!doctype html><meta charset="utf-8"><title>Untold Files</title><ul>'
   for f in $(ls "$dir" | grep -E '^[0-9-]{10}\.mp4$' | sort -r); do echo "<li><a href=\"$f\">$f</a></li>"; done
   echo '</ul>'
 } > "$dir/index.html"

@@ -1,75 +1,59 @@
-# Reel Autopilot
+# Untold Files
 
-Posts one short video a day for your product to Instagram, YouTube, Facebook and X, with no one in the loop.
-
-<p align="center"><img src="docs/demo.gif" width="260" alt="A generated reel, sped up"></p>
+One short, true, little-known story a day, drawn in cut paper and posted automatically to Instagram (and YouTube,
+Facebook and X if you add them in Buffer).
 
 ```mermaid
 flowchart LR
-  A[Claude writes the script] --> B[Voiced and rendered to MP4]
-  B --> C[Hosted on GitHub Pages]
-  C --> D[Buffer posts it everywhere]
+  A[One Claude call writes story.json] --> B[Gemini voice, Kokoro fallback]
+  B --> C[Whisper times every word]
+  C --> D[Paper Atlas engine draws the shots]
+  D --> E[MP4 on GitHub Pages]
+  E --> F[Buffer posts it]
 ```
 
-Every morning a GitHub Action asks Claude Code for a new idea, checks it, voices it, renders it
-and schedules it. Everything about your product lives in `brand/`. The example there is
-[Random Talker](https://randomtalker.com).
+## What it costs
 
-## Cost
+- **Claude:** one call per video (about 15-30k tokens), on your Claude Pro or Max subscription. A second call only
+  if the first story fails the checks.
+- **Everything else is free:** Gemini voice (free tier), Kokoro and Whisper run locally, GitHub Actions and Pages,
+  Buffer's free plan.
 
-Only your **Claude Pro or Max subscription**. Everything else runs on free tiers: Gemini voice
-(with Piper as the fallback), GitHub Actions and Pages, and Buffer.
+## How a video is made
 
-**Claude usage per video:** 2–6 short calls (one to write, one to review, repeated if a draft is weak),
-about **20–50k tokens** in under 2 minutes. Most of that is cached prompt, which counts lightly
-against your limits. Roughly one short Claude Code chat a day, well within Pro.
-No API key or per-token bill. The Actions log shows the exact tokens for each call.
-
-Remotion needs a [paid licence](https://www.remotion.dev/license) for companies of more than 3 people.
+- `brand/topics.json`: the categories (war, mystery, India, disaster, invention, unbelievable, survival, ancient).
+  The least recently used one is picked each day.
+- `prompts/writer.md`: the rules Claude writes by: true and well-sourced stories, the hook, narration, captions,
+  scenes. `story.schema.json` is the exact shape; `scripts/write.ts` checks the rest and never repeats a story.
+- `engine/src/shots.js`: the scene library Claude chooses from (date ribbon, map with routes, paper people, objects,
+  counts, timeline) and the end card. All drawn in code.
+- `brand/example-story.json`: a finished example.
 
 ## Setup
 
-1. **Use this template** on GitHub to create a public repo, then clone it and run `npm ci`.
-2. **Add secrets.**
+1. **Secrets** (already set if they were in the old repo; check under Settings → Secrets):
    ```bash
-   claude setup-token                      # copy the token it prints
+   claude setup-token
    gh secret set CLAUDE_CODE_OAUTH_TOKEN
-   gh secret set BUFFER_API_KEY_1          # Buffer → Settings → API
-   gh secret set GEMINI_API_KEY            # optional for voice over ( recommended ) , from aistudio.google.com
+   gh secret set GEMINI_API_KEY
+   gh secret set BUFFER_API_KEY_1
    ```
-3. **Turn on Pages:** Settings → Pages → Source: **GitHub Actions**.
-4. **Find your channels:** put the Buffer key in `.env` as `BUFFER_API_KEY_1=...`, then run
-   `npm run post -- --channels` and paste the output into `brand/channels.json`.
-5. **Describe your product** in `brand/`:
-   - `brand.json`: name, site, colours, logo, posting time
-   - `brief.md`: facts, tone, what never to claim
-   - `angles.json`: themes to rotate through
-
-   Then clear the example's history:
-   `rm -f reels/20*.json data/posts/*.json && echo '[]' > data/history.json`
-6. **Test it:** `gh workflow run daily.yml -f test=true`, then watch the run in Actions.
-7. **Go live:**
+2. **Pages:** Settings → Pages → Source: **GitHub Actions**.
+3. **Instagram in Buffer:** connect the new Instagram account in Buffer, put the key in `.env` as
+   `BUFFER_API_KEY_1=...`, run `npm run post -- --channels` and paste only the Untold Files channels into
+   `brand/channels.json`.
+4. **Test:** `gh workflow run daily.yml -f test=true`. The video and a contact sheet are attached to the run.
+5. **Go live:**
    ```bash
    gh variable set DAILY --body on      # make a video every morning
-   gh variable set POSTING --body on    # post it
+   gh variable set POSTING --body on    # post it (leave off for the first week and check each video)
    ```
 
-## Everyday
+## Locally
 
-- **Preview scenes:** `npm run stills`
-- **Pause posting:** `gh variable delete POSTING`
-- **Post now:** Actions → Daily reel → Run workflow → tick **post_now**
-
-If a run fails, GitHub opens an issue.
-
-## If something breaks
-
-- **401 / auth error:** the Claude token expired (it lasts about a year). Run `claude setup-token`
-  again and update the secret.
-- **Gemini 429 or 402:** quota or billing problem. Videos fall back to the Piper voice automatically.
-- **Post failed:** reconnect the channel in Buffer, then run `npm run post -- <date>`.
-
-## License
-
-MIT for the code (`LICENSE`). Remotion and the bundled assets have their own terms (`NOTICE.md`): fonts are OFL, avatars CC0. The Random Talker logo, clips and game art are
-examples only (see `brand/ASSETS.md`).
+```bash
+npm ci
+bash ~/Downloads/faceless-shorts/scripts/setup.sh   # Python tools, Kokoro and Whisper (once)
+npm run make -- brand/example-story.json            # render the example to out/
+npm run daily -- --test                             # write and render today's story
+```

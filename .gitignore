@@ -7,3 +7,8 @@ public/runs
 voices
 # Generated from brand/assets/ by scripts/assets.ts
 public/brand
+
+# Engine working files (written fresh for each video)
+engine/data
+engine/script.json
+engine/review

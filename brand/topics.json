@@ -1,0 +1,10 @@
+[
+  { "id": "war", "brief": "A little-known true story from a war: a strange order, an impossible escape, a trick, a mistake that changed everything. Never glorify violence; tell it through people, places and consequences." },
+  { "id": "mystery", "brief": "An unsolved or strange real mystery: vanished ships, planes or people, unexplained events. Stick to established facts; say clearly what is unknown." },
+  { "id": "india", "brief": "A surprising true story from Indian history: kings, inventions, journeys, treasures, the freedom struggle, ancient science. Well-documented facts only." },
+  { "id": "disaster", "brief": "A strange real disaster or near-disaster and the tiny cause behind it. Respectful to victims; no gore." },
+  { "id": "invention", "brief": "How something everyday was invented by accident or against the odds." },
+  { "id": "unbelievable", "brief": "A true story that sounds made up: cons, loopholes, record-breaking luck, bizarre laws or events." },
+  { "id": "survival", "brief": "A real person who survived the impossible: lost at sea, stranded, trapped. Focus on the turn that saved them." },
+  { "id": "ancient", "brief": "A surprising true story from the ancient world: Rome, Egypt, Persia, China, the Maurya and Gupta empires." }
+]

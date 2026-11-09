@@ -1,10 +1,10 @@
-// The whole day: write the reel, render it, record it in data/history.json.
+// The whole day: write the story (one Claude call), render it, record it in data/history.json.
 //
 //   npm run daily                       today (in the brand.json timezone)
 //   npm run daily -- --date 2026-11-09  another day
 //   npm run daily -- --test             mark the history entry as a test
 //
-// If the render fails its checks, the day's reel is rewritten once and rendered again.
+// If the render fails, the day's story is rewritten once and rendered again.
 // A good render is recorded as "rendered"; scripts/post.ts marks it "posted".
 import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 import { make } from './make'

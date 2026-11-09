@@ -1,32 +1,22 @@
 {
-  "name": "reel-autopilot",
+  "name": "untold-files",
   "private": true,
   "license": "MIT",
   "type": "module",
-  "description": "Writes, renders and schedules one short vertical video a day for your product, with Claude Code.",
+  "description": "One untold true story a day: written by Claude, drawn in cut paper, posted automatically.",
   "scripts": {
-    "studio": "tsx scripts/assets.ts && remotion studio",
     "make": "tsx scripts/make.ts",
-    "check": "tsx scripts/check.ts",
+    "check": "tsx scripts/write.ts --check",
     "typecheck": "tsc",
     "write": "tsx scripts/write.ts",
     "daily": "tsx scripts/daily.ts",
-    "post": "tsx scripts/post.ts",
-    "stills": "tsx scripts/stills.ts",
-    "assets": "tsx scripts/assets.ts"
+    "post": "tsx scripts/post.ts"
   },
   "dependencies": {
-    "@remotion/cli": "4.0.539",
-    "@remotion/media-utils": "4.0.539",
-    "@remotion/transitions": "4.0.539",
-    "ajv": "8.17.1",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "remotion": "4.0.539"
+    "ajv": "8.17.1"
   },
   "devDependencies": {
     "@types/node": "22.10.2",
-    "@types/react": "19.2.2",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   },

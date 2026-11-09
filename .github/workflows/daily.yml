@@ -1,6 +1,6 @@
-name: Daily reel
+name: Daily story
 
-# Every morning: Claude writes the reel, it's voiced and rendered, the history is committed,
+# Every morning: Claude writes the story (one call), it's voiced and rendered, the history is committed,
 # the MP4 is published on GitHub Pages, and (with POSTING=on) Buffer schedules it.
 #
 # The schedule runs only when the repo variable DAILY is "on" (gh variable set DAILY --body on),
@@ -35,7 +35,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: daily-reel
+  group: daily-story
   cancel-in-progress: false
 
 jobs:
@@ -88,22 +88,25 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
-      - name: Cache Piper voice
+      # Kokoro (fallback voice, ~340 MB) and Whisper small.en (~0.5 GB): downloaded once, then cached.
+      - name: Cache voice and Whisper models
         uses: actions/cache@v4
         with:
-          path: voices
-          key: piper-en_US-ryan-high-v1
+          path: |
+            ~/.faceless-shorts/kokoro
+            ~/.cache/huggingface
+          key: models-kokoro-v1-whisper-small-en-v1
 
-      - name: Install Piper
+      - name: Install the Python tools
         run: |
           python -m venv .venv
-          .venv/bin/pip install -q piper-tts
-          [ -f voices/en_US-ryan-high.onnx ] || .venv/bin/python -m piper.download_voices --download-dir voices en_US-ryan-high
+          .venv/bin/pip install -q numpy scipy kokoro-onnx faster-whisper
+          .venv/bin/python engine/tools/voice.py --download
+          .venv/bin/python -c "from faster_whisper import WhisperModel; WhisperModel('small.en', device='cpu', compute_type='int8')"
 
       - name: Install packages
         run: |
           npm ci --no-audit --no-fund
-          npx remotion browser ensure
           npm install -g @anthropic-ai/claude-code
 
       - name: Write, voice and render
@@ -116,9 +119,10 @@ jobs:
       - name: Keep the video as a run artifact
         uses: actions/upload-artifact@v4
         with:
-          name: reel-${{ steps.daily.outputs.date }}
+          name: story-${{ steps.daily.outputs.date }}
           path: |
             out/${{ steps.daily.outputs.date }}.mp4
+            out/${{ steps.daily.outputs.date }}-sheet.jpg
             reels/${{ steps.daily.outputs.date }}.json
           retention-days: 30
 
@@ -127,7 +131,7 @@ jobs:
           git config user.name reel-bot
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add reels/ data/history.json
-          git commit -qm "reel: ${{ steps.daily.outputs.date }}" || echo "nothing to commit"
+          git commit -qm "story: ${{ steps.daily.outputs.date }}" || echo "nothing to commit"
           git pull -q --rebase origin main && git push -q origin HEAD:main
 
       - name: Add the video to the media branch
@@ -217,5 +221,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh issue create --repo "${{ github.repository }}" \
-            --title "Daily reel failed: $(date -u +%F)" \
-            --body "The daily reel run failed. Logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            --title "Daily story failed: $(date -u +%F)" \
+            --body "The daily story run failed. Logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
