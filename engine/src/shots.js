@@ -20,7 +20,7 @@ import { PLACES, nightOver } from './places.js';
 import * as V from './vec.js';
 const { P, cut, P_rr, P_poly, P_circ } = K;
 
-export const BRAND = { name: 'UNTOLD FILES', handle: '@untoldfiles', seal: 'U', sub: 'A new story every day' };
+export const BRAND = { name: 'UNTOLD FILES', handle: '@unt.oldfiles', seal: 'U', sub: 'A new story every day' };
 
 // ═════════════════════════ SETTINGS (backgrounds: src/places.js) ═════════════════════════
 const GROUND = 1450;
