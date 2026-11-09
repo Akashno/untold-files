@@ -7,10 +7,12 @@ name: Daily story
 # The schedule runs only when the repo variable DAILY is "on" (gh variable set DAILY --body on),
 # so a fresh copy of the template does nothing until it's set up. Manual runs always work.
 on:
-  # Every 2 hours, at an odd minute (GitHub delays or drops runs on the hour when it's busy). Each run makes the
-  # next slot posting 40 min to 6 h from now that has no video yet, so every slot gets about three tries.
+  # Every hour, at odd minutes (GitHub delays or drops scheduled runs, most of all on the hour). Each run makes the
+  # next slot posting 40 min to 6 h from now that has no video yet, so every slot gets several tries; runs with
+  # nothing to do stop after a few seconds in the guard job.
   schedule:
     - cron: '23 */2 * * *'
+    - cron: '53 1-23/2 * * *'
   workflow_dispatch:
     inputs:
       id:
