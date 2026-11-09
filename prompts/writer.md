@@ -24,15 +24,20 @@ A checker enforces the rules below; a story that breaks one is rejected.
   every 2-4 seconds. Each line 6-16 words.
 - Shape: **hook** (the strangest true fact, in the first line, under 16 words) → setup → escalation → **twist** →
   a short last line that lands the point and makes people want to watch again.
-- Hook patterns: "In 1944, a soldier was told to never surrender. He didn't, for 29 years." · "This man sold the
-  Eiffel Tower. Twice." · "A bakery fire burned down London." Never "Did you know…", never "In this video…".
+- **The hook is the whole game.** Viewers decide in the first second whether to swipe. Line 1 states the impossible
+  part as a plain fact, in the first words, and says the same thing as the headline card. Never open with a year,
+  a place or scene-setting ("In nineteen seventy-one…", "Back in…", "There was a…", "Meet…"): the year and place go
+  in line 2.
+- Hook patterns: "A soldier kept fighting World War Two for twenty-nine more years." · "This man sold the Eiffel
+  Tower. Twice." · "She fell three kilometres from the sky, and walked out of the jungle." · "A bakery fire burned
+  down London." Never "Did you know…", never "In this video…".
 - Never use: "turns out", "game changer", "little did he know", "unbelievable", "you won't believe", "shocking",
   "legend has it", "journey", "delve", "testament", em dashes.
 
 # 3. Headline card (`headline`)
 
 Two short lines in capitals shown big on the very first frame, like a thumbnail: `top` sets it up, `bottom` is the
-punch (shown in red). Under 18 characters each, digits allowed. Examples: "41,000 FEET." / "AND NO FUEL!" ·
+punch (shown in red). Under 18 characters each, digits allowed. Line 1 of the narration says the same thing out loud. Examples: "41,000 FEET." / "AND NO FUEL!" ·
 "HE KEPT FIGHTING" / "FOR 29 YEARS" · "A WALL OF THORNS" / "ACROSS INDIA". Never just the title.
 
 # 4. Captions (`caps`)
@@ -64,16 +69,40 @@ scroll for a contract you could draw. If neither the library nor your props fit 
 picture stays) or use people, a map, a date or a count instead.
 
 
+**Show the moments, don't write them.** The 2-3 biggest moments of the story (the crash, the fall, the plane breaking
+apart, the ship sinking, the escape, the discovery) must each be an `action` scene, where the thing really moves on
+screen. Never show a big moment as a word slip, a count or a still object.
+
+**Line 1 is the frame people decide on.** Make it an `action` scene of the most dramatic moment (a plane breaking
+apart, a girl falling strapped to her seat), or a people/object scene showing it. Never a date, map, count or
+timeline. The headline card covers the top third for the first three seconds, so keep line 1's action at y 0.45 or
+lower.
+
 Give line 1 a scene, and most other lines too. A line with no scene keeps the previous picture (use that for a
 sentence split over two lines). Never the same scene type three times in a row. Use at least 4 different types.
 
-- `date`: a year or date on a gold ribbon, optional `sub` slip (a place), over a `setting`. Great opener for history.
+- `action`: a moment that moves. 1-4 `actors` over a `setting`, each placed at `x`/`y` (0-1 across and down the tall
+  frame; the ground is at about y 0.75) with a `size` (small, medium, large) and a `move`:
+  `fly` (travels across, `dir` left or right), `fall` (drops through the frame, tumbling), `crash` (falls and hits the
+  ground on the word `on`, with a shake and dust), `split` (breaks in two on `on`, with debris), `sink`, `rise`,
+  `spin`, `shake` (on `on`), `grow` (appears on `on`), `walk` (people), `float`, `still`.
+  `art` is a library object ("plane", "ship"…), one of your props ("prop:seat"), or a person ("person:girl", with
+  optional `skin` and `hair`). Draw a prop for whatever must move and isn't in the library: the plane's broken
+  halves are one `split` plane; a girl strapped into a falling seat is a prop or a `person:girl` falling beside a
+  `prop:seat`. Examples: the plane breaking up = `{"art": "plane", "x": 0.5, "y": 0.55, "size": "large", "move":
+  "split", "on": "apart"}` over `sky`; she falls = `{"art": "prop:seat", "x": 0.5, "y": 0.6, "size": "medium",
+  "move": "fall"}` over `sky`; the ship goes down = `{"art": "ship", "x": 0.5, "y": 0.62, "size": "large", "move": "sink"}`
+  over `sea`.
+- `date`: a year or date on a gold ribbon, optional `sub` slip (a place), over a `setting`. Good for line 2.
 - `map`: real places placed roughly where they are on a real map (x 0 west → 1 east, y 0 north → 1 south, inside the
   region shown), a red `route` through them in order, a `mover` (ship, plane, army, arrow), `focus` to circle one.
   `land`: "islands" for island stories, else "continent". Use whenever the story moves or a place matters.
 - `people`: 1-3 illustrated people with a `role` and an optional name `label`, in a `setting`, doing an `action`,
-  an optional `item` (`prop:<name>`) shown with them, and an optional `text` slip that pops on the word `on`. Give each figure a `skin` tone that fits who they really were. Roles: king, queen, sailor, scholar, guard, merchant, worker,
-  soldier, officer, pilot, civilian, woman, child.
+  an optional `item` (`prop:<name>`) shown with them, and an optional `text` slip that pops on the word `on`. Give each figure a `skin` tone that fits who they really were. Also a `hair` colour (black, brown, blonde, red, grey). Roles: man,
+  woman, girl, boy (teenagers), child, oldman, oldwoman, scientist (lab coat; modern scientists, doctors, engineers),
+  scholar (an ancient or medieval sage in robes only), king, queen, sailor, guard, merchant, worker, soldier,
+  officer, pilot, civilian. Use the role that matches the person's real age and sex: a seventeen-year-old girl is
+  `girl`, "her parents" is two figures, `man` and `woman`.
 - `object`: a close-up of one object: `prop:<name>` for your own props, or one from this library if it is exactly
   right. Optional `text` slip that pops on the word `on`. Library:
   - travel and war: plane, ship, submarine, train, car, tank, rocket, balloon, helmet, sword, medal, anchor, compass
@@ -85,7 +114,7 @@ sentence split over two lines). Never the same scene type three times in a row. 
 - `count`: 1-3 big slips (numbers, totals, short facts) that pop on their words. Perfect for the payoff.
 - `timeline`: 2-5 years with the marker ending on `active`. Use when time passing IS the point.
 
-Settings: parchment, day, field, jungle, sea, hall, room, desert, snow, city; add `night: true` for night scenes.
+Settings: sky (high in the open sky with clouds rushing past: use it for anything falling or flying), parchment, day, field, jungle, sea, hall, room, desert, snow, city; add `night: true` for night scenes.
 Slip and label text: short, plain words (they're shown in capitals). `on` and `subOn` must be a word that is
 actually in that line's `text`.
 

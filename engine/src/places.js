@@ -72,6 +72,12 @@ function bigLeaf(x, y, s, rot, c) {
 
 // ---- the settings ----
 export const PLACES = {
+  // high up in the open sky: clouds stream past (upward, so whatever is in front seems to fall), land far below
+  sky(t, n) {
+    V.sky('#5E9BD0', '#D9E9F2', H); V.sunGlow(820, 300, 520);
+    ctx.fillStyle = V.lin(0, 1500, 0, H, [[0, 'rgba(94,140,70,0)'], [1, 'rgba(94,140,70,0.55)']]); ctx.fillRect(-300, 1500, W + 600, H - 1200);
+    for (let i = 0; i < 7; i++) { const y = ((rnd(i * 3.7) * 2600 - t * 520) % 2600 + 2600) % 2600 - 350; V.cloud(rnd(i * 5.1) * W, y, 0.7 + rnd(i * 2.3) * 0.9); }
+  },
   day(t, n) {
     V.sky('#86B6DA', '#EEF1E2', HZ); V.sunGlow(860, 520, 460); clouds(t);
     V.mountains(HZ, [[80, 560, 240], [420, 640, 320], [780, 600, 270], [1080, 540, 240]], '#ABA8C6', '#8F8BAE');

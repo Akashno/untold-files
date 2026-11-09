@@ -8,6 +8,8 @@
 //   object    { object, setting?, night?, text?, on?, color? }
 //   count     { setting?, night?, items: [{ text, on? }] }            slips that pop in on their words
 //   timeline  { years: [..], active?, title? }
+//   action    { setting?, night?, actors: [{ art, x, y, size?, move, dir?, on? }], text?, on? }   a moment that moves:
+//             things fly, fall, crash, split apart, sink, rise, spin, shake, grow or walk (art: object, prop:<name>, person:<role>)
 //   end       { }                                                     added automatically after the last line
 //
 // Around the scenes: a case-file header with the title over the first line (the frame people decide on), and an end
@@ -158,8 +160,8 @@ export function buildShots(script) {
           const arm = k === 0 && sc.action === 'point' ? 'point' : k === 0 && sc.action === 'wave' ? 'wave' : 'down';
           const blink = clamp(1 - Math.abs(((t + k * 1.3) % 3.4) - 1.7) / 0.09);
           const y = GROUND + 20 - (eob(seg(lt, 0.05 + k * 0.12, 0.4 + k * 0.12)) < 1 ? (1 - eob(seg(lt, 0.05 + k * 0.12, 0.4 + k * 0.12))) * -300 : 0);
-          V.person({ x, y, h, role: f.role, skin: f.skin, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm, blink, t });
-          if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h * (f.role === 'child' ? 0.9 : 1.3) - 40, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
+          V.person({ x, y, h, role: f.role, skin: f.skin, hairColor: f.hair, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm, blink, t });
+          if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h * (f.role === 'child' ? 0.9 : f.role === 'girl' || f.role === 'boy' ? 1.15 : 1.3) - 40, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
         });
         if (item) { const p = eob(seg(lt, 0.25, 0.6)); if (p > 0) propImage(item, n === 1 ? 780 : 540, n === 3 ? GROUND - 20 : GROUND - 130, (n === 1 ? 400 : 290) * p, t); }
         if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
@@ -181,6 +183,28 @@ export function buildShots(script) {
         items.forEach((it, k) => K.slip(it.text.toUpperCase(), 540, y0 + k * 300, lt > it.a ? eob(seg(lt, it.a, it.a + 0.3)) : 0, k % 2 ? 0.03 : -0.03, k === 0 ? 110 : 84));
       } });
       items.forEach((it) => cue(st + it.a, 'pop', { gain: 0.7 }));
+    } else if (sc.type === 'action') {
+      const acts = (sc.actors || []).slice(0, 4).map((a, k) => ({ ...a, k, a0: a.on ? pop(a.on, 0.2) : 0.1, img: prop(a.art) })), txt = sc.text ? pop(sc.on, 0.5) : 0;
+      // impacts shake the whole picture: a crash when it lands, a split or shake when it starts
+      const hits = acts.filter((a) => ['crash', 'split', 'shake'].includes(a.move)).map((a) => a.a0 + (a.move === 'crash' ? CRASH_FALL : 0));
+      S.push({ ...base, cam: [540, 960], zoom: 0.14, draw(lt, d, t) {
+        const sh = hits.reduce((m, h) => Math.max(m, lt > h ? Math.exp(-(lt - h) * 6) : 0), 0);
+        ctx.save(); if (sh > 0.01) ctx.translate(Math.sin(lt * 93) * 28 * sh, Math.cos(lt * 71) * 22 * sh);
+        setting(sc.setting || 'day', sc.night, t);
+        for (const a of acts) actor(a, lt, d, t);
+        ctx.restore();
+        if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
+      } });
+      for (const a of acts) {
+        const c = st + a.a0;
+        if (a.move === 'fly' || a.move === 'fall' || a.move === 'rise') cue(c, 'whoosh', { gain: 0.5 });
+        else if (a.move === 'crash') { cue(c, 'whoosh', { gain: 0.6 }); cue(c + CRASH_FALL, 'slam', { gain: 0.9 }); }
+        else if (a.move === 'split') { cue(c, 'slam', { gain: 0.9 }); cue(c + 0.05, 'zip', { gain: 0.4 }); }
+        else if (a.move === 'sink') cue(c, 'bubbles', { dur: 1.6, gain: 0.5 });
+        else if (a.move === 'shake') cue(c, 'thud', { gain: 0.8 });
+        else if (a.move === 'grow') cue(c, 'pop', { gain: 0.6 });
+      }
+      if (sc.text) cue(st + txt, 'pop', { gain: 0.5 });
     } else if (sc.type === 'timeline') {
       const ys = (sc.years || []).map(String), act = sc.active ?? ys.length - 1;
       S.push({ ...base, cam: [540, 800], zoom: 0.06, draw(lt, d, t) {
@@ -229,6 +253,76 @@ export function buildShots(script) {
 }
 
 const MANILA = '#D9B77A', MANILA_DARK = '#C29B5A';
+
+// ═════════════════════════ ACTION ACTORS ═════════════════════════
+const CRASH_FALL = 0.5; // seconds a crashing actor takes to hit the ground
+const ACTOR_SIZE = { small: 300, medium: 520, large: 780 };
+// where each library object is centred when drawn by OBJECTS (most sit at 900)
+const OBJ_Y = { train: 1250, coins: 1050, flag: 1050, ship: 1100, tank: 1150, submarine: 1230, car: 1130, castle: 1150, pyramid: 1150, temple: 1100, volcano: 1150, sword: 1050, lighthouse: 1050, fire: 1050, typewriter: 1000, goldbars: 1000, letter: 900, plane: 860 };
+/** draw one actor's picture centred on (0, 0), size px across */
+function paintArt(a, size, t, walk) {
+  if (a.img) { ctx.shadowColor = 'rgba(30,22,40,0.28)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 16; ctx.drawImage(a.img, -size / 2, -size / 2, size, size); ctx.shadowColor = 'transparent'; return; }
+  const art = String(a.art);
+  if (art.startsWith('person:')) {
+    const blink = clamp(1 - Math.abs(((t + a.k * 1.3) % 3.4) - 1.7) / 0.09);
+    V.person({ x: 0, y: size * 0.5, h: size * 0.8, role: art.slice(7), skin: a.skin, hairColor: a.hair, blink, t, walk, arm: a.move === 'fall' || a.move === 'crash' ? 'up' : 'down' });
+    return;
+  }
+  const draw = OBJECTS[art]; if (!draw) return;
+  const k = size / 760; ctx.scale(k, k); ctx.translate(-540, -(OBJ_Y[art] || 920)); draw({}, t, 1);
+}
+/** white speed streaks trailing behind something moving in direction (dx, dy) */
+function streaks(x, y, size, dx, dy, t, n = 6) {
+  ctx.save(); ctx.lineCap = 'round';
+  for (let j = 0; j < n; j++) {
+    const off = (rnd(j * 7.3) - 0.5) * size * 0.9, len = 160 + rnd(j * 3.1) * 260, flick = (t * 3 + rnd(j)) % 1;
+    const sx = x - dx * size * 0.45 - dy * off, sy = y - dy * size * 0.45 + dx * off;
+    ctx.globalAlpha = 0.55 * (1 - flick * 0.6); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5 + rnd(j * 5) * 6;
+    ctx.beginPath(); ctx.moveTo(sx - dx * flick * 60, sy - dy * flick * 60); ctx.lineTo(sx - dx * (len + flick * 60), sy - dy * (len + flick * 60)); ctx.stroke();
+  }
+  ctx.restore();
+}
+function puffs(x, y, size, k, color = '#D8CBB0') {
+  if (k <= 0 || k >= 1) return;
+  ctx.save(); ctx.globalAlpha = (1 - k) * 0.85;
+  for (let j = 0; j < 7; j++) { const side = j % 2 ? 1 : -1, sp = (0.3 + rnd(j * 4.1) * 0.7) * size * 0.8; circle(x + side * sp * eo(k), y - rnd(j) * 60 * k, (30 + rnd(j * 2.7) * 50) * (0.5 + k), color); }
+  ctx.restore();
+}
+/** one moving thing in an action scene; lt is time into the shot, d its length */
+function actor(a, lt, d, t) {
+  const size = ACTOR_SIZE[a.size] || ACTOR_SIZE.medium, q = clamp(lt / Math.max(d, 0.5)), since = lt - a.a0, dir = a.dir === 'left' ? -1 : 1;
+  let x = clamp(a.x) * W, y = clamp(a.y) * H, rot = 0, sc = 1, flip = 1, walk = null, splitK = 0;
+  switch (a.move) {
+    case 'float': y += Math.sin(t * 1.6 + a.k) * 16; rot = Math.sin(t * 1.1 + a.k) * 0.04; break;
+    case 'fly': x += (q - 0.5) * 760 * dir; y += Math.sin(t * 3 + a.k) * 14; rot = Math.sin(t * 2) * 0.03; flip = dir; streaks(x, y, size, dir, 0, t); break;
+    case 'fall': y += (q - 0.5) * 520; rot = Math.sin(t * 2.2 + a.k) * 0.3 + q * 0.6; streaks(x, y, size, 0, 1, t); break;
+    case 'crash': {
+      const f = clamp(since / CRASH_FALL); y -= (1 - f * f) * 1300; rot = f < 1 ? -0.3 * (1 - f) : 0.12;
+      if (f < 1 && since > -0.6) streaks(x, y, size, 0, 1, t);
+      puffs(x, y + size * 0.35, size, (since - CRASH_FALL) / 1.3); break;
+    }
+    case 'split': splitK = since > 0 ? eo(clamp(since / 1.1)) : 0; y += Math.max(0, since) * Math.max(0, since) * 60; if (splitK === 0) y += Math.sin(t * 2) * 10; break;
+    case 'sink': y += q * 380; rot = q * 0.2;
+      ctx.save(); for (let j = 0; j < 6; j++) { const k2 = (t * 0.7 + j / 6) % 1; ctx.globalAlpha = 0.7 * (1 - k2); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(x + (rnd(j) - 0.5) * size * 0.6, y - k2 * 500, 10 + rnd(j * 3) * 14, 0, TAU); ctx.stroke(); } ctx.restore(); break;
+    case 'rise': y -= q * 420; streaks(x, y, size, 0, -1, t, 4); break;
+    case 'spin': rot = Math.max(0, since) * 3.2; y += Math.sin(t * 2) * 10; break;
+    case 'shake': if (since > 0) { const e = Math.exp(-since * 1.5); x += Math.sin(lt * 70) * 18 * e; rot = Math.sin(lt * 55) * 0.06 * e; } break;
+    case 'grow': sc = since > 0 ? eob(clamp(since / 0.45)) : 0; break;
+    case 'walk': x += (q - 0.5) * 360 * dir; walk = t * 6 + a.k; flip = dir; break;
+  }
+  if (sc <= 0) return;
+  const piece = (clipX, dx, dy, r) => {
+    ctx.save(); ctx.translate(x + dx, y + dy); ctx.rotate(rot + r); ctx.scale(sc * flip, sc);
+    if (clipX) { ctx.beginPath(); if (clipX < 0) ctx.rect(-size, -size, size + 6, size * 2); else ctx.rect(-6, -size, size + 6, size * 2); ctx.clip(); }
+    paintArt(a, size, t, walk); ctx.restore();
+  };
+  if (splitK > 0) {
+    // broken in two: halves fly apart, bits of debris arc out, smoke at the break
+    piece(-1, -splitK * 130, splitK * 110, -splitK * 0.5); piece(1, splitK * 130, splitK * 50, splitK * 0.4);
+    ctx.save(); for (let j = 0; j < 8; j++) { const ang = rnd(j * 9.1) * TAU, sp = 300 + rnd(j * 2.3) * 300, k2 = splitK; ctx.globalAlpha = 1 - k2 * 0.7; ctx.translate(0, 0); const bx = x + Math.cos(ang) * sp * k2, by = y + Math.sin(ang) * sp * k2 + k2 * k2 * 260; ctx.save(); ctx.translate(bx, by); ctx.rotate(k2 * 6 + j); cut(P_poly([[-18, -10], [16, -14], [20, 12], [-14, 16]]), j % 2 ? P.stoneDark : P.ink, { shadow: 0, edge: 2 }); ctx.restore(); } ctx.restore();
+    puffs(x, y, size * 0.8, since / 1.6, '#B9B2A6');
+  } else piece(0, 0, 0, 0);
+}
 /** one of Claude's prop pictures, floating gently with a soft shadow */
 function propImage(img, x, y, size, t) {
   ctx.save(); ctx.translate(x, y + Math.sin(t * 1.4) * 10); ctx.rotate(Math.sin(t * 0.9) * 0.025);

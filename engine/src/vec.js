@@ -139,6 +139,8 @@ export function jet(x, y, s = 1, o = {}) {
 }
 
 // ---- people ----
+/** hair colours a story can ask for */
+export const HAIR = { black: '#1E1A18', brown: '#5A3A22', blonde: '#D9B45A', red: '#A8482A', grey: '#C8C4BC' };
 export const SKINS = { light: ['#F1C29C', '#D89A72'], medium: ['#DDA77E', '#C08460'], tan: ['#C08A5E', '#A06E45'], dark: ['#8D5A3C', '#714630'] };
 /** what each story role wears */
 export function roleLook(role) {
@@ -156,6 +158,12 @@ export function roleLook(role) {
     civilian: { top: '#3B6EA5', pants: '#5A4636', hat: 'flatcap', hatColor: '#6A5240' },
     woman: { top: '#9E3A4A', dress: true, hair: '#4A2E1E', hairStyle: 'long', lips: true },
     child: { top: '#E07A3A', pants: '#3B5A85', hair: '#7A4A2A', hairStyle: 'short', child: true },
+    man: { top: '#3B6EA5', pants: '#3A3A44', hair: '#3A2A1E', hairStyle: 'short', shoes: '#2A2220' },
+    girl: { top: '#D9586A', pants: '#3B5A85', hair: '#4A2E1E', hairStyle: 'long', lips: true, teen: true },
+    boy: { top: '#4F8A5A', pants: '#3B4A6A', hair: '#4A2E1E', hairStyle: 'short', teen: true },
+    scientist: { top: '#F4F3EE', jacket: true, pants: '#3A3A44', glasses: true, hair: '#5A4A3A', hairStyle: 'short' },
+    oldman: { top: '#7A6A5A', jacket: true, pants: '#4A4038', hair: '#D8D2C6', hairStyle: 'bald', mustache: '#D8D2C6', brow: '#B8B2A6', glasses: true },
+    oldwoman: { top: '#6A5A8A', dress: true, hair: '#D8D2C6', hairStyle: 'long', lips: true, glasses: true, brow: '#B8B2A6' },
   })[role] || { top: '#3B6EA5', pants: '#5A4636', hair: '#3A2A1E', hairStyle: 'short' };
 }
 /**
@@ -164,8 +172,9 @@ export function roleLook(role) {
  *    skin ('light'|'medium'|'tan'|'dark'), blink 0..1, talk 0..1, arm ('down'|'point'|'up'|'wave'), walk (phase), t
  */
 export function person(o) {
-  o = { ...roleLook(o.role), ...o };
-  const s = (o.h * (o.child ? 0.66 : 1)) / 600, dir = o.dir ?? 1;
+  o = { ...roleLook(o.role), ...Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) };
+  if (HAIR[o.hairColor]) { o.hair = HAIR[o.hairColor]; if (o.mustache) o.mustache = o.hair; if (o.beard) o.beard = o.hair; o.brow = shade(o.hair, -20); }
+  const s = (o.h * (o.child ? 0.66 : o.teen ? 0.86 : 1)) / 600, dir = o.dir ?? 1;
   const [skin, skinD] = SKINS[o.skin] || SKINS.light;
   const top = o.top || '#3B6EA5', pants = o.pants || '#2F3E5C', shoes = o.shoes || '#4A3426';
   const wk = o.walk != null ? Math.sin(o.walk) : 0, bob = o.walk != null ? Math.abs(Math.cos(o.walk)) * 8 : 0;

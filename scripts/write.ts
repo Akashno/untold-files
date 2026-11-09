@@ -65,7 +65,7 @@ export function checkProps(s: Story): string[] {
   }
   s.lines.forEach((l, i) => {
     const sc: any = l.scene
-    for (const ref of [sc?.object, sc?.item]) {
+    for (const ref of [sc?.object, sc?.item, ...(sc?.actors ?? []).map((a: any) => a.art)]) {
       if (typeof ref !== 'string' || !ref.startsWith('prop:')) continue
       if (!names.has(ref.slice(5))) errors.push(`line ${i + 1}: "${ref}" is not one of your props`)
       used.add(ref.slice(5))
@@ -75,6 +75,10 @@ export function checkProps(s: Story): string[] {
   return errors
 }
 
+// the hook must open on the strange fact, not on scene-setting
+const HOOK_SLOW = /^(in|on|back in|during|once|one day|years ago|long ago|there (was|were|is)|it (was|is)|this is|meet)\b/i
+const YEAR_WORDS = /\b(eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty)[ -](hundred|oh|o'|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b|\btwo thousand\b/i
+
 export function checkStory(x: unknown): string[] {
   if (!validate(x))
     return (validate.errors ?? []).slice(0, 12).map(e => `${e.instancePath || '/'} ${e.message}`)
@@ -83,10 +87,18 @@ export function checkStory(x: unknown): string[] {
   const words = s.lines.reduce((n, l) => n + count(l.text), 0)
   if (words < 62 || words > 95)
     errors.push(`the narration is ${words} words; write 70-85`)
-  if (!s.lines[0].scene)
+  const first = s.lines[0]
+  if (!first.scene)
     errors.push('line 1 needs a scene')
-  if (count(s.lines[0].text) > 16)
+  else if (!['action', 'people', 'object'].includes(first.scene.type))
+    errors.push(`line 1 is the frame people decide on: make it an "action" scene of the most dramatic moment (or people/object), not "${first.scene.type}"`)
+  if (count(first.text) > 16)
     errors.push('the first line (the hook) is too long; 16 words at most')
+  if (HOOK_SLOW.test(first.text.trim()) || YEAR_WORDS.test(first.text))
+    errors.push(`line 1 starts slow ("${first.text.split(/\s+/).slice(0, 4).join(' ')}…"): open with the strange fact itself, and give the year or place in line 2`)
+  const actions = s.lines.filter(l => l.scene?.type === 'action').length
+  if (actions < 2)
+    errors.push(`only ${actions} "action" scene(s); show the 2-3 big moments of the story as action scenes`)
   s.lines.forEach((l, i) => {
     const n = count(l.text)
     if (n > 18)
@@ -101,6 +113,9 @@ export function checkStory(x: unknown): string[] {
     const sc: any = l.scene
     const said = l.text.split(/\s+/).map(norm)
     const spoken = { has: (w: string) => !!w && said.some(x => x.startsWith(w)) }
+    for (const a of sc?.type === 'action' ? sc.actors : [])
+      if (a.on && !spoken.has(norm(a.on.split(/\s+/)[0])))
+        errors.push(`line ${i + 1}: actor on "${a.on}" is not a word in that line`)
     for (const k of ['on', 'subOn'])
       if (sc?.[k] && !spoken.has(norm(sc[k].split(/\s+/)[0])))
         errors.push(`line ${i + 1}: "${k}": "${sc[k]}" is not a word in that line`)

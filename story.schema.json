@@ -96,7 +96,7 @@
             "type": "string",
             "minLength": 80,
             "maxLength": 5000,
-            "description": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\">\u2026</svg>, flat shapes only, no text"
+            "description": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\">…</svg>, flat shapes only, no text"
           }
         }
       }
@@ -169,6 +169,7 @@
   "definitions": {
     "setting": {
       "enum": [
+        "sky",
         "parchment",
         "day",
         "field",
@@ -195,7 +196,13 @@
         "pilot",
         "civilian",
         "woman",
-        "child"
+        "child",
+        "man",
+        "girl",
+        "boy",
+        "scientist",
+        "oldman",
+        "oldwoman"
       ]
     },
     "word": {
@@ -355,6 +362,9 @@
                       "dark"
                     ],
                     "description": "Skin tone that fits who this person really was"
+                  },
+                  "hair": {
+                    "$ref": "#/definitions/hair"
                   }
                 }
               }
@@ -539,8 +549,176 @@
               "maxLength": 18
             }
           }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "actors"
+          ],
+          "properties": {
+            "type": {
+              "const": "action"
+            },
+            "setting": {
+              "$ref": "#/definitions/setting"
+            },
+            "night": {
+              "type": "boolean"
+            },
+            "actors": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "description": "What moves in this moment, drawn over the setting (first ones behind)",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "art",
+                  "x",
+                  "y",
+                  "move"
+                ],
+                "properties": {
+                  "art": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "plane",
+                          "ship",
+                          "letter",
+                          "telegram",
+                          "radio",
+                          "newspaper",
+                          "clock",
+                          "crown",
+                          "diamond",
+                          "coins",
+                          "moneybag",
+                          "train",
+                          "flag",
+                          "scroll",
+                          "key",
+                          "lightbulb",
+                          "tank",
+                          "submarine",
+                          "car",
+                          "rocket",
+                          "balloon",
+                          "telephone",
+                          "camera",
+                          "book",
+                          "medal",
+                          "ring",
+                          "sword",
+                          "helmet",
+                          "compass",
+                          "lantern",
+                          "anchor",
+                          "bottle",
+                          "typewriter",
+                          "goldbars",
+                          "folder",
+                          "castle",
+                          "lighthouse",
+                          "pyramid",
+                          "temple",
+                          "volcano",
+                          "fire"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^prop:[a-z][a-z0-9]{1,15}$"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^person:(king|queen|sailor|scholar|guard|merchant|worker|soldier|officer|pilot|civilian|woman|child|man|girl|boy|scientist|oldman|oldwoman)$"
+                      }
+                    ],
+                    "description": "A library object, \"prop:<name>\" for one of your props, or \"person:<role>\""
+                  },
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Where it is (its centre), 0 = left edge, 1 = right edge"
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "0 = top, 1 = bottom of the tall frame; the ground is at about 0.75"
+                  },
+                  "size": {
+                    "enum": [
+                      "small",
+                      "medium",
+                      "large"
+                    ]
+                  },
+                  "move": {
+                    "enum": [
+                      "still",
+                      "float",
+                      "fly",
+                      "fall",
+                      "crash",
+                      "split",
+                      "sink",
+                      "rise",
+                      "spin",
+                      "shake",
+                      "grow",
+                      "walk"
+                    ]
+                  },
+                  "dir": {
+                    "enum": [
+                      "left",
+                      "right"
+                    ],
+                    "description": "For fly and walk: which way it travels (default right)"
+                  },
+                  "on": {
+                    "$ref": "#/definitions/word",
+                    "description": "The word in this line when the move happens (crash lands, split breaks, grow appears)"
+                  },
+                  "skin": {
+                    "enum": [
+                      "light",
+                      "medium",
+                      "tan",
+                      "dark"
+                    ]
+                  },
+                  "hair": {
+                    "$ref": "#/definitions/hair"
+                  }
+                }
+              }
+            },
+            "text": {
+              "$ref": "#/definitions/slip"
+            },
+            "on": {
+              "$ref": "#/definitions/word"
+            }
+          }
         }
       ]
+    },
+    "hair": {
+      "enum": [
+        "black",
+        "brown",
+        "blonde",
+        "red",
+        "grey"
+      ],
+      "description": "Hair colour that fits who this person really was"
     }
   }
 }
