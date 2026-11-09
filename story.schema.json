@@ -3,74 +3,501 @@
   "title": "Daily story",
   "type": "object",
   "additionalProperties": false,
-  "required": ["title", "category", "hook", "summary", "music", "sources", "lines", "post"],
+  "required": [
+    "title",
+    "category",
+    "hook",
+    "headline",
+    "summary",
+    "music",
+    "sources",
+    "lines",
+    "post"
+  ],
   "properties": {
-    "title": { "type": "string", "maxLength": 80, "description": "The story's title, e.g. 'The soldier who fought for 29 years after the war ended'" },
-    "category": { "type": "string", "maxLength": 20, "description": "Today's category id, exactly as given" },
-    "hook": { "type": "string", "maxLength": 120, "description": "The first line's idea in a few words" },
-    "summary": { "type": "string", "maxLength": 240, "description": "One sentence: who, what, the twist" },
-    "music": { "enum": ["tension", "bed"], "description": "tension for war, mystery, disaster, survival; bed for lighter stories" },
-    "sources": { "type": "array", "minItems": 2, "maxItems": 4, "items": { "type": "string", "maxLength": 240 }, "description": "Reliable sources (encyclopedia, museum, major newspaper, primary record) with the key facts each confirms" },
-    "lines": {
-      "type": "array", "minItems": 7, "maxItems": 11,
+    "title": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "The story's title, e.g. 'The soldier who fought for 29 years after the war ended'"
+    },
+    "category": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "Today's category id, exactly as given"
+    },
+    "hook": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "The first line's idea in a few words"
+    },
+    "headline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "top",
+        "bottom"
+      ],
+      "description": "The big two-line card on the first frame, like a thumbnail: top sets it up, bottom is the punch. Capitals.",
+      "properties": {
+        "top": {
+          "type": "string",
+          "maxLength": 18,
+          "description": "e.g. 41,000 FEET."
+        },
+        "bottom": {
+          "type": "string",
+          "maxLength": 18,
+          "description": "e.g. AND NO FUEL!"
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 240,
+      "description": "One sentence: who, what, the twist"
+    },
+    "music": {
+      "enum": [
+        "tension",
+        "bed"
+      ],
+      "description": "tension for war, mystery, disaster, survival; bed for lighter stories"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
       "items": {
-        "type": "object", "additionalProperties": false, "required": ["text", "caps"],
+        "type": "string",
+        "maxLength": 240
+      },
+      "description": "Reliable sources (encyclopedia, museum, major newspaper, primary record) with the key facts each confirms"
+    },
+    "lines": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 11,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "caps"
+        ],
         "properties": {
-          "text": { "type": "string", "minLength": 3, "maxLength": 120, "description": "What the narrator says for this cut. Numbers written as spoken words." },
-          "caps": { "type": "string", "maxLength": 120, "description": "Captions: chunks of 1-4 words split by |, exactly one *word per chunk is the red key word. Digits allowed here, e.g. 'In *1944, | a young *officer'" },
-          "scene": { "$ref": "#/definitions/scene" }
+          "text": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 120,
+            "description": "What the narrator says for this cut. Numbers written as spoken words."
+          },
+          "caps": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "Captions: chunks of 1-4 words split by |, exactly one *word per chunk is the red key word. Digits allowed here, e.g. 'In *1944, | a young *officer'"
+          },
+          "scene": {
+            "$ref": "#/definitions/scene"
+          }
         }
       }
     },
     "post": {
-      "type": "object", "additionalProperties": false, "required": ["caption", "hashtags", "youtubeTitle", "xText"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "caption",
+        "hashtags",
+        "youtubeTitle",
+        "xText"
+      ],
       "properties": {
-        "caption": { "type": "string", "maxLength": 600, "description": "2-3 short lines: a curiosity line, a question that invites comments, and 'Follow for a new untold story every day.' No hashtags here." },
-        "hashtags": { "type": "array", "minItems": 4, "maxItems": 8, "items": { "type": "string", "pattern": "^#[A-Za-z0-9_]{2,30}$" } },
-        "youtubeTitle": { "type": "string", "maxLength": 90, "description": "The hook as a title, ending with #shorts" },
-        "xText": { "type": "string", "maxLength": 240 }
+        "caption": {
+          "type": "string",
+          "maxLength": 600,
+          "description": "2-3 short lines: a curiosity line, a question that invites comments, and 'Follow for a new untold story every day.' No hashtags here."
+        },
+        "hashtags": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "pattern": "^#[A-Za-z0-9_]{2,30}$"
+          }
+        },
+        "youtubeTitle": {
+          "type": "string",
+          "maxLength": 90,
+          "description": "The hook as a title, ending with #shorts"
+        },
+        "xText": {
+          "type": "string",
+          "maxLength": 240
+        }
       }
     }
   },
   "definitions": {
-    "setting": { "enum": ["parchment", "day", "field", "jungle", "sea", "hall", "room", "desert", "snow", "city"] },
-    "role": { "enum": ["king", "queen", "sailor", "scholar", "guard", "merchant", "worker", "soldier", "officer", "pilot", "civilian", "woman", "child"] },
-    "word": { "type": "string", "maxLength": 30, "description": "A word from this line's text; the element pops in when it is spoken" },
-    "slip": { "type": "string", "maxLength": 26 },
+    "setting": {
+      "enum": [
+        "parchment",
+        "day",
+        "field",
+        "jungle",
+        "sea",
+        "hall",
+        "room",
+        "desert",
+        "snow",
+        "city"
+      ]
+    },
+    "role": {
+      "enum": [
+        "king",
+        "queen",
+        "sailor",
+        "scholar",
+        "guard",
+        "merchant",
+        "worker",
+        "soldier",
+        "officer",
+        "pilot",
+        "civilian",
+        "woman",
+        "child"
+      ]
+    },
+    "word": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "A word from this line's text; the element pops in when it is spoken"
+    },
+    "slip": {
+      "type": "string",
+      "maxLength": 26
+    },
     "scene": {
       "oneOf": [
-        { "type": "object", "additionalProperties": false, "required": ["type", "text"], "properties": {
-          "type": { "const": "date" }, "text": { "type": "string", "maxLength": 14, "description": "A year or short date on a gold ribbon, e.g. 1944 or MAY 1915" },
-          "sub": { "$ref": "#/definitions/slip", "description": "Place or short note under it" }, "subOn": { "$ref": "#/definitions/word" },
-          "setting": { "$ref": "#/definitions/setting" }, "night": { "type": "boolean" } } },
-        { "type": "object", "additionalProperties": false, "required": ["type", "places"], "properties": {
-          "type": { "const": "map" }, "title": { "type": "string", "maxLength": 18, "description": "Region or year on the ribbon above the map" },
-          "land": { "enum": ["continent", "islands"] },
-          "places": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "type": "object", "additionalProperties": false, "required": ["name", "x", "y"], "properties": {
-            "name": { "type": "string", "maxLength": 16 }, "x": { "type": "number", "minimum": 0, "maximum": 1 }, "y": { "type": "number", "minimum": 0, "maximum": 1 } } },
-            "description": "Real places, positioned roughly as on a real map (x 0 = west, 1 = east; y 0 = north, 1 = south)" },
-          "route": { "type": "boolean", "description": "Draw a red route through the places in order (default true when 2+ places)" },
-          "mover": { "enum": ["ship", "plane", "army", "arrow"] }, "focus": { "type": "string", "maxLength": 16, "description": "Name of the place to circle" } } },
-        { "type": "object", "additionalProperties": false, "required": ["type", "figures"], "properties": {
-          "type": { "const": "people" }, "setting": { "$ref": "#/definitions/setting" }, "night": { "type": "boolean" },
-          "figures": { "type": "array", "minItems": 1, "maxItems": 3, "items": { "type": "object", "additionalProperties": false, "required": ["role"], "properties": {
-            "role": { "$ref": "#/definitions/role" }, "label": { "type": "string", "maxLength": 18 } } } },
-          "action": { "enum": ["stand", "walk", "point", "wave"] },
-          "text": { "$ref": "#/definitions/slip" }, "on": { "$ref": "#/definitions/word" } } },
-        { "type": "object", "additionalProperties": false, "required": ["type", "object"], "properties": {
-          "type": { "const": "object" },
-          "object": { "enum": ["plane", "ship", "letter", "telegram", "radio", "newspaper", "clock", "crown", "diamond", "coins", "moneybag", "train", "flag", "scroll", "key", "lightbulb", "tank", "submarine", "car", "rocket", "balloon", "telephone", "camera", "book", "medal", "ring", "sword", "helmet", "compass", "lantern", "anchor", "bottle", "typewriter", "goldbars", "folder", "castle", "lighthouse", "pyramid", "temple", "volcano", "fire"] },
-          "headline": { "type": "string", "maxLength": 30, "description": "Words printed on a newspaper, scroll, folder stamp or typewriter page" },
-          "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$", "description": "Flag colour" },
-          "setting": { "$ref": "#/definitions/setting" }, "night": { "type": "boolean" },
-          "text": { "$ref": "#/definitions/slip" }, "on": { "$ref": "#/definitions/word" } } },
-        { "type": "object", "additionalProperties": false, "required": ["type", "items"], "properties": {
-          "type": { "const": "count" }, "setting": { "$ref": "#/definitions/setting" }, "night": { "type": "boolean" },
-          "items": { "type": "array", "minItems": 1, "maxItems": 3, "items": { "type": "object", "additionalProperties": false, "required": ["text"], "properties": {
-            "text": { "type": "string", "maxLength": 20 }, "on": { "$ref": "#/definitions/word" } } } } } },
-        { "type": "object", "additionalProperties": false, "required": ["type", "years"], "properties": {
-          "type": { "const": "timeline" }, "years": { "type": "array", "minItems": 2, "maxItems": 5, "items": { "type": "string", "maxLength": 8 } },
-          "active": { "type": "integer", "minimum": 0, "maximum": 4 }, "title": { "type": "string", "maxLength": 18 } } }
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "text"
+          ],
+          "properties": {
+            "type": {
+              "const": "date"
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 14,
+              "description": "A year or short date on a gold ribbon, e.g. 1944 or MAY 1915"
+            },
+            "sub": {
+              "$ref": "#/definitions/slip",
+              "description": "Place or short note under it"
+            },
+            "subOn": {
+              "$ref": "#/definitions/word"
+            },
+            "setting": {
+              "$ref": "#/definitions/setting"
+            },
+            "night": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "places"
+          ],
+          "properties": {
+            "type": {
+              "const": "map"
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 18,
+              "description": "Region or year on the ribbon above the map"
+            },
+            "land": {
+              "enum": [
+                "continent",
+                "islands"
+              ]
+            },
+            "places": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              },
+              "description": "Real places, positioned roughly as on a real map (x 0 = west, 1 = east; y 0 = north, 1 = south)"
+            },
+            "route": {
+              "type": "boolean",
+              "description": "Draw a red route through the places in order (default true when 2+ places)"
+            },
+            "mover": {
+              "enum": [
+                "ship",
+                "plane",
+                "army",
+                "arrow"
+              ]
+            },
+            "focus": {
+              "type": "string",
+              "maxLength": 16,
+              "description": "Name of the place to circle"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "figures"
+          ],
+          "properties": {
+            "type": {
+              "const": "people"
+            },
+            "setting": {
+              "$ref": "#/definitions/setting"
+            },
+            "night": {
+              "type": "boolean"
+            },
+            "figures": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "$ref": "#/definitions/role"
+                  },
+                  "label": {
+                    "type": "string",
+                    "maxLength": 18
+                  },
+                  "skin": {
+                    "enum": [
+                      "light",
+                      "medium",
+                      "tan",
+                      "dark"
+                    ],
+                    "description": "Skin tone that fits who this person really was"
+                  }
+                }
+              }
+            },
+            "action": {
+              "enum": [
+                "stand",
+                "walk",
+                "point",
+                "wave"
+              ]
+            },
+            "text": {
+              "$ref": "#/definitions/slip"
+            },
+            "on": {
+              "$ref": "#/definitions/word"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "const": "object"
+            },
+            "object": {
+              "enum": [
+                "plane",
+                "ship",
+                "letter",
+                "telegram",
+                "radio",
+                "newspaper",
+                "clock",
+                "crown",
+                "diamond",
+                "coins",
+                "moneybag",
+                "train",
+                "flag",
+                "scroll",
+                "key",
+                "lightbulb",
+                "tank",
+                "submarine",
+                "car",
+                "rocket",
+                "balloon",
+                "telephone",
+                "camera",
+                "book",
+                "medal",
+                "ring",
+                "sword",
+                "helmet",
+                "compass",
+                "lantern",
+                "anchor",
+                "bottle",
+                "typewriter",
+                "goldbars",
+                "folder",
+                "castle",
+                "lighthouse",
+                "pyramid",
+                "temple",
+                "volcano",
+                "fire"
+              ]
+            },
+            "headline": {
+              "type": "string",
+              "maxLength": 30,
+              "description": "Words printed on a newspaper, scroll, folder stamp or typewriter page"
+            },
+            "color": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Flag colour"
+            },
+            "setting": {
+              "$ref": "#/definitions/setting"
+            },
+            "night": {
+              "type": "boolean"
+            },
+            "text": {
+              "$ref": "#/definitions/slip"
+            },
+            "on": {
+              "$ref": "#/definitions/word"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "items"
+          ],
+          "properties": {
+            "type": {
+              "const": "count"
+            },
+            "setting": {
+              "$ref": "#/definitions/setting"
+            },
+            "night": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "maxLength": 20
+                  },
+                  "on": {
+                    "$ref": "#/definitions/word"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "years"
+          ],
+          "properties": {
+            "type": {
+              "const": "timeline"
+            },
+            "years": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "maxLength": 8
+              }
+            },
+            "active": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 18
+            }
+          }
+        }
       ]
     }
   }

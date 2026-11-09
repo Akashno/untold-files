@@ -29,12 +29,18 @@ A checker enforces the rules below; a story that breaks one is rejected.
 - Never use: "turns out", "game changer", "little did he know", "unbelievable", "you won't believe", "shocking",
   "legend has it", "journey", "delve", "testament", em dashes.
 
-# 3. Captions (`caps`)
+# 3. Headline card (`headline`)
+
+Two short lines in capitals shown big on the very first frame, like a thumbnail: `top` sets it up, `bottom` is the
+punch (shown in red). Under 18 characters each, digits allowed. Examples: "41,000 FEET." / "AND NO FUEL!" ·
+"HE KEPT FIGHTING" / "FOR 29 YEARS" · "A WALL OF THORNS" / "ACROSS INDIA". Never just the title.
+
+# 4. Captions (`caps`)
 
 Chunks of 1-4 words split by `|`, covering the line in order (you may shorten). Exactly one `*word` per chunk: the key
 word, shown in red. Digits are fine here ("In *1944,").
 
-# 4. Scenes (`scene`)
+# 5. Scenes (`scene`)
 
 Give line 1 a scene, and most other lines too. A line with no scene keeps the previous picture (use that for a
 sentence split over two lines). Never the same scene type three times in a row. Use at least 4 different types.
@@ -44,7 +50,7 @@ sentence split over two lines). Never the same scene type three times in a row. 
   region shown), a red `route` through them in order, a `mover` (ship, plane, army, arrow), `focus` to circle one.
   `land`: "islands" for island stories, else "continent". Use whenever the story moves or a place matters.
 - `people`: 1-3 paper figures with a `role` and an optional name `label`, in a `setting`, doing an `action`, and an
-  optional `text` slip that pops on the word `on`. Roles: king, queen, sailor, scholar, guard, merchant, worker,
+  optional `text` slip that pops on the word `on`. Give each figure a `skin` tone that fits who they really were. Roles: king, queen, sailor, scholar, guard, merchant, worker,
   soldier, officer, pilot, civilian, woman, child.
 - `object`: a close-up of one object, optional `text` slip that pops on the word `on`. Pick the most specific one:
   - travel and war: plane, ship, submarine, train, car, tank, rocket, balloon, helmet, sword, medal, anchor, compass
@@ -60,7 +66,7 @@ Settings: parchment, day, field, jungle, sea, hall, room, desert, snow, city; ad
 Slip and label text: short, plain words (they're shown in capitals). `on` and `subOn` must be a word that is
 actually in that line's `text`.
 
-# 5. Post text
+# 6. Post text
 
 - caption: a curiosity line, a question that invites comments ("Would you have believed the leaflets?"), then
   "Follow {{handle}} for a new untold story every day." No hashtags in the caption.

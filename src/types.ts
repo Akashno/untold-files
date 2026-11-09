@@ -6,7 +6,7 @@ export type Role = 'king' | 'queen' | 'sailor' | 'scholar' | 'guard' | 'merchant
 export type Scene =
   | { type: 'date', text: string, sub?: string, subOn?: string, setting?: Setting, night?: boolean }
   | { type: 'map', title?: string, land?: 'continent' | 'islands', places: Array<{ name: string, x: number, y: number }>, route?: boolean, mover?: 'ship' | 'plane' | 'army' | 'arrow', focus?: string }
-  | { type: 'people', setting?: Setting, night?: boolean, figures: Array<{ role: Role, label?: string }>, action?: 'stand' | 'walk' | 'point' | 'wave', text?: string, on?: string }
+  | { type: 'people', setting?: Setting, night?: boolean, figures: Array<{ role: Role, label?: string, skin?: 'light' | 'medium' | 'tan' | 'dark' }>, action?: 'stand' | 'walk' | 'point' | 'wave', text?: string, on?: string }
   | { type: 'object', object: string, setting?: Setting, night?: boolean, text?: string, on?: string, headline?: string, color?: string }
   | { type: 'count', setting?: Setting, night?: boolean, items: Array<{ text: string, on?: string }> }
   | { type: 'timeline', years: string[], active?: number, title?: string }
@@ -17,6 +17,7 @@ export interface Story {
   title: string
   category: string
   hook: string
+  headline: { top: string, bottom: string }
   summary: string
   music: 'tension' | 'bed'
   sources: string[]

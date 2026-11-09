@@ -1,13 +1,13 @@
 # Untold Files
 
-One short, true, little-known story a day, drawn in cut paper and posted automatically to Instagram (and YouTube,
+One short, true, little-known story a day, drawn in a flat illustrated style and posted automatically to Instagram (and YouTube,
 Facebook and X if you add them in Buffer).
 
 ```mermaid
 flowchart LR
   A[One Claude call writes story.json] --> B[Gemini voice, Kokoro fallback]
   B --> C[Whisper times every word]
-  C --> D[Paper Atlas engine draws the shots]
+  C --> D[engine draws the shots]
   D --> E[MP4 on GitHub Pages]
   E --> F[Buffer posts it]
 ```
@@ -25,7 +25,7 @@ flowchart LR
   The least recently used one is picked each day.
 - `prompts/writer.md`: the rules Claude writes by: true and well-sourced stories, the hook, narration, captions,
   scenes. `story.schema.json` is the exact shape; `scripts/write.ts` checks the rest and never repeats a story.
-- `engine/src/shots.js`: the scene library Claude chooses from (date ribbon, map with routes, paper people, objects,
+- `engine/src/shots.js`: the scene library Claude chooses from (headline card, date ribbon, map with routes, people in 13 roles, 41 objects,
   counts, timeline) and the end card. All drawn in code.
 - `brand/example-story.json`: a finished example.
 

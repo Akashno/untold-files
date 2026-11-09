@@ -1,5 +1,5 @@
 // Untold Files: turns story.json into shots. Claude writes one `scene` per narration line (or none, to hold the
-// previous shot); everything here is fixed code in the Paper Atlas look (cut paper on parchment).
+// previous shot); everything here is fixed code in a flat-vector look with depth (src/vec.js, src/places.js).
 //
 // Scene types (all optional fields have defaults):
 //   date      { text, sub?, setting?, night? }                       gold date ribbon, optional slip under it
@@ -16,40 +16,17 @@ import { ctx, W, H, TAU, clamp, lerp, seg, eo, eio, eob, rnd, rr, circle, line }
 import { L, Le, Wd, T } from './core/timing.js';
 import * as K from './core/kit.js';
 import { PROPS } from './props.js';
+import { PLACES, nightOver } from './places.js';
+import * as V from './vec.js';
 const { P, cut, P_rr, P_poly, P_circ } = K;
 
 export const BRAND = { name: 'UNTOLD FILES', handle: '@untoldfiles', seal: 'U', sub: 'A new story every day' };
 
-// ═════════════════════════ SETTINGS (backgrounds) ═════════════════════════
-const NIGHT = '#2F3550';
+// ═════════════════════════ SETTINGS (backgrounds: src/places.js) ═════════════════════════
 const GROUND = 1450;
-function sky(color = P.sky) { ctx.fillStyle = color; ctx.fillRect(-300, -300, W + 600, GROUND + 300); }
-function ground(color) { cut(P_rr(-300, GROUND, W + 600, 900, 0), color, { shadow: 0, edge: 0 }); }
-function sun(x = 820, y = 400, c = '#EFC66A') { cut(P_circ(x, y, 90), c, { shadow: 0.4, edge: 5 }); }
-function hills(y, color, seed, amp = 90) {
-  cut(() => { ctx.beginPath(); ctx.moveTo(-300, H + 300); ctx.lineTo(-300, y); for (let x = -300; x <= W + 300; x += 30) ctx.lineTo(x, y - Math.abs(Math.sin(x * 0.004 + seed)) * amp - Math.sin(x * 0.011 + seed * 2) * amp * 0.25); ctx.lineTo(W + 300, H + 300); ctx.closePath(); }, color, { shadow: 0.6, edge: 5 });
-}
-function leaf(x, y, s, rot, c) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); cut(() => { ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(60, -70, 0, -200); ctx.quadraticCurveTo(-60, -70, 0, 0); }, c, { shadow: 0.5, edge: 3 }); ctx.restore(); }
-function building(x, w, h, c, wins) { cut(P_rr(x, GROUND - h, w, h, 4), c, { shadow: 0.6, edge: 5 }); for (let r = 0; r < Math.floor(h / 90) - 1; r++) for (let k = 0; k < Math.floor(w / 70); k++) { rr(x + 22 + k * 70, GROUND - h + 40 + r * 90, 32, 44, 4); ctx.fillStyle = wins && rnd(r * 7 + k + x) > 0.5 ? '#F2C14E' : 'rgba(62,44,30,0.6)'; ctx.fill(); } }
-
-const SETTINGS = {
-  day(t) { K.parchment(1); sky(); sun(); hills(GROUND - 40, P.forest, 1, 60); ground(P.sepia); },
-  field(t) { K.parchment(2); sky(); sun(820, 380); hills(GROUND - 200, '#9AA06A', 2); hills(GROUND - 60, P.forest, 5, 70); ground('#6E6A40'); },
-  jungle(t) { K.parchment(3); sky('#CFCB98'); hills(GROUND - 260, '#6E7E4A', 3, 120); ground('#4F5A32'); for (let i = 0; i < 16; i++) leaf(rnd(i) * W, GROUND + 40 - rnd(i + 9) * 120, 1.2 + rnd(i + 3) * 1.4, (rnd(i + 5) - 0.5) * 1.6 + Math.sin(t * 1.3 + i) * 0.05, i % 2 ? P.forest : P.green); },
-  sea(t) { K.harbor(t, 600); },
-  hall(t) { K.hall(); },
-  room(t) { K.parchment(5); cut(P_rr(-300, -300, W + 600, GROUND + 300, 0), '#C9B48A', { shadow: 0, edge: 0 }); cut(P_rr(620, 360, 300, 380, 8), '#9DB4B0'); ctx.strokeStyle = P.sepia; ctx.lineWidth = 14; ctx.strokeRect(620, 360, 300, 380); line([[770, 360], [770, 740]], P.sepia, 10); line([[620, 550], [920, 550]], P.sepia, 10); ground('#7A5A3A'); },
-  desert(t) { K.parchment(6); sky('#EFD9A8'); sun(800, 380, '#F2C14E'); hills(GROUND - 120, '#D9B57A', 6, 110); hills(GROUND - 20, '#C89B5E', 9, 60); ground('#B8864E'); },
-  snow(t) { K.parchment(7); sky('#DDE3E0'); hills(GROUND - 160, '#F3F1EA', 7, 140); ground('#ECE9E0'); for (let i = 0; i < 40; i++) circle((rnd(i) * W + t * 20 * (1 + rnd(i + 2))) % W, (rnd(i + 4) * GROUND + t * 90 * (1 + rnd(i + 1))) % GROUND, 5 + rnd(i) * 5, '#FFF'); },
-  city(t) { K.parchment(8); sky(); [[-40, 260, 520], [240, 200, 700], [460, 240, 460], [720, 220, 620], [930, 220, 400]].forEach(([x, w, h], i) => building(x, w, h, i % 2 ? P.stone : P.stoneDark, false)); ground(P.sepia); },
-  parchment(t) { K.parchment(9); },
-};
-// a big faint compass rose behind plain-parchment scenes, so they never look empty
-function watermark(t) { ctx.save(); ctx.globalAlpha = 0.16; ctx.translate(540, 1000); ctx.rotate(t * 0.05); K.compass(0, 0, 3.6); ctx.restore(); }
 function setting(name, night, t) {
-  (SETTINGS[name] || SETTINGS.parchment)(t);
-  if (!SETTINGS[name] || name === 'parchment') watermark(t);
-  if (night) { ctx.save(); ctx.globalAlpha = 0.72; ctx.fillStyle = NIGHT; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); for (let i = 0; i < 26; i++) circle(rnd(i + 3) * W, rnd(i + 40) * 700 + 120, 3 + rnd(i) * 3, '#E9DCBC'); }
+  (PLACES[name] || PLACES.parchment)(t, !!night);
+  if (night) nightOver(t);
 }
 
 // ═════════════════════════ OBJECTS ═════════════════════════
@@ -159,7 +136,7 @@ export function buildShots(script) {
     const sc = ln.scene; if (!sc) return;
     const st = i === 0 ? 0 : L(i) - 0.08;
     const pop = (word, a = 0.3) => at(word, i, a) - st;
-    const top = i === 0 ? 480 : 300; // the intro header covers the top of the first scene
+    const top = i === 0 ? 600 : 300; // the intro header covers the top of the first scene
     const base = { id: `S${String(S.length + 1).padStart(2, '0')}`, at: st, note: `${sc.type}: ${ln.text.slice(0, 50)}` };
     cue(st, 'whoosh', { gain: 0.6 });
     if (sc.type === 'date') {
@@ -176,11 +153,12 @@ export function buildShots(script) {
         setting(sc.setting || 'day', sc.night, t);
         figs.forEach((f, k) => {
           const x0 = n === 1 ? 540 : n === 2 ? 340 + k * 400 : 230 + k * 310, walk = sc.action === 'walk';
-          const x = walk ? x0 + lerp(-120, 120, lt / d) : x0, h = n === 1 ? 760 : n === 2 ? 640 : 560;
-          const arm = sc.action === 'point' && k === 0 ? 80 : sc.action === 'wave' && k === 0 ? 100 + Math.sin(t * 9) * 30 : 10;
+          const x = walk ? x0 + lerp(-120, 120, lt / d) : x0, h = n === 1 ? 680 : n === 2 ? 600 : 520;
+          const arm = k === 0 && sc.action === 'point' ? 'point' : k === 0 && sc.action === 'wave' ? 'wave' : 'down';
+          const blink = clamp(1 - Math.abs(((t + k * 1.3) % 3.4) - 1.7) / 0.09);
           const y = GROUND + 20 - (eob(seg(lt, 0.05 + k * 0.12, 0.4 + k * 0.12)) < 1 ? (1 - eob(seg(lt, 0.05 + k * 0.12, 0.4 + k * 0.12))) * -300 : 0);
-          K.figure({ x, y, h, role: f.role, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm });
-          if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h - 90, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
+          V.person({ x, y, h, role: f.role, skin: f.skin, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm, blink, t });
+          if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h * (f.role === 'child' ? 0.9 : 1.3) - 40, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
         });
         if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
       } });
@@ -216,15 +194,15 @@ export function buildShots(script) {
   });
   // case-file header over the first line: the title is readable from the very first frame
   const file = Number(script.file) || 0, title = String(script.title || '');
-  const liftAt = lines.length > 1 ? L(1) : 3;
+  const liftAt = Math.min(lines.length > 1 ? L(1) : 3, 3.2); // long enough to read, short enough to see the scene
+  // the hook card: two big lines (dark, then red) on torn paper, readable from the very first frame
+  const words = title.toUpperCase().split(/\s+/), half = Math.ceil(words.length / 2);
+  const hl = script.headline || { top: words.slice(0, half).join(' '), bottom: words.slice(half).join(' ') };
   const overlay = (t) => {
     const lift = eio(seg(t, liftAt - 0.25, liftAt + 0.2)); if (lift >= 1) return;
-    ctx.save(); ctx.translate(0, -lift * 460);
-    cut(P_rr(80, 60, 400, 90, 14), MANILA_DARK);
-    K.label(file ? `FILE NO. ${file}` : 'CASE FILE', 280, 106, 44, P.ink);
-    cut(P_rr(60, 130, 960, 270, 10), MANILA);
-    fitText(title, 540, 265, 880, 2, [76, 68, 60, 52, 46]);
-    stamp('UNTOLD', 800, 92, -0.08, seg(t, 0.12, 0.3), 46);
+    ctx.save(); ctx.translate(0, -lift * 640);
+    V.headline(String(hl.top).toUpperCase(), String(hl.bottom).toUpperCase(), 330, 0.88 + 0.12 * eob(seg(t, 0, 0.3)));
+    if (file) K.slip(`FILE NO. ${file}`, 900, 140, eob(seg(t, 0.25, 0.5)), 0.05, 40);
     ctx.restore();
   };
   cue(0.12, 'thud', { gain: 0.7 });
