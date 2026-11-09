@@ -1,0 +1,221 @@
+name: Daily reel
+
+# Every morning: Claude writes the reel, it's voiced and rendered, the history is committed,
+# the MP4 is published on GitHub Pages, and (with POSTING=on) Buffer schedules it.
+#
+# The schedule runs only when the repo variable DAILY is "on" (gh variable set DAILY --body on),
+# so a fresh copy of the template does nothing until it's set up. Manual runs always work.
+on:
+  # GitHub runs scheduled workflows late, and sometimes not at all, when it's busy (it is
+  # busiest on the hour and half hour). So there are several tries at odd minutes; the guard
+  # job skips any try once today's reel exists. Keep them all a few hours before postAt.
+  schedule:
+    - cron: '17 0 * * *' # 00:17 UTC
+    - cron: '47 2 * * *'
+    - cron: '23 5 * * *'
+    - cron: '53 7 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Date (YYYY-MM-DD); empty means today in the brand's timezone
+        required: false
+      test:
+        description: Mark it as a test in the history
+        type: boolean
+        default: false
+      post_now:
+        description: Post in about 5 minutes instead of at brand.json postAt
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: daily-reel
+  cancel-in-progress: false
+
+jobs:
+  # Decides whether this run does anything: manual runs always do; scheduled ones only when
+  # DAILY is on and today's reel isn't made yet (an earlier try already did it).
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            brand
+            data
+      - id: check
+        run: |
+          if [ "${{ github.event_name }}" = workflow_dispatch ]; then echo go=true >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "${{ vars.DAILY }}" != on ]; then echo "DAILY is not on"; echo go=false >> "$GITHUB_OUTPUT"; exit 0; fi
+          node -e '
+            const fs = require("fs")
+            const b = JSON.parse(fs.readFileSync("brand/brand.json", "utf8"))
+            const day = new Date(Date.now() + b.timezone.offsetMinutes * 60e3).toISOString().slice(0, 10)
+            const h = fs.existsSync("data/history.json") ? JSON.parse(fs.readFileSync("data/history.json", "utf8")) : []
+            const done = h.some(e => e.date === day && (e.status === "rendered" || e.status === "posted"))
+            console.log(done ? `${day} is already done` : `${day} not made yet`)
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `go=${!done}\n`)
+          '
+
+  make:
+    needs: guard
+    if: needs.guard.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      date: ${{ steps.daily.outputs.date }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Cache Piper voice
+        uses: actions/cache@v4
+        with:
+          path: voices
+          key: piper-en_US-ryan-high-v1
+
+      - name: Install Piper
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -q piper-tts
+          [ -f voices/en_US-ryan-high.onnx ] || .venv/bin/python -m piper.download_voices --download-dir voices en_US-ryan-high
+
+      - name: Install packages
+        run: |
+          npm ci --no-audit --no-fund
+          npx remotion browser ensure
+          npm install -g @anthropic-ai/claude-code
+
+      - name: Write, voice and render
+        id: daily
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npx tsx scripts/daily.ts ${{ inputs.date && format('--date {0}', inputs.date) || '' }} ${{ inputs.test && '--test' || '' }}
+
+      - name: Keep the video as a run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-${{ steps.daily.outputs.date }}
+          path: |
+            out/${{ steps.daily.outputs.date }}.mp4
+            reels/${{ steps.daily.outputs.date }}.json
+          retention-days: 30
+
+      - name: Commit the reel and history
+        run: |
+          git config user.name reel-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add reels/ data/history.json
+          git commit -qm "reel: ${{ steps.daily.outputs.date }}" || echo "nothing to commit"
+          git pull -q --rebase origin main && git push -q origin HEAD:main
+
+      - name: Add the video to the media branch
+        run: scripts/media.sh "${{ steps.daily.outputs.date }}" "out/${{ steps.daily.outputs.date }}.mp4" "reels/${{ steps.daily.outputs.date }}.json"
+
+  publish:
+    needs: make
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      page_url: ${{ steps.deploy.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}${{ needs.make.outputs.date }}.mp4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: media
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Check the video is reachable
+        run: |
+          url="${{ steps.deploy.outputs.page_url }}${{ needs.make.outputs.date }}.mp4"
+          for i in $(seq 1 20); do
+            read -r code type < <(curl -s -o /dev/null -w '%{http_code} %{content_type}\n' "$url")
+            echo "$code $type"
+            if [ "$code" = 200 ] && [[ "$type" == video/mp4* ]]; then echo "ok: $url"; exit 0; fi
+            sleep 15
+          done
+          echo "::error::$url is not serving video/mp4"; exit 1
+
+  # Schedules the video on every channel through Buffer. Off until the repo variable
+  # POSTING is "on" (gh variable set POSTING --body on), and never for test runs.
+  post:
+    needs: [make, publish]
+    if: vars.POSTING == 'on' && !inputs.test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BUFFER_API_KEY_1: ${{ secrets.BUFFER_API_KEY_1 }}
+      BUFFER_API_KEY_2: ${{ secrets.BUFFER_API_KEY_2 }}
+      PAGES_URL: ${{ needs.publish.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Schedule on every channel in brand/channels.json
+        run: npx tsx scripts/post.ts "${{ needs.make.outputs.date }}" ${{ inputs.post_now && '--now' || '' }}
+
+      - name: Commit what was scheduled
+        if: always()
+        run: |
+          git config user.name reel-bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/posts/ data/history.json
+          git commit -qm "posted: ${{ needs.make.outputs.date }}" || echo "nothing to commit"
+          git pull -q --rebase origin main && git push -q origin HEAD:main
+
+      - name: Check yesterday's posts went out
+        run: |
+          y=$(date -u -d "${{ needs.make.outputs.date }} -1 day" +%F)
+          if [ -f "data/posts/$y.json" ]; then npx tsx scripts/post.ts "$y" --check; else echo "no posts for $y"; fi
+
+  report-failure:
+    needs: [guard, make, publish, post]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open an issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "${{ github.repository }}" \
+            --title "Daily reel failed: $(date -u +%F)" \
+            --body "The daily reel run failed. Logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
