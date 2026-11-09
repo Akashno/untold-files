@@ -6,6 +6,12 @@
     "Encyclopaedia Britannica, 'Onoda Hiroo' (sent to Lubang Island in December 1944, held out until 1974, relieved of duty by his former commander)",
     "The New York Times obituary, 17 January 2014"
   ],
+  "props": [
+    {
+      "name": "leaflet",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"130\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><g transform=\"rotate(-8 200 200)\"><rect x=\"95\" y=\"70\" width=\"210\" height=\"270\" rx=\"6\" fill=\"#E9DFC6\"/><rect x=\"250\" y=\"70\" width=\"55\" height=\"270\" rx=\"6\" fill=\"#D6C9A8\"/><rect x=\"120\" y=\"100\" width=\"160\" height=\"70\" rx=\"4\" fill=\"#B8443A\"/><circle cx=\"200\" cy=\"135\" r=\"22\" fill=\"#F4EBD6\"/><rect x=\"120\" y=\"190\" width=\"160\" height=\"12\" rx=\"6\" fill=\"#6E5A44\"/><rect x=\"120\" y=\"215\" width=\"140\" height=\"12\" rx=\"6\" fill=\"#6E5A44\"/><rect x=\"120\" y=\"240\" width=\"155\" height=\"12\" rx=\"6\" fill=\"#6E5A44\"/><rect x=\"120\" y=\"265\" width=\"100\" height=\"12\" rx=\"6\" fill=\"#6E5A44\"/><rect x=\"105\" y=\"80\" width=\"14\" height=\"250\" rx=\"7\" fill=\"#fff\" opacity=\".35\"/></g></svg>"
+    }
+  ],
   "lines": [
     {
       "text": "In nineteen forty-four, a young Japanese officer was sent to a tiny island.",
@@ -88,7 +94,7 @@
       "caps": "*Leaflets said | it was *over. | He thought: *trick.",
       "scene": {
         "type": "object",
-        "object": "letter",
+        "object": "prop:leaflet",
         "setting": "jungle",
         "text": "A trick?",
         "on": "trick"

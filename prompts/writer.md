@@ -40,7 +40,29 @@ punch (shown in red). Under 18 characters each, digits allowed. Examples: "41,00
 Chunks of 1-4 words split by `|`, covering the line in order (you may shorten). Exactly one `*word` per chunk: the key
 word, shown in red. Digits are fine here ("In *1944,").
 
-# 5. Scenes (`scene`)
+# 5. Props (`props`): draw the story's own objects
+
+The viewer must SEE what the story is about. Draw 1-3 key objects of this story as small SVG pictures (the clay
+and its tub, the thorn hedge, the leaflets, the bottle of pills…) and use them in scenes as `"object": "prop:<name>"`
+or `"item": "prop:<name>"` in a people scene (what they hold, use or find). The first scene should usually show one.
+
+- `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">`, transparent background, the object centred and
+  filling about 70% of the box, under 3000 characters.
+- Flat vector style: simple bold shapes (path, rect, circle, ellipse, polygon, g), 3-7 colours, light from the upper
+  left: add a lighter highlight shape on the upper left and a darker shade shape on the lower right. A soft
+  shadow ellipse under it (fill="#000" opacity=".15"). About 10-25 shapes: add the details that make it
+  unmistakable (what's inside or spilling out, texture marks, a part in use). Instantly recognisable at phone size.
+- No text, letters, numbers, logos or brand marks. No script, image, style, filter, foreignObject or links.
+
+Example (a tin can):
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><ellipse cx="200" cy="335" rx="120" ry="20" fill="#000" opacity=".15"/><rect x="105" y="115" width="190" height="215" rx="14" fill="#C9CDD3"/><rect x="235" y="115" width="60" height="215" rx="14" fill="#9AA1AC"/><rect x="105" y="170" width="190" height="100" fill="#C2302B"/><rect x="235" y="170" width="60" height="100" fill="#9E2A2A"/><rect x="125" y="130" width="22" height="180" rx="11" fill="#fff" opacity=".35"/><ellipse cx="200" cy="115" rx="95" ry="22" fill="#E2E5E9"/></svg>`
+
+# 6. Scenes (`scene`)
+
+**Every picture must show exactly what that line is about.** Never use a stand-in: no book or bottle for clay, no
+scroll for a contract you could draw. If neither the library nor your props fit a line, give it no scene (the last
+picture stays) or use people, a map, a date or a count instead.
+
 
 Give line 1 a scene, and most other lines too. A line with no scene keeps the previous picture (use that for a
 sentence split over two lines). Never the same scene type three times in a row. Use at least 4 different types.
@@ -49,10 +71,11 @@ sentence split over two lines). Never the same scene type three times in a row. 
 - `map`: real places placed roughly where they are on a real map (x 0 west → 1 east, y 0 north → 1 south, inside the
   region shown), a red `route` through them in order, a `mover` (ship, plane, army, arrow), `focus` to circle one.
   `land`: "islands" for island stories, else "continent". Use whenever the story moves or a place matters.
-- `people`: 1-3 paper figures with a `role` and an optional name `label`, in a `setting`, doing an `action`, and an
-  optional `text` slip that pops on the word `on`. Give each figure a `skin` tone that fits who they really were. Roles: king, queen, sailor, scholar, guard, merchant, worker,
+- `people`: 1-3 illustrated people with a `role` and an optional name `label`, in a `setting`, doing an `action`,
+  an optional `item` (`prop:<name>`) shown with them, and an optional `text` slip that pops on the word `on`. Give each figure a `skin` tone that fits who they really were. Roles: king, queen, sailor, scholar, guard, merchant, worker,
   soldier, officer, pilot, civilian, woman, child.
-- `object`: a close-up of one object, optional `text` slip that pops on the word `on`. Pick the most specific one:
+- `object`: a close-up of one object: `prop:<name>` for your own props, or one from this library if it is exactly
+  right. Optional `text` slip that pops on the word `on`. Library:
   - travel and war: plane, ship, submarine, train, car, tank, rocket, balloon, helmet, sword, medal, anchor, compass
   - messages and records: letter, telegram, radio, telephone, newspaper, typewriter, book, scroll, folder, camera
     (newspaper, scroll, folder and typewriter print a short `headline`; folder is a secret file, e.g. "CLASSIFIED")
@@ -66,7 +89,7 @@ Settings: parchment, day, field, jungle, sea, hall, room, desert, snow, city; ad
 Slip and label text: short, plain words (they're shown in capitals). `on` and `subOn` must be a word that is
 actually in that line's `text`.
 
-# 6. Post text
+# 7. Post text
 
 - caption: a curiosity line, a question that invites comments ("Would you have believed the leaflets?"), then
   "Follow {{handle}} for a new untold story every day." No hashtags in the caption.

@@ -132,6 +132,7 @@ export function buildShots(script) {
   // the time a word is said in line i (falls back to shortly after the line starts)
   const at = (word, i, fallback = 0.3) => { if (!word) return L(i) + fallback; try { return Wd(String(word).split(/\s+/)[0], i); } catch { return L(i) + fallback; } };
   const lines = script.lines;
+  const prop = (ref) => (typeof ref === 'string' && ref.startsWith('prop:') ? (script._img || {})[ref.slice(5)] : null);
   lines.forEach((ln, i) => {
     const sc = ln.scene; if (!sc) return;
     const st = i === 0 ? 0 : L(i) - 0.08;
@@ -148,11 +149,11 @@ export function buildShots(script) {
       (sc.places || []).forEach((_, k) => cue(st + 0.1 + k * 0.15, 'pop', { gain: 0.35 }));
       if (sc.route !== false && (sc.places || []).length > 1) cue(st + 0.35, 'slide', { dur: 1.4, gain: 0.5 });
     } else if (sc.type === 'people') {
-      const figs = (sc.figures || [{ role: 'civilian' }]).slice(0, 3), n = figs.length, txt = sc.text ? pop(sc.on, 0.5) : 0;
+      const figs = (sc.figures || [{ role: 'civilian' }]).slice(0, 3), n = figs.length, item = prop(sc.item), txt = sc.text ? pop(sc.on, 0.5) : 0;
       S.push({ ...base, cam: [540, 1000], zoom: 0.09, draw(lt, d, t) {
         setting(sc.setting || 'day', sc.night, t);
         figs.forEach((f, k) => {
-          const x0 = n === 1 ? 540 : n === 2 ? 340 + k * 400 : 230 + k * 310, walk = sc.action === 'walk';
+          const x0 = n === 1 ? (item ? 330 : 540) : n === 2 ? 340 + k * 400 : 230 + k * 310, walk = sc.action === 'walk';
           const x = walk ? x0 + lerp(-120, 120, lt / d) : x0, h = n === 1 ? 680 : n === 2 ? 600 : 520;
           const arm = k === 0 && sc.action === 'point' ? 'point' : k === 0 && sc.action === 'wave' ? 'wave' : 'down';
           const blink = clamp(1 - Math.abs(((t + k * 1.3) % 3.4) - 1.7) / 0.09);
@@ -160,11 +161,12 @@ export function buildShots(script) {
           V.person({ x, y, h, role: f.role, skin: f.skin, dir: n > 1 && k === n - 1 ? -1 : 1, walk: walk ? t * 6 + k : null, arm, blink, t });
           if (f.label) K.slip(f.label.toUpperCase(), x, GROUND - h * (f.role === 'child' ? 0.9 : 1.3) - 40, eob(seg(lt, 0.3 + k * 0.15, 0.6 + k * 0.15)), k % 2 ? 0.03 : -0.03, 38);
         });
+        if (item) { const p = eob(seg(lt, 0.25, 0.6)); if (p > 0) propImage(item, n === 1 ? 780 : 540, n === 3 ? GROUND - 20 : GROUND - 130, (n === 1 ? 400 : 290) * p, t); }
         if (sc.text) K.slip(sc.text.toUpperCase(), 540, top, eob(seg(lt, txt, txt + 0.3)), -0.02, 54);
       } });
       if (sc.text) cue(st + txt, 'pop', { gain: 0.5 });
     } else if (sc.type === 'object') {
-      const draw = OBJECTS[sc.object] || OBJECTS.scroll, txt = sc.text ? pop(sc.on, 0.5) : 0;
+      const pic = prop(sc.object), draw = pic ? (s, t, k) => propImage(pic, 540, 900, 880 * k, t) : OBJECTS[sc.object] || OBJECTS.scroll, txt = sc.text ? pop(sc.on, 0.5) : 0;
       S.push({ ...base, cam: [540, 950], zoom: 0.12, draw(lt, d, t) {
         setting(sc.setting || 'parchment', sc.night, t);
         const p = eob(seg(lt, 0.05, 0.45)); ctx.save(); ctx.translate(0, (1 - p) * 300); ctx.globalAlpha = clamp(p * 2); draw(sc, t, 1); ctx.restore();
@@ -227,6 +229,13 @@ export function buildShots(script) {
 }
 
 const MANILA = '#D9B77A', MANILA_DARK = '#C29B5A';
+/** one of Claude's prop pictures, floating gently with a soft shadow */
+function propImage(img, x, y, size, t) {
+  ctx.save(); ctx.translate(x, y + Math.sin(t * 1.4) * 10); ctx.rotate(Math.sin(t * 0.9) * 0.025);
+  ctx.shadowColor = 'rgba(30,22,40,0.28)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 16;
+  ctx.drawImage(img, -size / 2, -size / 2, size, size);
+  ctx.restore();
+}
 /** a red rubber stamp that slams down as p goes 0 -> 1 */
 function stamp(text, x, y, rot, p, size) {
   if (p <= 0) return;

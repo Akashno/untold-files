@@ -2,6 +2,7 @@
 //
 //   npm run write                              -> reels/<next slot>.json (scripts/slot.mjs)
 //   npm run write -- --id 2026-11-10-1900      a given slot
+//   npm run write -- --topic "the Gimli Glider"  tell a story you choose
 //
 // Claude gets the brief, today's category (the one used least recently) and every past title, and returns
 // JSON matching story.schema.json. The result is checked; only if it fails is Claude asked once more,
@@ -46,6 +47,34 @@ export function fixCaps(s: Story) {
   }
 }
 
+// Props are SVG drawn by Claude. They are only ever drawn as images in the renderer (scripts never run there), but
+// anything that isn't plain shapes is refused anyway, and they must be used.
+const SVG_BAD = /<\s*(script|foreignObject|image|img|iframe|style|text|a|use|filter|animate|set)\b|\bon[a-z]+\s*=|\b(?:xlink:)?href\s*=|url\(\s*['"]?(?!#)|javascript:|@import|<!/i
+export function checkProps(s: Story): string[] {
+  const errors: string[] = []
+  const names = new Set(s.props.map(p => p.name))
+  const used = new Set<string>()
+  for (const p of s.props) {
+    const svg = p.svg.trim()
+    if (!/^<svg\b[^>]*viewBox="0 0 400 400"/.test(svg) || !svg.endsWith('</svg>'))
+      errors.push(`prop "${p.name}": must be one <svg viewBox="0 0 400 400">…</svg>`)
+    const bad = svg.match(SVG_BAD)
+    if (bad) errors.push(`prop "${p.name}": "${bad[0]}" is not allowed; use plain shapes only`)
+    const opens = (svg.match(/<[a-zA-Z][^>]*[^/]>|<[a-zA-Z]>/g) ?? []).length, closes = (svg.match(/<\/[a-zA-Z]+\s*>/g) ?? []).length
+    if (opens !== closes) errors.push(`prop "${p.name}": the SVG tags don't balance (${opens} open, ${closes} closed)`)
+  }
+  s.lines.forEach((l, i) => {
+    const sc: any = l.scene
+    for (const ref of [sc?.object, sc?.item]) {
+      if (typeof ref !== 'string' || !ref.startsWith('prop:')) continue
+      if (!names.has(ref.slice(5))) errors.push(`line ${i + 1}: "${ref}" is not one of your props`)
+      used.add(ref.slice(5))
+    }
+  })
+  for (const n of names) if (!used.has(n)) errors.push(`prop "${n}" is never shown; use it in a scene or drop it`)
+  return errors
+}
+
 export function checkStory(x: unknown): string[] {
   if (!validate(x))
     return (validate.errors ?? []).slice(0, 12).map(e => `${e.instancePath || '/'} ${e.message}`)
@@ -83,6 +112,7 @@ export function checkStory(x: unknown): string[] {
     if (sc?.type === 'timeline' && sc.active != null && sc.active >= sc.years.length)
       errors.push(`line ${i + 1}: timeline active ${sc.active} is past its last year`)
   })
+  errors.push(...checkProps(s))
   const types = s.lines.map(l => l.scene?.type).filter(Boolean) as string[]
   if (new Set(types).size < 4)
     errors.push(`only ${new Set(types).size} different scene types; use at least 4`)
@@ -125,9 +155,10 @@ function pickCategory(history: HistoryEntry[], date: string) {
   const seed = Number(date.replaceAll('-', ''))
   return [...cats].sort((a, b) => last(a.id).localeCompare(last(b.id)) || ((cats.indexOf(a) + seed) % cats.length) - ((cats.indexOf(b) + seed) % cats.length))[0]
 }
-function buildPrompt(date: string, cat: { id: string, brief: string }, history: HistoryEntry[]) {
+function buildPrompt(date: string, cat: { id: string, brief: string }, history: HistoryEntry[], topic?: string) {
   return [
     `# Today\n\nVideo: ${date} (date and post time). Category: **${cat.id}**: ${cat.brief}\nSet "category" to exactly "${cat.id}".`,
+    ...(topic ? [`Tell this story: ${topic}`] : []),
     '# Past videos (never repeat these stories, people or events)',
     history.length ? history.slice(-300).reverse().map(h => `- ${h.title}`).join('\n') : '(none yet: this is the first one)',
   ].join('\n\n')
@@ -149,10 +180,10 @@ function askClaude(prompt: string, system: string): { out?: Story, error?: strin
   return { out: out.structured_output, tokens: `${total} tokens (${n('output_tokens')} out), ${Math.round((out.duration_ms ?? 0) / 1000)}s` }
 }
 
-export async function write(date: string): Promise<{ ok: true, file: string, story: Story } | { ok: false, errors: string[] }> {
+export async function write(date: string, topic?: string): Promise<{ ok: true, file: string, story: Story } | { ok: false, errors: string[] }> {
   const history = loadHistory().filter(h => h.date < date)
   const cat = pickCategory(history, date)
-  const base = buildPrompt(date, cat, history)
+  const base = buildPrompt(date, cat, history, topic)
   const system = fill(read('prompts/writer.md'))
   console.log(`Writing ${date}: category "${cat.id}" (${MODEL})`)
   let prompt = base
@@ -197,7 +228,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     console.log(errors.length ? `✗ ${errors.join('\n  ')}` : '✓ story passes the checks')
     process.exit(errors.length ? 1 : 0)
   }
-  const r = await write(date)
+  const t = process.argv.indexOf('--topic')
+  const r = await write(date, t > 0 ? process.argv[t + 1] : undefined)
   if (!r.ok) {
     console.error(`✗ no usable story:\n  ${r.errors.join('\n  ')}`)
     process.exit(1)

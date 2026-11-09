@@ -34,6 +34,15 @@ function draw(t) {
     await document.fonts.load('900 100px Inter'); await document.fonts.load('700 100px Caladea');
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
     await loadTiming();
+    // Claude's own pictures for this story (props): SVG -> image. A broken one stops the boot, so the check fails
+    // and scripts/daily.ts writes a fresh story instead of rendering a blank.
+    script._img = {};
+    for (const p of script.props || []) {
+      const svg = /<svg\b[^>]*\bwidth=/.test(p.svg) ? p.svg : p.svg.replace(/<svg\b/, '<svg width="800" height="800"');
+      const img = new Image(); img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      try { await img.decode(); } catch { throw new Error(`prop "${p.name}": the SVG does not draw`); }
+      script._img[p.name] = img;
+    }
     buildCaptions(script);
     const { shots, cues, overlay, endAt } = buildShots(script);
     OP._overlay = overlay; OP._endAt = endAt;
