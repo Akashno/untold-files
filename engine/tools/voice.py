@@ -12,7 +12,7 @@ spoken in ONE pass, so the intonation flows naturally; then every cut inside a s
 to the nearest pause, else placed by length). "gap" (on a sentence's last line) = the pause after that sentence.
 Write numbers the way they're SAID. Then run words.py for the word timings.
 """
-import argparse, json, os, re, sys, urllib.request
+import argparse, json, os, re, sys, time, urllib.request
 from pathlib import Path
 import numpy as np
 from scipy.io import wavfile
@@ -38,7 +38,14 @@ def ensure_models():
         p = KDIR / name
         if p.exists() and p.stat().st_size > 1_000_000: continue
         print(f'downloading {name} (once)...', flush=True)
-        tmp = p.with_suffix('.part'); urllib.request.urlretrieve(url, tmp); tmp.rename(p)
+        tmp = p.with_suffix('.part')
+        for attempt in range(1, 6):  # GitHub's release host sometimes answers 502/504; wait and retry
+            try:
+                urllib.request.urlretrieve(url, tmp); tmp.rename(p); break
+            except Exception as e:
+                if attempt == 5: raise
+                print(f'  download failed ({e}); retrying in {attempt * 10}s', flush=True)
+                time.sleep(attempt * 10)
 
 
 def trim(x, thr=0.008):
