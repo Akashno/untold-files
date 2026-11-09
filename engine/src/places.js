@@ -129,7 +129,6 @@ export const PLACES = {
     solid(R(120, 380, 260, 200, 4), '#C9A24A', [120, 380, 260, 200]); fill(R(140, 400, 220, 160), lin(0, 400, 0, 560, [[0, '#8FB0C4'], [1, '#5E8B5A']]));
     ctx.fillStyle = lin(0, 1300, 0, H, [[0, '#9A6A3E'], [1, '#6E4627']]); ctx.fillRect(-300, 1300, W + 600, H);
     for (let k = -6; k <= 6; k++) stroke([[540 + k * 120, 1300], [540 + k * 330, H + 200]], 'rgba(40,20,10,0.2)', 3);
-    fill(E(540, 1500, 430, 90), lin(0, 1530, 0, 1750, [[0, '#B8443A'], [1, '#8C2E2A']])); ctx.strokeStyle = '#D9B24C'; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(540, 1500, 390, 74, 0, 0, TAU); ctx.stroke();
   },
   desert(t, n) {
     V.sky('#E9B87A', '#F7E3B8', HZ); V.sunGlow(780, 560, 520); fill(E(780, 560, 110, 110), '#FBE6A4');
