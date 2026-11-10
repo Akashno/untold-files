@@ -1,0 +1,187 @@
+{
+  "title": "The Roman Empire that was sold at an auction",
+  "category": "ancient",
+  "hook": "Soldiers once sold the entire Roman Empire at an auction.",
+  "headline": {
+    "top": "ROME WAS SOLD",
+    "bottom": "AT AN AUCTION!"
+  },
+  "summary": "In 193 AD the Praetorian Guard auctioned the Roman throne to Didius Julianus, who lasted only 66 days before Septimius Severus took Rome.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica, Didius Julianus: bought the throne from the Praetorian Guard in 193 AD after Pertinax was murdered, and was executed after about two months.",
+    "Cassius Dio, Roman History, Book 74 (eyewitness account of the auction), and Wikipedia 'Didius Julianus': 25,000 sesterces per guard, reign of 66 days, Severus later disbanded the Guard."
+  ],
+  "props": [
+    {
+      "name": "sesterces",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"140\" ry=\"22\" fill=\"#000\" opacity=\".15\"/><ellipse cx=\"200\" cy=\"300\" rx=\"120\" ry=\"30\" fill=\"#B8862B\"/><rect x=\"80\" y=\"260\" width=\"240\" height=\"40\" fill=\"#B8862B\"/><ellipse cx=\"200\" cy=\"260\" rx=\"120\" ry=\"30\" fill=\"#E3B341\"/><ellipse cx=\"200\" cy=\"225\" rx=\"100\" ry=\"26\" fill=\"#B8862B\"/><rect x=\"100\" y=\"195\" width=\"200\" height=\"30\" fill=\"#B8862B\"/><ellipse cx=\"200\" cy=\"195\" rx=\"100\" ry=\"26\" fill=\"#E3B341\"/><ellipse cx=\"200\" cy=\"160\" rx=\"78\" ry=\"20\" fill=\"#B8862B\"/><rect x=\"122\" y=\"135\" width=\"156\" height=\"25\" fill=\"#B8862B\"/><ellipse cx=\"200\" cy=\"135\" rx=\"78\" ry=\"20\" fill=\"#F2CD63\"/><ellipse cx=\"175\" cy=\"130\" rx=\"30\" ry=\"6\" fill=\"#fff\" opacity=\".4\"/><circle cx=\"200\" cy=\"135\" r=\"10\" fill=\"#B8862B\"/><path d=\"M290 300 Q310 270 300 250 L320 260 Q320 290 290 300Z\" fill=\"#8A6420\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Soldiers once sold the entire Roman Empire at an auction.",
+      "caps": "*Soldiers once sold | the entire *Roman Empire | at an *auction",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "person:soldier",
+            "x": 0.3,
+            "y": 0.68,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.75,
+            "y": 0.68,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "crown",
+            "x": 0.52,
+            "y": 0.55,
+            "size": "large",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In one hundred ninety-three, the guards murdered their emperor.",
+      "caps": "In *193, | the *guards murdered | their *emperor",
+      "scene": {
+        "type": "date",
+        "text": "193 AD",
+        "sub": "Rome",
+        "subOn": "guards",
+        "setting": "city"
+      }
+    },
+    {
+      "text": "Then they offered the throne to whoever paid the most.",
+      "caps": "They *offered | the *throne | to whoever *paid most",
+      "scene": {
+        "type": "people",
+        "setting": "city",
+        "action": "point",
+        "figures": [
+          {
+            "role": "soldier",
+            "skin": "medium",
+            "hair": "black"
+          },
+          {
+            "role": "soldier",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "text": "SOLD TO THE HIGHEST BIDDER",
+        "on": "paid"
+      }
+    },
+    {
+      "text": "A rich senator, Didius Julianus, promised each guard twenty-five thousand coins and won.",
+      "caps": "A rich *senator, | *Julianus, promised | each guard *25,000 coins",
+      "scene": {
+        "type": "object",
+        "object": "prop:sesterces",
+        "text": "25,000 EACH",
+        "on": "twenty-five"
+      }
+    },
+    {
+      "text": "But Rome hated him, and generals in the provinces rebelled.",
+      "caps": "But *Rome hated him, | and *generals | *rebelled",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "grey",
+            "label": "Julianus"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Septimius Severus marched on the city, and the Senate turned on Julianus.",
+      "caps": "*Severus | marched on the *city, | the *Senate turned",
+      "scene": {
+        "type": "map",
+        "title": "193 AD",
+        "land": "continent",
+        "mover": "army",
+        "places": [
+          {
+            "name": "Carnuntum",
+            "x": 0.6,
+            "y": 0.15
+          },
+          {
+            "name": "Rome",
+            "x": 0.4,
+            "y": 0.7
+          }
+        ],
+        "focus": "Rome"
+      }
+    },
+    {
+      "text": "He was executed after just sixty-six days.",
+      "caps": "He was *executed | *after just | *66 days",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "crown",
+            "x": 0.5,
+            "y": 0.3,
+            "size": "large",
+            "move": "crash",
+            "on": "executed"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Severus then disbanded the guards who had sold the throne.",
+      "caps": "*Severus | disbanded the *guards | who sold the *throne",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "GUARD DISBANDED",
+            "on": "disbanded"
+          },
+          {
+            "text": "THRONE SOLD",
+            "on": "sold"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "The most powerful job on Earth was once sold like a market stall, and the buyer lasted barely two months.\nWould you have bid?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#rome",
+      "#ancienthistory",
+      "#truestory",
+      "#romanempire"
+    ],
+    "youtubeTitle": "Soldiers sold the Roman Empire at an auction #shorts",
+    "xText": "In 193 AD the Roman throne was auctioned off. The winner lasted 66 days."
+  }
+}

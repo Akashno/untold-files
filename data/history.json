@@ -40,5 +40,12 @@
     "category": "mystery",
     "summary": "The cargo steamer Baychimo was abandoned in Alaskan ice in 1931, then kept being sighted drifting empty until 1969, and has never been found.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-10-1900",
+    "title": "The Roman Empire that was sold at an auction",
+    "category": "ancient",
+    "summary": "In 193 AD the Praetorian Guard auctioned the Roman throne to Didius Julianus, who lasted only 66 days before Septimius Severus took Rome.",
+    "status": "rendered"
   }
 ]
