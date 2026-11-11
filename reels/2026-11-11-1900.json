@@ -1,0 +1,180 @@
+{
+  "title": "The dropped socket that nearly set off America's biggest warhead",
+  "category": "disaster",
+  "hook": "A dropped tool punctured a nuclear missile in an Arkansas silo.",
+  "headline": {
+    "top": "ONE DROPPED TOOL.",
+    "bottom": "ONE NUCLEAR BOMB"
+  },
+  "summary": "In 1980 a repairman dropped a socket in an Arkansas Titan II silo; it punctured the fuel tank, the missile exploded, and its warhead landed nearby without detonating.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: 1980 Damascus Titan missile explosion: 18 September 1980, socket dropped about 70 feet, punctured first-stage fuel tank, explosion next morning, W53 nine-megaton warhead found in a ditch, did not detonate, one airman killed.",
+    "Eric Schlosser, Command and Control (2013) and US Air Force accident records on the Titan II Damascus incident."
+  ],
+  "props": [
+    {
+      "name": "socket",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"110\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"120\" y=\"110\" width=\"160\" height=\"220\" rx=\"22\" fill=\"#9AA1AC\"/><rect x=\"220\" y=\"110\" width=\"60\" height=\"220\" rx=\"22\" fill=\"#6E7683\"/><rect x=\"138\" y=\"125\" width=\"24\" height=\"190\" rx=\"12\" fill=\"#fff\" opacity=\".4\"/><ellipse cx=\"200\" cy=\"110\" rx=\"80\" ry=\"26\" fill=\"#C9CDD3\"/><ellipse cx=\"200\" cy=\"110\" rx=\"44\" ry=\"14\" fill=\"#3A3F48\"/><rect x=\"120\" y=\"215\" width=\"160\" height=\"14\" fill=\"#6E7683\"/></svg>"
+    },
+    {
+      "name": "warhead",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><path d=\"M200 50 C270 120 290 220 280 320 L120 320 C110 220 130 120 200 50Z\" fill=\"#8A8F98\"/><path d=\"M200 50 C270 120 290 220 280 320 L225 320 C240 220 235 120 200 50Z\" fill=\"#5F6570\"/><path d=\"M165 110 C150 170 145 240 150 310\" stroke=\"#fff\" stroke-width=\"14\" fill=\"none\" opacity=\".4\" stroke-linecap=\"round\"/><rect x=\"120\" y=\"290\" width=\"160\" height=\"30\" fill=\"#3A3F48\"/><rect x=\"135\" y=\"200\" width=\"130\" height=\"14\" fill=\"#C2302B\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A dropped tool nearly set off America's biggest nuclear warhead.",
+      "caps": "A dropped *tool | *nearly set off | America's biggest *warhead",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:socket",
+            "x": 0.5,
+            "y": 0.5,
+            "size": "medium",
+            "move": "fall"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In September nineteen eighty, a repairman in an Arkansas missile silo dropped a heavy socket.",
+      "caps": "In *1980, | a *repairman | in *Arkansas | dropped a *socket",
+      "scene": {
+        "type": "map",
+        "title": "ARKANSAS, USA",
+        "places": [
+          {
+            "name": "Damascus",
+            "x": 0.5,
+            "y": 0.5
+          }
+        ],
+        "focus": "Damascus",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "It fell seventy feet and punctured the rocket's fuel tank.",
+      "caps": "It fell *seventy feet | and *punctured | the *fuel tank",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:socket",
+            "x": 0.5,
+            "y": 0.35,
+            "size": "small",
+            "move": "crash",
+            "on": "punctured"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Fuel leaked for hours, and everyone nearby was evacuated.",
+      "caps": "Fuel *leaked | for *hours, | everyone *evacuated",
+      "scene": {
+        "type": "people",
+        "setting": "field",
+        "night": true,
+        "action": "walk",
+        "figures": [
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "civilian",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Then the missile exploded, and the warhead flew across the ground.",
+      "caps": "Then it *exploded, | the *warhead | *flew away",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:warhead",
+            "x": 0.3,
+            "y": 0.5,
+            "size": "medium",
+            "move": "fly",
+            "dir": "right"
+          },
+          {
+            "art": "fire",
+            "x": 0.2,
+            "y": 0.7,
+            "size": "large",
+            "move": "grow",
+            "on": "exploded"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It landed in a ditch, and it never went off.",
+      "caps": "It landed in a *ditch, | and *never | went *off",
+      "scene": {
+        "type": "object",
+        "object": "prop:warhead",
+        "setting": "field",
+        "text": "NEVER WENT OFF",
+        "on": "never"
+      }
+    },
+    {
+      "text": "One airman died, but a nine megaton blast was avoided.",
+      "caps": "One airman *died, | a *nine megaton | blast *avoided",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "9 MEGATONS",
+            "on": "nine"
+          },
+          {
+            "text": "NO BLAST",
+            "on": "avoided"
+          }
+        ]
+      }
+    },
+    {
+      "text": "All because one small tool slipped.",
+      "caps": "All *because | one *small tool | *slipped",
+      "scene": {
+        "type": "object",
+        "object": "prop:socket",
+        "setting": "room"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A single socket fell seventy feet and nearly changed Arkansas forever.\nWould you have guessed such a small thing could cause this?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#coldwar",
+      "#disaster",
+      "#nuclear"
+    ],
+    "youtubeTitle": "A dropped tool nearly set off America's biggest warhead #shorts",
+    "xText": "In 1980, one dropped socket punctured a Titan II missile in Arkansas. Its warhead landed in a ditch and never went off."
+  }
+}
