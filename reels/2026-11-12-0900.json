@@ -1,0 +1,154 @@
+{
+  "title": "The dirty flask that gave us safety glass",
+  "category": "invention",
+  "hook": "A glass flask hit the floor and cracked, but never shattered.",
+  "headline": {
+    "top": "THE FLASK CRACKED",
+    "bottom": "BUT NEVER BROKE"
+  },
+  "summary": "In 1903 chemist Édouard Benedictus knocked a flask off a shelf and it cracked without shattering, which led to laminated safety glass.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica: Édouard Benedictus, French chemist who discovered laminated safety glass in 1903 and patented it in 1909",
+    "Corning Museum of Glass / Science Museum Group: laminated glass, cellulose nitrate film in a dropped flask, used in WWI gas mask lenses and later in cars"
+  ],
+  "props": [
+    {
+      "name": "flask",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"115\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><path d=\"M170 60h60v90l85 160q10 30-20 35H105q-30-5-20-35l85-160z\" fill=\"#BFE3EE\"/><path d=\"M230 150l85 160q10 30-20 35h-70z\" fill=\"#8FC3D4\"/><path d=\"M180 70h12v85l-80 150q-4 15 8 20z\" fill=\"#fff\" opacity=\".5\"/><rect x=\"162\" y=\"50\" width=\"76\" height=\"20\" rx=\"8\" fill=\"#E6F4F8\"/><path d=\"M200 200l-30 40 40 20-25 50M200 200l40 30-20 30 45 40M170 240l-40 10\" stroke=\"#4A6F7C\" stroke-width=\"5\" fill=\"none\"/></svg>"
+    },
+    {
+      "name": "glasslayer",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"140\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><polygon points=\"60,120 300,120 340,160 100,160\" fill=\"#CBEAF2\"/><polygon points=\"60,160 300,160 300,185 60,185\" fill=\"#BFE3EE\"/><polygon points=\"60,185 300,185 300,215 60,215\" fill=\"#E8C24A\"/><polygon points=\"60,215 300,215 300,240 60,240\" fill=\"#BFE3EE\"/><polygon points=\"300,160 340,160 340,200 300,240\" fill=\"#8FC3D4\"/><polygon points=\"300,185 340,185 340,200 300,215\" fill=\"#B8922E\"/><rect x=\"75\" y=\"165\" width=\"90\" height=\"10\" rx=\"5\" fill=\"#fff\" opacity=\".5\"/><path d=\"M180 140l40 20-20 15 30 20\" stroke=\"#4A6F7C\" stroke-width=\"4\" fill=\"none\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A glass flask hit the floor and cracked, but never shattered.",
+      "caps": "A glass *flask | hit the *floor | but never *shattered",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:flask",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "crash",
+            "on": "cracked"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen oh three, chemist Édouard Benedictus knocked it off a shelf.",
+      "caps": "In *1903, | chemist *Benedictus | knocked it *off",
+      "scene": {
+        "type": "date",
+        "text": "1903",
+        "sub": "A FRENCH LAB",
+        "setting": "room"
+      }
+    },
+    {
+      "text": "Inside, dried plastic had left a thin film holding the glass together.",
+      "caps": "Inside, dried *plastic | left a thin *film | holding it *together",
+      "scene": {
+        "type": "object",
+        "object": "prop:flask",
+        "text": "THIN FILM",
+        "on": "film"
+      }
+    },
+    {
+      "text": "So he sealed plastic between two sheets of glass.",
+      "caps": "So he *sealed plastic | between two *sheets | of *glass",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:glasslayer",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "grow",
+            "on": "sealed"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Carmakers ignored it because it cost too much.",
+      "caps": "Carmakers *ignored it | *because it cost | *too much",
+      "scene": {
+        "type": "count",
+        "setting": "city",
+        "items": [
+          {
+            "text": "TOO COSTLY",
+            "on": "much"
+          }
+        ]
+      }
+    },
+    {
+      "text": "But in the First World War, it protected soldiers' eyes in gas masks.",
+      "caps": "But in the *First World War, | it *protected | soldiers' *eyes",
+      "scene": {
+        "type": "people",
+        "setting": "field",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "soldier",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "text": "GAS MASK LENSES",
+        "on": "eyes"
+      }
+    },
+    {
+      "text": "Later, cars crashed and windshields cracked, but stayed in one piece.",
+      "caps": "Later, cars *crashed | windshields *cracked, | but stayed *whole",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "car",
+            "x": 0.5,
+            "y": 0.7,
+            "size": "large",
+            "move": "crash",
+            "on": "crashed"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Thanks to one dirty flask.",
+      "caps": "*Thanks to one | *dirty flask",
+      "scene": {
+        "type": "object",
+        "object": "prop:flask"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A forgotten dirty flask gave us the glass in every car today.\nWould you have noticed it, or just cleaned it?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#science",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "A dropped flask cracked but never shattered #shorts",
+    "xText": "A dirty flask, one accidental drop, and safety glass was born."
+  }
+}

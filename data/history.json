@@ -61,5 +61,12 @@
     "category": "disaster",
     "summary": "In 1980 a repairman dropped a socket in an Arkansas Titan II silo; it punctured the fuel tank, the missile exploded, and its warhead landed nearby without detonating.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-12-0900",
+    "title": "The dirty flask that gave us safety glass",
+    "category": "invention",
+    "summary": "In 1903 chemist Édouard Benedictus knocked a flask off a shelf and it cracked without shattering, which led to laminated safety glass.",
+    "status": "rendered"
   }
 ]
