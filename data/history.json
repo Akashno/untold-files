@@ -96,5 +96,12 @@
     "category": "mystery",
     "summary": "In December 1900 all three keepers of the Flannan Isles lighthouse in Scotland disappeared, leaving an empty station and no answer.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-13-1900",
+    "title": "The Roman emperor captured alive by Persia",
+    "category": "ancient",
+    "summary": "In 260 AD Persian king Shapur I captured Roman emperor Valerian, the only Roman emperor taken prisoner by an enemy, and Rome never got him back while its empire split apart.",
+    "status": "rendered"
   }
 ]
