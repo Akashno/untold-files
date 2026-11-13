@@ -1,0 +1,202 @@
+{
+  "title": "The wall of thorns that crossed India",
+  "category": "india",
+  "hook": "Britain grew a wall of thorns across India, over two thousand miles long, to stop salt smuggling.",
+  "headline": {
+    "top": "A WALL OF THORNS",
+    "bottom": "ACROSS INDIA"
+  },
+  "summary": "The East India Company's Inland Customs Line, a thorny hedge guarded by thousands, stretched across India to enforce a salt tax, then was forgotten until Roy Moxham traced it in the 1990s.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica and Wikipedia 'Great Hedge of India': Inland Customs Line, British India, salt tax, over 2,000 miles, abolished 1879",
+    "Roy Moxham, 'The Great Hedge of India' (2001): about 12,000 men staffed the line; he searched for its traces in the 1990s"
+  ],
+  "props": [
+    {
+      "name": "hedge",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"170\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><path d=\"M30 330 Q20 200 80 160 Q100 90 170 110 Q220 50 280 110 Q350 110 360 190 Q390 260 370 330 Z\" fill=\"#3E7A34\"/><path d=\"M200 330 Q230 220 290 200 Q340 190 370 240 Q390 290 370 330 Z\" fill=\"#2C5A26\"/><path d=\"M60 300 Q50 210 100 180 Q120 130 170 140 Q200 100 230 130 Q130 160 100 250 Z\" fill=\"#5FA04F\" opacity=\".7\"/><g stroke=\"#5B3A1E\" stroke-width=\"8\" stroke-linecap=\"round\"><path d=\"M70 230 L40 210\"/><path d=\"M150 160 L130 120\"/><path d=\"M250 150 L270 100\"/><path d=\"M330 220 L370 200\"/><path d=\"M120 300 L80 320\"/><path d=\"M280 290 L330 310\"/><path d=\"M200 220 L190 180\"/><path d=\"M210 250 L250 240\"/></g></svg>"
+    },
+    {
+      "name": "salt",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><path d=\"M90 330 Q70 200 120 140 L280 140 Q330 200 310 330 Z\" fill=\"#D9C7A0\"/><path d=\"M230 140 L280 140 Q330 200 310 330 L240 330 Q270 230 230 140 Z\" fill=\"#B8A57C\"/><path d=\"M110 150 Q130 130 160 125 L240 125 Q270 130 290 150 Z\" fill=\"#EDE0C0\"/><rect x=\"110\" y=\"200\" width=\"180\" height=\"14\" fill=\"#8C6B3E\"/><path d=\"M120 90 L160 120 L200 70 L240 120 L280 90 L270 130 L130 130 Z\" fill=\"#fff\"/><rect x=\"115\" y=\"160\" width=\"22\" height=\"150\" rx=\"11\" fill=\"#fff\" opacity=\".35\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Britain grew a wall of thorns across India.",
+      "caps": "*Britain grew | a wall of *thorns | across *India",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:hedge",
+            "x": 0.5,
+            "y": 0.45,
+            "size": "large",
+            "move": "grow",
+            "on": "thorns"
+          }
+        ],
+        "on": "thorns"
+      }
+    },
+    {
+      "text": "It ran over two thousand miles, from Punjab to Odisha.",
+      "caps": "Over two thousand *miles, | from *Punjab | to *Odisha",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Punjab",
+            "x": 0.3,
+            "y": 0.2
+          },
+          {
+            "name": "Odisha",
+            "x": 0.7,
+            "y": 0.6
+          }
+        ],
+        "mover": "arrow",
+        "title": "INDIA",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "Its only job was to stop people smuggling salt.",
+      "caps": "*Its job: | stop *smuggling | *salt",
+      "scene": {
+        "type": "object",
+        "object": "prop:salt",
+        "setting": "day",
+        "text": "SALT TAX",
+        "on": "salt"
+      }
+    },
+    {
+      "text": "The company taxed salt, so a hedge of thorns became its border.",
+      "caps": "The company *taxed salt, | so *thorns | became its *border",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "merchant",
+            "skin": "tan",
+            "hair": "black"
+          },
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "setting": "field",
+        "action": "point",
+        "item": "prop:salt",
+        "text": "PAY THE TAX",
+        "on": "taxed"
+      }
+    },
+    {
+      "text": "Twelve thousand men patrolled it, searching anyone who crossed.",
+      "caps": "*Twelve thousand men | *patrolled it, | *searching everyone",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:hedge",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "still"
+          },
+          {
+            "art": "person:guard",
+            "x": 0.2,
+            "y": 0.72,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right",
+            "skin": "tan",
+            "hair": "black"
+          },
+          {
+            "art": "person:guard",
+            "x": 0.8,
+            "y": 0.72,
+            "size": "medium",
+            "move": "walk",
+            "dir": "left",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In eighteen seventy-nine the tax was evened out, and the hedge abandoned.",
+      "caps": "In *1879 | the tax was *evened out, | the hedge *abandoned",
+      "scene": {
+        "type": "date",
+        "text": "1879",
+        "sub": "Tax evened out",
+        "subOn": "evened",
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "It rotted away, until writer Roy Moxham went looking in the nineteen nineties.",
+      "caps": "It *rotted away, | until Roy *Moxham | went *looking",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "man",
+            "label": "Roy Moxham",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "setting": "field",
+        "action": "walk",
+        "text": "SEARCH IN THE 1990s",
+        "on": "looking"
+      }
+    },
+    {
+      "text": "A wall that long, almost forgotten.",
+      "caps": "A wall that *long, | almost *forgotten",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:hedge",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "sink",
+            "on": "forgotten"
+          }
+        ],
+        "on": "forgotten"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A living wall over two thousand miles long, built just to protect a tax on salt. And it vanished from memory.\nHad you ever heard of the Great Hedge of India?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#indianhistory",
+      "#truestory",
+      "#britishindia",
+      "#facts"
+    ],
+    "youtubeTitle": "Britain grew a wall of thorns across India #shorts",
+    "xText": "Britain grew a thorn hedge over 2,000 miles long across India, just to enforce a salt tax. Then everyone forgot it."
+  }
+}
