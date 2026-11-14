@@ -1,0 +1,200 @@
+{
+  "title": "The bear who was an official soldier in World War Two",
+  "category": "war",
+  "hook": "A brown bear was an official soldier in the Polish army.",
+  "headline": {
+    "top": "A BEAR JOINED",
+    "bottom": "THE ARMY"
+  },
+  "summary": "Polish soldiers adopted a bear cub in Iran, then enlisted him with a rank so he could board a ship to Italy, where he carried ammunition crates at Monte Cassino.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Wojtek (bear): found in Iran 1942, enlisted as a private in the 22nd Artillery Supply Company to travel by ship to Italy in 1944, carried ammunition at Monte Cassino, lived at Edinburgh Zoo until 1963.",
+    "Imperial War Museum and Polish Institute and Sikorski Museum accounts of Wojtek and the Polish II Corps."
+  ],
+  "props": [
+    {
+      "name": "bear",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><circle cx=\"120\" cy=\"90\" r=\"36\" fill=\"#7A4A27\"/><circle cx=\"280\" cy=\"90\" r=\"36\" fill=\"#5E3719\"/><ellipse cx=\"200\" cy=\"250\" rx=\"110\" ry=\"100\" fill=\"#8B5A2B\"/><ellipse cx=\"235\" cy=\"260\" rx=\"75\" ry=\"90\" fill=\"#6B4120\"/><circle cx=\"200\" cy=\"150\" r=\"80\" fill=\"#8B5A2B\"/><circle cx=\"240\" cy=\"160\" r=\"60\" fill=\"#6B4120\"/><ellipse cx=\"200\" cy=\"175\" rx=\"40\" ry=\"30\" fill=\"#D9B38C\"/><ellipse cx=\"200\" cy=\"162\" rx=\"14\" ry=\"9\" fill=\"#222\"/><circle cx=\"168\" cy=\"128\" r=\"8\" fill=\"#222\"/><circle cx=\"232\" cy=\"128\" r=\"8\" fill=\"#222\"/><ellipse cx=\"160\" cy=\"215\" rx=\"22\" ry=\"50\" fill=\"#A06C3A\" opacity=\".6\"/><ellipse cx=\"140\" cy=\"340\" rx=\"38\" ry=\"20\" fill=\"#5E3719\"/><ellipse cx=\"260\" cy=\"340\" rx=\"38\" ry=\"20\" fill=\"#4A2B12\"/></svg>"
+    },
+    {
+      "name": "crate",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"80\" y=\"110\" width=\"240\" height=\"220\" rx=\"8\" fill=\"#B58B4F\"/><rect x=\"240\" y=\"110\" width=\"80\" height=\"220\" rx=\"8\" fill=\"#8F6A36\"/><rect x=\"80\" y=\"110\" width=\"240\" height=\"28\" fill=\"#C9A068\"/><rect x=\"80\" y=\"300\" width=\"240\" height=\"30\" fill=\"#8F6A36\"/><rect x=\"100\" y=\"150\" width=\"24\" height=\"140\" fill=\"#C9A068\" opacity=\".6\"/><polygon points=\"85,135 125,135 315,305 275,305\" fill=\"#7A5A2E\"/><circle cx=\"110\" cy=\"125\" r=\"6\" fill=\"#555\"/><circle cx=\"290\" cy=\"125\" r=\"6\" fill=\"#555\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A brown bear was an official soldier in the Polish army.",
+      "caps": "A *bear | was an *official | *soldier",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "person:soldier",
+            "x": 0.3,
+            "y": 0.62,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "prop:bear",
+            "x": 0.62,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Soldiers found him as a cub in Iran in nineteen forty-two.",
+      "caps": "Found as a *cub | in *Iran, | *1942",
+      "scene": {
+        "type": "map",
+        "title": "1942",
+        "land": "continent",
+        "places": [
+          {
+            "name": "Iran",
+            "x": 0.7,
+            "y": 0.4
+          },
+          {
+            "name": "Egypt",
+            "x": 0.35,
+            "y": 0.7
+          },
+          {
+            "name": "Italy",
+            "x": 0.12,
+            "y": 0.2
+          }
+        ],
+        "focus": "Iran",
+        "route": false
+      }
+    },
+    {
+      "text": "But in nineteen forty-four, the ship to Italy banned animals.",
+      "caps": "But the *ship | to *Italy | *banned animals",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "So they gave him a rank, and a name in the records.",
+      "caps": "So *they gave him | a *rank, | a *name",
+      "scene": {
+        "type": "object",
+        "object": "folder",
+        "headline": "PRIVATE WOJTEK",
+        "on": "rank",
+        "text": "NEW SOLDIER"
+      }
+    },
+    {
+      "text": "Private Wojtek sailed with them to the war.",
+      "caps": "Private *Wojtek | *sailed | *with them",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "soldier",
+            "label": "Polish soldier",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "item": "prop:bear"
+      }
+    },
+    {
+      "text": "At Monte Cassino, he carried crates of shells, and never dropped one.",
+      "caps": "At *Monte Cassino, | he carried *crates, | never *dropped one",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:bear",
+            "x": 0.4,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "prop:crate",
+            "x": 0.65,
+            "y": 0.6,
+            "size": "medium",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "After the war, he lived in Edinburgh Zoo, visited by old comrades.",
+      "caps": "*After the war, | *Edinburgh Zoo, | old *comrades",
+      "scene": {
+        "type": "people",
+        "setting": "city",
+        "action": "wave",
+        "figures": [
+          {
+            "role": "oldman",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "item": "prop:bear"
+      }
+    },
+    {
+      "text": "The bear who earned his place on the army's books.",
+      "caps": "A *bear | on the army's *books",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "ONE BEAR",
+            "on": "bear"
+          },
+          {
+            "text": "ONE REAL RANK",
+            "on": "books"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "The army needed a paper trick to take a bear to war, and it worked.\nWould you have signed him up too?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#wojtek",
+      "#warhistory"
+    ],
+    "youtubeTitle": "A brown bear was an official soldier in World War Two #shorts",
+    "xText": "In 1944, a bear got a rank and a pay book so he could board a warship. His name was Wojtek."
+  }
+}

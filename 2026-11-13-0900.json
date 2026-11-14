@@ -1,0 +1,208 @@
+{
+  "title": "The Indian man who was legally dead for nineteen years",
+  "category": "unbelievable",
+  "hook": "A man in India was legally dead for nineteen years while very much alive.",
+  "headline": {
+    "top": "HE WAS ALIVE.",
+    "bottom": "LEGALLY DEAD."
+  },
+  "summary": "Lal Bihari of Uttar Pradesh was declared dead on paper in 1975 so relatives could take his land, and spent until 1994 proving he was alive.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Lal Bihari - declared dead in 1975 in Azamgarh, Uttar Pradesh; recognised as alive in 1994; added 'Mritak' to his name; founded Uttar Pradesh Mritak Sangh.",
+    "BBC News and The Guardian reports on Lal Bihari Mritak: relatives bribed officials to record him dead for land; he contested elections including against Rajiv Gandhi in 1989."
+  ],
+  "props": [
+    {
+      "name": "register",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"70\" y=\"80\" width=\"260\" height=\"250\" rx=\"12\" fill=\"#7A4A2B\"/><rect x=\"250\" y=\"80\" width=\"80\" height=\"250\" rx=\"12\" fill=\"#5E3720\"/><rect x=\"90\" y=\"100\" width=\"220\" height=\"210\" rx=\"6\" fill=\"#F1E3C0\"/><rect x=\"255\" y=\"100\" width=\"55\" height=\"210\" fill=\"#D9C89F\"/><rect x=\"110\" y=\"125\" width=\"130\" height=\"10\" fill=\"#8A7A5A\"/><rect x=\"110\" y=\"150\" width=\"110\" height=\"10\" fill=\"#8A7A5A\"/><rect x=\"110\" y=\"175\" width=\"130\" height=\"10\" fill=\"#8A7A5A\"/><rect x=\"110\" y=\"200\" width=\"90\" height=\"10\" fill=\"#8A7A5A\"/><circle cx=\"215\" cy=\"250\" r=\"42\" fill=\"none\" stroke=\"#C2302B\" stroke-width=\"10\"/><rect x=\"185\" y=\"244\" width=\"60\" height=\"12\" fill=\"#C2302B\"/><rect x=\"80\" y=\"95\" width=\"14\" height=\"220\" rx=\"7\" fill=\"#fff\" opacity=\".25\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A man in India was legally dead for nineteen years.",
+      "caps": "A *man in India | was legally *dead | for *nineteen years",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "person:man",
+            "skin": "tan",
+            "hair": "black",
+            "x": 0.28,
+            "y": 0.65,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "prop:register",
+            "x": 0.68,
+            "y": 0.62,
+            "size": "large",
+            "move": "shake",
+            "on": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen seventy-six, Lal Bihari asked a bank for a loan.",
+      "caps": "In *1976, | Lal *Bihari | asked a *bank | for a *loan",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Azamgarh",
+            "x": 0.6,
+            "y": 0.5
+          },
+          {
+            "name": "Delhi",
+            "x": 0.4,
+            "y": 0.3
+          }
+        ],
+        "focus": "Azamgarh",
+        "title": "Uttar Pradesh",
+        "land": "continent",
+        "route": false
+      }
+    },
+    {
+      "text": "Officials checked their records and said he had died the year before.",
+      "caps": "Officials *checked | their *records | and said he had *died",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "person:officer",
+            "skin": "tan",
+            "hair": "black",
+            "x": 0.3,
+            "y": 0.65,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "prop:register",
+            "x": 0.68,
+            "y": 0.62,
+            "size": "large",
+            "move": "shake",
+            "on": "died"
+          }
+        ]
+      }
+    },
+    {
+      "text": "His relatives had bribed clerks, so they could take his land.",
+      "caps": "His *relatives | had *bribed clerks, | to take his *land",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "merchant",
+            "skin": "tan",
+            "hair": "black"
+          },
+          {
+            "role": "man",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ],
+        "action": "stand",
+        "setting": "hall",
+        "text": "LAND GRAB",
+        "on": "land"
+      }
+    },
+    {
+      "text": "To prove he lived, he stood against Rajiv Gandhi in an election.",
+      "caps": "To prove he *lived, | he stood *against | *Rajiv Gandhi",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "person:man",
+            "skin": "tan",
+            "hair": "black",
+            "x": 0.4,
+            "y": 0.68,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "flag",
+            "x": 0.75,
+            "y": 0.55,
+            "size": "medium",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "He even added mritak, meaning dead, to his own name.",
+      "caps": "He added *mritak, | meaning *dead, | to his *name",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "MRITAK = DEAD",
+            "on": "mritak"
+          },
+          {
+            "text": "LAL BIHARI MRITAK",
+            "on": "name"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Only in nineteen ninety-four did the state record him as alive.",
+      "caps": "Only in *1994 | the state *recorded | him as *alive",
+      "scene": {
+        "type": "date",
+        "text": "1994",
+        "sub": "OFFICIALLY ALIVE",
+        "subOn": "alive",
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "He had to fight for proof that he existed.",
+      "caps": "He had to *fight | for *proof | that he *existed",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "oldman",
+            "skin": "tan",
+            "hair": "grey",
+            "label": "Lal Bihari"
+          }
+        ],
+        "action": "stand",
+        "setting": "day"
+      }
+    }
+  ],
+  "post": {
+    "caption": "He was alive, but the paperwork said otherwise for nineteen years.\nWould you have kept fighting this long?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#truestory",
+      "#indianhistory",
+      "#unbelievable",
+      "#history",
+      "#india"
+    ],
+    "youtubeTitle": "He was alive but legally dead for 19 years #shorts",
+    "xText": "Lal Bihari was legally dead for 19 years. He was alive the whole time."
+  }
+}

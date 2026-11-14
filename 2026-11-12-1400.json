@@ -1,0 +1,219 @@
+{
+  "title": "The steward who drifted alone for 133 days",
+  "category": "survival",
+  "hook": "One sailor drifted alone on a raft for one hundred thirty-three days.",
+  "headline": {
+    "top": "ALONE AT SEA.",
+    "bottom": "133 DAYS!"
+  },
+  "summary": "After a U-boat sank his ship in 1942, steward Poon Lim survived 133 days alone on a raft by making a fishhook, collecting rain and staying fit, until Brazilian fishermen found him.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: Poon Lim - SS Benlomond sunk 23 Nov 1942 by U-172; 133 days adrift; rescued April 1943 by Brazilian fishermen; awarded British Empire Medal",
+    "Guinness World Records / Royal Museums Greenwich accounts of Poon Lim's survival on a raft, including improvised fishing hooks and rainwater"
+  ],
+  "props": [
+    {
+      "name": "raft",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"320\" rx=\"170\" ry=\"22\" fill=\"#000\" opacity=\".15\"/><rect x=\"50\" y=\"230\" width=\"300\" height=\"70\" rx=\"12\" fill=\"#B9803F\"/><rect x=\"230\" y=\"230\" width=\"120\" height=\"70\" rx=\"12\" fill=\"#8F5F2A\"/><rect x=\"60\" y=\"238\" width=\"260\" height=\"12\" rx=\"6\" fill=\"#DDA867\"/><rect x=\"80\" y=\"185\" width=\"240\" height=\"50\" rx=\"10\" fill=\"#E8E1CF\"/><rect x=\"240\" y=\"185\" width=\"80\" height=\"50\" rx=\"10\" fill=\"#C8BFA8\"/><rect x=\"95\" y=\"192\" width=\"150\" height=\"10\" rx=\"5\" fill=\"#fff\" opacity=\".6\"/><rect x=\"190\" y=\"90\" width=\"10\" height=\"100\" fill=\"#6B4A22\"/><polygon points=\"200,95 280,120 200,145\" fill=\"#C2302B\"/><polygon points=\"200,120 280,120 200,145\" fill=\"#9E2A2A\"/><circle cx=\"120\" cy=\"265\" r=\"10\" fill=\"#6B4A22\"/><circle cx=\"200\" cy=\"265\" r=\"10\" fill=\"#6B4A22\"/><circle cx=\"280\" cy=\"265\" r=\"10\" fill=\"#5A3C1B\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "One sailor drifted alone on a raft for one hundred thirty-three days.",
+      "caps": "One *sailor | alone on a *raft | for *133 days",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "prop:raft",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen forty-two, a German submarine sank his ship.",
+      "caps": "In *1942, | a *submarine | sank his *ship",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "night": true,
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.4,
+            "y": 0.62,
+            "size": "large",
+            "move": "sink",
+            "on": "sank"
+          },
+          {
+            "art": "submarine",
+            "x": 0.8,
+            "y": 0.7,
+            "size": "small",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Poon Lim, a Chinese steward, climbed onto a wooden raft alone.",
+      "caps": "*Poon Lim, | a Chinese *steward, | on a *raft",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "medium",
+            "hair": "black",
+            "label": "Poon Lim"
+          }
+        ],
+        "item": "prop:raft"
+      }
+    },
+    {
+      "text": "The biscuits and water slowly ran low.",
+      "caps": "*Biscuits | and *water | ran *low",
+      "scene": {
+        "type": "map",
+        "title": "Atlantic Ocean",
+        "land": "continent",
+        "places": [
+          {
+            "name": "Africa",
+            "x": 0.85,
+            "y": 0.4
+          },
+          {
+            "name": "Brazil",
+            "x": 0.2,
+            "y": 0.6
+          }
+        ],
+        "route": false,
+        "focus": "Brazil"
+      }
+    },
+    {
+      "text": "So he bent a hook, and began catching fish.",
+      "caps": "So he bent a *hook, | and caught *fish",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "action": "point",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ],
+        "item": "prop:raft",
+        "text": "FISHHOOK",
+        "on": "hook"
+      }
+    },
+    {
+      "text": "He collected rain, and swam daily to stay strong.",
+      "caps": "He saved *rain, | and *swam | *daily",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "prop:raft",
+            "x": 0.5,
+            "y": 0.65,
+            "size": "medium",
+            "move": "float"
+          },
+          {
+            "art": "person:man",
+            "x": 0.75,
+            "y": 0.6,
+            "size": "small",
+            "move": "float",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Ships passed by without ever seeing him.",
+      "caps": "Ships *passed by | without *seeing him",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "prop:raft",
+            "x": 0.3,
+            "y": 0.65,
+            "size": "medium",
+            "move": "float"
+          },
+          {
+            "art": "ship",
+            "x": 0.8,
+            "y": 0.6,
+            "size": "medium",
+            "move": "fly",
+            "dir": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Finally, in April nineteen forty-three, Brazilian fishermen spotted him.",
+      "caps": "In *April 1943, | Brazilian *fishermen | spotted *him",
+      "scene": {
+        "type": "date",
+        "text": "APRIL 1943",
+        "setting": "sea",
+        "sub": "Off Brazil",
+        "subOn": "Brazilian"
+      }
+    },
+    {
+      "text": "It is still the longest time adrift on record.",
+      "caps": "The *longest | time *adrift | on *record",
+      "scene": {
+        "type": "count",
+        "setting": "sea",
+        "items": [
+          {
+            "text": "133 DAYS",
+            "on": "longest"
+          },
+          {
+            "text": "ALONE",
+            "on": "adrift"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "He made a fishhook on a raft and lived 133 days at sea.\nCould you have lasted even one week?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#survival",
+      "#poonlim"
+    ],
+    "youtubeTitle": "He drifted alone at sea for 133 days #shorts",
+    "xText": "Poon Lim drifted alone on a raft for 133 days in WWII, and lived."
+  }
+}

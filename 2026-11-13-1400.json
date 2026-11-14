@@ -1,0 +1,183 @@
+{
+  "title": "The three lighthouse keepers who vanished from a rock in the sea",
+  "category": "mystery",
+  "hook": "Three lighthouse keepers vanished from a tiny island and were never found.",
+  "headline": {
+    "top": "3 KEEPERS GONE.",
+    "bottom": "NO BODIES."
+  },
+  "summary": "In December 1900 all three keepers of the Flannan Isles lighthouse in Scotland disappeared, leaving an empty station and no answer.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: Flannan Isles Lighthouse - keepers James Ducat, Thomas Marshall, Donald MacArthur vanished December 1900; relief vessel Hesperus arrived 26 December; Joseph Moore found station empty",
+    "Northern Lighthouse Board: Flannan Isles history - Superintendent Robert Muirhead's investigation, damage at west landing, theory of a large wave"
+  ],
+  "props": [
+    {
+      "name": "coat",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"120\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><path d=\"M120 110 L170 80 L230 80 L280 110 L330 260 L285 280 L270 250 L275 340 L125 340 L130 250 L115 280 L70 260 Z\" fill=\"#E0B431\"/><path d=\"M230 80 L280 110 L330 260 L285 280 L270 250 L275 340 L215 340 Z\" fill=\"#B8901F\"/><path d=\"M170 80 L200 130 L230 80 Z\" fill=\"#8A6A12\"/><rect x=\"195\" y=\"130\" width=\"10\" height=\"210\" fill=\"#8A6A12\"/><circle cx=\"185\" cy=\"190\" r=\"7\" fill=\"#5a4308\"/><circle cx=\"185\" cy=\"250\" r=\"7\" fill=\"#5a4308\"/><path d=\"M130 120 L160 100 L150 250 L128 250 Z\" fill=\"#fff\" opacity=\".3\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Three lighthouse keepers vanished from a tiny island, and were never found.",
+      "caps": "*Three | lighthouse *keepers | *vanished from | a tiny *island",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "night": true,
+        "actors": [
+          {
+            "art": "lighthouse",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "vanished"
+          }
+        ]
+      }
+    },
+    {
+      "text": "This was December nineteen hundred, on Eilean Mor, off Scotland.",
+      "caps": "In *1900, | on *Eilean Mor, | off *Scotland",
+      "scene": {
+        "type": "map",
+        "title": "Scotland 1900",
+        "land": "islands",
+        "places": [
+          {
+            "name": "Eilean Mor",
+            "x": 0.3,
+            "y": 0.35
+          },
+          {
+            "name": "Edinburgh",
+            "x": 0.7,
+            "y": 0.7
+          }
+        ],
+        "focus": "Eilean Mor",
+        "mover": "ship"
+      }
+    },
+    {
+      "text": "A supply ship arrived, but nobody came down to meet it.",
+      "caps": "A *ship | *arrived, | but *nobody | *came",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.65,
+            "size": "large",
+            "move": "float"
+          },
+          {
+            "art": "lighthouse",
+            "x": 0.8,
+            "y": 0.5,
+            "size": "medium",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Inside, the beds were empty, and one coat was still hanging there.",
+      "caps": "The *beds | were *empty, | one *coat | was *left",
+      "scene": {
+        "type": "object",
+        "object": "prop:coat",
+        "setting": "room",
+        "text": "ONE COAT LEFT",
+        "on": "coat"
+      }
+    },
+    {
+      "text": "Near the landing, rails were bent and rocks were broken.",
+      "caps": "*Rails | were *bent, | *rocks | *broken",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "anchor",
+            "x": 0.5,
+            "y": 0.7,
+            "size": "medium",
+            "move": "shake",
+            "on": "bent"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Investigators guessed a giant wave swept the men away.",
+      "caps": "A *giant | *wave | swept them *away",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "night": true,
+        "action": "stand",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "text": "But no bodies were ever found, and nobody knows why all three went outside.",
+      "caps": "But *no | *bodies | *found, | *why all three?",
+      "scene": {
+        "type": "count",
+        "setting": "sea",
+        "night": true,
+        "items": [
+          {
+            "text": "0 BODIES",
+            "on": "bodies"
+          },
+          {
+            "text": "WHY ALL THREE?",
+            "on": "why"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The sea kept the answer.",
+      "caps": "The *sea | kept the *answer",
+      "scene": {
+        "type": "date",
+        "text": "UNSOLVED",
+        "setting": "sea",
+        "night": true,
+        "sub": "Flannan Isles"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Three men, one empty lighthouse, and no answer after more than a century.\nWhat do you think happened to them?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#mystery",
+      "#history",
+      "#truestory",
+      "#unsolved",
+      "#scotland"
+    ],
+    "youtubeTitle": "Three lighthouse keepers vanished and were never found #shorts",
+    "xText": "Three keepers vanished from a Scottish lighthouse in 1900. No bodies. No answer."
+  }
+}

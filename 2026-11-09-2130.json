@@ -1,0 +1,170 @@
+{
+  "title": "The girl who fell three kilometres and walked out of the jungle",
+  "category": "survival",
+  "hook": "A plane broke apart over the Peruvian jungle in 1971, and a girl fell three kilometres and lived.",
+  "headline": {
+    "top": "SHE FELL 3 KM.",
+    "bottom": "THEN WALKED OUT."
+  },
+  "summary": "In 1971 seventeen-year-old Juliane Koepcke fell about three kilometres from a broken airliner, then followed a stream for ten days to reach loggers, the only survivor of 92.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia: LANSA Flight 508, 24 Dec 1971, struck by lightning over Peru, 91 of 92 aboard died; Juliane Koepcke, 17, fell about 3,000 m strapped in her seat row.",
+    "Juliane Koepcke's own account and interviews (BBC, Guardian): parents were zoologists, she followed a stream downstream for about ten days and found a loggers' hut."
+  ],
+  "props": [
+    {
+      "name": "seats",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"150\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"60\" y=\"150\" width=\"280\" height=\"150\" rx=\"20\" fill=\"#3E6FB0\"/><rect x=\"250\" y=\"150\" width=\"90\" height=\"150\" rx=\"20\" fill=\"#2D5287\"/><rect x=\"70\" y=\"70\" width=\"80\" height=\"110\" rx=\"22\" fill=\"#4A7FC4\"/><rect x=\"160\" y=\"70\" width=\"80\" height=\"110\" rx=\"22\" fill=\"#4A7FC4\"/><rect x=\"250\" y=\"70\" width=\"80\" height=\"110\" rx=\"22\" fill=\"#3A68A3\"/><rect x=\"80\" y=\"80\" width=\"16\" height=\"80\" rx=\"8\" fill=\"#fff\" opacity=\".35\"/><rect x=\"70\" y=\"300\" width=\"20\" height=\"30\" fill=\"#555\"/><rect x=\"310\" y=\"300\" width=\"20\" height=\"30\" fill=\"#333\"/><path d=\"M70 230 H330\" stroke=\"#C9CDD3\" stroke-width=\"10\"/></svg>"
+    },
+    {
+      "name": "hut",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"160\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"90\" y=\"190\" width=\"220\" height=\"140\" fill=\"#A9743F\"/><rect x=\"250\" y=\"190\" width=\"60\" height=\"140\" fill=\"#855A2E\"/><polygon points=\"60 200 200 90 340 200\" fill=\"#D9B64A\"/><polygon points=\"250 143 340 200 290 200\" fill=\"#B8963A\"/><rect x=\"170\" y=\"240\" width=\"60\" height=\"90\" fill=\"#4A3220\"/><rect x=\"100\" y=\"200\" width=\"14\" height=\"120\" fill=\"#fff\" opacity=\".2\"/><rect x=\"120\" y=\"330\" width=\"10\" height=\"10\" fill=\"#5B8C3A\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "In nineteen seventy-one, a plane broke apart over the Peruvian jungle.",
+      "caps": "In *1971, | a plane *broke apart | over the *jungle",
+      "scene": {
+        "type": "map",
+        "title": "PERU 1971",
+        "places": [
+          {
+            "name": "Lima",
+            "x": 0.3,
+            "y": 0.6
+          },
+          {
+            "name": "Pucallpa",
+            "x": 0.6,
+            "y": 0.45
+          }
+        ],
+        "mover": "plane",
+        "focus": "Pucallpa",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "Seventeen-year-old Juliane Koepcke fell three kilometres, strapped to her seat.",
+      "caps": "Juliane *Koepcke, | age *17, | fell *three kilometres",
+      "scene": {
+        "type": "object",
+        "object": "prop:seats",
+        "text": "3 KM FALL",
+        "on": "three"
+      }
+    },
+    {
+      "text": "She woke alone in the forest. Everyone else was gone.",
+      "caps": "She woke *alone | in the *forest",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "child",
+            "label": "Juliane",
+            "skin": "light"
+          }
+        ],
+        "setting": "jungle",
+        "action": "stand"
+      }
+    },
+    {
+      "text": "Her parents were scientists, and had taught her one rule.",
+      "caps": "Her parents were *scientists, | and one *rule",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "scholar",
+            "label": "Her parents",
+            "skin": "light"
+          }
+        ],
+        "setting": "jungle",
+        "action": "point"
+      }
+    },
+    {
+      "text": "Follow the water, because streams lead to rivers, and rivers lead to people.",
+      "caps": "Follow the *water, | streams lead to *rivers, | rivers lead to *people",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "STREAM",
+            "on": "streams"
+          },
+          {
+            "text": "RIVER",
+            "on": "rivers"
+          },
+          {
+            "text": "PEOPLE",
+            "on": "people"
+          }
+        ],
+        "setting": "jungle"
+      }
+    },
+    {
+      "text": "So she waded downstream, barefoot and half blind, for ten days.",
+      "caps": "She waded *downstream, | barefoot, *half blind, | for *ten days",
+      "scene": {
+        "type": "timeline",
+        "title": "IN THE JUNGLE",
+        "years": [
+          "DAY 1",
+          "DAY 4",
+          "DAY 7",
+          "DAY 10"
+        ],
+        "active": 3
+      }
+    },
+    {
+      "text": "Then she found a hut, where loggers helped her.",
+      "caps": "Then she found a *hut, | where *loggers helped",
+      "scene": {
+        "type": "object",
+        "object": "prop:hut",
+        "text": "LOGGERS' HUT",
+        "on": "hut"
+      }
+    },
+    {
+      "text": "She was the only survivor of ninety-two people aboard.",
+      "caps": "The *only survivor | of *92 aboard",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "92 ABOARD",
+            "on": "ninety-two"
+          },
+          {
+            "text": "1 SURVIVOR",
+            "on": "only"
+          }
+        ],
+        "setting": "parchment"
+      }
+    }
+  ],
+  "post": {
+    "caption": "She fell from the sky, then walked out alone, using one rule her parents taught her.\nWould you have known to follow the water?\nFollow @untoldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#survival",
+      "#truestory",
+      "#history",
+      "#amazon",
+      "#plane"
+    ],
+    "youtubeTitle": "She fell 3 km from a plane and walked out of the jungle #shorts",
+    "xText": "In 1971 a 17-year-old fell three kilometres into the jungle and survived by following a stream."
+  }
+}

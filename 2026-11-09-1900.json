@@ -1,0 +1,139 @@
+{
+  "title": "The wall cleaner that became Play-Doh",
+  "category": "invention",
+  "hook": "Play-Doh was invented to clean walls, not for play.",
+  "headline": {
+    "top": "A WALL CLEANER",
+    "bottom": "BECAME A TOY"
+  },
+  "summary": "Play-Doh began in the 1930s as a wallpaper cleaner, nearly died when coal heating faded, and was saved when a teacher gave it to children.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia 'Play-Doh': created by Noah McVicker at Kutol Products, Cincinnati, as a wallpaper cleaner in the 1930s; sales fell as coal heating declined; sold as a toy in 1956.",
+    "Smithsonian / Strong National Museum of Play: Kay Zufall, a nursery school teacher and sister-in-law of Joseph McVicker, used it with children and suggested it as a modelling compound."
+  ],
+  "lines": [
+    {
+      "text": "Play-Doh was invented to clean walls, not for play.",
+      "caps": "*Play-Doh | was *invented | to clean *walls",
+      "scene": {
+        "type": "object",
+        "object": "book",
+        "text": "WALL CLEANER",
+        "on": "walls",
+        "setting": "room"
+      }
+    },
+    {
+      "text": "In the nineteen thirties, a Cincinnati company sold it to wipe soot off wallpaper.",
+      "caps": "In the *1930s, | a *Cincinnati company | wiped *soot | off *wallpaper",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Cincinnati",
+            "x": 0.6,
+            "y": 0.4
+          }
+        ],
+        "focus": "Cincinnati",
+        "title": "USA 1930s",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "But homes stopped burning coal, and sales dried up.",
+      "caps": "But homes *stopped | burning *coal, | and *sales | *dried up",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "NO MORE COAL",
+            "on": "coal"
+          },
+          {
+            "text": "SALES DOWN",
+            "on": "sales"
+          }
+        ],
+        "setting": "city"
+      }
+    },
+    {
+      "text": "Then a nursery school teacher, Kay Zufall, tried it with her pupils.",
+      "caps": "Then a *teacher, | Kay *Zufall, | *tried it with | her *pupils",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "woman",
+            "label": "Kay Zufall",
+            "skin": "light"
+          },
+          {
+            "role": "child",
+            "skin": "medium"
+          }
+        ],
+        "setting": "room",
+        "action": "point",
+        "text": "NURSERY SCHOOL",
+        "on": "nursery"
+      }
+    },
+    {
+      "text": "The children loved shaping it, so she told her brother-in-law.",
+      "caps": "The *children | *loved shaping it, | so she *told | her *brother-in-law",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "child",
+            "skin": "tan"
+          },
+          {
+            "role": "child",
+            "skin": "light"
+          }
+        ],
+        "setting": "room",
+        "action": "wave"
+      }
+    },
+    {
+      "text": "He dropped the cleaning idea and, in nineteen fifty-six, sold it as a toy.",
+      "caps": "He *dropped | the *cleaning idea | and in *1956 | sold it as a *toy",
+      "scene": {
+        "type": "date",
+        "text": "1956",
+        "sub": "SOLD AS A TOY",
+        "subOn": "toy",
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "A dying wall cleaner became a toy children still use today.",
+      "caps": "A dying *cleaner | became a *toy | children still *use",
+      "scene": {
+        "type": "object",
+        "object": "bottle",
+        "text": "PLAY-DOH",
+        "on": "toy",
+        "setting": "room"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Play-Doh started as a soot remover for wallpaper and was nearly forgotten.\nWhat everyday thing do you think started as something else?\nFollow @untoldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#playdoh",
+      "#funfacts"
+    ],
+    "youtubeTitle": "Play-Doh was invented to clean walls, not for play #shorts",
+    "xText": "Play-Doh began as a wallpaper cleaner. A nursery school teacher turned it into a toy."
+  }
+}

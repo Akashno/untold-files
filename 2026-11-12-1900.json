@@ -1,0 +1,195 @@
+{
+  "title": "The cavalry that captured a navy on horseback",
+  "category": "war",
+  "hook": "French horsemen captured an entire Dutch fleet by riding over the ice.",
+  "headline": {
+    "top": "HORSES VS SHIPS.",
+    "bottom": "THE HORSES WON."
+  },
+  "summary": "In January 1795 French hussars rode across frozen water and took the Dutch fleet at Den Helder, trapped in ice, without a naval battle.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia, 'Capture of the Dutch fleet at Den Helder' (1795): Dutch fleet frozen in ice, taken by French hussars on 23 January 1795.",
+    "Encyclopaedia Britannica, 'Batavian Republic': French invasion of 1794-95 ended the Dutch Republic and created a French-backed state."
+  ],
+  "props": [
+    {
+      "name": "icedship",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"170\" ry=\"22\" fill=\"#000\" opacity=\".15\"/><polygon points=\"40,320 120,330 280,330 370,320 330,340 70,340\" fill=\"#CFE8F5\"/><path d=\"M80 230 L320 230 L290 310 L110 310 Z\" fill=\"#7A4A27\"/><path d=\"M200 230 L320 230 L290 310 L200 310 Z\" fill=\"#5E3719\"/><rect x=\"195\" y=\"70\" width=\"10\" height=\"165\" fill=\"#4A2C14\"/><polygon points=\"205,80 205,200 290,200\" fill=\"#F2EBD8\"/><polygon points=\"195,95 195,200 125,200\" fill=\"#FFFFFF\"/><rect x=\"100\" y=\"250\" width=\"20\" height=\"12\" fill=\"#2B2B2B\"/><rect x=\"140\" y=\"250\" width=\"20\" height=\"12\" fill=\"#2B2B2B\"/><polygon points=\"60,322 110,300 150,326\" fill=\"#E8F6FF\"/><polygon points=\"260,326 310,296 350,322\" fill=\"#E8F6FF\"/><rect x=\"110\" y=\"236\" width=\"60\" height=\"8\" fill=\"#fff\" opacity=\".3\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "French horsemen once captured an entire navy.",
+      "caps": "French *horsemen | *captured an | entire *navy",
+      "scene": {
+        "type": "action",
+        "setting": "snow",
+        "actors": [
+          {
+            "art": "prop:icedship",
+            "x": 0.7,
+            "y": 0.65,
+            "size": "large",
+            "move": "still"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.2,
+            "y": 0.68,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In January seventeen ninety-five, Dutch warships lay trapped in frozen sea near Den Helder.",
+      "caps": "In *1795, | Dutch *warships | trapped in *ice",
+      "scene": {
+        "type": "map",
+        "title": "WINTER 1795",
+        "land": "continent",
+        "places": [
+          {
+            "name": "Den Helder",
+            "x": 0.5,
+            "y": 0.3
+          },
+          {
+            "name": "Amsterdam",
+            "x": 0.58,
+            "y": 0.5
+          },
+          {
+            "name": "Paris",
+            "x": 0.35,
+            "y": 0.9
+          }
+        ],
+        "focus": "Den Helder",
+        "mover": "army"
+      }
+    },
+    {
+      "text": "France had invaded the Netherlands, and the winter was brutal.",
+      "caps": "France *invaded, | the winter *brutal",
+      "scene": {
+        "type": "object",
+        "object": "prop:icedship",
+        "setting": "snow",
+        "text": "FROZEN IN",
+        "on": "winter"
+      }
+    },
+    {
+      "text": "So hussars on horseback rode across the ice, pulling light cannon.",
+      "caps": "*Hussars | rode across the *ice",
+      "scene": {
+        "type": "action",
+        "setting": "snow",
+        "actors": [
+          {
+            "art": "prop:icedship",
+            "x": 0.75,
+            "y": 0.6,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.1,
+            "y": 0.72,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:officer",
+            "x": 0.3,
+            "y": 0.74,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The sailors were stuck, and the fleet surrendered without a fight.",
+      "caps": "The sailors *stuck, | the fleet *surrendered",
+      "scene": {
+        "type": "people",
+        "setting": "snow",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "sailor",
+            "skin": "light",
+            "hair": "blonde"
+          },
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "item": "prop:icedship",
+        "text": "NO SHOTS",
+        "on": "fight"
+      }
+    },
+    {
+      "text": "Not one ship was sunk. The ice won the battle.",
+      "caps": "Not one ship *sunk. | The *ice won",
+      "scene": {
+        "type": "count",
+        "setting": "snow",
+        "items": [
+          {
+            "text": "SHIPS SUNK: 0",
+            "on": "sunk"
+          },
+          {
+            "text": "WINNER: THE ICE",
+            "on": "ice"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Soon the Dutch Republic fell, replaced by a French-backed state.",
+      "caps": "The Dutch *Republic fell, | a *French-backed state",
+      "scene": {
+        "type": "date",
+        "text": "1795",
+        "setting": "parchment",
+        "sub": "BATAVIAN REPUBLIC",
+        "subOn": "state"
+      }
+    },
+    {
+      "text": "Even the sea can switch sides.",
+      "caps": "Even the *sea | can switch *sides",
+      "scene": {
+        "type": "object",
+        "object": "ship",
+        "setting": "sea"
+      }
+    }
+  ],
+  "post": {
+    "caption": "In 1795 the Dutch fleet was beaten by cold, not cannon. Cavalry taking ships sounds made up, but it is in the record.\nCan you think of another battle decided by weather?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#war",
+      "#napoleonicwars",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "French horsemen captured an entire navy on the ice #shorts",
+    "xText": "In 1795, French cavalry rode across ice and captured a Dutch fleet. No ship was sunk."
+  }
+}

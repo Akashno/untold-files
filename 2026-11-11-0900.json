@@ -1,0 +1,205 @@
+{
+  "title": "The Indian king who adopted hundreds of Polish children",
+  "category": "india",
+  "hook": "An Indian king adopted hundreds of Polish children.",
+  "headline": {
+    "top": "AN INDIAN KING",
+    "bottom": "HUNDREDS OF KIDS"
+  },
+  "summary": "In 1942, Maharaja Digvijaysinhji of Nawanagar sheltered hundreds of Polish refugee children at Balachadi, and Warsaw later named a square after him.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Digvijaysinhji Ranjitsinhji Jadeja: Jam Sahib of Nawanagar sheltered Polish children at Balachadi from 1942",
+    "Polish and Indian press: Warsaw 'Good Maharaja Square' named after him; posthumous Commander's Cross of the Order of Merit of Poland 2011"
+  ],
+  "props": [
+    {
+      "name": "tent",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"150\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><polygon points=\"200,80 70,330 330,330\" fill=\"#D9C9A0\"/><polygon points=\"200,80 330,330 230,330\" fill=\"#B8A56F\"/><polygon points=\"200,80 70,330 130,330\" fill=\"#EADFBF\"/><polygon points=\"200,170 160,330 240,330\" fill=\"#5B3A29\"/><rect x=\"195\" y=\"40\" width=\"6\" height=\"50\" fill=\"#5B3A29\"/><polygon points=\"201,40 250,55 201,70\" fill=\"#C2302B\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "An Indian king adopted hundreds of Polish children.",
+      "caps": "An *Indian king | adopted *hundreds | of Polish *children",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "person:child",
+            "x": 0.25,
+            "y": 0.65,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right",
+            "skin": "light",
+            "hair": "blonde"
+          },
+          {
+            "art": "person:girl",
+            "x": 0.45,
+            "y": 0.65,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "art": "person:king",
+            "x": 0.75,
+            "y": 0.65,
+            "size": "medium",
+            "move": "still",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen forty-two they were refugees, many without parents.",
+      "caps": "In *1942 | they were *refugees, | many without *parents",
+      "scene": {
+        "type": "date",
+        "text": "1942",
+        "setting": "parchment",
+        "sub": "WORLD WAR TWO"
+      }
+    },
+    {
+      "text": "Then Maharaja Digvijaysinhji of Nawanagar offered them a home in India.",
+      "caps": "The *Maharaja | offered them a *home | in *India",
+      "scene": {
+        "type": "map",
+        "title": "INDIA",
+        "land": "continent",
+        "mover": "arrow",
+        "places": [
+          {
+            "name": "Poland",
+            "x": 0.2,
+            "y": 0.1
+          },
+          {
+            "name": "Nawanagar",
+            "x": 0.4,
+            "y": 0.6
+          }
+        ],
+        "focus": "Nawanagar"
+      }
+    },
+    {
+      "text": "At Balachadi he built a camp with food, teachers and play.",
+      "caps": "At *Balachadi | a *camp | with *food and teachers",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "prop:tent",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "grow",
+            "on": "camp"
+          },
+          {
+            "art": "person:child",
+            "x": 0.2,
+            "y": 0.68,
+            "size": "small",
+            "move": "walk",
+            "dir": "right",
+            "skin": "light",
+            "hair": "blonde"
+          }
+        ]
+      }
+    },
+    {
+      "text": "He told them they were not orphans anymore. They were his children.",
+      "caps": "*Not orphans | *anymore. | His *children",
+      "scene": {
+        "type": "people",
+        "setting": "day",
+        "action": "point",
+        "figures": [
+          {
+            "role": "king",
+            "skin": "tan",
+            "hair": "black",
+            "label": "Maharaja"
+          },
+          {
+            "role": "child",
+            "skin": "light",
+            "hair": "blonde"
+          }
+        ],
+        "text": "YOU ARE SAFE",
+        "on": "orphans"
+      }
+    },
+    {
+      "text": "When the war ended, they left to build lives around the world.",
+      "caps": "The *war ended, | they *left | to build *lives",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "fly",
+            "dir": "right",
+            "on": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Decades later, Warsaw named a square after him: the Good Maharaja.",
+      "caps": "*Decades later, | *Warsaw | named a *square",
+      "scene": {
+        "type": "object",
+        "object": "flag",
+        "color": "#DC143C",
+        "text": "GOOD MAHARAJA SQUARE",
+        "on": "square",
+        "setting": "city"
+      }
+    },
+    {
+      "text": "Remembered in a city he never ruled.",
+      "caps": "*Remembered | in a *city | he *never ruled",
+      "scene": {
+        "type": "count",
+        "setting": "city",
+        "items": [
+          {
+            "text": "HUNDREDS SAVED",
+            "on": "Remembered"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "An Indian maharaja gave hundreds of Polish children a safe home in the middle of a war, and Warsaw still honours him.\nWould you have known this story?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#indianhistory",
+      "#ww2",
+      "#poland"
+    ],
+    "youtubeTitle": "An Indian king adopted hundreds of Polish children #shorts",
+    "xText": "In 1942, an Indian maharaja gave hundreds of Polish children a home. Warsaw named a square after him."
+  }
+}

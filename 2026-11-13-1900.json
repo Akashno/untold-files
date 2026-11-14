@@ -1,0 +1,206 @@
+{
+  "title": "The Roman emperor captured alive by Persia",
+  "category": "ancient",
+  "hook": "A Roman emperor was captured alive by Persia and never came home.",
+  "headline": {
+    "top": "ROME'S EMPEROR",
+    "bottom": "TAKEN ALIVE"
+  },
+  "summary": "In 260 AD Persian king Shapur I captured Roman emperor Valerian, the only Roman emperor taken prisoner by an enemy, and Rome never got him back while its empire split apart.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica, 'Valerian': captured by Shapur I near Edessa in 260 AD, died in captivity, son Gallienus co-emperor.",
+    "Res Gestae Divi Saporis (Shapur's inscription at Naqsh-e Rustam) and Britannica on Persian rock reliefs depicting Valerian's capture.",
+    "Encyclopaedia Britannica, 'Gallienus' and 'Gallic Empire': Rome split into Gallic and Palmyrene realms during the crisis of the third century."
+  ],
+  "props": [
+    {
+      "name": "relief",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"150\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"60\" y=\"60\" width=\"280\" height=\"280\" rx=\"20\" fill=\"#B9A98C\"/><rect x=\"240\" y=\"60\" width=\"100\" height=\"280\" rx=\"20\" fill=\"#9C8C70\"/><rect x=\"75\" y=\"75\" width=\"60\" height=\"240\" rx=\"12\" fill=\"#D6C8AA\" opacity=\".5\"/><circle cx=\"250\" cy=\"135\" r=\"28\" fill=\"#8A7A5F\"/><rect x=\"225\" y=\"165\" width=\"50\" height=\"120\" rx=\"12\" fill=\"#8A7A5F\"/><path d=\"M175 285 L215 250 L255 285 L255 320 L175 320 Z\" fill=\"#8A7A5F\"/><circle cx=\"150\" cy=\"190\" r=\"22\" fill=\"#A39373\"/><rect x=\"130\" y=\"215\" width=\"40\" height=\"80\" rx=\"10\" fill=\"#A39373\"/><path d=\"M110 260 L130 230 L130 300 Z\" fill=\"#A39373\"/><rect x=\"90\" y=\"95\" width=\"200\" height=\"10\" fill=\"#8A7A5F\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A Roman emperor was captured alive by Persia, and never came home.",
+      "caps": "A Roman *emperor | was *captured alive, | and never *came home.",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "person:king",
+            "x": 0.7,
+            "y": 0.65,
+            "size": "medium",
+            "move": "still",
+            "skin": "tan",
+            "hair": "black"
+          },
+          {
+            "art": "person:oldman",
+            "x": 0.3,
+            "y": 0.65,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In two sixty, Valerian marched east to fight King Shapur.",
+      "caps": "In *260, | Valerian *marched east | to fight *Shapur.",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Rome",
+            "x": 0.2,
+            "y": 0.45
+          },
+          {
+            "name": "Edessa",
+            "x": 0.6,
+            "y": 0.4
+          },
+          {
+            "name": "Persia",
+            "x": 0.85,
+            "y": 0.6
+          }
+        ],
+        "mover": "army",
+        "focus": "Edessa",
+        "title": "260 AD"
+      }
+    },
+    {
+      "text": "Disease weakened his army, and the Persians trapped it.",
+      "caps": "*Disease | weakened his *army, | Persians *trapped it.",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "person:soldier",
+            "x": 0.25,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.75,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Shapur took Valerian prisoner. No Roman emperor had ever been captured before.",
+      "caps": "Shapur took him *prisoner. | A *first for Rome.",
+      "scene": {
+        "type": "people",
+        "setting": "desert",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "king",
+            "label": "SHAPUR",
+            "skin": "tan",
+            "hair": "black"
+          },
+          {
+            "role": "oldman",
+            "label": "VALERIAN",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Shapur had the scene carved into cliffs in Iran.",
+      "caps": "Shapur *carved it | into *cliffs | in *Iran.",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "prop:relief",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "grow",
+            "on": "carved"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Rome never got him back, and he died there.",
+      "caps": "Rome *never | got him *back, | he *died there.",
+      "scene": {
+        "type": "date",
+        "text": "AFTER 260",
+        "setting": "desert",
+        "sub": "Persia"
+      }
+    },
+    {
+      "text": "His son ruled on, and the empire split into three parts.",
+      "caps": "His *son ruled on, | the *empire | split in *three.",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "crown",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "split",
+            "on": "split"
+          }
+        ]
+      }
+    },
+    {
+      "text": "One captured emperor nearly broke Rome.",
+      "caps": "One *emperor | nearly *broke Rome.",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "ONE EMPEROR",
+            "on": "One"
+          },
+          {
+            "text": "THREE ROMES",
+            "on": "broke"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "Rome's emperor ended his life as a prisoner, and his own empire fell into pieces.\nWould you have tried to rescue him?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#ancienthistory",
+      "#rome",
+      "#persia",
+      "#truestory"
+    ],
+    "youtubeTitle": "A Roman emperor was captured alive by Persia #shorts",
+    "xText": "In 260 AD a Roman emperor was captured by Persia. Rome never got him back."
+  }
+}
