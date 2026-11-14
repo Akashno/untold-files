@@ -1,0 +1,205 @@
+{
+  "title": "The weed that stuck to a dog and became Velcro",
+  "category": "invention",
+  "hook": "Velcro was copied from weeds stuck to a dog's fur.",
+  "headline": {
+    "top": "A DOG'S FUR",
+    "bottom": "INSPIRED VELCRO"
+  },
+  "summary": "After a walk in the Alps in 1941, Swiss engineer George de Mestral studied the burrs stuck to his dog, copied their tiny hooks, and invented Velcro, which fashion laughed at before NASA used it.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica, George de Mestral / Velcro: Swiss engineer, noticed burrs on his dog after an Alpine walk in 1941, hooks seen under microscope, patented 1955, name from velours and crochet.",
+    "Smithsonian Magazine / Lemelson-MIT: de Mestral spent years developing it, nylon hooks worked best, Velcro used by NASA in the space programme."
+  ],
+  "props": [
+    {
+      "name": "burr",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"110\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><g stroke=\"#6B4A22\" stroke-width=\"12\" stroke-linecap=\"round\"><line x1=\"200\" y1=\"200\" x2=\"200\" y2=\"60\"/><line x1=\"200\" y1=\"200\" x2=\"330\" y2=\"110\"/><line x1=\"200\" y1=\"200\" x2=\"350\" y2=\"220\"/><line x1=\"200\" y1=\"200\" x2=\"310\" y2=\"320\"/><line x1=\"200\" y1=\"200\" x2=\"200\" y2=\"340\"/><line x1=\"200\" y1=\"200\" x2=\"90\" y2=\"320\"/><line x1=\"200\" y1=\"200\" x2=\"50\" y2=\"220\"/><line x1=\"200\" y1=\"200\" x2=\"70\" y2=\"110\"/></g><circle cx=\"200\" cy=\"200\" r=\"85\" fill=\"#8B5E2B\"/><circle cx=\"215\" cy=\"215\" r=\"70\" fill=\"#6B4A22\"/><circle cx=\"175\" cy=\"170\" r=\"30\" fill=\"#B98445\" opacity=\".7\"/><circle cx=\"200\" cy=\"60\" r=\"12\" fill=\"#6B4A22\"/><circle cx=\"330\" cy=\"110\" r=\"12\" fill=\"#6B4A22\"/><circle cx=\"70\" cy=\"110\" r=\"12\" fill=\"#6B4A22\"/></svg>"
+    },
+    {
+      "name": "hooks",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"140\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"50\" y=\"260\" width=\"300\" height=\"70\" rx=\"10\" fill=\"#2F4E8C\"/><rect x=\"210\" y=\"260\" width=\"140\" height=\"70\" rx=\"10\" fill=\"#243C6E\"/><g fill=\"none\" stroke=\"#E8E3D4\" stroke-width=\"14\" stroke-linecap=\"round\"><path d=\"M90 260 V160 Q90 110 130 130\"/><path d=\"M160 260 V160 Q160 110 200 130\"/><path d=\"M230 260 V160 Q230 110 270 130\"/><path d=\"M300 260 V160 Q300 110 340 130\"/></g><rect x=\"60\" y=\"270\" width=\"200\" height=\"12\" rx=\"6\" fill=\"#fff\" opacity=\".3\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Velcro was copied from weeds stuck to a dog's fur.",
+      "caps": "*Velcro was copied | from *weeds | stuck to a *dog",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "person:man",
+            "x": 0.35,
+            "y": 0.65,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "art": "prop:burr",
+            "x": 0.7,
+            "y": 0.66,
+            "size": "medium",
+            "move": "grow",
+            "on": "stuck"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen forty-one, a Swiss engineer walked his dog in the Alps.",
+      "caps": "In *1941, | a Swiss *engineer | walked his *dog",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown",
+            "label": "George de Mestral"
+          }
+        ],
+        "action": "walk",
+        "setting": "field"
+      }
+    },
+    {
+      "text": "Burrs covered them both, and he wondered why they clung.",
+      "caps": "*Burrs covered | them *both, | he *wondered why",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:burr",
+            "x": 0.4,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "clung"
+          },
+          {
+            "art": "prop:burr",
+            "x": 0.7,
+            "y": 0.68,
+            "size": "medium",
+            "move": "shake",
+            "on": "clung"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Under a microscope, he saw tiny hooks grabbing loops.",
+      "caps": "Under a *microscope, | tiny *hooks | grabbing *loops",
+      "scene": {
+        "type": "object",
+        "object": "prop:hooks",
+        "text": "TINY HOOKS",
+        "on": "hooks"
+      }
+    },
+    {
+      "text": "Cotton wore out, so he spent years testing nylon.",
+      "caps": "*Cotton wore out, | so *years | testing *nylon",
+      "scene": {
+        "type": "timeline",
+        "years": [
+          "1941",
+          "1948",
+          "1955"
+        ],
+        "active": 1,
+        "title": "YEARS OF TESTS"
+      }
+    },
+    {
+      "text": "He patented it in nineteen fifty-five.",
+      "caps": "He *patented it | in *1955",
+      "scene": {
+        "type": "date",
+        "text": "1955",
+        "sub": "PATENT GRANTED",
+        "subOn": "patented",
+        "setting": "parchment"
+      }
+    },
+    {
+      "text": "Fashion makers laughed at first.",
+      "caps": "*Fashion makers | *laughed | at *first",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "grey"
+          },
+          {
+            "role": "woman",
+            "skin": "light",
+            "hair": "blonde"
+          }
+        ],
+        "action": "point",
+        "setting": "hall"
+      }
+    },
+    {
+      "text": "Then NASA astronauts used it in space.",
+      "caps": "Then *NASA | astronauts *used it | in *space",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "night": true,
+        "actors": [
+          {
+            "art": "rocket",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "rise",
+            "on": "space"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The idea had been growing on a hillside all along.",
+      "caps": "The *idea | had been *growing | on a *hillside",
+      "scene": {
+        "type": "count",
+        "setting": "field",
+        "items": [
+          {
+            "text": "HOOKS + LOOPS",
+            "on": "idea"
+          },
+          {
+            "text": "= VELCRO",
+            "on": "hillside"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "The idea was stuck to a dog all along.\nWhat everyday thing do you think nature invented first?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#velcro",
+      "#science",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "Velcro was copied from weeds stuck to a dog #shorts",
+    "xText": "Velcro began when burrs clung to a dog's fur in the Alps in 1941."
+  }
+}
