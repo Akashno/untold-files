@@ -1,0 +1,199 @@
+{
+  "category": "disaster",
+  "title": "The tiny relay setting that blacked out thirty million people",
+  "hook": "One small switch setting left thirty million people in the dark.",
+  "headline": {
+    "top": "ONE SMALL SETTING.",
+    "bottom": "30 MILLION DARK."
+  },
+  "summary": "On November 9, 1965, a protective relay near Niagara Falls set too low tripped and triggered a cascade that blacked out the Northeast US and Ontario.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: Northeast blackout of 1965 (Nov 9, 1965; about 30 million people; Sir Adam Beck Station No. 2 relay set too low; up to 13 hours)",
+    "Federal Power Commission report 'Prevention of Power Failures' (1967) on the cause and cascade; led to reliability councils and NERC's predecessor"
+  ],
+  "props": [
+    {
+      "name": "relay",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"125\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"90\" y=\"80\" width=\"220\" height=\"250\" rx=\"20\" fill=\"#8A929C\"/><rect x=\"240\" y=\"80\" width=\"70\" height=\"250\" rx=\"20\" fill=\"#646C77\"/><rect x=\"120\" y=\"110\" width=\"160\" height=\"110\" rx=\"12\" fill=\"#F2EBD3\"/><path d=\"M150 205 A55 55 0 0 1 250 205\" fill=\"none\" stroke=\"#333\" stroke-width=\"8\"/><line x1=\"200\" y1=\"205\" x2=\"165\" y2=\"160\" stroke=\"#C2302B\" stroke-width=\"8\" stroke-linecap=\"round\"/><circle cx=\"200\" cy=\"205\" r=\"10\" fill=\"#333\"/><circle cx=\"160\" cy=\"270\" r=\"20\" fill=\"#D9A62E\"/><circle cx=\"230\" cy=\"270\" r=\"20\" fill=\"#C2302B\"/><rect x=\"100\" y=\"95\" width=\"18\" height=\"220\" rx=\"9\" fill=\"#fff\" opacity=\".3\"/></svg>"
+    },
+    {
+      "name": "pylon",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"110\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><polygon points=\"200,40 130,340 160,340 200,120 240,340 270,340\" fill=\"#7C8590\"/><polygon points=\"200,40 270,340 240,340 200,120\" fill=\"#5B636D\"/><rect x=\"90\" y=\"110\" width=\"220\" height=\"14\" rx=\"6\" fill=\"#8F98A3\"/><rect x=\"110\" y=\"180\" width=\"180\" height=\"14\" rx=\"6\" fill=\"#8F98A3\"/><line x1=\"150\" y1=\"230\" x2=\"250\" y2=\"290\" stroke=\"#5B636D\" stroke-width=\"8\"/><line x1=\"250\" y1=\"230\" x2=\"150\" y2=\"290\" stroke=\"#5B636D\" stroke-width=\"8\"/><circle cx=\"100\" cy=\"135\" r=\"9\" fill=\"#E8E3D0\"/><circle cx=\"300\" cy=\"135\" r=\"9\" fill=\"#E8E3D0\"/><circle cx=\"120\" cy=\"205\" r=\"9\" fill=\"#E8E3D0\"/><circle cx=\"280\" cy=\"205\" r=\"9\" fill=\"#E8E3D0\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "One small switch setting left thirty million people in the dark.",
+      "caps": "One small *setting | left *thirty million | people in the *dark",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:relay",
+            "x": 0.5,
+            "y": 0.58,
+            "size": "large",
+            "move": "shake",
+            "on": "switch"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It was rush hour on November ninth, nineteen sixty-five.",
+      "caps": "It was *rush hour | on *November 9, | *1965",
+      "scene": {
+        "type": "date",
+        "text": "NOV 9, 1965",
+        "setting": "city",
+        "sub": "American Northeast"
+      }
+    },
+    {
+      "text": "Near Niagara Falls, a safety relay had been set too low.",
+      "caps": "Near *Niagara Falls, | a safety *relay | set too *low",
+      "scene": {
+        "type": "map",
+        "title": "NORTH AMERICA 1965",
+        "places": [
+          {
+            "name": "Niagara Falls",
+            "x": 0.45,
+            "y": 0.4
+          },
+          {
+            "name": "Toronto",
+            "x": 0.4,
+            "y": 0.3
+          },
+          {
+            "name": "New York",
+            "x": 0.7,
+            "y": 0.55
+          }
+        ],
+        "focus": "Niagara Falls",
+        "mover": "arrow",
+        "route": false
+      }
+    },
+    {
+      "text": "A small rise in demand tripped it, and one power line shut off.",
+      "caps": "A small *rise | *tripped it, | one *power line | shut *off",
+      "scene": {
+        "type": "object",
+        "object": "prop:relay",
+        "setting": "room",
+        "text": "SET TOO LOW",
+        "on": "tripped"
+      }
+    },
+    {
+      "text": "Its power spilled onto other lines, which overloaded and shut off too.",
+      "caps": "Power *spilled | onto other *lines, | which *overloaded",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:pylon",
+            "x": 0.3,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "overloaded"
+          },
+          {
+            "art": "prop:pylon",
+            "x": 0.72,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "overloaded"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Within minutes, the grid collapsed across the Northeast and Ontario.",
+      "caps": "Within *minutes, | the grid *collapsed | across *Ontario",
+      "scene": {
+        "type": "people",
+        "setting": "city",
+        "night": true,
+        "action": "stand",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "woman",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ],
+        "text": "BLACKOUT",
+        "on": "collapsed"
+      }
+    },
+    {
+      "text": "Power took up to thirteen hours to return.",
+      "caps": "Power took *up to | *thirteen hours | to *return",
+      "scene": {
+        "type": "count",
+        "setting": "city",
+        "night": true,
+        "items": [
+          {
+            "text": "30 MILLION PEOPLE",
+            "on": "Power"
+          },
+          {
+            "text": "UP TO 13 HOURS",
+            "on": "thirteen"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Engineers then built councils to stop one failure spreading.",
+      "caps": "*Engineers | built *councils | to stop one *failure",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "point",
+        "figures": [
+          {
+            "role": "scientist",
+            "skin": "light",
+            "hair": "grey"
+          },
+          {
+            "role": "officer",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "One badly set relay near Niagara Falls took down the lights from New York to Ontario.\nWhat tiny thing do you think could still break a whole system today?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#disaster",
+      "#blackout",
+      "#engineering"
+    ],
+    "youtubeTitle": "One small switch setting left 30 million people in the dark #shorts",
+    "xText": "In 1965, one relay set too low blacked out 30 million people across the Northeast and Ontario."
+  }
+}
