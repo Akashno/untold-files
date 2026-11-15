@@ -1,0 +1,170 @@
+{
+  "title": "The pig that nearly started a war",
+  "category": "war",
+  "hook": "A pig nearly started a war between America and Britain.",
+  "headline": {
+    "top": "A PIG NEARLY",
+    "bottom": "STARTED A WAR"
+  },
+  "summary": "In 1859 an American farmer shot a British-owned pig on San Juan Island, triggering a standoff of warships and soldiers that lasted twelve years with no death except the pig.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia 'Pig War': pig shot 15 June 1859 on San Juan Island by Lyman Cutlar; pig owned by Hudson's Bay Company; only casualty was the pig.",
+    "US National Park Service, San Juan Island National Historical Park: joint military occupation until 1872; Kaiser Wilhelm I arbitration awarded the islands to the United States in 1872; Admiral Baynes declined to fight over the pig."
+  ],
+  "props": [
+    {
+      "name": "pig",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"120\" y=\"290\" width=\"28\" height=\"45\" rx=\"8\" fill=\"#D98A93\"/><rect x=\"250\" y=\"290\" width=\"28\" height=\"45\" rx=\"8\" fill=\"#C0707A\"/><ellipse cx=\"195\" cy=\"230\" rx=\"130\" ry=\"85\" fill=\"#F2A7B1\"/><ellipse cx=\"235\" cy=\"260\" rx=\"85\" ry=\"55\" fill=\"#E08E99\" opacity=\".6\"/><circle cx=\"300\" cy=\"215\" r=\"62\" fill=\"#F6B5BD\"/><ellipse cx=\"345\" cy=\"232\" rx=\"30\" ry=\"24\" fill=\"#E58A97\"/><circle cx=\"338\" cy=\"232\" r=\"5\" fill=\"#7A3340\"/><circle cx=\"354\" cy=\"232\" r=\"5\" fill=\"#7A3340\"/><circle cx=\"306\" cy=\"195\" r=\"8\" fill=\"#222\"/><polygon points=\"262,170 285,135 300,172\" fill=\"#E58A97\"/><path d=\"M68 215 q-30 -20 -8 -40 q10 15 -2 25\" fill=\"none\" stroke=\"#E58A97\" stroke-width=\"8\"/><ellipse cx=\"150\" cy=\"190\" rx=\"50\" ry=\"22\" fill=\"#fff\" opacity=\".3\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A pig nearly started a war between America and Britain.",
+      "caps": "A *pig | nearly *started | a *war",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:pig",
+            "x": 0.4,
+            "y": 0.65,
+            "size": "large",
+            "move": "shake",
+            "on": "pig"
+          },
+          {
+            "art": "flag",
+            "x": 0.8,
+            "y": 0.55,
+            "size": "medium",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In eighteen fifty-nine, an American farmer shot it for eating his potatoes.",
+      "caps": "In *1859, | an American *farmer | *shot it for | eating *potatoes",
+      "scene": {
+        "type": "date",
+        "text": "1859",
+        "sub": "San Juan Island",
+        "setting": "field"
+      }
+    },
+    {
+      "text": "Soon, hundreds of American soldiers faced five British warships on the island.",
+      "caps": "Soon, *hundreds | of American *soldiers | *faced five | British *warships",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.3,
+            "y": 0.6,
+            "size": "large",
+            "move": "float"
+          },
+          {
+            "art": "ship",
+            "x": 0.75,
+            "y": 0.62,
+            "size": "medium",
+            "move": "float"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.55,
+            "y": 0.75,
+            "size": "small",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The British admiral arrived, and refused to fight over a pig.",
+      "caps": "The British *admiral | *arrived, and | *refused to fight | over a *pig",
+      "scene": {
+        "type": "people",
+        "setting": "day",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "grey",
+            "label": "Admiral Baynes"
+          }
+        ],
+        "item": "prop:pig",
+        "text": "NOT OVER A PIG",
+        "on": "refused"
+      }
+    },
+    {
+      "text": "So both armies camped there for twelve years.",
+      "caps": "So both *armies | *camped there | for *twelve years",
+      "scene": {
+        "type": "count",
+        "setting": "field",
+        "items": [
+          {
+            "text": "12 YEARS",
+            "on": "twelve"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Then a German emperor settled it, and the island went to America.",
+      "caps": "Then a *German emperor | *settled it, | and the *island | went to *America",
+      "scene": {
+        "type": "map",
+        "title": "1872",
+        "land": "continent",
+        "places": [
+          {
+            "name": "Berlin",
+            "x": 0.85,
+            "y": 0.3
+          },
+          {
+            "name": "San Juan Island",
+            "x": 0.12,
+            "y": 0.35
+          }
+        ],
+        "mover": "arrow",
+        "focus": "San Juan Island"
+      }
+    },
+    {
+      "text": "The only death in the Pig War was the pig.",
+      "caps": "The only *death | in *the Pig War | was the *pig",
+      "scene": {
+        "type": "object",
+        "object": "prop:pig",
+        "setting": "parchment",
+        "text": "ONLY CASUALTY",
+        "on": "death"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A potato-eating pig took two empires to the edge of war. Cooler heads won.\nWould you have backed down over a pig?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#war",
+      "#piggwar",
+      "#americanhistory"
+    ],
+    "youtubeTitle": "A pig nearly started a war between America and Britain #shorts",
+    "xText": "In 1859 a pig nearly started a war between America and Britain. The only casualty was the pig."
+  }
+}
