@@ -1,0 +1,208 @@
+{
+  "title": "The war Australia lost to birds",
+  "category": "unbelievable",
+  "hook": "Australia sent machine guns to fight birds, and the birds won.",
+  "headline": {
+    "top": "SOLDIERS VS EMUS.",
+    "bottom": "THE EMUS WON!"
+  },
+  "summary": "In 1932 the Australian army sent machine guns against about twenty thousand emus ruining Western Australian wheat farms, and withdrew having failed to solve the problem.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Emu War - 1932 Campion district, Western Australia; Major G.P.W. Meredith, two Lewis guns, army withdrew",
+    "Australian War Memorial / National Museum of Australia: Emu War, farmers were WWI veterans, about 20,000 emus, Nov-Dec 1932"
+  ],
+  "props": [
+    {
+      "name": "emu",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"352\" rx=\"110\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><rect x=\"160\" y=\"260\" width=\"12\" height=\"90\" fill=\"#8A6A4A\"/><rect x=\"212\" y=\"260\" width=\"12\" height=\"90\" fill=\"#6E5238\"/><rect x=\"145\" y=\"342\" width=\"40\" height=\"9\" rx=\"4\" fill=\"#6E5238\"/><rect x=\"200\" y=\"342\" width=\"40\" height=\"9\" rx=\"4\" fill=\"#5A422D\"/><ellipse cx=\"195\" cy=\"215\" rx=\"95\" ry=\"70\" fill=\"#8B6B4E\"/><ellipse cx=\"230\" cy=\"235\" rx=\"60\" ry=\"50\" fill=\"#6B4F38\"/><ellipse cx=\"160\" cy=\"190\" rx=\"50\" ry=\"32\" fill=\"#A88565\"/><path d=\"M255 180 Q300 150 290 90 L310 88 Q325 160 270 205 Z\" fill=\"#7C8A96\"/><ellipse cx=\"305\" cy=\"80\" rx=\"26\" ry=\"18\" fill=\"#8E9CA8\"/><path d=\"M325 78 L360 88 L326 95 Z\" fill=\"#D9B25A\"/><circle cx=\"305\" cy=\"74\" r=\"5\" fill=\"#222\"/></svg>"
+    },
+    {
+      "name": "gun",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><path d=\"M170 220 L120 330 M230 220 L290 330\" stroke=\"#4A4F55\" stroke-width=\"14\" stroke-linecap=\"round\"/><rect x=\"60\" y=\"170\" width=\"200\" height=\"20\" rx=\"8\" fill=\"#5B6168\"/><rect x=\"60\" y=\"170\" width=\"200\" height=\"7\" rx=\"3\" fill=\"#8A9098\"/><rect x=\"230\" y=\"150\" width=\"100\" height=\"70\" rx=\"12\" fill=\"#3F4449\"/><rect x=\"240\" y=\"155\" width=\"40\" height=\"12\" rx=\"5\" fill=\"#6B7178\"/><circle cx=\"290\" cy=\"140\" r=\"42\" fill=\"#4A4F55\"/><circle cx=\"282\" cy=\"132\" r=\"26\" fill=\"#6B7178\"/><rect x=\"320\" y=\"185\" width=\"50\" height=\"16\" rx=\"6\" fill=\"#8B5A2B\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Australia sent machine guns to fight birds, and the birds won.",
+      "caps": "*Australia sent | machine *guns | to fight *birds",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:emu",
+            "x": 0.3,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.75,
+            "y": 0.62,
+            "size": "medium",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen thirty-two, about twenty thousand emus swarmed wheat farms in Western Australia.",
+      "caps": "In *1932, | *20,000 emus | swarmed *farms",
+      "scene": {
+        "type": "map",
+        "land": "continent",
+        "title": "AUSTRALIA 1932",
+        "places": [
+          {
+            "name": "Perth",
+            "x": 0.2,
+            "y": 0.7
+          },
+          {
+            "name": "Campion",
+            "x": 0.3,
+            "y": 0.62
+          }
+        ],
+        "focus": "Campion",
+        "route": false
+      }
+    },
+    {
+      "text": "The farmers were war veterans, so they asked the army for help.",
+      "caps": "Farmers were *veterans, | they asked the *army",
+      "scene": {
+        "type": "people",
+        "setting": "field",
+        "action": "point",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "item": "prop:emu",
+        "text": "HELP US",
+        "on": "help"
+      }
+    },
+    {
+      "text": "The army sent soldiers with two machine guns.",
+      "caps": "*Soldiers | *with two | machine *guns",
+      "scene": {
+        "type": "object",
+        "object": "prop:gun",
+        "setting": "field",
+        "text": "TWO GUNS",
+        "on": "two"
+      }
+    },
+    {
+      "text": "But the emus split into small groups and sprinted off in every direction.",
+      "caps": "Emus *split | into small *groups | and *sprinted",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:emu",
+            "x": 0.25,
+            "y": 0.6,
+            "size": "medium",
+            "move": "fly",
+            "dir": "left"
+          },
+          {
+            "art": "prop:emu",
+            "x": 0.6,
+            "y": 0.68,
+            "size": "medium",
+            "move": "fly",
+            "dir": "right"
+          },
+          {
+            "art": "prop:emu",
+            "x": 0.8,
+            "y": 0.58,
+            "size": "small",
+            "move": "fly",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Bullets barely slowed them, and the army pulled out in days.",
+      "caps": "Bullets *barely | *slowed them, | army *pulled out",
+      "scene": {
+        "type": "count",
+        "setting": "field",
+        "items": [
+          {
+            "text": "ABOUT 10,000 ROUNDS",
+            "on": "Bullets"
+          },
+          {
+            "text": "ARMY PULLS OUT",
+            "on": "pulled"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Soldiers came back for a second try, and the emus mostly won.",
+      "caps": "A *second try, | the emus *mostly won",
+      "scene": {
+        "type": "people",
+        "setting": "field",
+        "action": "walk",
+        "figures": [
+          {
+            "role": "soldier",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "soldier",
+            "skin": "light",
+            "hair": "black"
+          }
+        ],
+        "item": "prop:gun"
+      }
+    },
+    {
+      "text": "Nature one, army zero.",
+      "caps": "*Nature one, | army *zero",
+      "scene": {
+        "type": "object",
+        "object": "prop:emu",
+        "setting": "field",
+        "text": "EMUS 1, ARMY 0",
+        "on": "zero"
+      }
+    }
+  ],
+  "post": {
+    "caption": "In 1932 the Australian army went to war with emus and came home without a clear win.\nWho would you bet on, soldiers or emus?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#emuwar",
+      "#australia",
+      "#unbelievable"
+    ],
+    "youtubeTitle": "Australia sent machine guns to fight birds, and the birds won #shorts",
+    "xText": "In 1932 Australia sent soldiers with machine guns to fight emus. The emus mostly won."
+  }
+}
