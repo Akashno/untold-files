@@ -152,5 +152,12 @@
     "category": "mystery",
     "summary": "In 1518 hundreds of people in Strasbourg danced for days without rest; the cause is still unknown.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-17-0900",
+    "title": "The bronze jar that felt an earthquake nobody else could",
+    "category": "ancient",
+    "summary": "In 132 AD Han official Zhang Heng built a bronze seismoscope, and in 138 AD it sensed a distant earthquake that the capital never felt, proven when a messenger arrived days later.",
+    "status": "rendered"
   }
 ]
