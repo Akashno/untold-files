@@ -1,0 +1,163 @@
+{
+  "title": "The bat bombs that burned down their own army base",
+  "category": "war",
+  "hook": "America planned to attack Japan with bats carrying tiny bombs.",
+  "headline": {
+    "top": "BATS WITH BOMBS.",
+    "bottom": "A REAL PLAN."
+  },
+  "summary": "In World War Two the US tested bats carrying tiny timed fire devices, but escaped bats burned down part of an American army airfield and the project was cancelled.",
+  "music": "bed",
+  "sources": [
+    "Smithsonian Magazine and Encyclopaedia Britannica on Project X-Ray: dentist Lytle S. Adams proposed bat bombs after Pearl Harbor, using Mexican free-tailed bats.",
+    "US Army history and Atlas Obscura/History.com: 1943 test at Carlsbad Army Air Field, New Mexico, where released bats set fire to a hangar and other buildings; project cancelled in 1944 after about two million dollars."
+  ],
+  "props": [
+    {
+      "name": "bombbat",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"110\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><path d=\"M200 150 L90 90 L40 170 L90 160 L120 220 L160 190 L180 230 L200 210 L220 230 L240 190 L280 220 L310 160 L360 170 L310 90 Z\" fill=\"#4A3B34\"/><path d=\"M200 150 L90 90 L40 170 L90 160 L120 220 L160 190 L180 150 Z\" fill=\"#6B564C\"/><path d=\"M200 150 L310 90 L360 170 L310 160 L280 220 L240 190 L220 230 L200 210 Z\" fill=\"#33271F\"/><ellipse cx=\"200\" cy=\"215\" rx=\"42\" ry=\"62\" fill=\"#5A463C\"/><circle cx=\"200\" cy=\"140\" r=\"36\" fill=\"#6B564C\"/><polygon points=\"170,118 165,80 190,108\" fill=\"#4A3B34\"/><polygon points=\"230,118 235,80 210,108\" fill=\"#33271F\"/><circle cx=\"188\" cy=\"138\" r=\"6\" fill=\"#fff\"/><circle cx=\"212\" cy=\"138\" r=\"6\" fill=\"#fff\"/><circle cx=\"189\" cy=\"139\" r=\"3\" fill=\"#000\"/><circle cx=\"211\" cy=\"139\" r=\"3\" fill=\"#000\"/><rect x=\"184\" y=\"225\" width=\"32\" height=\"48\" rx=\"10\" fill=\"#C2302B\"/><rect x=\"206\" y=\"225\" width=\"10\" height=\"48\" rx=\"5\" fill=\"#9E2A2A\"/><rect x=\"188\" y=\"230\" width=\"6\" height=\"36\" rx=\"3\" fill=\"#fff\" opacity=\".35\"/><path d=\"M200 225 L200 205\" stroke=\"#E8A317\" stroke-width=\"5\"/></svg>"
+    },
+    {
+      "name": "hangar",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"150\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><path d=\"M50 330 L50 200 Q200 70 350 200 L350 330 Z\" fill=\"#A9B0B8\"/><path d=\"M250 140 Q320 160 350 200 L350 330 L250 330 Z\" fill=\"#7F8791\"/><path d=\"M70 200 Q130 130 190 105\" stroke=\"#fff\" stroke-width=\"12\" fill=\"none\" opacity=\".4\"/><rect x=\"130\" y=\"230\" width=\"140\" height=\"100\" fill=\"#4B525B\"/><path d=\"M200 120 Q150 60 190 20 Q200 60 230 40 Q260 80 220 120 Z\" fill=\"#E8741A\"/><path d=\"M200 120 Q180 85 200 65 Q215 85 220 120 Z\" fill=\"#F5C518\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "America planned to attack Japan with bats carrying tiny bombs.",
+      "caps": "*America planned | to attack *Japan | with *bats",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:bombbat",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "fly",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "A dentist named Lytle Adams pitched it after Pearl Harbor.",
+      "caps": "A *dentist | *pitched it | after *Pearl Harbor",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "figures": [
+          {
+            "role": "man",
+            "label": "Lytle Adams",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "action": "point",
+        "item": "prop:bombbat"
+      }
+    },
+    {
+      "text": "Soldiers chilled bats to sleep and strapped a timed fire device to each.",
+      "caps": "Bats chilled to *sleep, | a *timed | *fire device",
+      "scene": {
+        "type": "object",
+        "object": "prop:bombbat",
+        "text": "TIMED FIRE",
+        "on": "timed"
+      }
+    },
+    {
+      "text": "The plan was to drop them over Japanese wooden cities.",
+      "caps": "Dropped from *planes | over *wooden cities",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "actors": [
+          {
+            "art": "plane",
+            "x": 0.3,
+            "y": 0.35,
+            "size": "medium",
+            "move": "fly",
+            "dir": "right"
+          },
+          {
+            "art": "prop:bombbat",
+            "x": 0.6,
+            "y": 0.5,
+            "size": "small",
+            "move": "fall"
+          }
+        ]
+      }
+    },
+    {
+      "text": "But in a nineteen forty-three test, some bats woke early and escaped.",
+      "caps": "But in *1943, | some bats *escaped",
+      "scene": {
+        "type": "date",
+        "text": "1943",
+        "setting": "desert",
+        "sub": "Carlsbad, New Mexico",
+        "subOn": "test"
+      }
+    },
+    {
+      "text": "They roosted under the army's own buildings, and a hangar burned down.",
+      "caps": "They hid *under | their own *base, | a *hangar burned",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "prop:hangar",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "grow",
+            "on": "hangar"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The project was cancelled, after costing about two million dollars.",
+      "caps": "The project was *cancelled, | after *two million | *dollars",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "$2 MILLION",
+            "on": "two"
+          },
+          {
+            "text": "CANCELLED",
+            "on": "cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The bats had beaten their own side.",
+      "caps": "The bats *beat | their own *side"
+    }
+  ],
+  "post": {
+    "caption": "The US really tested bats as bombs, and they burned down part of an American base.\nWould you have trusted a bat with a mission?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#war",
+      "#weirdhistory"
+    ],
+    "youtubeTitle": "America tried to attack Japan with bomb-carrying bats #shorts",
+    "xText": "In World War Two, America tested bats with tiny bombs. They burned down their own hangar."
+  }
+}
