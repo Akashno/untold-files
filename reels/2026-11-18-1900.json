@@ -1,0 +1,211 @@
+{
+  "title": "The cook who survived sixty hours inside a sunken ship",
+  "category": "survival",
+  "hook": "A cook lived almost three days inside a sunken ship.",
+  "headline": {
+    "top": "3 DAYS UNDERSEA.",
+    "bottom": "STILL ALIVE!"
+  },
+  "summary": "In 2013 Nigerian cook Harrison Okene survived about sixty hours in an air pocket inside a capsized tugboat on the seabed, until divers searching for bodies saw his hand move.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia / BBC News: Harrison Okene, cook on tug Jascon-4, capsized off Nigeria 26 May 2013, about 30 m deep, found alive after roughly 60 hours",
+    "The Guardian and DCN Diving accounts: divers searching the wreck found him in an air pocket; 11 other crew died; he was decompressed in a chamber"
+  ],
+  "props": [
+    {
+      "name": "airpocket",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"60\" y=\"70\" width=\"280\" height=\"270\" rx=\"12\" fill=\"#3B4A5A\"/><rect x=\"230\" y=\"70\" width=\"110\" height=\"270\" rx=\"12\" fill=\"#2C3845\"/><rect x=\"75\" y=\"85\" width=\"250\" height=\"80\" rx=\"8\" fill=\"#CFE8F2\"/><rect x=\"75\" y=\"165\" width=\"250\" height=\"160\" fill=\"#2E7FA8\" opacity=\".85\"/><rect x=\"75\" y=\"165\" width=\"250\" height=\"12\" fill=\"#9AD1E8\"/><rect x=\"90\" y=\"95\" width=\"60\" height=\"14\" rx=\"7\" fill=\"#fff\" opacity=\".5\"/><circle cx=\"120\" cy=\"250\" r=\"12\" fill=\"#CFE8F2\" opacity=\".7\"/><circle cx=\"260\" cy=\"220\" r=\"8\" fill=\"#CFE8F2\" opacity=\".7\"/><circle cx=\"200\" cy=\"285\" r=\"10\" fill=\"#CFE8F2\" opacity=\".7\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A cook lived almost three days inside a sunken ship.",
+      "caps": "A *cook lived | almost *three days | inside a *sunken ship",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "sink"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In May twenty thirteen, a tugboat capsized off Nigeria.",
+      "caps": "In *May 2013, | a *tugboat capsized | off *Nigeria",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Nigeria",
+            "x": 0.5,
+            "y": 0.4
+          },
+          {
+            "name": "Atlantic Ocean",
+            "x": 0.35,
+            "y": 0.8
+          }
+        ],
+        "mover": "ship",
+        "focus": "Nigeria",
+        "title": "West Africa",
+        "route": false
+      }
+    },
+    {
+      "text": "Harrison Okene was aboard when it sank thirty metres.",
+      "caps": "*Harrison Okene | was *aboard | when it sank *thirty metres",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "night": true,
+        "figures": [
+          {
+            "role": "worker",
+            "skin": "dark",
+            "hair": "black",
+            "label": "Harrison Okene"
+          }
+        ],
+        "action": "stand"
+      }
+    },
+    {
+      "text": "Eleven crew died. He was alone, in the dark.",
+      "caps": "*Eleven crew died. | He was *alone, | in the *dark",
+      "scene": {
+        "type": "count",
+        "setting": "sea",
+        "night": true,
+        "items": [
+          {
+            "text": "11 LOST",
+            "on": "Eleven"
+          },
+          {
+            "text": "1 SURVIVOR",
+            "on": "alone"
+          }
+        ]
+      }
+    },
+    {
+      "text": "He found a pocket of air and waited.",
+      "caps": "He found a *pocket of air | and *waited",
+      "scene": {
+        "type": "object",
+        "object": "prop:airpocket",
+        "text": "AIR POCKET",
+        "on": "pocket"
+      }
+    },
+    {
+      "text": "Days later, divers came only to search for bodies.",
+      "caps": "*Days later, | *divers came | for *bodies",
+      "scene": {
+        "type": "date",
+        "text": "60 HOURS",
+        "setting": "sea",
+        "night": true,
+        "sub": "In the dark",
+        "subOn": "Days"
+      }
+    },
+    {
+      "text": "Then one of them saw a hand move.",
+      "caps": "Then *one saw | a *hand move",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:airpocket",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "person:man",
+            "x": 0.25,
+            "y": 0.5,
+            "size": "medium",
+            "move": "float"
+          },
+          {
+            "art": "person:worker",
+            "skin": "dark",
+            "x": 0.75,
+            "y": 0.55,
+            "size": "medium",
+            "move": "grow",
+            "on": "hand"
+          }
+        ]
+      }
+    },
+    {
+      "text": "After about sixty hours, he came up alive.",
+      "caps": "After *sixty hours, | he came up *alive",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "figures": [
+          {
+            "role": "worker",
+            "skin": "dark",
+            "hair": "black"
+          },
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown",
+            "label": "Diver"
+          }
+        ],
+        "action": "walk",
+        "text": "ALIVE",
+        "on": "alive"
+      }
+    },
+    {
+      "text": "One small pocket of air was enough.",
+      "caps": "One small *pocket | of air was *enough",
+      "scene": {
+        "type": "count",
+        "setting": "sea",
+        "items": [
+          {
+            "text": "60 HOURS",
+            "on": "small"
+          },
+          {
+            "text": "ONE AIR POCKET",
+            "on": "air"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "He was trapped in the dark, thirty metres down, and rescuers only expected to find bodies.\nCould you have stayed calm for sixty hours?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#survival",
+      "#truestory",
+      "#history",
+      "#ocean",
+      "#mystery"
+    ],
+    "youtubeTitle": "A cook survived almost three days inside a sunken ship #shorts",
+    "xText": "He spent about sixty hours in an air pocket on the seabed, and divers found him by seeing his hand move."
+  }
+}

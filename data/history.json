@@ -180,5 +180,12 @@
     "category": "invention",
     "summary": "In 1956 engineer Wilson Greatbatch grabbed the wrong resistor, and his circuit pulsed like a heartbeat, leading to the implantable pacemaker.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-18-1900",
+    "title": "The cook who survived sixty hours inside a sunken ship",
+    "category": "survival",
+    "summary": "In 2013 Nigerian cook Harrison Okene survived about sixty hours in an air pocket inside a capsized tugboat on the seabed, until divers searching for bodies saw his hand move.",
+    "status": "rendered"
   }
 ]
