@@ -1,0 +1,153 @@
+{
+  "title": "The wrong part that became the pacemaker",
+  "category": "invention",
+  "hook": "A wrong part pulled from a box ended up saving hearts.",
+  "headline": {
+    "top": "ONE WRONG PART",
+    "bottom": "SAVES HEARTS"
+  },
+  "summary": "In 1956 engineer Wilson Greatbatch grabbed the wrong resistor, and his circuit pulsed like a heartbeat, leading to the implantable pacemaker.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica and Wikipedia, Wilson Greatbatch: in 1956 he installed a wrong-size resistor in a heart rhythm recorder, and the circuit produced intermittent pulses like a heartbeat.",
+    "National Inventors Hall of Fame / Smithsonian: Greatbatch worked in a barn workshop, and in 1960 his pacemaker was implanted in a 77-year-old man who lived about 18 more months."
+  ],
+  "props": [
+    {
+      "name": "resistor",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"300\" rx=\"150\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"40\" y=\"192\" width=\"320\" height=\"16\" rx=\"8\" fill=\"#9AA1AC\"/><rect x=\"110\" y=\"140\" width=\"180\" height=\"120\" rx=\"50\" fill=\"#D9B27C\"/><rect x=\"210\" y=\"140\" width=\"80\" height=\"120\" rx=\"40\" fill=\"#B98E55\"/><rect x=\"140\" y=\"142\" width=\"22\" height=\"116\" fill=\"#C2302B\"/><rect x=\"178\" y=\"140\" width=\"22\" height=\"120\" fill=\"#2B2B2B\"/><rect x=\"216\" y=\"142\" width=\"22\" height=\"116\" fill=\"#E0A82E\"/><rect x=\"125\" y=\"155\" width=\"60\" height=\"14\" rx=\"7\" fill=\"#fff\" opacity=\".35\"/></svg>"
+    },
+    {
+      "name": "pacemaker",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><path d=\"M270 110 C300 60 350 40 370 20\" stroke=\"#444\" stroke-width=\"10\" fill=\"none\"/><rect x=\"80\" y=\"110\" width=\"220\" height=\"210\" rx=\"70\" fill=\"#C9CDD3\"/><rect x=\"200\" y=\"110\" width=\"100\" height=\"210\" rx=\"50\" fill=\"#9AA1AC\"/><rect x=\"110\" y=\"130\" width=\"30\" height=\"150\" rx=\"15\" fill=\"#fff\" opacity=\".4\"/><circle cx=\"190\" cy=\"215\" r=\"42\" fill=\"#C2302B\"/><circle cx=\"178\" cy=\"203\" r=\"12\" fill=\"#fff\" opacity=\".4\"/><rect x=\"255\" y=\"95\" width=\"40\" height=\"30\" rx=\"8\" fill=\"#555\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A wrong part pulled from a box ended up saving hearts.",
+      "caps": "A *wrong part | from a *box | saved *hearts",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:resistor",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "rise"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen fifty-six, engineer Wilson Greatbatch was building a device to record heartbeats.",
+      "caps": "In *1956, | engineer *Greatbatch | recorded *heartbeats",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "scientist",
+            "label": "Wilson Greatbatch",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ]
+      }
+    },
+    {
+      "text": "He reached for a resistor, but grabbed the wrong one.",
+      "caps": "He reached for a *resistor, | grabbed the *wrong one",
+      "scene": {
+        "type": "object",
+        "object": "prop:resistor",
+        "text": "WRONG SIZE",
+        "on": "wrong"
+      }
+    },
+    {
+      "text": "The circuit began to pulse, pause, and pulse again.",
+      "caps": "The circuit *pulsed, | *paused, | and *again",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:pacemaker",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "pulse"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It sounded just like a heartbeat.",
+      "caps": "It sounded like a *heartbeat",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "LUB-DUB",
+            "on": "heartbeat"
+          }
+        ]
+      }
+    },
+    {
+      "text": "So he spent two years shrinking it in his barn.",
+      "caps": "*Two years | *shrinking it | in his *barn",
+      "scene": {
+        "type": "date",
+        "text": "1958",
+        "setting": "field",
+        "sub": "A BARN WORKSHOP",
+        "subOn": "barn"
+      }
+    },
+    {
+      "text": "In nineteen sixty, it went into a man of seventy-seven, who lived eighteen more months.",
+      "caps": "In *1960, | a man of *77 | lived *18 months",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "oldman",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "item": "prop:pacemaker",
+        "text": "18 MORE MONTHS",
+        "on": "eighteen"
+      }
+    },
+    {
+      "text": "One wrong part became the pacemaker.",
+      "caps": "One *wrong part | became the *pacemaker",
+      "scene": {
+        "type": "object",
+        "object": "prop:pacemaker"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A tiny mistake in a workshop now helps millions of hearts keep time.\nWould you have noticed the mistake was a discovery?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#science",
+      "#pacemaker"
+    ],
+    "youtubeTitle": "A wrong part pulled from a box saved hearts #shorts",
+    "xText": "An engineer grabbed the wrong resistor in 1956. It beat like a heart, and became the pacemaker."
+  }
+}

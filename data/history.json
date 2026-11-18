@@ -173,5 +173,12 @@
     "category": "disaster",
     "summary": "In 1814 a slipped iron hoop on a giant brewery vat let loose a flood of beer in London, killing eight, and a court called it an act of God.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-18-1400",
+    "title": "The wrong part that became the pacemaker",
+    "category": "invention",
+    "summary": "In 1956 engineer Wilson Greatbatch grabbed the wrong resistor, and his circuit pulsed like a heartbeat, leading to the implantable pacemaker.",
+    "status": "rendered"
   }
 ]
