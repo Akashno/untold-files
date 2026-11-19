@@ -208,5 +208,12 @@
     "category": "mystery",
     "summary": "In 1977 Ohio's Big Ear telescope recorded a 72-second radio burst from Sagittarius that was never detected again, and its source is still unknown.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-20-0900",
+    "title": "The Roman emperor found hiding behind a curtain",
+    "category": "ancient",
+    "summary": "After Caligula was murdered in AD 41, his lame, mocked uncle Claudius hid in terror, was found by a guard, and was made emperor of Rome.",
+    "status": "rendered"
   }
 ]

@@ -1,0 +1,194 @@
+{
+  "title": "The Roman emperor found hiding behind a curtain",
+  "category": "ancient",
+  "hook": "A Roman guard found the next emperor hiding behind a curtain.",
+  "headline": {
+    "top": "HE HID BEHIND",
+    "bottom": "A CURTAIN..."
+  },
+  "summary": "After Caligula was murdered in AD 41, his lame, mocked uncle Claudius hid in terror, was found by a guard, and was made emperor of Rome.",
+  "music": "tension",
+  "sources": [
+    "Suetonius, Life of Claudius 10: a soldier saw Claudius's feet under a curtain, dragged him out and hailed him emperor.",
+    "Josephus, Antiquities 19; Encyclopaedia Britannica 'Claudius': Caligula killed 24 January AD 41, Claudius became emperor, ruled to AD 54, invaded Britain AD 43."
+  ],
+  "props": [
+    {
+      "name": "curtain",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"70\" y=\"40\" width=\"260\" height=\"20\" rx=\"8\" fill=\"#6B4A1E\"/><path d=\"M80 60H320V320H80Z\" fill=\"#8E1F3A\"/><path d=\"M250 60H320V320H250Z\" fill=\"#6E1830\"/><rect x=\"110\" y=\"60\" width=\"22\" height=\"260\" fill=\"#B03452\"/><rect x=\"170\" y=\"60\" width=\"14\" height=\"260\" fill=\"#A02B48\"/><rect x=\"215\" y=\"60\" width=\"16\" height=\"260\" fill=\"#7D1B33\"/><rect x=\"80\" y=\"300\" width=\"240\" height=\"20\" fill=\"#D9A933\"/><ellipse cx=\"170\" cy=\"338\" rx=\"24\" ry=\"11\" fill=\"#C98F5B\"/><ellipse cx=\"232\" cy=\"338\" rx=\"24\" ry=\"11\" fill=\"#C98F5B\"/><rect x=\"146\" y=\"326\" width=\"48\" height=\"6\" fill=\"#5A3A1E\"/><rect x=\"208\" y=\"326\" width=\"48\" height=\"6\" fill=\"#5A3A1E\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A Roman guard found the next emperor hiding behind a curtain.",
+      "caps": "A Roman *guard | found the next *emperor | behind a *curtain",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:curtain",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "shake",
+            "on": "curtain"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In forty-one A.D., Caligula had just been murdered.",
+      "caps": "In *41 A.D., | Caligula had been *murdered",
+      "scene": {
+        "type": "date",
+        "text": "41 AD",
+        "setting": "hall",
+        "night": true,
+        "sub": "Rome, the palace",
+        "subOn": "murdered"
+      }
+    },
+    {
+      "text": "His lame uncle Claudius was sure he was next.",
+      "caps": "His *lame uncle Claudius | was sure he was *next",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "oldman",
+            "label": "Claudius",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "setting": "hall",
+        "night": true,
+        "action": "stand"
+      }
+    },
+    {
+      "text": "So he hid, but a soldier saw his feet under the curtain.",
+      "caps": "So he *hid, | but a soldier saw his *feet | under the *curtain",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:curtain",
+            "x": 0.55,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "feet"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.15,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The guards dragged him out, then bowed and hailed him emperor.",
+      "caps": "They *dragged him out, | then *bowed | and hailed him *emperor",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "night": true,
+        "actors": [
+          {
+            "art": "person:oldman",
+            "x": 0.5,
+            "y": 0.68,
+            "size": "medium",
+            "move": "shake",
+            "on": "bowed",
+            "hair": "grey",
+            "skin": "light"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.25,
+            "y": 0.7,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "person:soldier",
+            "x": 0.78,
+            "y": 0.7,
+            "size": "medium",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Everyone had always laughed at him, so nobody had thought him a threat.",
+      "caps": "Everyone *laughed at him, | nobody saw a *threat",
+      "scene": {
+        "type": "count",
+        "setting": "hall",
+        "items": [
+          {
+            "text": "MOCKED = SAFE",
+            "on": "laughed"
+          }
+        ]
+      }
+    },
+    {
+      "text": "He ruled thirteen years and conquered Britain.",
+      "caps": "He ruled *thirteen years | and conquered *Britain",
+      "scene": {
+        "type": "map",
+        "title": "AD 43",
+        "places": [
+          {
+            "name": "Rome",
+            "x": 0.55,
+            "y": 0.8
+          },
+          {
+            "name": "Britain",
+            "x": 0.35,
+            "y": 0.2
+          }
+        ],
+        "mover": "army",
+        "focus": "Britain"
+      }
+    },
+    {
+      "text": "Hiding saved him.",
+      "caps": "*Hiding saved him",
+      "scene": {
+        "type": "object",
+        "object": "crown",
+        "setting": "hall",
+        "text": "EMPEROR",
+        "on": "saved"
+      }
+    }
+  ],
+  "post": {
+    "caption": "The weakest man in Rome became its emperor because everyone had underestimated him.\nWould you have hidden too?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#rome",
+      "#ancienthistory",
+      "#truestory",
+      "#emperor"
+    ],
+    "youtubeTitle": "A Roman guard found the next emperor hiding behind a curtain #shorts",
+    "xText": "Rome's next emperor was found hiding behind a curtain. Only his feet gave him away."
+  }
+}
