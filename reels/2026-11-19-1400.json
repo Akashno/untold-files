@@ -1,0 +1,181 @@
+{
+  "title": "The man who escaped slavery by mailing himself in a box",
+  "category": "unbelievable",
+  "hook": "A man escaped slavery by shipping himself in a wooden box.",
+  "headline": {
+    "top": "HE MAILED HIMSELF",
+    "bottom": "IN A BOX!"
+  },
+  "summary": "In 1849 Henry Brown escaped slavery by being shipped 350 miles from Richmond to Philadelphia in a small wooden crate, and became known as Henry Box Brown.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica and Wikipedia, 'Henry Box Brown': escaped Richmond, Virginia to Philadelphia in March 1849 in a wooden box about 3 feet long, shipped by Adams Express, about 27 hours.",
+    "Library of Congress / National Museum of African American History and Culture: Brown's escape, the box, and later fame as 'Box Brown'."
+  ],
+  "props": [
+    {
+      "name": "crate",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"70\" y=\"130\" width=\"260\" height=\"200\" rx=\"8\" fill=\"#B98550\"/><rect x=\"270\" y=\"130\" width=\"60\" height=\"200\" rx=\"8\" fill=\"#8F6234\"/><rect x=\"70\" y=\"195\" width=\"260\" height=\"6\" fill=\"#8F6234\"/><rect x=\"70\" y=\"262\" width=\"260\" height=\"6\" fill=\"#8F6234\"/><rect x=\"70\" y=\"130\" width=\"30\" height=\"200\" fill=\"#D7A872\"/><rect x=\"70\" y=\"130\" width=\"260\" height=\"18\" fill=\"#D7A872\"/><rect x=\"150\" y=\"205\" width=\"100\" height=\"50\" rx=\"4\" fill=\"#F2E8CF\"/><rect x=\"165\" y=\"220\" width=\"70\" height=\"6\" fill=\"#8F6234\"/><rect x=\"165\" y=\"235\" width=\"50\" height=\"6\" fill=\"#8F6234\"/><circle cx=\"95\" cy=\"160\" r=\"5\" fill=\"#5A3C1E\"/><circle cx=\"305\" cy=\"160\" r=\"5\" fill=\"#5A3C1E\"/><circle cx=\"95\" cy=\"300\" r=\"5\" fill=\"#5A3C1E\"/><circle cx=\"305\" cy=\"300\" r=\"5\" fill=\"#5A3C1E\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A man escaped slavery by shipping himself in a wooden box.",
+      "caps": "A man *escaped | slavery by *shipping | himself in a *box",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "prop:crate",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "box"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In eighteen forty-nine, Henry Brown lived enslaved in Richmond, Virginia.",
+      "caps": "In *1849, | Henry *Brown | lived in *Richmond",
+      "scene": {
+        "type": "date",
+        "text": "1849",
+        "setting": "parchment",
+        "sub": "Richmond, Virginia",
+        "subOn": "Richmond"
+      }
+    },
+    {
+      "text": "Friends built a crate three feet long, and he folded himself inside.",
+      "caps": "A crate *three feet | long, he *folded | himself *inside",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "action": "stand",
+        "item": "prop:crate",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "dark",
+            "hair": "black",
+            "label": "Henry Brown"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It was addressed to Philadelphia, three hundred fifty miles away.",
+      "caps": "To *Philadelphia, | *350 miles | *away",
+      "scene": {
+        "type": "map",
+        "title": "Eastern USA",
+        "places": [
+          {
+            "name": "Richmond",
+            "x": 0.5,
+            "y": 0.8
+          },
+          {
+            "name": "Philadelphia",
+            "x": 0.7,
+            "y": 0.3
+          }
+        ],
+        "mover": "arrow",
+        "focus": "Philadelphia"
+      }
+    },
+    {
+      "text": "It went by wagon, train and boat, for twenty-seven hours.",
+      "caps": "Wagon, *train, | boat, *twenty-seven | *hours",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "train",
+            "x": 0.3,
+            "y": 0.6,
+            "size": "large",
+            "move": "fly",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "At times it was turned upside down, with him inside.",
+      "caps": "*Upside down, | with him *inside",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:crate",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "spin"
+          }
+        ]
+      }
+    },
+    {
+      "text": "But it arrived. The lid came off, and Henry Brown stood up, free.",
+      "caps": "But it *arrived. | The *lid came off, | he stood *free",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "action": "wave",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "dark",
+            "hair": "black"
+          },
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "text": "FREE",
+        "on": "free"
+      }
+    },
+    {
+      "text": "People called him Henry Box Brown.",
+      "caps": "They *called him | Henry *Box Brown",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "27 HOURS",
+            "on": "Henry"
+          },
+          {
+            "text": "1 BOX",
+            "on": "Box"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "He folded himself into a box for 27 hours to reach freedom.\nWould you have had the courage to climb in?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#unbelievable",
+      "#henryboxbrown",
+      "#americanhistory"
+    ],
+    "youtubeTitle": "He escaped slavery by mailing himself in a box #shorts",
+    "xText": "In 1849 Henry Brown mailed himself 350 miles to freedom in a wooden box."
+  }
+}
