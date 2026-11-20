@@ -222,5 +222,12 @@
     "category": "india",
     "summary": "Radhanath Sikdar's calculations showed Peak XV was the world's highest, yet it was named for George Everest, who never saw it and objected to the name.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-21-0900",
+    "title": "The rocket that destroyed itself because of one number",
+    "category": "disaster",
+    "summary": "In 1996 Europe's first Ariane 5 rocket destroyed itself 37 seconds after launch because old Ariane 4 software could not hold a larger number.",
+    "status": "rendered"
   }
 ]
