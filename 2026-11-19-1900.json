@@ -1,0 +1,171 @@
+{
+  "title": "The signal from space that was heard only once",
+  "category": "mystery",
+  "hook": "A telescope in Ohio heard a signal from space, once, and never again.",
+  "headline": {
+    "top": "A SIGNAL FROM",
+    "bottom": "SPACE. ONCE."
+  },
+  "summary": "In 1977 Ohio's Big Ear telescope recorded a 72-second radio burst from Sagittarius that was never detected again, and its source is still unknown.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: Wow! signal. Detected 15 August 1977 by Big Ear at Ohio State University, 72 seconds, near 1420 MHz hydrogen line, toward Sagittarius, noticed by Jerry Ehman who wrote 'Wow!'",
+    "Ohio History Connection / NASA SETI summaries: signal never detected again; Big Ear demolished in 1998."
+  ],
+  "props": [
+    {
+      "name": "dish",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"185\" y=\"230\" width=\"30\" height=\"115\" fill=\"#8A919C\"/><rect x=\"205\" y=\"230\" width=\"10\" height=\"115\" fill=\"#6E7580\"/><path d=\"M60 150 Q200 330 340 150 Z\" fill=\"#D9DDE3\"/><path d=\"M200 240 Q300 230 340 150 L200 170 Z\" fill=\"#AEB5BF\"/><path d=\"M80 155 Q140 250 190 262 Q120 230 90 150 Z\" fill=\"#fff\" opacity=\".5\"/><ellipse cx=\"200\" cy=\"150\" rx=\"140\" ry=\"26\" fill=\"#E8EBEF\"/><ellipse cx=\"200\" cy=\"152\" rx=\"110\" ry=\"16\" fill=\"#B9C0CA\"/><rect x=\"196\" y=\"60\" width=\"8\" height=\"92\" fill=\"#6E7580\"/><circle cx=\"200\" cy=\"56\" r=\"12\" fill=\"#C2302B\"/></svg>"
+    },
+    {
+      "name": "printout",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"355\" rx=\"140\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"80\" y=\"40\" width=\"240\" height=\"310\" fill=\"#F4F1E6\"/><rect x=\"270\" y=\"40\" width=\"50\" height=\"310\" fill=\"#DAD6C4\"/><rect x=\"92\" y=\"40\" width=\"14\" height=\"310\" fill=\"#fff\" opacity=\".5\"/><g fill=\"#444\"><rect x=\"120\" y=\"80\" width=\"130\" height=\"10\"/><rect x=\"120\" y=\"110\" width=\"100\" height=\"10\"/><rect x=\"120\" y=\"140\" width=\"150\" height=\"10\"/><rect x=\"120\" y=\"230\" width=\"120\" height=\"10\"/><rect x=\"120\" y=\"260\" width=\"140\" height=\"10\"/><rect x=\"120\" y=\"290\" width=\"90\" height=\"10\"/></g><ellipse cx=\"185\" cy=\"195\" rx=\"85\" ry=\"26\" fill=\"none\" stroke=\"#C2302B\" stroke-width=\"9\"/><rect x=\"135\" y=\"188\" width=\"100\" height=\"12\" fill=\"#222\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A telescope in Ohio heard a signal from space, once.",
+      "caps": "A *telescope | in Ohio *heard | a *signal | from *space",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "night": true,
+        "actors": [
+          {
+            "art": "prop:dish",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen seventy-seven, Ohio's Big Ear telescope scanned the sky.",
+      "caps": "In *1977, | Ohio's *Big Ear | scanned the *sky",
+      "scene": {
+        "type": "map",
+        "title": "Ohio, USA",
+        "places": [
+          {
+            "name": "Ohio",
+            "x": 0.7,
+            "y": 0.4
+          }
+        ],
+        "focus": "Ohio",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "Days later, volunteer Jerry Ehman spotted a strong burst on the printout.",
+      "caps": "Days *later, | *Jerry Ehman | spotted a *burst | on the *printout",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "figures": [
+          {
+            "role": "man",
+            "label": "Jerry Ehman",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "item": "prop:printout",
+        "action": "point"
+      }
+    },
+    {
+      "text": "He circled it in red and wrote one word: Wow.",
+      "caps": "He *circled it | and *wrote | one word: *Wow",
+      "scene": {
+        "type": "object",
+        "object": "prop:printout",
+        "text": "WOW!",
+        "on": "Wow"
+      }
+    },
+    {
+      "text": "It lasted seventy-two seconds, near the frequency of hydrogen.",
+      "caps": "It *lasted | *72 seconds, | near the *hydrogen | *frequency",
+      "scene": {
+        "type": "count",
+        "setting": "room",
+        "night": true,
+        "items": [
+          {
+            "text": "72 SECONDS",
+            "on": "seventy-two"
+          },
+          {
+            "text": "HYDROGEN FREQUENCY",
+            "on": "hydrogen"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It came from Sagittarius, but was never heard again.",
+      "caps": "From *Sagittarius, | but *never | heard *again",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "night": true,
+        "actors": [
+          {
+            "art": "radio",
+            "x": 0.5,
+            "y": 0.5,
+            "size": "medium",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Nobody knows if it was nature, interference, or a message.",
+      "caps": "Nobody *knows | if it was *nature, | *interference, | or a *message",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "night": true,
+        "figures": [
+          {
+            "role": "scientist",
+            "skin": "medium",
+            "hair": "grey"
+          }
+        ],
+        "action": "stand",
+        "text": "UNKNOWN",
+        "on": "Nobody"
+      }
+    },
+    {
+      "text": "The telescope was torn down in nineteen ninety-eight.",
+      "caps": "The *telescope | was *torn down | in *1998",
+      "scene": {
+        "type": "date",
+        "text": "1998",
+        "setting": "field",
+        "sub": "Big Ear demolished",
+        "subOn": "torn"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Seventy-two seconds of radio noise, and nobody has explained it in almost fifty years.\nWhat do you think it was?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#mystery",
+      "#space",
+      "#truestory",
+      "#wowsignal",
+      "#seti"
+    ],
+    "youtubeTitle": "A telescope heard a signal from space, once #shorts",
+    "xText": "In 1977 a telescope in Ohio heard 72 seconds of signal from space. It has never been heard again."
+  }
+}

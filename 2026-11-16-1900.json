@@ -1,0 +1,193 @@
+{
+  "title": "The city that danced for weeks and nobody knows why",
+  "category": "mystery",
+  "hook": "A whole city danced for days, and nobody could stop it.",
+  "headline": {
+    "top": "A CITY DANCED",
+    "bottom": "AND COULD NOT STOP"
+  },
+  "summary": "In 1518 hundreds of people in Strasbourg danced for days without rest; the cause is still unknown.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica: Dancing plague of 1518, Strasbourg, began July 1518 with a woman, Frau Troffea; about 400 affected; cause unknown",
+    "Historian John Waller, 'A Time to Dance, A Time to Die' (2009): city records, physicians' notes, shrine of St Vitus at Saverne, theories of ergot and mass psychogenic illness"
+  ],
+  "props": [
+    {
+      "name": "redshoe",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"325\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><path d=\"M70 300 L70 190 Q70 150 110 150 L170 150 Q180 210 250 225 Q330 235 335 285 L335 300 Z\" fill=\"#C2302B\"/><path d=\"M250 225 Q330 235 335 285 L335 300 L230 300 Z\" fill=\"#9E2A2A\"/><rect x=\"70\" y=\"296\" width=\"270\" height=\"26\" rx=\"8\" fill=\"#4A2C1A\"/><path d=\"M85 190 Q85 165 112 165 L150 165 Q153 185 140 200 L85 205 Z\" fill=\"#fff\" opacity=\".3\"/><rect x=\"150\" y=\"200\" width=\"70\" height=\"12\" rx=\"6\" fill=\"#E8C547\"/><circle cx=\"185\" cy=\"206\" r=\"12\" fill=\"#E8C547\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A whole city danced for days, and nobody could stop it.",
+      "caps": "A whole *city | danced for *days, | and nobody *stopped it",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "person:woman",
+            "x": 0.3,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "prop:redshoe",
+            "x": 0.65,
+            "y": 0.62,
+            "size": "medium",
+            "move": "shake",
+            "on": "danced"
+          },
+          {
+            "art": "person:man",
+            "x": 0.8,
+            "y": 0.62,
+            "size": "medium",
+            "move": "walk",
+            "dir": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It began in Strasbourg in July fifteen eighteen, with one woman named Troffea.",
+      "caps": "It began in *Strasbourg | in *1518, | with one *woman",
+      "scene": {
+        "type": "map",
+        "title": "EUROPE 1518",
+        "places": [
+          {
+            "name": "Strasbourg",
+            "x": 0.5,
+            "y": 0.5
+          }
+        ],
+        "focus": "Strasbourg",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "Within a month, about four hundred people had joined her.",
+      "caps": "Within a *month, | about *400 people | had *joined her",
+      "scene": {
+        "type": "count",
+        "setting": "city",
+        "items": [
+          {
+            "text": "ONE WOMAN"
+          },
+          {
+            "text": "400 DANCERS",
+            "on": "four"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Doctors found no illness, so officials ordered more music and dancing.",
+      "caps": "Doctors found *no illness, | so *officials ordered | more *music",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "point",
+        "figures": [
+          {
+            "role": "scholar",
+            "skin": "light",
+            "hair": "grey",
+            "label": "DOCTOR"
+          },
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "brown",
+            "label": "OFFICIAL"
+          }
+        ],
+        "text": "NO ILLNESS FOUND",
+        "on": "illness"
+      }
+    },
+    {
+      "text": "It made things worse. Some people reportedly collapsed from exhaustion.",
+      "caps": "It made things *worse. | Some *collapsed | from *exhaustion",
+      "scene": {
+        "type": "action",
+        "setting": "hall",
+        "actors": [
+          {
+            "art": "person:man",
+            "x": 0.35,
+            "y": 0.6,
+            "size": "large",
+            "move": "fall",
+            "on": "collapsed"
+          },
+          {
+            "art": "prop:redshoe",
+            "x": 0.7,
+            "y": 0.65,
+            "size": "medium",
+            "move": "spin"
+          }
+        ]
+      }
+    },
+    {
+      "text": "So they sent the dancers to a shrine, and by September it ended.",
+      "caps": "So *they sent them | to a *shrine, | and by *September | it *ended",
+      "scene": {
+        "type": "date",
+        "text": "SEPTEMBER 1518",
+        "setting": "parchment",
+        "sub": "IT ENDED",
+        "subOn": "ended"
+      }
+    },
+    {
+      "text": "Poisoned bread? Stress that spread? Nobody knows.",
+      "caps": "Poisoned *bread? | *Stress that spread? | Nobody *knows",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "POISONED BREAD?",
+            "on": "bread"
+          },
+          {
+            "text": "SPREADING STRESS?",
+            "on": "Stress"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Five hundred years later, nobody knows why.",
+      "caps": "*Five hundred years later, | nobody knows *why",
+      "scene": {
+        "type": "object",
+        "object": "prop:redshoe",
+        "text": "CAUSE UNKNOWN",
+        "on": "why"
+      }
+    }
+  ],
+  "post": {
+    "caption": "In 1518, hundreds danced in Strasbourg for days. Historians still argue about why.\nWhat's your theory: poison or panic?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#mystery",
+      "#truestory",
+      "#unsolved",
+      "#dancingplague"
+    ],
+    "youtubeTitle": "A whole city danced for days and nobody could stop it #shorts",
+    "xText": "In 1518, about 400 people in Strasbourg danced for weeks. Nobody knows why."
+  }
+}

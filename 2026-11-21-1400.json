@@ -1,0 +1,170 @@
+{
+  "title": "The glue that was thrown away because it stuck to everything",
+  "category": "invention",
+  "hook": "A glue was thrown away because it stuck to everything.",
+  "headline": {
+    "top": "THROWN AWAY:",
+    "bottom": "IT STUCK TO ALL"
+  },
+  "summary": "Chemist Harry Coover discovered super glue in 1942 while making gun sights, rejected it for sticking to everything, then rediscovered it in 1951 when it ruined two lab prisms.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica and Smithsonian: Harry Coover found cyanoacrylate in 1942 while seeking clear plastic for gun sights at Eastman Kodak's lab; it was too sticky to use.",
+    "Smithsonian/Kodak history: in 1951 Coover and Fred Joyner, testing for jet canopy coatings, found it bonded refractometer prisms; sold as Eastman 910 in 1958."
+  ],
+  "props": [
+    {
+      "name": "glue",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"110\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"150\" y=\"120\" width=\"100\" height=\"210\" rx=\"16\" fill=\"#E8B923\"/><rect x=\"215\" y=\"120\" width=\"35\" height=\"210\" rx=\"16\" fill=\"#C4961A\"/><rect x=\"150\" y=\"190\" width=\"100\" height=\"70\" fill=\"#C2302B\"/><rect x=\"215\" y=\"190\" width=\"35\" height=\"70\" fill=\"#9E2A2A\"/><polygon points=\"170,120 230,120 215,70 185,70\" fill=\"#DDE1E6\"/><rect x=\"190\" y=\"40\" width=\"20\" height=\"35\" fill=\"#B8BEC6\"/><rect x=\"162\" y=\"135\" width=\"14\" height=\"180\" rx=\"7\" fill=\"#fff\" opacity=\".35\"/><ellipse cx=\"200\" cy=\"38\" rx=\"9\" ry=\"14\" fill=\"#9CD3F0\"/></svg>"
+    },
+    {
+      "name": "prisms",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"330\" rx=\"130\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><polygon points=\"80,310 200,110 200,310\" fill=\"#BFE6F5\"/><polygon points=\"200,110 320,310 200,310\" fill=\"#8CC4DE\"/><polygon points=\"110,300 190,165 190,300\" fill=\"#fff\" opacity=\".35\"/><rect x=\"190\" y=\"150\" width=\"20\" height=\"160\" fill=\"#E8B923\" opacity=\".8\"/><polygon points=\"200,110 320,310 270,310\" fill=\"#6AA6C2\" opacity=\".6\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A glue was thrown away because it stuck to everything.",
+      "caps": "A *glue | was thrown *away | because it *stuck",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:glue",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "shake",
+            "on": "stuck"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen forty-two, chemist Harry Coover was trying to make clear gun sights.",
+      "caps": "In *1942, | chemist Harry *Coover | was making clear *gun sights",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "scientist",
+            "label": "Harry Coover",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "setting": "room",
+        "action": "stand",
+        "item": "prop:glue"
+      }
+    },
+    {
+      "text": "Instead, his plastic glued everything it touched, so he gave up.",
+      "caps": "Instead, it *glued | everything it *touched, | so he gave *up",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:glue",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "shake",
+            "on": "glued"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Nine years later, he tested it again for jet canopies.",
+      "caps": "*Nine years later, | he *tested it for | jet *canopies",
+      "scene": {
+        "type": "date",
+        "text": "1951",
+        "setting": "parchment",
+        "sub": "Kodak lab",
+        "subOn": "tested"
+      }
+    },
+    {
+      "text": "A colleague spread it between two costly lab prisms, and they stuck fast.",
+      "caps": "A colleague *spread it | between two *prisms, | and they stuck *fast",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:prisms",
+            "x": 0.5,
+            "y": 0.58,
+            "size": "large",
+            "move": "shake",
+            "on": "fast"
+          }
+        ]
+      }
+    },
+    {
+      "text": "This time Coover saw the point: a glue needing no heat or pressure.",
+      "caps": "This time *Coover | saw the *point: | no *heat, no pressure",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "scientist",
+            "label": "Harry Coover",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "scientist",
+            "label": "Fred Joyner",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "setting": "room",
+        "action": "point",
+        "item": "prop:prisms"
+      }
+    },
+    {
+      "text": "In nineteen fifty-eight it went on sale.",
+      "caps": "In *1958 | it went on *sale",
+      "scene": {
+        "type": "date",
+        "text": "1958",
+        "setting": "city",
+        "sub": "On sale",
+        "subOn": "sale"
+      }
+    },
+    {
+      "text": "We call it super glue.",
+      "caps": "We *call it | *super glue",
+      "scene": {
+        "type": "object",
+        "object": "prop:glue",
+        "setting": "day",
+        "text": "SUPER GLUE",
+        "on": "super"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Super glue was rejected once because it was too sticky. Then it ruined two lab prisms and became a product.\nWhat useful thing have you found by accident?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#inventions",
+      "#superglue",
+      "#science",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "A glue was thrown away because it stuck to everything #shorts",
+    "xText": "Super glue was thrown away once for being too sticky. Then it ruined two lab prisms."
+  }
+}

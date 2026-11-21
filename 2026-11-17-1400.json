@@ -1,0 +1,183 @@
+{
+  "title": "The farmer who dug up the oldest zero in the world",
+  "category": "india",
+  "hook": "The oldest known zero was dug up by a farmer.",
+  "headline": {
+    "top": "THE OLDEST ZERO",
+    "bottom": "DUG UP BY A FARMER"
+  },
+  "summary": "A farmer found the Bakhshali manuscript in 1881, and in 2017 radiocarbon dating showed its dot zero is centuries older than any zero known before.",
+  "music": "bed",
+  "sources": [
+    "Bodleian Libraries, University of Oxford (2017): radiocarbon dating of the Bakhshali manuscript, oldest pages dated to about 224-383 CE.",
+    "Encyclopaedia Britannica / Wikipedia: Bakhshali manuscript, found 1881 by a farmer in Bakhshali, near Peshawar (now Pakistan), birch bark, dot used as placeholder."
+  ],
+  "props": [
+    {
+      "name": "manuscript",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"345\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><polygon points=\"80,90 300,70 325,300 100,330\" fill=\"#B98B52\"/><polygon points=\"230,78 300,70 325,300 255,310\" fill=\"#9A6E3C\"/><polygon points=\"90,100 200,88 215,300 105,318\" fill=\"#D6AE76\"/><rect x=\"120\" y=\"130\" width=\"150\" height=\"10\" rx=\"5\" fill=\"#5A3A1C\" transform=\"rotate(-4 195 135)\"/><rect x=\"125\" y=\"165\" width=\"130\" height=\"10\" rx=\"5\" fill=\"#5A3A1C\" transform=\"rotate(-4 195 170)\"/><rect x=\"128\" y=\"200\" width=\"140\" height=\"10\" rx=\"5\" fill=\"#5A3A1C\" transform=\"rotate(-4 195 205)\"/><circle cx=\"160\" cy=\"250\" r=\"14\" fill=\"#3A220E\"/><circle cx=\"210\" cy=\"246\" r=\"14\" fill=\"#3A220E\"/><circle cx=\"260\" cy=\"242\" r=\"14\" fill=\"#3A220E\"/><circle cx=\"160\" cy=\"250\" r=\"6\" fill=\"#D6AE76\"/><circle cx=\"210\" cy=\"246\" r=\"6\" fill=\"#D6AE76\"/><circle cx=\"260\" cy=\"242\" r=\"6\" fill=\"#D6AE76\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "The oldest known zero was dug up by a farmer.",
+      "caps": "The oldest *zero | was *dug up | by a *farmer",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "person:man",
+            "skin": "tan",
+            "hair": "black",
+            "x": 0.3,
+            "y": 0.68,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "prop:manuscript",
+            "x": 0.65,
+            "y": 0.62,
+            "size": "medium",
+            "move": "rise",
+            "on": "dug"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In eighteen eighty-one, in Bakhshali, now Pakistan, he found pages of birch bark.",
+      "caps": "In *1881, | in *Bakhshali, | now *Pakistan, | he found *pages",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Peshawar",
+            "x": 0.5,
+            "y": 0.35
+          },
+          {
+            "name": "Bakhshali",
+            "x": 0.55,
+            "y": 0.28
+          },
+          {
+            "name": "Lahore",
+            "x": 0.7,
+            "y": 0.6
+          }
+        ],
+        "focus": "Bakhshali",
+        "route": false,
+        "title": "Now Pakistan",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "They used a small dot as a placeholder, the seed of our zero.",
+      "caps": "A small *dot | as a *placeholder, | the seed of *zero",
+      "scene": {
+        "type": "object",
+        "object": "prop:manuscript",
+        "text": "A DOT FOR ZERO",
+        "on": "dot"
+      }
+    },
+    {
+      "text": "Scholars argued about its age for over a hundred years.",
+      "caps": "Scholars *argued | about its *age",
+      "scene": {
+        "type": "timeline",
+        "years": [
+          "1881",
+          "1950",
+          "2017"
+        ],
+        "active": 1,
+        "title": "A century of doubt"
+      }
+    },
+    {
+      "text": "Then in twenty seventeen, Oxford scientists tested it with radiocarbon dating.",
+      "caps": "In *2017, | Oxford *scientists | used *radiocarbon",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "person:scientist",
+            "skin": "light",
+            "hair": "brown",
+            "x": 0.3,
+            "y": 0.68,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "prop:manuscript",
+            "x": 0.65,
+            "y": 0.6,
+            "size": "medium",
+            "move": "shake",
+            "on": "tested"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The oldest pages were about seventeen hundred years old.",
+      "caps": "The *oldest pages | about *1,700 | *years old",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "1,700 YEARS OLD",
+            "on": "seventeen"
+          }
+        ]
+      }
+    },
+    {
+      "text": "That is centuries older than any zero known before.",
+      "caps": "*Centuries older | than any *zero | known *before",
+      "scene": {
+        "type": "action",
+        "setting": "parchment",
+        "actors": [
+          {
+            "art": "prop:manuscript",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "grow",
+            "on": "older"
+          }
+        ]
+      }
+    },
+    {
+      "text": "A dot from a field changed maths.",
+      "caps": "A *dot | from a *field | changed *maths",
+      "scene": {
+        "type": "object",
+        "object": "prop:manuscript",
+        "text": "OLDEST ZERO",
+        "on": "dot"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A tiny dot in a farmer's field changed the story of maths.\nWhich invention from India should be better known?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#indianhistory",
+      "#maths",
+      "#zero"
+    ],
+    "youtubeTitle": "The oldest zero in the world was dug up by a farmer #shorts",
+    "xText": "The oldest known zero was dug up by a farmer in 1881, and it is centuries older than anyone thought."
+  }
+}

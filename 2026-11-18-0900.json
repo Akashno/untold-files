@@ -1,0 +1,168 @@
+{
+  "title": "The wave of beer that flooded a London street",
+  "category": "disaster",
+  "hook": "A wave of beer once flooded a London street.",
+  "headline": {
+    "top": "A WAVE OF BEER",
+    "bottom": "FLOODED LONDON"
+  },
+  "summary": "In 1814 a slipped iron hoop on a giant brewery vat let loose a flood of beer in London, killing eight, and a court called it an act of God.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia 'London Beer Flood': 17 October 1814, Meux's Horse Shoe Brewery, Tottenham Court Road; a vat burst after an iron hoop slipped; eight deaths.",
+    "Inquest ruled the deaths an 'act of God'; the brewery was not held liable and gained relief on excise duty (Wikipedia, Historic UK)."
+  ],
+  "props": [
+    {
+      "name": "vat",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><path d=\"M95 90 H305 L320 330 H80 Z\" fill=\"#A5683A\"/><path d=\"M250 90 H305 L320 330 H265 Z\" fill=\"#7E4A25\"/><rect x=\"110\" y=\"90\" width=\"20\" height=\"240\" fill=\"#C98B55\" opacity=\".6\"/><rect x=\"160\" y=\"90\" width=\"4\" height=\"240\" fill=\"#7E4A25\"/><rect x=\"225\" y=\"90\" width=\"4\" height=\"240\" fill=\"#7E4A25\"/><rect x=\"92\" y=\"130\" width=\"216\" height=\"16\" fill=\"#3A3F47\"/><rect x=\"88\" y=\"210\" width=\"224\" height=\"16\" fill=\"#3A3F47\"/><rect x=\"84\" y=\"290\" width=\"232\" height=\"16\" fill=\"#3A3F47\"/><ellipse cx=\"200\" cy=\"90\" rx=\"105\" ry=\"22\" fill=\"#E3A93B\"/><ellipse cx=\"200\" cy=\"88\" rx=\"85\" ry=\"14\" fill=\"#F6E7B0\"/></svg>"
+    },
+    {
+      "name": "hoop",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"120\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><ellipse cx=\"200\" cy=\"200\" rx=\"130\" ry=\"130\" fill=\"#3A3F47\"/><ellipse cx=\"200\" cy=\"200\" rx=\"95\" ry=\"95\" fill=\"#F2E3C2\"/><path d=\"M95 130 A130 130 0 0 1 200 70\" stroke=\"#8A929E\" stroke-width=\"14\" fill=\"none\"/><path d=\"M310 270 A130 130 0 0 1 200 330\" stroke=\"#23262B\" stroke-width=\"14\" fill=\"none\"/><rect x=\"290\" y=\"185\" width=\"50\" height=\"30\" fill=\"#5A616C\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A wave of beer once flooded a London street.",
+      "caps": "A wave of *beer | flooded a *street",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "prop:vat",
+            "x": 0.4,
+            "y": 0.6,
+            "size": "large",
+            "move": "split",
+            "on": "flooded"
+          },
+          {
+            "art": "person:man",
+            "x": 0.8,
+            "y": 0.7,
+            "size": "small",
+            "move": "walk",
+            "dir": "left"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It was eighteen fourteen, at a brewery near Tottenham Court Road.",
+      "caps": "In *1814, | at a *brewery | in *London",
+      "scene": {
+        "type": "date",
+        "text": "1814",
+        "sub": "LONDON",
+        "setting": "city"
+      }
+    },
+    {
+      "text": "Inside stood a giant wooden vat, bound with heavy iron hoops.",
+      "caps": "A giant *vat, | bound with *iron hoops",
+      "scene": {
+        "type": "object",
+        "object": "prop:vat"
+      }
+    },
+    {
+      "text": "That afternoon, one hoop slipped. Workers thought it was too small to matter.",
+      "caps": "One *hoop slipped. | Too *small | to *matter",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "action": "point",
+        "item": "prop:hoop",
+        "figures": [
+          {
+            "role": "worker",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "text": "ONE HOOP SLIPPED",
+        "on": "slipped"
+      }
+    },
+    {
+      "text": "An hour later, the vat burst, and the beer smashed into nearby homes.",
+      "caps": "An hour *later, | the vat *burst, | beer hit *homes",
+      "scene": {
+        "type": "action",
+        "setting": "city",
+        "actors": [
+          {
+            "art": "prop:vat",
+            "x": 0.35,
+            "y": 0.6,
+            "size": "large",
+            "move": "split",
+            "on": "burst"
+          },
+          {
+            "art": "person:woman",
+            "x": 0.8,
+            "y": 0.7,
+            "size": "small",
+            "move": "still"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Eight people died in the flood.",
+      "caps": "*Eight | *people died",
+      "scene": {
+        "type": "count",
+        "setting": "city",
+        "items": [
+          {
+            "text": "8 PEOPLE LOST",
+            "on": "Eight"
+          }
+        ]
+      }
+    },
+    {
+      "text": "A court called it an act of God, so the brewery paid nothing.",
+      "caps": "A *court: | *act of God. | Brewery paid *nothing",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "text": "ACT OF GOD",
+        "on": "God"
+      }
+    },
+    {
+      "text": "One slipped ring drowned a street.",
+      "caps": "One *ring | drowned a *street",
+      "scene": {
+        "type": "object",
+        "object": "prop:hoop"
+      }
+    }
+  ],
+  "post": {
+    "caption": "One loose iron hoop, and a whole street was swept away by beer.\nWould you call it an act of God, or the brewery's fault?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#disaster",
+      "#london",
+      "#strangebuttrue"
+    ],
+    "youtubeTitle": "A wave of beer flooded a London street #shorts",
+    "xText": "In 1814, one slipped iron hoop sent a wave of beer through London. A court called it an act of God."
+  }
+}

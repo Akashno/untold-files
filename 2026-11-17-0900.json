@@ -1,0 +1,190 @@
+{
+  "title": "The bronze jar that felt an earthquake nobody else could",
+  "category": "ancient",
+  "hook": "A bronze jar in China felt an earthquake nobody else could.",
+  "headline": {
+    "top": "IT FELT A QUAKE",
+    "bottom": "NO ONE ELSE DID"
+  },
+  "summary": "In 132 AD Han official Zhang Heng built a bronze seismoscope, and in 138 AD it sensed a distant earthquake that the capital never felt, proven when a messenger arrived days later.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica, Zhang Heng: invented the first seismoscope in 132 AD, a bronze vessel with dragons and toads.",
+    "Book of Later Han (Hou Hanshu): in 138 AD the device registered a quake in the Longxi region that was not felt in Luoyang, confirmed days later by a messenger."
+  ],
+  "props": [
+    {
+      "name": "jar",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><path d=\"M110 130 Q90 250 130 330 L270 330 Q310 250 290 130 Z\" fill=\"#B07A3A\"/><path d=\"M250 130 Q290 250 262 330 L270 330 Q310 250 290 130 Z\" fill=\"#7E5222\"/><path d=\"M125 150 Q112 250 143 320 L158 320 Q130 250 140 150 Z\" fill=\"#D9A862\"/><ellipse cx=\"200\" cy=\"130\" rx=\"92\" ry=\"22\" fill=\"#D9A862\"/><ellipse cx=\"200\" cy=\"130\" rx=\"70\" ry=\"14\" fill=\"#5E3F1C\"/><rect x=\"110\" y=\"215\" width=\"180\" height=\"18\" fill=\"#7E5222\"/><circle cx=\"105\" cy=\"185\" r=\"20\" fill=\"#2F8F6B\"/><circle cx=\"295\" cy=\"185\" r=\"20\" fill=\"#2F8F6B\"/><circle cx=\"200\" cy=\"290\" r=\"22\" fill=\"#2F8F6B\"/><circle cx=\"150\" cy=\"270\" r=\"18\" fill=\"#2F8F6B\"/><circle cx=\"250\" cy=\"270\" r=\"18\" fill=\"#2F8F6B\"/></svg>"
+    },
+    {
+      "name": "ball",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"90\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><circle cx=\"200\" cy=\"200\" r=\"120\" fill=\"#B07A3A\"/><path d=\"M250 100 A120 120 0 0 1 200 320 A120 120 0 0 0 310 200 Z\" fill=\"#7E5222\"/><ellipse cx=\"150\" cy=\"140\" rx=\"40\" ry=\"26\" fill=\"#E8C285\" transform=\"rotate(-35 150 140)\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A bronze jar in China felt an earthquake nobody else could.",
+      "caps": "A bronze *jar | in *China | felt an *earthquake | nobody else *could",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:jar",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "shake",
+            "on": "earthquake"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In one thirty-two, Zhang Heng built it for the Han emperor.",
+      "caps": "In *132, | *Zhang Heng | *built it for the | Han *emperor",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "scholar",
+            "label": "Zhang Heng",
+            "skin": "light",
+            "hair": "black"
+          }
+        ],
+        "item": "prop:jar"
+      }
+    },
+    {
+      "text": "Eight dragons held balls over eight toads' mouths.",
+      "caps": "*Eight dragons | held *balls | over eight *toads",
+      "scene": {
+        "type": "object",
+        "object": "prop:jar",
+        "text": "8 DRAGONS",
+        "on": "Eight"
+      }
+    },
+    {
+      "text": "When the ground shook, one ball dropped with a clang.",
+      "caps": "When the ground *shook, | one *ball dropped | with a *clang",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:ball",
+            "x": 0.5,
+            "y": 0.2,
+            "size": "small",
+            "move": "crash",
+            "on": "dropped"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In one thirty-eight, a ball fell, but the capital felt nothing.",
+      "caps": "In *138, | a ball *fell, | but the *capital | felt *nothing",
+      "scene": {
+        "type": "date",
+        "text": "138 AD",
+        "sub": "Luoyang felt nothing",
+        "setting": "city"
+      }
+    },
+    {
+      "text": "Courtiers laughed. The machine must be broken.",
+      "caps": "*Courtiers laughed. | The *machine | must be *broken",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "action": "point",
+        "figures": [
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "black"
+          },
+          {
+            "role": "oldman",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Days later, a rider arrived from far-off Longxi.",
+      "caps": "*Days later, | a *rider arrived | from far-off *Longxi",
+      "scene": {
+        "type": "map",
+        "title": "HAN CHINA",
+        "land": "continent",
+        "mover": "arrow",
+        "places": [
+          {
+            "name": "Longxi",
+            "x": 0.25,
+            "y": 0.5
+          },
+          {
+            "name": "Luoyang",
+            "x": 0.7,
+            "y": 0.5
+          }
+        ],
+        "focus": "Longxi"
+      }
+    },
+    {
+      "text": "A huge earthquake had hit, in the dragon's direction.",
+      "caps": "A huge *earthquake | *had hit, | in the *dragon's | *direction",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "prop:jar",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "medium",
+            "move": "shake",
+            "on": "earthquake"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It was the first earthquake detector ever built.",
+      "caps": "The *first | earthquake *detector | ever *built",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "FIRST QUAKE DETECTOR",
+            "on": "first"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "Nearly 1,900 years ago, a bronze jar sensed an earthquake hundreds of kilometres away.\nWould you have trusted the machine over the court?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#ancient",
+      "#ancientchina",
+      "#truestory",
+      "#science"
+    ],
+    "youtubeTitle": "A bronze jar in China felt an earthquake nobody else could #shorts",
+    "xText": "In 138 AD a bronze jar sensed an earthquake the whole capital missed. Days later, a rider proved it right."
+  }
+}
