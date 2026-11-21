@@ -229,5 +229,12 @@
     "category": "disaster",
     "summary": "In 1996 Europe's first Ariane 5 rocket destroyed itself 37 seconds after launch because old Ariane 4 software could not hold a larger number.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-21-1400",
+    "title": "The glue that was thrown away because it stuck to everything",
+    "category": "invention",
+    "summary": "Chemist Harry Coover discovered super glue in 1942 while making gun sights, rejected it for sticking to everything, then rediscovered it in 1951 when it ruined two lab prisms.",
+    "status": "rendered"
   }
 ]
