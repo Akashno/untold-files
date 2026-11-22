@@ -1,0 +1,214 @@
+{
+  "title": "The island two countries fought over with bottles of booze",
+  "category": "unbelievable",
+  "hook": "Canada and Denmark fought over an island by leaving each other booze.",
+  "headline": {
+    "top": "A WAR FOUGHT",
+    "bottom": "WITH WHISKY"
+  },
+  "summary": "Canada and Denmark disputed tiny Hans Island for decades, trading flags and bottles of alcohol, until they split it in 2022.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia 'Hans Island': 1973 Canada-Denmark border treaty left the island undecided; 1984 Canadian soldiers left a flag and Canadian Club whisky; Danish minister Tom Høyem left schnapps and a note.",
+    "BBC / Reuters, June 2022: Canada and Denmark agreed to split Hans Island, creating a new land border."
+  ],
+  "props": [
+    {
+      "name": "whisky",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"100\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><rect x=\"150\" y=\"170\" width=\"100\" height=\"175\" rx=\"16\" fill=\"#8A4B14\"/><rect x=\"215\" y=\"170\" width=\"35\" height=\"175\" rx=\"12\" fill=\"#6B3A0E\"/><rect x=\"178\" y=\"70\" width=\"44\" height=\"110\" rx=\"8\" fill=\"#8A4B14\"/><rect x=\"202\" y=\"70\" width=\"20\" height=\"110\" rx=\"8\" fill=\"#6B3A0E\"/><rect x=\"174\" y=\"50\" width=\"52\" height=\"28\" rx=\"6\" fill=\"#C2302B\"/><rect x=\"150\" y=\"230\" width=\"100\" height=\"70\" fill=\"#F2E3B8\"/><rect x=\"215\" y=\"230\" width=\"35\" height=\"70\" fill=\"#D9C792\"/><rect x=\"162\" y=\"190\" width=\"14\" height=\"140\" rx=\"7\" fill=\"#fff\" opacity=\".35\"/></svg>"
+    },
+    {
+      "name": "schnapps",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"350\" rx=\"90\" ry=\"16\" fill=\"#000\" opacity=\".15\"/><rect x=\"155\" y=\"160\" width=\"90\" height=\"185\" rx=\"14\" fill=\"#CFE6EE\"/><rect x=\"215\" y=\"160\" width=\"30\" height=\"185\" rx=\"12\" fill=\"#A9C9D4\"/><rect x=\"180\" y=\"60\" width=\"40\" height=\"110\" rx=\"8\" fill=\"#CFE6EE\"/><rect x=\"200\" y=\"60\" width=\"20\" height=\"110\" rx=\"8\" fill=\"#A9C9D4\"/><rect x=\"176\" y=\"42\" width=\"48\" height=\"26\" rx=\"6\" fill=\"#C2302B\"/><rect x=\"155\" y=\"225\" width=\"90\" height=\"60\" fill=\"#fff\"/><rect x=\"215\" y=\"225\" width=\"30\" height=\"60\" fill=\"#E3E3E3\"/><rect x=\"167\" y=\"180\" width=\"12\" height=\"150\" rx=\"6\" fill=\"#fff\" opacity=\".5\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "Canada and Denmark fought over an island by leaving each other booze.",
+      "caps": "*Canada | and *Denmark | fought over *an island | by leaving *booze",
+      "scene": {
+        "type": "action",
+        "setting": "snow",
+        "actors": [
+          {
+            "art": "prop:whisky",
+            "x": 0.3,
+            "y": 0.65,
+            "size": "large",
+            "move": "float"
+          },
+          {
+            "art": "prop:schnapps",
+            "x": 0.7,
+            "y": 0.65,
+            "size": "large",
+            "move": "float"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Hans Island is a barren rock between Greenland and Canada.",
+      "caps": "*Hans Island | is a barren *rock | between *Greenland | and *Canada",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Greenland",
+            "x": 0.75,
+            "y": 0.25
+          },
+          {
+            "name": "Hans Island",
+            "x": 0.55,
+            "y": 0.4
+          },
+          {
+            "name": "Canada",
+            "x": 0.25,
+            "y": 0.6
+          }
+        ],
+        "route": false,
+        "focus": "Hans Island",
+        "land": "continent",
+        "title": "Nares Strait"
+      }
+    },
+    {
+      "text": "A nineteen seventy-three border treaty skipped it, so both claimed it.",
+      "caps": "A *1973 | border *treaty | *skipped it, | so both *claimed it",
+      "scene": {
+        "type": "date",
+        "text": "1973",
+        "setting": "parchment",
+        "sub": "Border treaty"
+      }
+    },
+    {
+      "text": "In nineteen eighty-four, Canadian soldiers landed and left a flag and whisky.",
+      "caps": "In *1984, | Canadian *soldiers | *landed and left | a *flag and whisky",
+      "scene": {
+        "type": "people",
+        "setting": "snow",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "soldier",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "item": "prop:whisky"
+      }
+    },
+    {
+      "text": "Denmark's minister then arrived, and left a Danish flag and schnapps.",
+      "caps": "Denmark's *minister | then *arrived, | left a *Danish flag | and *schnapps",
+      "scene": {
+        "type": "people",
+        "setting": "snow",
+        "action": "wave",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "blonde",
+            "label": "Danish minister"
+          }
+        ],
+        "item": "prop:schnapps"
+      }
+    },
+    {
+      "text": "His note welcomed visitors to the Danish island.",
+      "caps": "His *note | *welcomed visitors | to the *Danish island",
+      "scene": {
+        "type": "object",
+        "object": "letter",
+        "setting": "snow",
+        "text": "Welcome, Danish island",
+        "on": "note"
+      }
+    },
+    {
+      "text": "The swapping went on for decades.",
+      "caps": "The *swapping | *went on | for *decades",
+      "scene": {
+        "type": "timeline",
+        "years": [
+          "1984",
+          "2000",
+          "2010",
+          "2022"
+        ],
+        "active": 2,
+        "title": "Bottles and flags"
+      }
+    },
+    {
+      "text": "In twenty twenty-two, they split it almost in half.",
+      "caps": "In *2022, | they *split it | almost in *half",
+      "scene": {
+        "type": "action",
+        "setting": "snow",
+        "actors": [
+          {
+            "art": "flag",
+            "x": 0.3,
+            "y": 0.6,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "flag",
+            "x": 0.7,
+            "y": 0.6,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "prop:whisky",
+            "x": 0.5,
+            "y": 0.65,
+            "size": "medium",
+            "move": "split",
+            "on": "split"
+          }
+        ]
+      }
+    },
+    {
+      "text": "It became a land border settled politely.",
+      "caps": "It became a *land border | settled *politely",
+      "scene": {
+        "type": "count",
+        "setting": "snow",
+        "items": [
+          {
+            "text": "Newest land border",
+            "on": "land"
+          },
+          {
+            "text": "Settled politely",
+            "on": "politely"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "Two countries argued over a rock for decades and used bottles, not bullets.\nWhich bottle would you have left on the island?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#unbelievable",
+      "#canada",
+      "#denmark",
+      "#funfacts"
+    ],
+    "youtubeTitle": "Canada and Denmark fought over an island with booze #shorts",
+    "xText": "Canada and Denmark fought over an island for decades by leaving each other whisky and schnapps."
+  }
+}
