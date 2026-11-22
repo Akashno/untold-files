@@ -243,5 +243,12 @@
     "category": "survival",
     "summary": "Ada Blackjack, hired as a seamstress for the 1921 Wrangel Island expedition, became its only survivor and was rescued in 1923 after teaching herself to hunt.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-22-0900",
+    "title": "The man who invented twenty-seven spies and fooled Hitler",
+    "category": "war",
+    "summary": "Juan Pujol García, rejected by Britain, became a German spy, invented a network of fake agents from Lisbon, and helped hide the D-Day landings; he got medals from both sides.",
+    "status": "rendered"
   }
 ]
