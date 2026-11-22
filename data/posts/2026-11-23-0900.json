@@ -1,0 +1,12 @@
+{
+  "instagram": {
+    "id": "6b037304bf5d5a73b6caa68d",
+    "dueAt": "2026-11-23T03:30:00.000Z",
+    "status": "scheduled"
+  },
+  "facebook": {
+    "id": "6b037304d5eabfb8cce73e8b",
+    "dueAt": "2026-11-23T03:30:00.000Z",
+    "status": "scheduled"
+  }
+}
