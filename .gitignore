@@ -12,3 +12,6 @@ public/brand
 engine/data
 engine/script.json
 engine/review
+
+# outreach contacts (other businesses' details), never public
+leads/
