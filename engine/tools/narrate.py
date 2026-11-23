@@ -20,8 +20,10 @@ GEMINI = {
     'endpoint': 'https://generativelanguage.googleapis.com/v1beta/interactions',
     'model': os.environ.get('GEMINI_TTS_MODEL', 'gemini-3.8-flash-tts'),
     'voice': S.get('geminiVoice', 'Charon'),
-    'style': S.get('geminiStyle', 'A documentary storyteller: calm, curious and warm, with natural pace. A small pause and a '
-                   'little suspense before a twist. Clear and confident, never theatrical, never salesy.'),
+    'style': S.get('geminiStyle', 'A gripping true-story narrator: low and hushed, close to the mic, as if letting the '
+                   'listener in on a secret. A quick, tense pace; slow down and drop the voice on the strangest fact, with '
+                   'a short pause right before each twist. Plain and clear on the facts in between. Never shouty, never a '
+                   'movie trailer, never salesy.'),
 }
 LEAD, OUTRO = float(S.get('lead', 0.35)), float(S.get('outro', 2.2))
 
