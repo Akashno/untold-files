@@ -8,6 +8,7 @@ import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync, readFileSync
 import { homedir } from 'node:os'
 import { basename, join, resolve } from 'node:path'
 import type { Story } from '../src/types'
+import { download, resolveImages } from './images'
 
 const ROOT = resolve(import.meta.dirname, '..')
 const ENGINE = join(ROOT, 'engine')
@@ -65,7 +66,18 @@ export async function make(file: string, opts: { kokoro?: boolean } = {}): Promi
   const histFile = join(ROOT, 'data/history.json')
   const history: Array<{ date: string, status: string }> = existsSync(histFile) ? JSON.parse(readFileSync(histFile, 'utf8')) : []
   const fileNo = history.filter(h => h.status !== 'test' && h.status !== 'failed' && h.date < name).length + 1
-  writeFileSync(join(ENGINE, 'script.json'), JSON.stringify({ ...story, file: fileNo, voice: 'bm_george', speed: 1.0, lead: 0.35, outro: 2.2, gap: 0.3 }, null, 1))
+  // The pictures: found by the writer (story.photos), or here for older stories; saved next to script.json.
+  let pics: Array<string | null>
+  try {
+    pics = await download(story.photos ?? await resolveImages(story), join(ENGINE, 'data'))
+  }
+  catch (e) {
+    return { ok: false, errors: [`pictures: ${(e as Error).message}`] }
+  }
+  if (!pics[0])
+    return { ok: false, errors: ['line 1 has no picture'] }
+  const lines = story.lines.map((l, i) => ({ ...l, scene: pics[i] ? { type: 'photo', src: `data/${pics[i]}` } : undefined }))
+  writeFileSync(join(ENGINE, 'script.json'), JSON.stringify({ ...story, lines, photos: undefined, file: fileNo, voice: 'bm_george', speed: 1.0, lead: 0.35, outro: 2.2, gap: 0.3 }, null, 1))
   const env = { ...process.env, CHROME: chrome() }
   const run = (cmd: string, args: string[]) => {
     const r = spawnSync(cmd, args, { cwd: ENGINE, env, encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 })

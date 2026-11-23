@@ -27,7 +27,7 @@ export function buildCaptions(script) {
       // find the chunk's first word in the spoken line (from where the last chunk started); else place it by word count
       const first = nm(c.split(/\s+/)[0]);
       let idx = j === 0 ? 0 : ws.findIndex((w, k) => k > from && first && (nm(w.w) === first || (first.length > 2 && nm(w.w).startsWith(first))));
-      if (idx < 0) idx = Math.max(from + (j ? 1 : 0), Math.min(ws.length - 1, Math.round(acc * ws.length / N)));
+      if (idx < 0) idx = Math.min(ws.length - 1, Math.max(from + (j ? 1 : 0), Math.round(acc * ws.length / N)));
       acc += counts[j]; from = idx;
       caps.push({ line: i, s: ws[idx].s - 0.05, words: c.split(/\s+/).map((w) => ({ txt: w.replace('*', ''), hi: w.startsWith('*') })) });
     });

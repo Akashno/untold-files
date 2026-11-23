@@ -16,7 +16,7 @@ function draw(t) {
   const S = OP._shots; let i = S.length - 1; while (i > 0 && S[i].at > t) i--;
   const sh = S[i], end = i < S.length - 1 ? S[i + 1].at : T.dur, d = end - sh.at, lt = t - sh.at;
   // camera: punch-in on the cut + a slow push across the shot ("camera always moving")
-  const punch = 1 + 0.06 * (1 - eo(clamp(lt / 0.25)));
+  const punch = 1 + (sh.punch ?? 0.06) * (1 - eo(clamp(lt / 0.25)));
   const drift = 1 + (sh.zoom ?? 0.06) * eio(clamp(lt / d));
   const [cx, cy] = sh.cam || [540, 900];
   ctx.save(); ctx.translate(cx, cy); ctx.scale(punch * drift, punch * drift); ctx.translate(-cx, -cy);
@@ -34,14 +34,13 @@ function draw(t) {
     await document.fonts.load('900 100px Inter'); await document.fonts.load('700 100px Caladea');
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
     await loadTiming();
-    // Claude's own pictures for this story (props): SVG -> image. A broken one stops the boot, so the check fails
-    // and scripts/daily.ts writes a fresh story instead of rendering a blank.
+    // The story's real pictures (scripts/make.ts saved them next to script.json). A missing one stops the boot,
+    // so the check fails instead of rendering a blank.
     script._img = {};
-    for (const p of script.props || []) {
-      const svg = /<svg\b[^>]*\bwidth=/.test(p.svg) ? p.svg : p.svg.replace(/<svg\b/, '<svg width="800" height="800"');
-      const img = new Image(); img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-      try { await img.decode(); } catch { throw new Error(`prop "${p.name}": the SVG does not draw`); }
-      script._img[p.name] = img;
+    for (const src of new Set(script.lines.map((l) => l.scene?.src).filter(Boolean))) {
+      const img = new Image(); img.src = src;
+      try { await img.decode(); } catch { throw new Error(`picture "${src}" does not load`); }
+      script._img[src] = img;
     }
     buildCaptions(script);
     const { shots, cues, overlay, endAt } = buildShots(script);

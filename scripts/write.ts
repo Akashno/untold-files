@@ -14,11 +14,12 @@ import { join, resolve } from 'node:path'
 import Ajv from 'ajv'
 import { BRAND } from '../src/brand'
 import type { Story } from '../src/types'
+import { credits, imageErrors, resolveImages } from './images'
 
 const ROOT = resolve(import.meta.dirname, '..')
 const read = (p: string) => readFileSync(join(ROOT, p), 'utf8')
 const MODEL = process.env.CLAUDE_MODEL ?? 'sonnet'
-const TRIES = 2
+const TRIES = 3
 
 export interface HistoryEntry { date: string, title: string, category: string, summary: string, status: 'test' | 'rendered' | 'posted' | 'failed' }
 export const HISTORY = join(ROOT, 'data/history.json')
@@ -28,6 +29,8 @@ export const today = () => new Date(Date.now() + BRAND.timezone.offsetMinutes * 
 // ---- checks the schema can't express ----------------------------------------------------------
 const SCHEMA = JSON.parse(read('story.schema.json'))
 const validate = new Ajv({ allErrors: true, strict: false }).compile(SCHEMA)
+// Claude never writes `photos`: the pipeline fills it in from Wikipedia.
+const WRITER_SCHEMA = (() => { const x = JSON.parse(JSON.stringify(SCHEMA)); delete x.properties.photos; return x })()
 const SLOP = [/\bturns out\b/i, /\bgame[- ]?changer/i, /\blittle did (he|she|they) know\b/i, /\bunbelievable\b/i, /\byou won'?t believe\b/i, /\bshocking\b/i, /\blegend has it\b/i, /\bjourney\b/i, /\bdelve/i, /\btestament\b/i, /—/, /\bdid you know\b/i, /\bin this video\b/i]
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9']+/g, '')
 const count = (s: string) => s.split(/\s+/).filter(Boolean).length
@@ -47,34 +50,6 @@ export function fixCaps(s: Story) {
   }
 }
 
-// Props are SVG drawn by Claude. They are only ever drawn as images in the renderer (scripts never run there), but
-// anything that isn't plain shapes is refused anyway, and they must be used.
-const SVG_BAD = /<\s*(script|foreignObject|image|img|iframe|style|text|a|use|filter|animate|set)\b|\bon[a-z]+\s*=|\b(?:xlink:)?href\s*=|url\(\s*['"]?(?!#)|javascript:|@import|<!/i
-export function checkProps(s: Story): string[] {
-  const errors: string[] = []
-  const names = new Set(s.props.map(p => p.name))
-  const used = new Set<string>()
-  for (const p of s.props) {
-    const svg = p.svg.trim()
-    if (!/^<svg\b[^>]*viewBox="0 0 400 400"/.test(svg) || !svg.endsWith('</svg>'))
-      errors.push(`prop "${p.name}": must be one <svg viewBox="0 0 400 400">…</svg>`)
-    const bad = svg.match(SVG_BAD)
-    if (bad) errors.push(`prop "${p.name}": "${bad[0]}" is not allowed; use plain shapes only`)
-    const opens = (svg.match(/<[a-zA-Z][^>]*[^/]>|<[a-zA-Z]>/g) ?? []).length, closes = (svg.match(/<\/[a-zA-Z]+\s*>/g) ?? []).length
-    if (opens !== closes) errors.push(`prop "${p.name}": the SVG tags don't balance (${opens} open, ${closes} closed)`)
-  }
-  s.lines.forEach((l, i) => {
-    const sc: any = l.scene
-    for (const ref of [sc?.object, sc?.item, ...(sc?.actors ?? []).map((a: any) => a.art)]) {
-      if (typeof ref !== 'string' || !ref.startsWith('prop:')) continue
-      if (!names.has(ref.slice(5))) errors.push(`line ${i + 1}: "${ref}" is not one of your props`)
-      used.add(ref.slice(5))
-    }
-  })
-  for (const n of names) if (!used.has(n)) errors.push(`prop "${n}" is never shown; use it in a scene or drop it`)
-  return errors
-}
-
 // the hook must open on the strange fact, not on scene-setting
 const HOOK_SLOW = /^(in|on|back in|during|once|one day|years ago|long ago|there (was|were|is)|it (was|is)|this is|meet)\b/i
 const YEAR_WORDS = /\b(eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty)[ -](hundred|oh|o'|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b|\btwo thousand\b/i
@@ -88,17 +63,12 @@ export function checkStory(x: unknown): string[] {
   if (words < 62 || words > 95)
     errors.push(`the narration is ${words} words; write 70-85`)
   const first = s.lines[0]
-  if (!first.scene)
-    errors.push('line 1 needs a scene')
-  else if (!['action', 'people', 'object'].includes(first.scene.type))
-    errors.push(`line 1 is the frame people decide on: make it an "action" scene of the most dramatic moment (or people/object), not "${first.scene.type}"`)
+  if (!first.image)
+    errors.push('line 1 needs an image: it is the frame people decide on')
   if (count(first.text) > 16)
     errors.push('the first line (the hook) is too long; 16 words at most')
   if (HOOK_SLOW.test(first.text.trim()) || YEAR_WORDS.test(first.text))
     errors.push(`line 1 starts slow ("${first.text.split(/\s+/).slice(0, 4).join(' ')}…"): open with the strange fact itself, and give the year or place in line 2`)
-  const actions = s.lines.filter(l => l.scene?.type === 'action').length
-  if (actions < 2)
-    errors.push(`only ${actions} "action" scene(s); show the 2-3 big moments of the story as action scenes`)
   s.lines.forEach((l, i) => {
     const n = count(l.text)
     if (n > 18)
@@ -110,30 +80,9 @@ export function checkStory(x: unknown): string[] {
       if (stars !== 1)
         errors.push(`line ${i + 1}: caption chunk "${c.trim()}" needs exactly one *word`)
     }
-    const sc: any = l.scene
-    const said = l.text.split(/\s+/).map(norm)
-    const spoken = { has: (w: string) => !!w && said.some(x => x.startsWith(w)) }
-    for (const a of sc?.type === 'action' ? sc.actors : [])
-      if (a.on && !spoken.has(norm(a.on.split(/\s+/)[0])))
-        errors.push(`line ${i + 1}: actor on "${a.on}" is not a word in that line`)
-    for (const k of ['on', 'subOn'])
-      if (sc?.[k] && !spoken.has(norm(sc[k].split(/\s+/)[0])))
-        errors.push(`line ${i + 1}: "${k}": "${sc[k]}" is not a word in that line`)
-    for (const it of sc?.type === 'count' ? sc.items : [])
-      if (it.on && !spoken.has(norm(it.on.split(/\s+/)[0])))
-        errors.push(`line ${i + 1}: count item on "${it.on}" is not a word in that line`)
-    if (sc?.type === 'map' && sc.focus && !sc.places.some((p: any) => p.name.toLowerCase() === sc.focus.toLowerCase()))
-      errors.push(`line ${i + 1}: map focus "${sc.focus}" is not one of its places`)
-    if (sc?.type === 'timeline' && sc.active != null && sc.active >= sc.years.length)
-      errors.push(`line ${i + 1}: timeline active ${sc.active} is past its last year`)
   })
-  errors.push(...checkProps(s))
-  const types = s.lines.map(l => l.scene?.type).filter(Boolean) as string[]
-  if (new Set(types).size < 4)
-    errors.push(`only ${new Set(types).size} different scene types; use at least 4`)
-  for (let i = 2; i < types.length; i++)
-    if (types[i] === types[i - 1] && types[i] === types[i - 2])
-      errors.push(`three "${types[i]}" scenes in a row; vary the pictures`)
+  if (s.lines.filter(l => l.image).length < Math.ceil(s.lines.length * 0.6))
+    errors.push('give most lines an image (a line without one keeps the previous picture)')
   if (!s.post.hashtags.some(h => h.toLowerCase() === BRAND.hashtag.toLowerCase()))
     errors.push(`hashtags must include ${BRAND.hashtag}`)
   const all = [...s.lines.map(l => l.text), s.post.caption, s.post.youtubeTitle, s.post.xText].join('\n')
@@ -181,7 +130,7 @@ function buildPrompt(date: string, cat: { id: string, brief: string }, history: 
 
 function askClaude(prompt: string, system: string): { out?: Story, error?: string, tokens?: string } {
   const r = spawnSync('claude', ['-p', '--model', MODEL, '--tools', '', '--no-session-persistence', '--strict-mcp-config', '--disable-slash-commands',
-    '--output-format', 'json', '--json-schema', JSON.stringify(SCHEMA), '--system-prompt', system],
+    '--output-format', 'json', '--json-schema', JSON.stringify(WRITER_SCHEMA), '--system-prompt', system],
   { input: prompt, encoding: 'utf8', cwd: ROOT, timeout: 300_000, maxBuffer: 20 * 1024 * 1024 })
   if (r.error) return { error: `could not run claude: ${r.error.message}` }
   let out: any
@@ -215,8 +164,17 @@ export async function write(date: string, topic?: string): Promise<{ ok: true, f
     story.category = cat.id
     fixCaps(story)
     errors = [...checkStory(story), ...noveltyErrors(story, history)]
+    // Pictures come from Wikipedia (no tokens); only a story whose pictures can't be found is sent back.
+    if (!errors.length) {
+      story.photos = await resolveImages(story)
+      story.photos.forEach((p, k) => console.log(`    line ${k + 1}: ${p ? `${p.title} (${p.licence})` : story.lines[k].image ? `nothing for ${JSON.stringify(story.lines[k].image)}` : '(holds)'}`))
+      errors = imageErrors(story, story.photos)
+    }
     console.log(`  attempt ${attempt}: "${story.title}" (${res.tokens})${errors.length ? `, rejected:\n    ${errors.join('\n    ')}` : ''}`)
     if (!errors.length) {
+      const credit = credits(story.photos ?? [])
+      if (credit)
+        story.post.caption = `${story.post.caption}\n\n${credit}`.slice(0, 600)
       mkdirSync(join(ROOT, 'reels'), { recursive: true })
       const file = join(ROOT, 'reels', `${date}.json`)
       writeFileSync(file, `${JSON.stringify(story, null, 2)}\n`)
