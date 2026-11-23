@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat Reel Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#141416;color:#eee;font:14px/1.4 Inter,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.controls select,.controls button{font:inherit;font-size:13px;background:#26262a;color:#eee;border:1px solid #3a3a40;border-radius:8px;padding:6px 10px;cursor:pointer}
+.controls button.on{background:#0a84ff;border-color:#0a84ff;color:#fff}
+.stagewrap{flex:1;display:flex;align-items:flex-start;justify-content:center;width:100%;min-height:0}
+#scaler{transform-origin:top center}
+
+/* ---------- the reel (9:16, 405x720) ---------- */
+.phone{
+  --bg:#fff;--recv:#e9e9eb;--ink:#000;--blue:#0b7cff;--sub:#8e8e93;--head:rgba(246,246,246,.86);--line:rgba(0,0,0,.12);--field:#fff;--fieldline:#d1d1d6;--btn:#e5e5ea;--icon:#0b7cff;
+  position:relative;width:393px;height:699px;overflow:hidden;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,system-ui,sans-serif;border-radius:28px;
+  -webkit-font-smoothing:antialiased
+}
+.phone.dark{--bg:#000;--recv:#262629;--ink:#fff;--blue:#0a84ff;--head:rgba(22,22,24,.86);--line:rgba(255,255,255,.12);--field:#000;--fieldline:#3a3a3c;--btn:#2c2c2e;--icon:#0a84ff}
+.screen{position:absolute;inset:0;transform-origin:50% 60%}
+
+.status{position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 52px;z-index:6;font-weight:600;font-size:17px;letter-spacing:-.3px}
+.status .ic{display:flex;gap:6px;align-items:center}
+.head{position:absolute;top:0;left:0;right:0;height:126px;padding-top:54px;background:var(--head);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-bottom:.5px solid var(--line);z-index:5}
+.head .back{position:absolute;left:8px;top:73px;color:var(--icon);display:flex;align-items:center;gap:2px}
+.head .back svg{width:13px;height:21px}
+.head .badge{background:var(--icon);color:#fff;font-size:13px;font-weight:600;border-radius:11px;padding:1px 7px;margin-left:3px}
+.head .who{position:absolute;left:0;right:0;top:58px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.head .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(180deg,#a7adba,#858a96);color:#fff;font-size:19px;font-weight:500;display:grid;place-items:center;letter-spacing:.02em}
+.head .nm{font-size:11px;display:flex;align-items:center;gap:3px}
+.head .nm svg{width:5px;height:9px;opacity:.5}
+.head .vid{position:absolute;right:16px;top:76px;color:var(--icon)}
+
+.view{position:absolute;top:0;left:0;right:0;bottom:343px;overflow:hidden}
+/* keyboard */
+.phone{--kb:#d1d4da;--key:#fff;--fkey:#acb1bb;--keysh:#8a8b8f}
+.phone.dark{--kb:#2b2b2d;--key:#6b6b6e;--fkey:#47474a;--keysh:#111}
+.kb{position:absolute;left:0;right:0;bottom:0;height:291px;background:var(--kb);padding:8px 3px 0;z-index:4}
+.kr{display:flex;justify-content:center;gap:6px;margin-bottom:12px}
+.k{width:33.3px;height:42px;border-radius:5px;background:var(--key);box-shadow:0 1px 0 var(--keysh);display:grid;place-items:center;font-size:22px;color:var(--ink);position:relative;font-weight:400}
+.k.f{background:var(--fkey);font-size:15px}
+.k.wide{width:42px}.k.ret{width:88px}.k.space{flex:1}
+.kr.last{padding:0 3px}
+.kr.r3{justify-content:space-between;padding:0 0}
+.kr.r3 .mid{display:flex;gap:6px}
+.kb .tools{display:flex;justify-content:space-between;padding:4px 22px 0;color:var(--sub)}
+.kb .home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:var(--ink)}
+.list{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;padding:0 16px 10px}
+.stamp{text-align:center;color:var(--sub);font-size:11.5px;line-height:1.35;margin:0 0 10px}
+.stamp b{font-weight:500}
+.row{display:flex;margin-top:2px}
+.row.gap{margin-top:10px}
+.row.me{justify-content:flex-end}
+.msg{position:relative;z-index:0;max-width:264px;padding:6px 12px 7px;border-radius:18px;font-size:17px;line-height:22px;letter-spacing:-.2px;word-wrap:break-word;white-space:pre-wrap}
+.me .msg{background:var(--blue);color:#fff}
+.them .msg{background:var(--recv);color:var(--ink)}
+.msg.emoji{background:none!important;font-size:46px;line-height:52px;padding:0 2px}
+/* tails */
+.msg.tail::before,.msg.tail::after{content:"";position:absolute;bottom:0;height:20px;z-index:-1}
+.me .msg.tail::before{right:-7px;width:20px;background:var(--blue);border-bottom-left-radius:16px 14px}
+.me .msg.tail::after{right:-26px;width:26px;background:var(--bg);border-bottom-left-radius:10px}
+.them .msg.tail::before{left:-7px;width:20px;background:var(--recv);border-bottom-right-radius:16px 14px}
+.them .msg.tail::after{left:-26px;width:26px;background:var(--bg);border-bottom-right-radius:10px}
+.msg.emoji.tail::before,.msg.emoji.tail::after{display:none}
+/* typing indicator */
+.typing{position:relative;width:64px;height:38px;border-radius:19px;background:var(--recv);display:flex;align-items:center;justify-content:center;gap:5px}
+.typing::before{content:"";position:absolute;left:-1px;bottom:-1px;width:12px;height:12px;border-radius:50%;background:var(--recv)}
+.typing::after{content:"";position:absolute;left:-7px;bottom:-7px;width:6px;height:6px;border-radius:50%;background:var(--recv)}
+.typing i{width:9px;height:9px;border-radius:50%;background:var(--sub);animation:dot 1.2s infinite ease-in-out}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.35}30%{opacity:1}}
+/* receipt + tapback */
+.receipt{align-self:flex-end;font-size:11.5px;color:var(--sub);margin:3px 4px 0 0}
+.receipt b{font-weight:600}
+.tap{position:absolute;top:-22px;width:34px;height:30px;border-radius:15px;display:grid;place-items:center;font-size:9px;font-weight:800;letter-spacing:-.3px;line-height:.9;text-align:center;border:2px solid var(--bg)}
+.them .tap{right:-18px;background:var(--blue);color:#fff}
+.me .tap{left:-18px;background:var(--recv);color:var(--sub)}
+.tap::after{content:"";position:absolute;bottom:-6px;width:8px;height:8px;border-radius:50%;background:inherit;border:2px solid var(--bg)}
+.them .tap::after{left:2px}.me .tap::after{right:2px}
+
+/* input bar */
+.bar{position:absolute;left:0;right:0;bottom:291px;height:52px;display:flex;align-items:flex-start;gap:8px;padding:8px 10px 0;background:var(--bg);z-index:4}
+.plus{width:36px;height:36px;flex:none;border-radius:50%;background:var(--btn);display:grid;place-items:center;color:var(--sub);font-size:24px;font-weight:300;line-height:1}
+.field{flex:1;min-height:36px;border:1px solid var(--fieldline);border-radius:18px;display:flex;align-items:center;padding:0 4px 0 13px;font-size:17px;gap:6px;background:var(--field)}
+.field .ph{flex:1}
+.field.has .txt{flex:1}
+.field .txt{flex:0 1 auto;white-space:nowrap;overflow:hidden;text-overflow:clip;direction:rtl;text-align:left}
+.field .txt span{direction:ltr;unicode-bidi:plaintext}
+.field .ph{color:var(--sub)}
+.field .caret{display:inline-block;width:2px;height:20px;background:var(--blue);vertical-align:-4px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.send{width:28px;height:28px;border-radius:50%;background:var(--blue);display:none;place-items:center;flex:none}
+.mic{color:var(--sub);flex:none;padding-right:6px;display:flex}
+.field.has .send{display:grid}.field.has .mic,.field.has .ph{display:none}
+
+.cap{position:absolute;left:18px;right:18px;top:46%;text-align:center;font-family:Anton,sans-serif;font-size:38px;line-height:1.05;text-transform:uppercase;color:#fff;-webkit-text-stroke:2px #000;paint-order:stroke fill;text-shadow:0 4px 0 #000;z-index:8;opacity:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="controls">
+  <select id="pick"></select>
+  <button id="theme">Dark mode</button>
+  <button id="capt">End caption</button>
+  <select id="snd"><option value="classic" selected>Sound: classic</option><option value="off">Sound: off</option><option value="soft">Sound: soft pop</option><option value="glass">Sound: glass</option></select>
+  <button id="replay">↻ Replay</button>
+</div>
+<div class="stagewrap"><div id="scaler">
+<div class="phone" id="phone"><div class="screen" id="screen">
+  <div class="view"><div class="list" id="list"></div></div>
+  <div class="head">
+    <div class="back"><svg viewBox="0 0 13 21" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2 2.5 10.5 11 19"/></svg><span class="badge">12</span></div>
+    <div class="who"><div class="av" id="av">M</div><div class="nm"><span id="nm">Mummy</span><svg viewBox="0 0 5 9" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1 3 3.5L1 8"/></svg></div></div>
+    <div class="vid"><svg width="27" height="18" viewBox="0 0 27 18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="1.5" width="17" height="15" rx="4"/><path d="M18 7.5 25.5 3v12L18 10.5" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div class="status"><span id="clock">9:41</span><span class="ic">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.2A10.1 10.1 0 0 0 8 .5C5.2.5 2.7 1.6.8 3.4L2 4.6a8.4 8.4 0 0 1 6-2.4Zm0 3.4c1.4 0 2.6.5 3.6 1.4l1.2-1.2A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.8 1.9l1.2 1.2c1-.9 2.2-1.4 3.6-1.4Zm0 3.4c.5 0 1 .2 1.3.5L8 11 6.7 9.5c.3-.3.8-.5 1.3-.5Z"/></svg>
+    <svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x=".5" y=".5" width="23" height="12" rx="3.5" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="17" height="9" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2Z" fill="currentColor" opacity=".4"/></svg>
+  </span></div>
+  <div class="bar">
+    <div class="plus">+</div>
+    <div class="field" id="field"><span class="txt"><span id="typed"></span></span><span class="ph">iMessage</span>
+      <span class="mic"><svg width="14" height="20" viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="1" width="6" height="11" rx="3"/><path d="M1 9a6 6 0 0 0 12 0M7 15v4"/></svg></span>
+      <span class="send"><svg width="14" height="15" viewBox="0 0 14 15" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13.5V2M1.5 7 7 1.5 12.5 7"/></svg></span>
+    </div>
+  </div>
+  <div class="kb" id="kb"></div>
+</div>
+<div class="cap" id="cap"></div>
+</div>
+</div></div>
+
+<script>
+/* ---------- chats: this is the only part Claude would write ---------- */
+const CHATS = [
+  { id: 'parcel', name: 'Mummy', initials: 'M', clock: '9:41', caption: 'the blue one is hers now', script: [
+    { them: 'Your Amazon parcel came.' },
+    { me: 'dont open it' },
+    { them: 'Ok.', think: 1100 },
+    { them: 'Why do you need 3 phone covers', think: 300 },
+    { me: 'MUMMY' },
+    { them: 'The blue one is mine now.', punch: true },
+  ]},
+  { id: 'wifi', name: 'Papa', initials: 'P', clock: '11:02', caption: 'papa knows everything', script: [
+    { them: 'Beta is the WiFi working' },
+    { me: 'yes why' },
+    { them: 'Then why does it say you were online at 3:40am', punch: true },
+    { them: '- Papa', think: 500 },
+  ]},
+  { id: 'nani', name: 'Nani ❤️', initials: 'N', clock: '4:17', caption: 'nani has internet now', script: [
+    { them: 'BETA CALL ME URGENT 🙏' },
+    { me: 'whats wrong??' },
+    { them: 'NOTHING' },
+    { them: 'I LEARNT VOICE TYPING FULL STOP', think: 200 },
+    { react: 'HA\nHA' },
+    { me: '😭' },
+    { them: 'HOW TO STOP THE FULL STOP FULL STOP', punch: true },
+  ]},
+];
+
+/* ---------- engine ---------- */
+const $ = (id) => document.getElementById(id);
+const phone = $('phone'), screen = $('screen'), list = $('list'), field = $('field'), typed = $('typed'), cap = $('cap');
+const opts = { dark: false, caption: false, sound: 'classic' };
+let run = 0, current = CHATS[0];
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const EASE = 'cubic-bezier(.25,.9,.3,1)';
+const SPRING = 'cubic-bezier(.3,1.35,.5,1)';
+const onlyEmoji = (t) => /^(\p{Extended_Pictographic}|\p{Emoji_Component}|‍|️){1,3}$/u.test(t);
+
+/* change the list, then slide everything that was already there up into place */
+function grow(change) {
+  const before = list.offsetHeight;
+  const out = change();
+  const delta = list.offsetHeight - before;
+  if (delta) list.animate([{ transform: `translateY(${delta}px)` }, { transform: 'none' }], { duration: 380, easing: EASE });
+  return { out, delta };
+}
+function lastRow() { return [...list.querySelectorAll('.row')].pop(); }
+function dropReceipt() { list.querySelector('.receipt')?.remove(); }
+function makeRow(who, text) {
+  const prev = lastRow();
+  const same = prev && prev.classList.contains(who) && !prev.classList.contains('typingrow');
+  if (same) prev.querySelector('.msg')?.classList.remove('tail');
+  const row = document.createElement('div');
+  row.className = `row ${who}${same ? '' : ' gap'}`;
+  const m = document.createElement('div');
+  m.className = 'msg tail' + (onlyEmoji(text) ? ' emoji' : '');
+  m.textContent = text;
+  row.appendChild(m);
+  return row;
+}
+
+function addThem(text, typingRow) {
+  const { out: row } = grow(() => {
+    dropReceipt();
+    const row = makeRow('them', text);
+    if (typingRow) typingRow.replaceWith(row); else list.appendChild(row);
+    return row;
+  });
+  row.querySelector('.msg').animate(
+    [{ transform: 'scale(.82)', opacity: .4 }, { transform: 'none', opacity: 1 }],
+    { duration: 320, easing: SPRING, transformOrigin: 'bottom left' });
+  row.querySelector('.msg').style.transformOrigin = 'bottom left';
+  ding('in');
+  return row;
+}
+
+function showTyping() {
+  const { out: row } = grow(() => {
+    const prev = lastRow();
+    const row = document.createElement('div');
+    row.className = 'row them typingrow' + (prev && prev.classList.contains('them') ? '' : ' gap');
+    row.innerHTML = '<div class="typing"><i></i><i></i><i></i></div>';
+    list.appendChild(row);
+    return row;
+  });
+  const t = row.firstChild;
+  t.style.transformOrigin = 'bottom left';
+  t.animate([{ transform: 'scale(.3)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 300, easing: SPRING });
+  return row;
+}
+
+async function typeIntoField(text, id) {
+  field.classList.add('has');
+  typed.innerHTML = '<span class="caret"></span>';
+  let s = '';
+  for (const ch of [...text]) {
+    if (id !== run) return;
+    s += ch;
+    typed.innerHTML = '';
+    typed.append(document.createTextNode(s));
+    typed.insertAdjacentHTML('beforeend', '<span class="caret"></span>');
+    await sleep(45 + Math.random() * 55 + (ch === ' ' ? 40 : 0));
+  }
+  await sleep(220);
+}
+
+function sendMine(text) {
+  const fr = field.getBoundingClientRect();
+  const k = fr.width / field.offsetWidth; // page scale
+  typed.innerHTML = ''; field.classList.remove('has');
+  const { out: row, delta } = grow(() => { dropReceipt(); const r = makeRow('me', text); list.appendChild(r); return r; });
+  const m = row.querySelector('.msg');
+  const r = m.getBoundingClientRect();
+  const dx = (fr.left + 6 * k - r.left) / k;
+  const dy = (fr.top + (fr.height - r.height) / 2 - r.top) / k - delta;
+  const cs = getComputedStyle(phone);
+  const blue = cs.getPropertyValue('--blue').trim(), ink = cs.getPropertyValue('--ink').trim();
+  m.classList.remove('tail');
+  const isEmoji = m.classList.contains('emoji');
+  m.animate([
+    { transform: `translate(${dx}px,${dy}px)`, backgroundColor: isEmoji ? 'transparent' : 'rgba(0,0,0,0)', color: ink },
+    { offset: .35, color: '#fff' },
+    { transform: 'none', backgroundColor: isEmoji ? 'transparent' : blue, color: isEmoji ? ink : '#fff' }
+  ], { duration: 420, easing: 'cubic-bezier(.2,.9,.25,1.05)' }).finished.then(() => {
+    if (lastRow() === row) m.classList.add('tail');
+  });
+  ding('out');
+  setTimeout(() => {
+    if (lastRow() !== row) return;
+    grow(() => { const rc = document.createElement('div'); rc.className = 'receipt'; rc.textContent = 'Delivered'; list.appendChild(rc); });
+  }, 450);
+}
+
+function markRead() {
+  const rc = list.querySelector('.receipt');
+  if (rc) rc.innerHTML = `<b>Read</b> ${current.clock}`;
+}
+
+function react(label) {
+  const rows = [...list.querySelectorAll('.row.them')];
+  const target = rows.pop()?.querySelector('.msg');
+  if (!target) return;
+  const t = document.createElement('span');
+  t.className = 'tap'; t.innerHTML = label.replace('\n', '<br>');
+  target.appendChild(t);
+  t.animate([{ transform: 'scale(0)' }, { transform: 'scale(1.25)' }, { transform: 'none' }], { duration: 380, easing: 'ease-out' });
+  ding('tap');
+}
+
+function punchline(row) { /* hold on the punchline: no zoom */ }
+
+async function play(chat) {
+  const id = ++run;
+  current = chat;
+  screen.getAnimations().forEach(a => a.cancel());
+  cap.getAnimations().forEach(a => a.cancel());
+  $('nm').textContent = chat.name; $('av').textContent = chat.initials; $('clock').textContent = chat.clock;
+  typed.innerHTML = ''; field.classList.remove('has');
+  list.innerHTML = `<div class="stamp"><b>iMessage</b><br>Today ${chat.clock} ${+chat.clock.split(':')[0] < 7 ? 'AM' : 'PM'}</div>`;
+  const ok = () => id === run;
+
+  // hook: the first message is already on screen at frame 0
+  let start = 0;
+  if (chat.script[0].them) { list.appendChild(makeRow('them', chat.script[0].them)); start = 1; }
+  await sleep(900);
+
+  for (let i = start; i < chat.script.length && ok(); i++) {
+    const ev = chat.script[i], prev = chat.script[i - 1] || {};
+    let row;
+    if (ev.react) { await sleep(600); if (!ok()) return; react(ev.react); await sleep(500); continue; }
+    if (ev.them !== undefined) {
+      await sleep(ev.think ?? (prev.them ? 250 : 650)); if (!ok()) return;
+      markRead();
+      const t = showTyping();
+      await sleep(Math.min(1900, 650 + ev.them.length * 30)); if (!ok()) return;
+      row = addThem(ev.them, t);
+    } else {
+      await sleep(ev.think ?? 600); if (!ok()) return;
+      await typeIntoField(ev.me, id); if (!ok()) return;
+      sendMine(ev.me);
+      row = lastRow();
+    }
+    if (ev.punch) { await sleep(350); if (!ok()) return; punchline(row); }
+    await sleep(500);
+  }
+  if (!ok()) return;
+  if (opts.caption && chat.caption) {
+    await sleep(500);
+    cap.textContent = chat.caption;
+    cap.animate([{ opacity: 0, transform: 'scale(1.6)' }, { opacity: 1, transform: 'scale(.95)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'ease-out', fill: 'forwards' });
+  }
+  await sleep(2600);
+  if (ok()) play(chat);
+}
+
+/* ---------- keyboard ---------- */
+const KEYS = {};
+(function buildKeyboard() {
+  const kb = $('kb');
+  const letters = (s) => [...s].map(c => `<div class="k l" data-c="${c}">${c}</div>`).join('');
+  kb.innerHTML = `
+    <div class="kr">${letters('qwertyuiop')}</div>
+    <div class="kr">${letters('asdfghjkl')}</div>
+    <div class="kr r3"><div class="k f wide"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M10 1.5 1.8 10H6v6.5h8V10h4.2Z"/></svg></div><div class="mid">${letters('zxcvbnm')}</div><div class="k f wide"><svg width="24" height="17" viewBox="0 0 24 17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7.5 1H22v15H7.5L1 8.5Z"/><path d="m11 5 7 7m0-7-7 7" stroke-linecap="round"/></svg></div></div>
+    <div class="kr last"><div class="k f wide">123</div><div class="k f wide" style="font-size:20px">☺</div><div class="k space f" style="background:var(--key);font-size:15px">space</div><div class="k f ret">return</div></div>
+    <div class="tools"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20"/></svg><svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4.5" y="2" width="7" height="13" rx="3.5"/><path d="M1.5 11a6.5 6.5 0 0 0 13 0M8 18v4"/></svg></div>
+    <div class="home"></div>`;
+  kb.querySelectorAll('.k.l').forEach(k => KEYS[k.dataset.c] = k);
+  KEYS[' '] = kb.querySelector('.k.space');
+})();
+
+/* ---------- tones: our own sounds, made in code (no Apple audio) ---------- */
+let ac, noiseBuf;
+function out() { return ac.destination; }
+// a glide: frequency slides f1 -> f2
+function glide(f1, f2, dur, vol, at = 0, type = 'sine') {
+  const t = ac.currentTime + at, o = ac.createOscillator(), g = ac.createGain();
+  o.type = type; o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .008); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(g).connect(out()); o.start(t); o.stop(t + dur + .03);
+}
+// a bell-like note: fundamental plus a quiet overtone, fast attack, ringing decay
+function bell(f, dur, vol, at = 0, bright = .25) {
+  [[1, 1], [2.01, bright], [3.02, bright * .35]].forEach(([m, v]) => {
+    const t = ac.currentTime + at, o = ac.createOscillator(), g = ac.createGain();
+    o.frequency.value = f * m;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol * v, t + .004); g.gain.exponentialRampToValueAtTime(.0001, t + dur / m ** .5);
+    o.connect(g).connect(out()); o.start(t); o.stop(t + dur + .03);
+  });
+}
+// a swoosh: filtered noise sweeping upward
+function swoosh(dur, vol, from = 500, to = 3800) {
+  if (!noiseBuf) { noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+  const t = ac.currentTime, src = ac.createBufferSource(), bp = ac.createBiquadFilter(), g = ac.createGain();
+  src.buffer = noiseBuf; bp.type = 'bandpass'; bp.Q.value = 1.4;
+  bp.frequency.setValueAtTime(from, t); bp.frequency.exponentialRampToValueAtTime(to, t + dur);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + dur * .35); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  src.connect(bp).connect(g).connect(out()); src.start(t); src.stop(t + dur + .02);
+}
+const TONES = {
+  classic: {           // airy swoosh out, two-note chime in
+    out: () => { swoosh(.3, .22); glide(320, 760, .22, .025); },
+    in:  () => { bell(1047, .45, .09); bell(1319, .6, .08, .11); },
+    tap: () => bell(1568, .25, .05),
+  },
+  soft: {              // rounded bubble pops, quiet and friendly
+    out: () => glide(360, 920, .11, .16),
+    in:  () => { glide(1050, 720, .08, .13); bell(1397, .22, .05, .05, .1); },
+    tap: () => glide(900, 1250, .07, .08),
+  },
+  glass: {             // bright and crisp, a small three-note sparkle in
+    out: () => { swoosh(.18, .12, 1200, 6000); bell(2093, .25, .04, .08, .1); },
+    in:  () => { bell(1568, .3, .06); bell(2093, .3, .055, .065); bell(2637, .5, .05, .13); },
+    tap: () => bell(2637, .18, .04),
+  },
+};
+function ding(kind) {
+  if (opts.sound === 'off' || !ac) return;
+  TONES[opts.sound][kind]();
+}
+
+/* ---------- controls ---------- */
+const pick = $('pick');
+CHATS.forEach(c => pick.insertAdjacentHTML('beforeend', `<option value="${c.id}">${c.name} · ${c.script.find(e => e.them)?.them.slice(0, 28)}…</option>`));
+pick.onchange = () => play(CHATS.find(c => c.id === pick.value));
+$('replay').onclick = () => play(current);
+const toggle = (btn, key, labelOn, labelOff, after) => {
+  $(btn).onclick = () => { opts[key] = !opts[key]; $(btn).classList.toggle('on', opts[key]); if (labelOn) $(btn).textContent = opts[key] ? labelOn : labelOff; after && after(); };
+};
+toggle('theme', 'dark', null, null, () => phone.classList.toggle('dark', opts.dark));
+toggle('capt', 'caption', null, null, () => play(current));
+$('snd').onchange = (e) => { opts.sound = e.target.value; if (opts.sound !== 'off') { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); ding('in'); } };
+
+function fit() {
+  const k = Math.min((innerHeight - 90) / 699, (innerWidth - 32) / 393, 1.3);
+  $('scaler').style.transform = `scale(${k})`;
+  $('scaler').parentElement.style.height = 699 * k + 'px';
+}
+addEventListener('resize', fit); fit();
+// browsers only allow audio after a click, so start it on the first one
+addEventListener('pointerdown', () => { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); }, { once: true });
+document.fonts.ready.then(() => play(CHATS[0]));
+</script>
+</body>
+</html>

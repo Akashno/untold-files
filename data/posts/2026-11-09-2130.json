@@ -3,5 +3,10 @@
     "id": "6af1e98e5e3b5af1e0019d8c",
     "dueAt": "2026-11-09T15:46:01.867Z",
     "status": "scheduled"
+  },
+  "youtube": {
+    "id": "6af4201d3ccc64b07b81ebd4",
+    "dueAt": "2026-11-11T08:38:17.826Z",
+    "status": "scheduled"
   }
 }

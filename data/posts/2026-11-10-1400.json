@@ -8,5 +8,10 @@
     "id": "6af29ac905af22d72606491b",
     "dueAt": "2026-11-10T08:30:00.000Z",
     "status": "scheduled"
+  },
+  "youtube": {
+    "id": "6af4202360e4cf0fafb097f9",
+    "dueAt": "2026-11-11T10:08:17.826Z",
+    "status": "scheduled"
   }
 }

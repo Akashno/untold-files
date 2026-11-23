@@ -8,11 +8,14 @@
 //   npm run post -- --channels                     list the Buffer channels for every BUFFER_API_KEY_*
 //   npm run post -- <date> --status                show each saved post's status
 //   npm run post -- <date> --delete                delete the saved posts (tests)
+//   npm run post -- --backfill youtube [--gap 30] [--dry]
+//                                                  send every video already posted elsewhere to a newly added
+//                                                  channel, oldest first, one every --gap minutes from now
 //
 // Needs BUFFER_API_KEY_1 / BUFFER_API_KEY_2 (environment or .env). What was scheduled is saved
 // in data/posts/<date>.json, so a re-run never posts a channel twice.
 import { postTime } from './slot.mjs'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 import { join, resolve } from 'node:path'
 import { BRAND } from '../src/brand'
@@ -177,6 +180,33 @@ export async function status(date: string) {
   return out
 }
 
+// Catch a newly added channel up: every video that went to another channel but not to `service` yet,
+// oldest first, scheduled `gapMinutes` apart starting 10 minutes from now.
+export async function backfill(service: string, opts: { gapMinutes?: number, dry?: boolean } = {}) {
+  const cfg: Config = JSON.parse(readFileSync(join(ROOT, 'brand/channels.json'), 'utf8'))
+  if (!cfg.channels.some(c => c.service === service))
+    throw new Error(`${service} is not in brand/channels.json`)
+  const gap = (opts.gapMinutes ?? 30) * 60e3
+  const dir = join(ROOT, 'data/posts')
+  const ids = readdirSync(dir).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5)).sort()
+  const todo = ids.filter((id) => {
+    const saved: Record<string, Saved> = JSON.parse(readFileSync(join(dir, `${id}.json`), 'utf8'))
+    const elsewhere = Object.entries(saved).some(([s, v]) => s !== service && v.status !== 'error')
+    const here = saved[service] && saved[service].status !== 'error'
+    return elsewhere && !here && existsSync(join(ROOT, 'reels', `${id}.json`))
+  })
+  console.log(`${todo.length} video(s) to send to ${service}`)
+  const start = Date.now() + 10 * 60e3
+  const failures: string[] = []
+  for (const [i, id] of todo.entries()) {
+    const at = new Date(start + i * gap).toISOString()
+    console.log(`${id} at ${at}`)
+    const r = await post(id, { only: service, at, dry: opts.dry })
+    failures.push(...r.failures.map(f => `${id} ${f}`))
+  }
+  return failures
+}
+
 // Every channel each BUFFER_API_KEY_* can post to, ready to copy into brand/channels.json.
 const ORGS = `{ account { organizations { id name } } }`
 const CHANNELS = `query Channels($input: ChannelsInput!) { channels(input: $input) { id service name displayName isDisconnected } }`
@@ -226,6 +256,19 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const date = args[0]
   if (args.includes('--channels')) {
     await listChannels()
+    process.exit(0)
+  }
+  if (args.includes('--backfill')) {
+    const service = opt('--backfill')
+    if (!service) {
+      console.error('Usage: npm run post -- --backfill <service> [--gap <minutes>] [--dry]')
+      process.exit(1)
+    }
+    const failures = await backfill(service, { gapMinutes: opt('--gap') ? Number(opt('--gap')) : undefined, dry: args.includes('--dry') })
+    if (failures.length) {
+      console.error(`✗ ${failures.length} failed:\n  ${failures.join('\n  ')}`)
+      process.exit(1)
+    }
     process.exit(0)
   }
   if (!date || date.startsWith('--')) {

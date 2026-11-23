@@ -1,6 +1,7 @@
 {
   "channels": [
     { "service": "instagram", "name": "unt.oldfiles", "id": "6af1ee4462b70b94b0d181bc", "key": "BUFFER_API_KEY_1" },
-    { "service": "facebook", "name": "Untold Files - True Stories", "id": "6af1f0cf62b70b94b0d1df35", "key": "BUFFER_API_KEY_1" }
+    { "service": "facebook", "name": "Untold Files - True Stories", "id": "6af1f0cf62b70b94b0d1df35", "key": "BUFFER_API_KEY_1" },
+    { "service": "youtube", "name": "Untold Files", "id": "6af41f7062b70b94b0f19425", "key": "BUFFER_API_KEY_1" }
   ]
 }

@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reel Style Picker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Patrick+Hand&family=Permanent+Marker&family=Space+Grotesk:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f2ef; --card:#fff; --ink:#18181b; --muted:#6b6b72; --line:#e4e2dd; --accent:#e4572e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;padding:32px 16px 80px}
+header{max-width:1180px;margin:0 auto 28px}
+h1{font-size:28px;letter-spacing:-.02em}
+header p{color:var(--muted);max-width:720px;margin-top:6px}
+#picks{margin-top:14px;font-size:14px;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:10px;display:inline-block}
+.grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card.fav{outline:2px solid var(--accent)}
+.frame{background:#1c1c1f;padding:22px 0;display:flex;justify-content:center;cursor:zoom-in}
+.meta{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.meta h2{font-size:17px;display:flex;gap:8px;align-items:baseline}
+.meta h2 span{color:var(--muted);font-weight:500;font-size:13px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:2px 8px;border-radius:99px;background:#f1efe9;color:#4b4b52}
+.tag.easy{background:#e3f4e7;color:#1d6b34}.tag.med{background:#fff1d6;color:#8a5a00}
+.meta p{font-size:13.5px;color:#3f3f46}
+.btns{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+button{font:inherit;font-size:13px;border:1px solid var(--line);background:#fafaf8;border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{background:#f0eee9}
+button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#modal{position:fixed;inset:0;background:rgba(10,10,12,.86);display:none;align-items:center;justify-content:center;z-index:10;cursor:zoom-out}
+#modal.open{display:flex}
+#modal .holder{transform-origin:center}
+
+/* ---------- reel stage ---------- */
+.stage{position:relative;width:270px;height:480px;overflow:hidden;border-radius:20px;flex:none;isolation:isolate}
+.stage *{animation-fill-mode:both}
+.prog{position:absolute;top:8px;left:10px;right:10px;height:2px;background:rgba(127,127,127,.3);border-radius:2px;z-index:20;overflow:hidden}
+.prog i{display:block;height:100%;background:rgba(255,255,255,.9);transform-origin:left;animation:prog linear both}
+.light .prog i{background:rgba(0,0,0,.55)}
+.sc{position:absolute;inset:0}
+.a{opacity:0}
+.up{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.pop{animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both}
+.fd{animation:fade .5s ease both}
+.wipe{animation:wipe .6s ease both}
+.sl{animation:slideL .5s cubic-bezier(.2,.8,.2,1) both}
+.dr{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1s ease both}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes out{from{opacity:1}to{opacity:0}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes slideL{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes type{from{width:0}to{width:calc(var(--n) * 1ch)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes slam{0%{opacity:0;transform:scale(2.4) rotate(-12deg)}60%{opacity:1;transform:scale(.92) rotate(-12deg)}100%{opacity:1;transform:scale(1) rotate(-12deg)}}
+@keyframes unredact{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@keyframes blob{0%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.15)}66%{transform:translate(-30px,40px) scale(.9)}100%{transform:translate(0,0) scale(1)}}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-2px)}80%{transform:translateX(2px)}}
+@property --v{syntax:'<integer>';initial-value:0;inherits:false}
+@keyframes count{from{--v:0}to{--v:var(--to)}}
+
+/* 1 kinetic */
+.s-kin{background:#0b0b0b;color:#fff;font-family:Anton,sans-serif;text-transform:uppercase}
+.s-kin .col{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 26px;gap:2px}
+.s-kin .w{font-size:50px;line-height:1.02;letter-spacing:.01em}
+.s-kin .y{color:#ffd400}
+.s-kin .hl{background:#ffd400;color:#0b0b0b;padding:0 8px;display:inline-block}
+.s-kin .small{font-family:Inter;font-size:13px;text-transform:none;letter-spacing:.08em;color:#aaa}
+.s-kin .handle{font-size:38px}
+.s-kin .bar{height:5px;width:160px;background:#ffd400;transform-origin:left}
+
+/* 2 whiteboard */
+.s-wb{background:#fbfbf7;color:#1d1d1f;font-family:Caveat,cursive}
+.s-wb h3{position:absolute;top:34px;left:20px;right:20px;font-size:34px;line-height:1;font-weight:700}
+.s-wb svg{position:absolute;left:0;top:110px}
+.s-wb .lbl{position:absolute;font-size:24px;font-weight:700}
+.s-wb .big{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700}
+
+/* 3 terminal */
+.s-term{background:#050805;color:#39ff88;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.s-term::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px);pointer-events:none;z-index:5}
+.s-term .body{position:absolute;top:30px;left:16px;right:16px;display:flex;flex-direction:column;gap:5px}
+.s-term .ty{display:block;overflow:hidden;white-space:nowrap;width:0;animation:type steps(var(--n)) both;text-shadow:0 0 6px rgba(57,255,136,.6)}
+.s-term .dim{color:#1f8f4d}
+.s-term .red{color:#ff4d5e;text-shadow:0 0 6px rgba(255,77,94,.6)}
+.s-term .cur{display:inline-block;width:8px;height:14px;background:#39ff88;animation:blink 1s steps(1) infinite}
+.s-term .title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:26px;font-weight:700;letter-spacing:.06em;text-align:center}
+
+/* 4 notebook */
+.s-nb{background:#fffdf6 repeating-linear-gradient(#fffdf6 0 27px,#c9daf2 27px 28px);background-position:0 12px;color:#1e2a44;font-family:'Patrick Hand',cursive}
+.s-nb::before{content:"";position:absolute;top:0;bottom:0;left:30px;width:1.5px;background:#f2a1a1}
+.s-nb .t{position:absolute;top:30px;left:44px;font-family:'Permanent Marker';font-size:19px;color:#d1453b}
+.s-nb .body{position:absolute;top:96px;left:44px;right:18px;font-size:27px;line-height:28px}
+.s-nb .body div{margin-bottom:28px}
+.s-nb .mk{position:relative;display:inline-block}
+.s-nb .mk::before{content:"";position:absolute;left:-3px;right:-3px;top:6px;bottom:2px;background:#ffe45c;z-index:-1;transform-origin:left;animation:grow .5s ease both;animation-delay:inherit}
+.s-nb .st{position:relative;display:inline-block}
+.s-nb .st::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:3px;border-radius:2px;background:#d1453b;transform:rotate(-4deg) scaleX(0);transform-origin:left;animation:strike .4s ease both;animation-delay:inherit}
+@keyframes strike{from{transform:rotate(-4deg) scaleX(0)}to{transform:rotate(-4deg) scaleX(1)}}
+.s-nb .sticky{position:absolute;right:16px;bottom:44px;width:128px;padding:12px;background:#ffd6e3;box-shadow:0 4px 10px rgba(0,0,0,.12);font-size:19px;line-height:1.15;transform:rotate(4deg)}
+.s-nb svg{position:absolute;inset:0;pointer-events:none}
+
+/* 5 data */
+.s-data{background:#0d1220;color:#e8ecf5;font-family:'Space Grotesk',sans-serif}
+.s-data .t{position:absolute;top:28px;left:20px;right:20px;font-size:24px;font-weight:700;line-height:1.1}
+.s-data .t small{display:block;font-size:12px;font-weight:400;color:#8c96ad;margin-top:6px;letter-spacing:.04em}
+.s-data .rows{position:absolute;top:128px;left:20px;right:20px;display:flex;flex-direction:column;gap:14px}
+.s-data .lab{font-size:13px;color:#b8c0d4;display:flex;justify-content:space-between;margin-bottom:5px}
+.s-data .num{font-weight:700;color:#fff;animation:count 1.3s cubic-bezier(.2,.8,.2,1) both;counter-reset:v var(--v)}
+.s-data .num::before{content:counter(v)}
+.s-data .track{height:16px;border-radius:4px;background:#1b2338}
+.s-data .fill{height:100%;border-radius:4px;transform-origin:left;animation:grow 1.3s cubic-bezier(.2,.8,.2,1) both}
+.s-data .call{position:absolute;bottom:32px;left:20px;right:20px;background:#ff5d8f;color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;font-size:20px;line-height:1.15}
+.s-data .src{position:absolute;bottom:14px;left:20px;font-size:10px;color:#5d6780}
+
+/* 6 classified */
+.s-cf{background:#e9dfc7;color:#2a2418;font-family:'Special Elite',monospace}
+.s-cf::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(120,90,40,.18),transparent 40%),radial-gradient(circle at 80% 90%,rgba(120,90,40,.22),transparent 45%);pointer-events:none}
+.s-cf .hd{position:absolute;top:28px;left:18px;right:18px;font-size:12px;border-bottom:1.5px dashed #6d5f45;padding-bottom:6px;display:flex;justify-content:space-between}
+.s-cf .stamp{position:absolute;border:3px solid #c0262d;color:#c0262d;font-size:22px;padding:2px 10px;letter-spacing:.08em;mix-blend-mode:multiply;animation:slam .45s cubic-bezier(.3,1.4,.5,1) both}
+.s-cf .pol{position:absolute;top:66px;left:22px;width:130px;padding:7px 7px 22px;background:#fbf8f0;box-shadow:0 3px 8px rgba(0,0,0,.2);transform:rotate(-3deg)}
+.s-cf .pol svg{display:block;background:#3b3a36}
+.s-cf .pol span{position:absolute;bottom:4px;left:8px;font-size:10px}
+.s-cf .txt{position:absolute;top:226px;left:18px;right:18px;font-size:14.5px;line-height:1.55}
+.s-cf .rd{position:relative;display:inline-block}
+.s-cf .rd::after{content:"";position:absolute;inset:1px -2px;background:#111;transform-origin:right;animation:unredact .5s ease both;animation-delay:inherit}
+
+/* 7 glow */
+.s-glow{background:#08081a;color:#fff;font-family:'Space Grotesk',sans-serif}
+.s-glow .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.75;animation:blob 9s ease-in-out infinite!important}
+.s-glow .glass{position:absolute;left:18px;right:18px;top:130px;padding:22px 20px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.s-glow .k{font-size:11px;letter-spacing:.2em;color:#c9c2ff}
+.s-glow .f{font-size:32px;font-weight:700;line-height:1.08;margin-top:10px}
+.s-glow .g{background:linear-gradient(90deg,#ff8fd1,#8fd3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s-glow .w{display:inline-block}
+.s-glow .ft{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:12px;color:#a7a3c9}
+
+/* 8 chat */
+.s-chat{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif;font-size:14px}
+.s-chat .top{position:absolute;top:0;left:0;right:0;height:78px;background:#f6f6f8;border-bottom:1px solid #e3e3e6;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8px;gap:3px}
+.s-chat .av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#a1a1aa,#71717a);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:600}
+.s-chat .nm{font-size:11px;color:#333}
+.s-chat .msgs{position:absolute;top:90px;left:10px;right:10px;display:flex;flex-direction:column;gap:6px}
+.s-chat .b{max-width:76%;padding:7px 12px;border-radius:18px;line-height:1.3}
+.s-chat .l{align-self:flex-start;background:#e9e9eb}
+.s-chat .r{align-self:flex-end;background:#0a84ff;color:#fff}
+.s-chat .typing{display:flex;gap:4px;padding:11px 13px}
+.s-chat .typing i{width:7px;height:7px;border-radius:50%;background:#9a9aa0;animation:bounce 1s infinite!important}
+.s-chat .typing i:nth-child(2){animation-delay:.15s!important}.s-chat .typing i:nth-child(3){animation-delay:.3s!important}
+.s-chat .seen{align-self:flex-end;font-size:10px;color:#8e8e93}
+.s-chat .cap{position:absolute;bottom:34px;left:14px;right:14px;text-align:center;font-family:Anton;font-size:28px;text-transform:uppercase;color:#fff;-webkit-text-stroke:1.5px #000;paint-order:stroke fill;text-shadow:0 3px 0 #000}
+
+/* 9 ink */
+.s-ink{background:#f4efe4;color:#1a1714;font-family:'Cormorant Garamond',serif}
+.s-ink svg{position:absolute;left:35px;top:34px}
+.s-ink .q{position:absolute;top:250px;left:24px;right:24px;font-style:italic;font-size:25px;line-height:1.2;text-align:center}
+.s-ink .q .w{display:inline-block}
+.s-ink .by{position:absolute;top:426px;left:0;right:0;text-align:center;font-size:13px;letter-spacing:.25em;text-transform:uppercase}
+.s-ink .seal{position:absolute;right:24px;top:28px;width:34px;height:34px;background:#b3261e;color:#f4efe4;display:grid;place-items:center;font-size:12px;font-weight:600;letter-spacing:.02em;border-radius:3px;transform:rotate(-4deg)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Reel style picker</h1>
+  <p>Nine looks for a new reel page. Every one is drawn entirely in code (HTML, CSS, SVG), so Claude can write the text and the engine can render it to MP4 the same way Untold Files does: no stock footage, no AI video. Click a reel to see it big, and mark the ones you like with ♡.</p>
+  <div id="picks">Your shortlist: <b>none yet</b></div>
+</header>
+<div class="grid" id="grid"></div>
+<div id="modal"><div class="holder"></div></div>
+
+<script>
+const D = (s) => `animation-delay:${s}s`;
+const SC = (a, b) => `animation:fade .35s ease ${a}s both${b ? `, out .35s ease ${b}s forwards` : ''}`;
+const ty = (txt, at, cls = '') => {
+  const n = [...txt].length;
+  return `<span class="ty ${cls}" style="--n:${n};animation-duration:${(n * 0.035).toFixed(2)}s;${D(at)}">${txt}</span>`;
+};
+const words = (txt, start, step, cls = 'w a up') =>
+  txt.split(' ').map((w, i) => `<span class="${cls}" style="${D(start + i * step)}">${w}</span>`).join(' ');
+
+const STYLES = [
+{
+  id: 'kin', name: 'Kinetic Type', T: 9, light: false,
+  tags: ['Motivation', 'Quotes', 'Hot takes'], effort: 'easy',
+  why: 'Huge words landing one at a time on black. Fastest to make, very readable with sound off, and the yellow keyword is what people screenshot.',
+  html: () => `
+  <div class="sc" style="${SC(0, 3.2)}"><div class="col">
+    <div class="w a up" style="${D(.2)}">Nobody</div>
+    <div class="w a up" style="${D(.6)}">is coming</div>
+    <div class="w a up" style="${D(1)}">to save</div>
+    <div class="w y a pop" style="${D(1.5)}">you.</div>
+  </div></div>
+  <div class="sc" style="${SC(3.2, 6.6)}"><div class="col">
+    <div class="w a up" style="${D(3.4)}">So</div>
+    <div class="w a pop" style="${D(3.8)}"><span class="hl">build</span></div>
+    <div class="w a up" style="${D(4.3)}">it</div>
+    <div class="w a up" style="${D(4.7)};animation-name:up,shake;animation-duration:.55s,.4s;animation-delay:4.7s,5.3s">yourself.</div>
+  </div></div>
+  <div class="sc" style="${SC(6.6)}"><div class="col">
+    <div class="small a fd" style="${D(6.8)}">ONE LINE. EVERY DAY.</div>
+    <div class="handle a pop" style="${D(7.1)}">@yourpage</div>
+    <div class="bar a" style="animation:grow .5s ease both;${D(7.5)}"></div>
+  </div></div>`
+},
+{
+  id: 'wb', name: 'Whiteboard Sketch', T: 10, light: true,
+  tags: ['Explainers', 'Science', 'How things work'], effort: 'med',
+  why: 'Lines draw themselves like someone is sketching live. Feels hand-made and smart; great for "why does X happen" questions that people save and share.',
+  html: () => `
+  <div class="sc" style="${SC(0, 6.2)}">
+    <h3 class="a wipe" style="${D(.2)};animation-duration:1s">Why do planes fly so high?</h3>
+    <svg width="270" height="300" viewBox="0 0 270 300" fill="none" stroke="#1d1d1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path class="dr" pathLength="1" style="${D(1)}" d="M70 60 L180 60 Q196 60 196 68 Q196 76 180 76 L70 76 Z"/>
+      <path class="dr" pathLength="1" style="${D(1.4)}" d="M118 68 L98 102 L112 102 L144 68"/>
+      <path class="dr" pathLength="1" style="${D(1.6)}" d="M76 62 L66 40 L80 40 L94 60"/>
+      <path class="dr" pathLength="1" style="${D(2)};animation-duration:.6s" stroke="#2563eb" stroke-dasharray="1" d="M30 70 L60 70 M20 60 L50 60"/>
+      <path class="dr" pathLength="1" style="${D(2.2)}" stroke="#9ca3af" d="M30 210 q0-18 18-18 q6-14 24-9 q14-9 26 5 q16 0 16 16 q0 10-12 10 h-58 q-14 0-14-4z"/>
+      <path class="dr" pathLength="1" style="${D(2.4)}" stroke="#9ca3af" d="M170 240 q0-14 14-14 q5-11 19-7 q11-7 20 4 q13 0 13 12 q0 8-10 8 h-46 q-10 0-10-3z"/>
+      <path class="dr" pathLength="1" style="${D(2.6)};animation-duration:1.4s" d="M0 290 L70 250 L110 275 L160 230 L210 270 L270 245"/>
+      <path class="dr" pathLength="1" style="${D(4.2)}" stroke="#e11d48" stroke-width="2" d="M150 150 C210 128 262 150 250 182 C240 206 162 206 150 186 C140 168 160 150 190 147"/>
+    </svg>
+    <div class="lbl a up" style="left:140px;top:200px;color:#2563eb;${D(3)}">thin air</div>
+    <div class="lbl a up" style="left:158px;top:230px;${D(3.5)}">= less drag</div>
+    <div class="lbl a up" style="left:158px;top:258px;color:#e11d48;${D(4)}">= less fuel</div>
+  </div>
+  <div class="sc" style="${SC(6.2)}"><div class="big">
+    <div class="a pop" style="font-size:58px;${D(6.4)}">~35,000 ft</div>
+    <svg width="200" height="16" style="position:static;margin-top:-6px"><path class="dr" pathLength="1" style="${D(7)}" d="M4 10 Q100 0 196 8" stroke="#e11d48" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    <div class="a up" style="font-size:30px;margin-top:10px;${D(7.6)}">the sweet spot ✓</div>
+  </div></div>`
+},
+{
+  id: 'term', name: 'Terminal Logs', T: 11, light: false,
+  tags: ['Tech history', 'Internet mysteries', 'Hacks'], effort: 'easy',
+  why: 'Green text typing out a story like a hacked file. Pure text, so it is the cheapest to produce, and the typing keeps people watching to the end.',
+  html: () => `
+  <div class="sc" style="${SC(0, 8.6)}"><div class="body">
+    ${ty('$ open case_1988.log', .3, 'dim')}
+    ${ty('» decrypting......', 1.1, 'dim')}
+    <span style="height:8px"></span>
+    ${ty('1988. A grad student', 2)}
+    ${ty('writes a tiny program', 2.8)}
+    ${ty('to measure the internet.', 3.6)}
+    <span style="height:8px"></span>
+    ${ty('It copies itself.', 4.7, 'red')}
+    ${ty('Again.', 5.4, 'red')}
+    ${ty('And again.', 5.8, 'red')}
+    <span style="height:8px"></span>
+    ${ty('~10% of the internet', 6.6)}
+    ${ty('goes down overnight.', 7.4)}
+    <span class="cur"></span>
+  </div></div>
+  <div class="sc" style="${SC(8.6)}"><div class="title">
+    <div class="a pop" style="${D(8.8)};animation-name:pop,shake;animation-duration:.4s,.3s;animation-delay:8.8s,9.3s">THE MORRIS<br>WORM</div>
+    <div class="a fd" style="font-size:11px;font-weight:400;margin-top:12px;color:#1f8f4d;${D(9.5)}">follow for file #002 _</div>
+  </div></div>`
+},
+{
+  id: 'nb', name: 'Notebook Doodle', T: 9, light: true,
+  tags: ['Psychology', 'Study tips', 'Life hacks'], effort: 'easy',
+  why: 'Lined paper, marker highlights and doodles. Feels like a friend\'s notes, which suits "did you know" psychology content that gets saved.',
+  html: () => `
+  <div class="t a sl" style="${D(.2)}">psychology fact #12</div>
+  <div class="body">
+    <div class="a up" style="${D(.8)}">People remember the <span class="mk" style="${D(1.6)}">first</span></div>
+    <div class="a up" style="${D(2.2)}">and the <span class="mk" style="${D(2.9)}">last</span> thing</div>
+    <div class="a up" style="${D(3.5)}">you say.</div>
+    <div class="a up" style="${D(4.6)}">The <span class="st" style="${D(5.3)}">middle?</span> gone.</div>
+  </div>
+  <svg width="270" height="480" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="dr" pathLength="1" style="${D(5.9)}" stroke="#1e2a44" stroke-width="2.5" d="M70 300 C60 340 80 370 120 378 M112 368 L122 379 L108 386"/>
+  </svg>
+  <div class="sticky a pop" style="${D(6.4)}">it's called the serial position effect ✍️</div>`
+},
+{
+  id: 'data', name: 'Data Pop', T: 9, light: false,
+  tags: ['Money', 'Comparisons', 'Rankings'], effort: 'med',
+  why: 'Bars race and numbers count up. "Which one wins?" keeps people watching, and one JSON of numbers is all Claude has to write.',
+  html: () => {
+    const rows = [['Facebook', 54, '#4c7dff'], ['Instagram', 30, '#c35bff'], ['TikTok', 9, '#25e0d0'], ['ChatGPT', 2, '#ff5d8f']];
+    return `
+  <div class="t a up" style="${D(.2)}">Months to reach 100 million users<small>WHO GOT THERE FASTEST?</small></div>
+  <div class="rows">${rows.map(([n, v, c], i) => `
+    <div class="a up" style="${D(1 + i * .8)}">
+      <div class="lab"><span>${n}</span><span class="num" style="--to:${v};${D(1.2 + i * .8)}"></span></div>
+      <div class="track"><div class="fill" style="width:${Math.max(4, v / 54 * 100)}%;background:${c};${D(1.2 + i * .8)}"></div></div>
+    </div>`).join('')}
+  </div>
+  <div class="call a pop" style="${D(5.4)}">2 months. 🤯<br><span style="font-size:13px;font-weight:400">Faster than anything before it.</span></div>
+  <div class="src a fd" style="${D(5.8)}">figures are a sample, check before posting</div>`;
+  }
+},
+{
+  id: 'cf', name: 'Classified File', T: 10, light: true,
+  tags: ['Mysteries', 'True crime', 'Unsolved'], effort: 'med',
+  why: 'Old case file with a stamp slam and black bars that peel off to reveal the clue. Closest to the Untold Files mood, so the two pages could cross-promote.',
+  html: () => `
+  <div class="hd a fd" style="${D(.1)}"><span>FILE No. 1900-12</span><span>FLANNAN ISLES</span></div>
+  <div class="pol a up" style="${D(.4)}">
+    <svg width="116" height="104" viewBox="0 0 116 104" fill="none" stroke="#e9dfc7" stroke-width="1.8" stroke-linecap="round">
+      <path class="dr" pathLength="1" style="${D(.9)}" d="M0 86 Q30 70 58 78 Q86 86 116 74"/>
+      <path class="dr" pathLength="1" style="${D(1.2)}" d="M50 78 L54 32 L62 32 L66 78"/>
+      <path class="dr" pathLength="1" style="${D(1.5)}" d="M51 32 L58 22 L65 32 M54 26 h8"/>
+      <path class="dr" pathLength="1" style="${D(1.8)}" stroke="#ffd36b" d="M66 26 L104 14 M66 28 L104 40"/>
+    </svg>
+    <span>the lighthouse</span>
+  </div>
+  <div class="stamp" style="top:110px;right:18px;${D(1.6)}">CLASSIFIED</div>
+  <div class="txt">
+    <div class="a up" style="${D(2.4)}">December, 1900.</div>
+    <div class="a up" style="${D(3)}">Three keepers vanish from a tiny island.</div>
+    <div class="a up" style="${D(4.2)}">Inside: <span class="rd" style="${D(5)}">the table was set,</span></div>
+    <div class="a up" style="${D(4.2)}"><span class="rd" style="${D(5.8)}">the clock had stopped,</span></div>
+    <div class="a up" style="${D(4.2)}">and one coat <span class="rd" style="${D(6.6)}">was still on its hook.</span></div>
+  </div>
+  <div class="stamp" style="bottom:16px;left:60px;font-size:24px;${D(8)}">UNSOLVED</div>`
+},
+{
+  id: 'glow', name: 'Gradient Glow', T: 8, light: false,
+  tags: ['Fun facts', 'Space', 'Animals'], effort: 'easy',
+  why: 'Soft moving colours behind a frosted card. Calm and "aesthetic", it fits the Explore page look and works for short one-line facts.',
+  html: () => `
+  <div class="blob" style="width:200px;height:200px;background:#7b5cff;left:-40px;top:40px"></div>
+  <div class="blob" style="width:180px;height:180px;background:#ff5cb8;right:-50px;top:220px;animation-delay:-3s!important"></div>
+  <div class="blob" style="width:160px;height:160px;background:#2bc8ff;left:40px;bottom:-40px;animation-delay:-6s!important"></div>
+  <div class="glass a up" style="${D(.3)}">
+    <div class="k">DID YOU KNOW</div>
+    <div class="f">${words('An octopus has', .9, .22)} <span class="w a up g" style="${D(1.6)}">three</span> <span class="w a up g" style="${D(1.8)}">hearts</span></div>
+    <div class="f a up" style="font-size:22px;font-weight:400;color:#d8d4ff;${D(3.4)}">…and blue blood.</div>
+  </div>
+  <div class="ft a fd" style="${D(4.6)}">@yourpage · fact 087 · save for later</div>`
+},
+{
+  id: 'chat', name: 'Chat Story', T: 9.5, light: true,
+  tags: ['Funny', 'Relatable', 'Drama'], effort: 'easy',
+  why: 'A text conversation playing out bubble by bubble. One of the most shared reel formats; Claude writes the chat as a list of lines and the punchline lands as the caption.',
+  html: () => `
+  <div class="top"><div class="av">M</div><div class="nm">Mom ›</div></div>
+  <div class="msgs">
+    <div class="b l a pop" style="transform-origin:left;${D(.5)}">who is "Pizza 🍕" in your contacts</div>
+    <div class="b r typing a" style="background:#0a84ff;${SC(1.4, 2.2)}"><i style="background:#cfe6ff"></i><i style="background:#cfe6ff"></i><i style="background:#cfe6ff"></i></div>
+    <div class="b r a pop" style="transform-origin:right;margin-top:-34px;${D(2.4)}">just a friend why</div>
+    <div class="b l a pop" style="transform-origin:left;${D(3.4)}">"Pizza 🍕" is calling your phone</div>
+    <div class="b l a pop" style="transform-origin:left;${D(4.1)}">i answered</div>
+    <div class="b r a pop" style="transform-origin:right;${D(5)}">MOM</div>
+    <div class="b l a pop" style="transform-origin:left;${D(6)}">he says your order is ready 😂</div>
+    <div class="seen a fd" style="${D(6.6)}">Read 9:41 PM</div>
+  </div>
+  <div class="cap a pop" style="${D(7.1)}">it was actually pizza</div>`
+},
+{
+  id: 'ink', name: 'Ink & Brush', T: 10, light: true,
+  tags: ['Stoicism', 'Philosophy', 'Calm quotes'], effort: 'easy',
+  why: 'A brush circle paints itself, then the quote fades in word by word. Slow and calm, which stands out in a fast feed. Old quotes are public domain, so no rights worries.',
+  html: () => `
+  <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <path class="dr" pathLength="1" style="${D(.3)};animation-duration:1.8s;animation-timing-function:cubic-bezier(.5,0,.3,1)" stroke="#1a1714" stroke-width="15" stroke-linecap="round" opacity=".9" d="M150 40 C110 10 40 25 28 90 C18 150 80 186 130 170 C170 156 186 110 172 76"/>
+    <path class="dr" pathLength="1" style="${D(.3)};animation-duration:1.8s" stroke="#1a1714" stroke-width="4" stroke-linecap="round" opacity=".35" d="M146 48 C108 22 48 34 38 92 C30 146 84 176 128 162"/>
+  </svg>
+  <div class="q">${words('You have power over your mind, not outside events.', 2.2, .28)}</div>
+  <div class="q a fd" style="top:362px;font-size:18px;color:#6a6156;${D(5.6)}">Realise this, and you will find strength.</div>
+  <div class="by a fd" style="${D(6.6)}">Marcus Aurelius</div>
+  <div class="seal a pop" style="${D(7.4)}">MA</div>`
+}
+];
+
+const grid = document.getElementById('grid');
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem('reel-picks') || '[]'); } catch { return []; } },
+  set(v) { try { localStorage.setItem('reel-picks', JSON.stringify(v)); } catch {} }
+};
+let picks = store.get();
+
+function mount(stage, s) {
+  stage.innerHTML = `<div class="prog"><i style="animation-duration:${s.T}s"></i></div>` + s.html();
+}
+function makeStage(s) {
+  const st = document.createElement('div');
+  st.className = `stage s-${s.id}${s.light ? ' light' : ''}`;
+  mount(st, s);
+  st._timer = setInterval(() => mount(st, s), (s.T + .8) * 1000);
+  return st;
+}
+function renderPicks() {
+  const names = STYLES.filter(s => picks.includes(s.id)).map(s => s.name);
+  document.querySelector('#picks b').textContent = names.length ? names.join(', ') : 'none yet';
+  document.querySelectorAll('.card').forEach(c => {
+    const on = picks.includes(c.dataset.id);
+    c.classList.toggle('fav', on);
+    const b = c.querySelector('.fav-btn'); b.classList.toggle('on', on); b.textContent = on ? '♥ Shortlisted' : '♡ Shortlist';
+  });
+}
+
+STYLES.forEach((s, i) => {
+  const card = document.createElement('article');
+  card.className = 'card'; card.dataset.id = s.id;
+  const frame = document.createElement('div'); frame.className = 'frame';
+  const st = makeStage(s); frame.appendChild(st);
+  frame.onclick = () => openModal(s);
+  card.appendChild(frame);
+  card.insertAdjacentHTML('beforeend', `<div class="meta">
+    <h2>${s.name} <span>#${i + 1}</span></h2>
+    <div class="tags"><span class="tag ${s.effort}">${s.effort === 'easy' ? 'Easy to build' : 'Medium effort'}</span>${s.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    <p>${s.why}</p>
+    <div class="btns"><button class="re">↻ Replay</button><button class="fav-btn">♡ Shortlist</button></div>
+  </div>`);
+  card.querySelector('.re').onclick = () => mount(st, s);
+  card.querySelector('.fav-btn').onclick = () => {
+    picks = picks.includes(s.id) ? picks.filter(x => x !== s.id) : [...picks, s.id];
+    store.set(picks); renderPicks();
+  };
+  grid.appendChild(card);
+});
+renderPicks();
+
+const modal = document.getElementById('modal'), holder = modal.querySelector('.holder');
+function openModal(s) {
+  holder.querySelectorAll('.stage').forEach(x => clearInterval(x._timer));
+  holder.innerHTML = '';
+  holder.appendChild(makeStage(s));
+  const k = Math.min((innerHeight - 60) / 480, (innerWidth - 32) / 270, 1.8);
+  holder.style.transform = `scale(${k})`;
+  modal.classList.add('open');
+}
+modal.onclick = () => { modal.classList.remove('open'); holder.querySelectorAll('.stage').forEach(x => clearInterval(x._timer)); holder.innerHTML = ''; };
+</script>
+</body>
+</html>
