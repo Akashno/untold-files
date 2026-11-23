@@ -264,5 +264,12 @@
     "category": "mystery",
     "summary": "In 1918 the USS Cyclops, a huge Navy ship, disappeared after leaving Barbados with about 300 people, leaving no wreckage, and her two sister ships vanished the same way in 1941.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-23-1400",
+    "title": "The king who traded land in India for five hundred war elephants",
+    "category": "ancient",
+    "summary": "Seleucus, a general of Alexander, gave up eastern lands to India's Chandragupta Maurya for 500 war elephants, which helped him win the Battle of Ipsus.",
+    "status": "rendered"
   }
 ]
