@@ -1,0 +1,163 @@
+{
+  "title": "The ship that rained gold bars on Bombay",
+  "category": "india",
+  "hook": "A ship exploded in Bombay and rained gold bars on the streets",
+  "headline": {
+    "top": "GOLD BARS FELL",
+    "bottom": "ON BOMBAY!"
+  },
+  "summary": "In 1944 the cargo ship Fort Stikine caught fire and blew up in Bombay's docks, scattering gold bars across the city; much was never recovered.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: 1944 Bombay explosion (14 April 1944, SS Fort Stikine, cargo of cotton, explosives and gold bullion, about 800 dead, gold scattered)",
+    "Encyclopaedia Britannica and Imperial War Museum accounts of the Bombay Docks explosion of April 1944"
+  ],
+  "lines": [
+    {
+      "text": "A ship exploded in Bombay and rained gold bars on the streets.",
+      "caps": "A *ship exploded | in *Bombay | and rained *gold bars",
+      "image": {
+        "wiki": "1944 Bombay explosion"
+      }
+    },
+    {
+      "text": "In April nineteen forty-four, the Fort Stikine was docked in the harbour.",
+      "caps": "In *April 1944, | the *Fort Stikine | was *docked",
+      "image": {
+        "wiki": "Mumbai"
+      }
+    },
+    {
+      "text": "Hidden in her hold were cotton, explosives and gold.",
+      "caps": "Hidden in her *hold | were *cotton, | *explosives | and *gold",
+      "image": {
+        "wiki": "Cotton"
+      }
+    },
+    {
+      "text": "A fire started below deck, and nobody could stop it.",
+      "caps": "A *fire started | below *deck, | and nobody could *stop it"
+    },
+    {
+      "text": "Two huge blasts threw burning wreckage across the docks.",
+      "caps": "Two huge *blasts | threw *burning wreckage | across the *docks",
+      "image": {
+        "search": "Bombay Docks explosion 1944 smoke"
+      }
+    },
+    {
+      "text": "Gold bars landed in streets far from the port.",
+      "caps": "*Gold bars | landed in *streets | far from the *port",
+      "image": {
+        "wiki": "Gold bar"
+      }
+    },
+    {
+      "text": "About eight hundred people died, and fires burned for days.",
+      "caps": "About *800 | people *died, | and *fires burned | for *days",
+      "image": {
+        "wiki": "1944 Bombay explosion"
+      }
+    },
+    {
+      "text": "Police begged people to return the gold, but much was never found.",
+      "caps": "Police *begged | people to *return it, | but much was *never found",
+      "image": {
+        "wiki": "Gold bar"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A burning ship turned a harbour into a rain of gold, and some of it is still missing.\nIf you found a gold bar on your roof, would you hand it in?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (Unknown, public domain; Rutiknatekar, CC BY-SA 4.0; Azonesa, CC BY-SA 4.0; Szaaman, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#indianhistory",
+      "#truestory",
+      "#mumbai",
+      "#ww2"
+    ],
+    "youtubeTitle": "The ship that rained gold bars on Bombay #shorts",
+    "xText": "In 1944 a ship blew up in Bombay and gold bars fell on the streets. Much was never found."
+  },
+  "photos": [
+    {
+      "ask": "wiki:1944 Bombay explosion",
+      "title": "File:Bombay-Docks-aftermath1.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bombay-Docks-aftermath1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Bombay-Docks-aftermath1.png",
+      "width": 1280,
+      "height": 912,
+      "licence": "Public domain",
+      "artist": "Unknown",
+      "description": "Aftermath of the Bombay Explosion on 14 April, 1944"
+    },
+    {
+      "ask": "wiki:Mumbai",
+      "title": "File:Mumbai Bandra-Worli Sea Link.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/1280px-Mumbai_Bandra-Worli_Sea_Link.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Mumbai_Bandra-Worli_Sea_Link.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Rutiknatekar",
+      "description": "The Bandra Worli Sea Link is an ubiquitous symbol of 21st century Mumbai. The 5.6-kilometre cable-stayed bridge is a remarkable technical feat, the first of its kind built over open seas in India. To "
+    },
+    {
+      "ask": "search:Cotton",
+      "title": "File:Cotton harvest in Xinjiang.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Cotton_harvest_in_Xinjiang.jpg/1280px-Cotton_harvest_in_Xinjiang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Cotton_harvest_in_Xinjiang.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Azonesa",
+      "description": "Cotton harvest in Xinjiang, China (aerial photograph)."
+    },
+    null,
+    {
+      "ask": "search:Bombay Docks explosion 1944 smoke",
+      "title": "File:Bombay-Docks-aftermath1.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bombay-Docks-aftermath1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Bombay-Docks-aftermath1.png",
+      "width": 1280,
+      "height": 912,
+      "licence": "Public domain",
+      "artist": "Unknown",
+      "description": "Aftermath of the Bombay Explosion on 14 April, 1944"
+    },
+    {
+      "ask": "wiki:Gold bar",
+      "title": "File:Gold bullion 2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Gold_bullion_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Gold_bullion_2.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "Public domain",
+      "artist": "Szaaman",
+      "description": "A gold bullion weighing 12½ kg. Property of the Polish National Bank"
+    },
+    {
+      "ask": "wiki:1944 Bombay explosion",
+      "title": "File:Bombay-Docks-aftermath1.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bombay-Docks-aftermath1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Bombay-Docks-aftermath1.png",
+      "width": 1280,
+      "height": 912,
+      "licence": "Public domain",
+      "artist": "Unknown",
+      "description": "Aftermath of the Bombay Explosion on 14 April, 1944"
+    },
+    {
+      "ask": "wiki:Gold bar",
+      "title": "File:Gold bullion 2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Gold_bullion_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Gold_bullion_2.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "Public domain",
+      "artist": "Szaaman",
+      "description": "A gold bullion weighing 12½ kg. Property of the Polish National Bank"
+    }
+  ]
+}
