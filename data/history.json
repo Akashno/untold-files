@@ -278,5 +278,12 @@
     "category": "india",
     "summary": "In 1944 the cargo ship Fort Stikine caught fire and blew up in Bombay's docks, scattering gold bars across the city; much was never recovered.",
     "status": "rendered"
+  },
+  {
+    "date": "2026-11-25-1400",
+    "title": "The dropped oxygen tank that crippled Apollo 13",
+    "category": "disaster",
+    "summary": "A tank dropped in 1968 and heater switches rated for the wrong voltage set up the Apollo 13 explosion, yet the crew survived using the lunar module as a lifeboat.",
+    "status": "rendered"
   }
 ]
