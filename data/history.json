@@ -285,5 +285,12 @@
     "category": "disaster",
     "summary": "A tank dropped in 1968 and heater switches rated for the wrong voltage set up the Apollo 13 explosion, yet the crew survived using the lunar module as a lifeboat.",
     "status": "rendered"
+  },
+  {
+    "date": "2026-11-25-1900",
+    "title": "The melted chocolate bar that led to the microwave oven",
+    "category": "invention",
+    "summary": "Engineer Percy Spencer noticed a candy bar melting near a radar tube in 1945, tested popcorn and an egg, and Raytheon turned it into the first microwave oven, though he had never finished grammar school.",
+    "status": "rendered"
   }
 ]
