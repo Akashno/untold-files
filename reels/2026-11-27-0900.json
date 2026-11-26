@@ -1,0 +1,150 @@
+{
+  "title": "The book nobody on Earth can read",
+  "category": "mystery",
+  "hook": "Nobody on Earth can read this six hundred year old book",
+  "headline": {
+    "top": "NOBODY CAN READ",
+    "bottom": "THIS BOOK"
+  },
+  "summary": "The Voynich manuscript, made in the early 1400s, is written in an unknown script that experts and codebreakers have never decoded.",
+  "music": "tension",
+  "sources": [
+    "Yale Beinecke Library: MS 408, the Voynich manuscript, about 240 pages, vellum radiocarbon dated to the early 15th century",
+    "Encyclopaedia Britannica and Wikipedia: Voynich manuscript, bought by Wilfrid Voynich in 1912, unsolved despite attempts by codebreakers including William Friedman"
+  ],
+  "lines": [
+    {
+      "text": "Nobody on Earth can read this six hundred year old book.",
+      "caps": "Nobody can *read | this *600 year old | *book",
+      "image": {
+        "wiki": "Voynich manuscript"
+      }
+    },
+    {
+      "text": "It has about two hundred forty pages of strange writing.",
+      "caps": "*240 pages | of strange *writing"
+    },
+    {
+      "text": "Carbon dating puts its pages in the early fourteen hundreds.",
+      "caps": "*Carbon dating | the early *1400s",
+      "image": {
+        "search": "Voynich manuscript folio page script"
+      }
+    },
+    {
+      "text": "Dealer Wilfrid Voynich bought it in nineteen twelve, so it took his name.",
+      "caps": "Wilfrid *Voynich | bought it in *1912",
+      "image": {
+        "wiki": "Wilfrid Voynich"
+      }
+    },
+    {
+      "text": "Its drawings show plants that match no known species.",
+      "caps": "*Plants that match | no known *species",
+      "image": {
+        "search": "Voynich manuscript botanical illustration plant"
+      }
+    },
+    {
+      "text": "Famous codebreakers like William Friedman tried, and failed.",
+      "caps": "Famous *codebreakers | tried and *failed",
+      "image": {
+        "wiki": "William Friedman"
+      }
+    },
+    {
+      "text": "Is it a lost language, a secret code, or a hoax?",
+      "caps": "A lost *language? | A *code? | A *hoax?"
+    },
+    {
+      "text": "Nobody knows. It still sits unread in a Yale library.",
+      "caps": "Nobody *knows | Still *unread | at *Yale",
+      "image": {
+        "wiki": "Beinecke Rare Book & Manuscript Library"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A whole book, and not one word of it understood.\nDo you think it is a code, a lost language or a hoax?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (Unknown author, public domain; Voynich manuscript, CC BY-SA 4.0; Unknown author, public domain; Unknown author, public domain; Unknown, public domain; ajay_suresh, CC BY 2.0)",
+    "hashtags": [
+      "#untoldfiles",
+      "#mystery",
+      "#history",
+      "#truestory",
+      "#voynich",
+      "#unsolved"
+    ],
+    "youtubeTitle": "Nobody on Earth can read this 600 year old book #shorts",
+    "xText": "A 600 year old book that no codebreaker has ever been able to read."
+  },
+  "photos": [
+    {
+      "ask": "wiki:Voynich manuscript",
+      "title": "File:Voynich Manuscript (32).jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Voynich_Manuscript_%2832%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Voynich_Manuscript_(32).jpg",
+      "width": 1280,
+      "height": 1720,
+      "licence": "Public domain",
+      "artist": "Unknown author",
+      "description": "A page from the mysterious Voynich manuscript , which is undeciphered to this day."
+    },
+    null,
+    {
+      "ask": "search:voynich manuscript folio",
+      "title": "File:Voynich Manuscript - folio 1r détail.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Voynich_Manuscript_-_folio_1r_d%C3%A9tail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Voynich_Manuscript_-_folio_1r_d%C3%A9tail.jpg",
+      "width": 1280,
+      "height": 1514,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Voynich manuscript",
+      "description": "Détail du folio 1r où apparaissent deux grands symboles rouges."
+    },
+    {
+      "ask": "search:Wilfrid Voynich",
+      "title": "File:Wilfrid Michael Voynich.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Wilfrid_Michael_Voynich.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Wilfrid_Michael_Voynich.jpg",
+      "width": 1280,
+      "height": 1744,
+      "licence": "Public domain",
+      "artist": "Unknown author",
+      "description": "A portrait of Wilfrid Michael Voynich"
+    },
+    {
+      "ask": "search:voynich manuscript botanical",
+      "title": "File:Voynich Manuscript (20).jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Voynich_Manuscript_%2820%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Voynich_Manuscript_(20).jpg",
+      "width": 1280,
+      "height": 1748,
+      "licence": "Public domain",
+      "artist": "Unknown author",
+      "description": "A page from the mysterious Voynich manuscript , which is undeciphered to this day."
+    },
+    {
+      "ask": "wiki:William Friedman",
+      "title": "File:William-Friedman.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/William-Friedman.jpg/1280px-William-Friedman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:William-Friedman.jpg",
+      "width": 1280,
+      "height": 1600,
+      "licence": "Public domain",
+      "artist": "Unknown",
+      "description": ""
+    },
+    null,
+    {
+      "ask": "wiki:Beinecke Rare Book & Manuscript Library",
+      "title": "File:Beinecke Rare Book & Manuscript Library (54106261813).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Beinecke_Rare_Book_%26_Manuscript_Library_%2854106261813%29.jpg/1280px-Beinecke_Rare_Book_%26_Manuscript_Library_%2854106261813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Beinecke_Rare_Book_%26_Manuscript_Library_(54106261813).jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.0",
+      "artist": "ajay_suresh",
+      "description": "New Haven, CT"
+    }
+  ]
+}
