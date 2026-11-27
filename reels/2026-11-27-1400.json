@@ -1,0 +1,176 @@
+{
+  "title": "The librarian who measured the Earth with a stick",
+  "category": "ancient",
+  "hook": "A librarian measured the whole Earth using only a stick.",
+  "headline": {
+    "top": "HE MEASURED EARTH",
+    "bottom": "WITH A STICK"
+  },
+  "summary": "Around 240 BC, Eratosthenes compared shadows in two Egyptian cities and calculated the Earth's size, possibly within a few percent, without leaving Egypt.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica and Wikipedia 'Eratosthenes': head of the Library of Alexandria, measured Earth's circumference using shadow angles at Syene and Alexandria, about one fiftieth of a circle.",
+    "Cleomedes, 'On the Circular Motions of the Celestial Bodies' (preserves the method); modern scholars say the accuracy depends on the length of the stadion, so estimates of error range from about 1 to 16 percent."
+  ],
+  "lines": [
+    {
+      "text": "A librarian measured the whole Earth using only a stick.",
+      "caps": "A *librarian | measured the *Earth | with a *stick",
+      "image": {
+        "wiki": "Eratosthenes"
+      }
+    },
+    {
+      "text": "Around two hundred forty BC, Eratosthenes ran the Library of Alexandria.",
+      "caps": "Around *240 BC, | *Eratosthenes ran | the *Library",
+      "image": {
+        "wiki": "Library of Alexandria"
+      }
+    },
+    {
+      "text": "He heard that in Syene, the noon sun shone straight down a well.",
+      "caps": "In *Syene, | the noon *sun | shone down a *well",
+      "image": {
+        "wiki": "Aswan"
+      }
+    },
+    {
+      "text": "But in Alexandria, the same day, a stick still cast a shadow.",
+      "caps": "But in *Alexandria, | a *stick | still cast a *shadow",
+      "image": {
+        "wiki": "Alexandria"
+      }
+    },
+    {
+      "text": "So the Earth had to curve, by about one fiftieth of a circle.",
+      "caps": "So the Earth *curves, | one *fiftieth | of a *circle",
+      "image": {
+        "wiki": "Earth"
+      }
+    },
+    {
+      "text": "He multiplied the distance between the cities by fifty.",
+      "caps": "He *multiplied | the *distance | by *fifty",
+      "image": {
+        "search": "Eratosthenes measurement of Earth circumference diagram"
+      }
+    },
+    {
+      "text": "Some estimates say he was off by only a few percent.",
+      "caps": "Off by *only | a *few | *percent",
+      "image": {
+        "wiki": "Eratosthenes"
+      }
+    },
+    {
+      "text": "He never left Egypt to do it.",
+      "caps": "He never *left | *Egypt",
+      "image": {
+        "wiki": "Ptolemaic Kingdom"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Two thousand years before satellites, a shadow weighed the world.\nCould you have worked it out with just a stick?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (NASA (image by Lunar Reconnaissance Orbiter ), public domain; O. Von Corven, public domain; Vyacheslav Argenberg, CC BY 4.0; Vyacheslav Argenberg, CC BY 4.0; NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans, public domain; Pazoulis, public domain; Ptolemaic Kingdom III-II century BC - ru.svg : Kaidor ( talk · contribs ) deriva, CC BY-SA 4.0)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#ancienthistory",
+      "#truestory",
+      "#science",
+      "#egypt"
+    ],
+    "youtubeTitle": "A librarian measured the whole Earth with a stick #shorts",
+    "xText": "Around 240 BC, a librarian in Egypt measured the Earth with a stick and a shadow."
+  },
+  "photos": [
+    {
+      "ask": "search:Eratosthenes",
+      "title": "File:Eratosthenes (LRO).png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Eratosthenes_%28LRO%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Eratosthenes_(LRO).png",
+      "width": 1280,
+      "height": 1280,
+      "licence": "Public domain",
+      "artist": "NASA (image by Lunar Reconnaissance Orbiter )",
+      "description": "Crater Eratosthenes on the Moon. Mosaic of photos by Lunar Reconnaissance Orbiter , made with Wide Angle Camera. Size of the image is 80×80 km, north is up."
+    },
+    {
+      "ask": "wiki:Library of Alexandria",
+      "title": "File:Ancientlibraryalex.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Ancientlibraryalex.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Ancientlibraryalex.jpg",
+      "width": 1280,
+      "height": 1301,
+      "licence": "Public domain",
+      "artist": "O. Von Corven",
+      "description": "Artistic Rendering of the Library of Alexandria , based on some archaeological evidence."
+    },
+    {
+      "ask": "wiki:Aswan",
+      "title": "File:Panoramic view of Aswan, Egypt.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Panoramic_view_of_Aswan%2C_Egypt.jpg/1280px-Panoramic_view_of_Aswan%2C_Egypt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Aswan,_Egypt.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 4.0",
+      "artist": "Vyacheslav Argenberg",
+      "description": "Aswan is slower than most places in Egypt, laid-back and pleasant. The Nile river is wide, languorous and beautiful here, flowing gently down from Lake Nasser, around dramatic black-granite boulders a"
+    },
+    {
+      "ask": "search:Alexandria",
+      "title": "File:Egypt, Alexandria.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Egypt%2C_Alexandria.jpg/1280px-Egypt%2C_Alexandria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Egypt,_Alexandria.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 4.0",
+      "artist": "Vyacheslav Argenberg",
+      "description": "Alexandria residents and taxi cars in downtown Alexandria. Alexandria is the second-largest city in Egypt and a major economic centre. Alexandria, Egypt."
+    },
+    {
+      "ask": "search:Earth",
+      "title": "File:The Earth seen from Apollo 17.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
+      "width": 1280,
+      "height": 1281,
+      "licence": "Public domain",
+      "artist": "NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans",
+      "description": "\" The Blue Marble \" is a famous photograph of the Earth taken on December 7, 1972, by the crew of the Apollo 17 spacecraft en route to the Moon at a distance of about 29,400 kilometres (18,300 mi). It"
+    },
+    {
+      "ask": "search:Eratosthenes measurement of Earth circumference diagram",
+      "title": "File:Eratosthenes measurement.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Eratosthenes_measurement.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Eratosthenes_measurement.jpg",
+      "width": 1280,
+      "height": 1229,
+      "licence": "CC0",
+      "artist": "Pazoulis",
+      "description": "Eratosthenes' measurement of the Earth's circumference"
+    },
+    {
+      "ask": "search:Eratosthenes",
+      "title": "File:Eratosthenes (LRO).png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Eratosthenes_%28LRO%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Eratosthenes_(LRO).png",
+      "width": 1280,
+      "height": 1280,
+      "licence": "Public domain",
+      "artist": "NASA (image by Lunar Reconnaissance Orbiter )",
+      "description": "Crater Eratosthenes on the Moon. Mosaic of photos by Lunar Reconnaissance Orbiter , made with Wide Angle Camera. Size of the image is 80×80 km, north is up."
+    },
+    {
+      "ask": "wiki:Ptolemaic Kingdom",
+      "title": "File:Ptolemaic Kingdom III-II century BC - en.svg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Ptolemaic_Kingdom_III-II_century_BC_-_en.svg/1280px-Ptolemaic_Kingdom_III-II_century_BC_-_en.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ptolemaic_Kingdom_III-II_century_BC_-_en.svg",
+      "width": 1280,
+      "height": 981,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Ptolemaic Kingdom III-II century BC - ru.svg : Kaidor ( talk · contribs ) deriva",
+      "description": "Ptolemaic Kingdom in the 3rd–2nd centuries BCE"
+    }
+  ]
+}

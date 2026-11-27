@@ -320,5 +320,12 @@
     "category": "mystery",
     "summary": "The Voynich manuscript, made in the early 1400s, is written in an unknown script that experts and codebreakers have never decoded.",
     "status": "rendered"
+  },
+  {
+    "date": "2026-11-27-1400",
+    "title": "The librarian who measured the Earth with a stick",
+    "category": "ancient",
+    "summary": "Around 240 BC, Eratosthenes compared shadows in two Egyptian cities and calculated the Earth's size, possibly within a few percent, without leaving Egypt.",
+    "status": "rendered"
   }
 ]
