@@ -1,0 +1,154 @@
+{
+  "category": "disaster",
+  "title": "The sunlight on clouds that nearly started a nuclear war",
+  "hook": "Sunlight on clouds almost started a nuclear war.",
+  "headline": {
+    "top": "SUNLIGHT ON CLOUDS",
+    "bottom": "NEARLY MEANT WAR"
+  },
+  "summary": "In 1983 a Soviet satellite warning system mistook sunlight on clouds for US missiles, and officer Stanislav Petrov judged it a false alarm.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: 1983 Soviet nuclear false alarm incident (26 Sept 1983, Oko system, Serpukhov-15, five missiles reported, sunlight on high-altitude clouds)",
+    "Wikipedia: Stanislav Petrov (lieutenant colonel, judged the alarm false, died 2017; incident became public in the 1990s)",
+    "BBC News: Stanislav Petrov, the man who may have saved the world"
+  ],
+  "lines": [
+    {
+      "text": "Sunlight on clouds almost started a nuclear war.",
+      "caps": "*Sunlight | on *clouds | almost *started | a nuclear *war",
+      "image": {
+        "wiki": "Stanislav Petrov"
+      }
+    },
+    {
+      "text": "In nineteen eighty-three, Soviet officer Stanislav Petrov was on night duty near Moscow.",
+      "caps": "In *1983, | Soviet *officer | Stanislav *Petrov | on night *duty",
+      "image": {
+        "wiki": "1983 Soviet nuclear false alarm incident"
+      }
+    },
+    {
+      "text": "Suddenly the alarms went off. Satellites reported American missiles heading in.",
+      "caps": "The *alarms | *went off. | *Satellites saw | *missiles | *heading in",
+      "image": {
+        "wiki": "Oko"
+      }
+    },
+    {
+      "text": "His orders were to report it, which could mean a counterattack.",
+      "caps": "Orders: *report it. | That *could mean | a *counterattack",
+      "image": {
+        "wiki": "Moscow"
+      }
+    },
+    {
+      "text": "But he reasoned a real attack would be bigger, and radar showed nothing.",
+      "caps": "But a real *attack | would be *bigger, | and *radar | showed *nothing"
+    },
+    {
+      "text": "He called it a false alarm, and he was right.",
+      "caps": "He *called it | a *false alarm, | and he was *right",
+      "image": {
+        "wiki": "Stanislav Petrov"
+      }
+    },
+    {
+      "text": "The satellites had mistaken sunlight reflecting off high clouds for rockets.",
+      "caps": "*Sunlight | off high *clouds | looked like *rockets",
+      "image": {
+        "wiki": "Altocumulus cloud"
+      }
+    },
+    {
+      "text": "For years, almost nobody knew.",
+      "caps": "For *years, | almost *nobody | *knew",
+      "image": {
+        "wiki": "Cold War"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A machine saw missiles. One man saw a mistake.\nWould you have trusted your gut over the computer?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (User:Brandmeister (Togrul Safarov), public domain; Rumpelstilzchen 666, CC BY-SA 4.0; U.S. Department of State, public domain; Bidgee, CC BY-SA 3.0; Chabacano , basado en el trabajo de es:Usuario:Sancebau This W3C-unspecified vec, CC BY-SA 3.0)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#coldwar",
+      "#nuclear",
+      "#disaster"
+    ],
+    "youtubeTitle": "Sunlight on clouds almost started a nuclear war #shorts",
+    "xText": "In 1983, sunlight on clouds fooled a Soviet satellite into seeing US missiles. One officer's doubt saved the day."
+  },
+  "photos": [
+    {
+      "ask": "search:Stanislav Petrov",
+      "title": "File:Stanislav Petrov memorial stone.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Stanislav_Petrov_memorial_stone.jpg/1280px-Stanislav_Petrov_memorial_stone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Stanislav_Petrov_memorial_stone.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "Public domain",
+      "artist": "User:Brandmeister (Togrul Safarov)",
+      "description": "A memorial stone to Stanislav Petrov in Warsaw , Poland. The inscription reads: \"To Stanislav Yevgrafovich Petrov (1939-2017), a Soviet officer whose courage in 1983 saved the world from the cataclysm"
+    },
+    null,
+    {
+      "ask": "search:Oko",
+      "title": "File:The consequences of the UAV attack on the OKO of Moscow-City 01.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/The_consequences_of_the_UAV_attack_on_the_OKO_of_Moscow-City_01.jpg/1280px-The_consequences_of_the_UAV_attack_on_the_OKO_of_Moscow-City_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:The_consequences_of_the_UAV_attack_on_the_OKO_of_Moscow-City_01.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Rumpelstilzchen 666",
+      "description": "The consequences of a UAV hitting the tower of the OKO complex of Moscow International Business Center"
+    },
+    {
+      "ask": "wiki:Moscow",
+      "title": "File:Saint Basil's Cathedral and the Red Square.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg/1280px-Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg",
+      "width": 1280,
+      "height": 720,
+      "licence": "Public domain",
+      "artist": "U.S. Department of State",
+      "description": "A picture of the view in Red Square in Moscow, taken by the U.S. Department of State // Actually, only a small portion of the square can be seen (the blue stands in the center). Most of the square is "
+    },
+    null,
+    {
+      "ask": "search:Stanislav Petrov",
+      "title": "File:Stanislav Petrov memorial stone.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Stanislav_Petrov_memorial_stone.jpg/1280px-Stanislav_Petrov_memorial_stone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Stanislav_Petrov_memorial_stone.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "Public domain",
+      "artist": "User:Brandmeister (Togrul Safarov)",
+      "description": "A memorial stone to Stanislav Petrov in Warsaw , Poland. The inscription reads: \"To Stanislav Yevgrafovich Petrov (1939-2017), a Soviet officer whose courage in 1983 saved the world from the cataclysm"
+    },
+    {
+      "ask": "wiki:Altocumulus cloud",
+      "title": "File:Altocumulus.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Altocumulus.jpg/1280px-Altocumulus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Altocumulus.jpg",
+      "width": 1280,
+      "height": 851,
+      "licence": "CC BY-SA 3.0",
+      "artist": "Bidgee",
+      "description": "Altocumulus photographed in Wagga Wagga , New South Wales , Australia ."
+    },
+    {
+      "ask": "search:Cold War",
+      "title": "File:Cold War Map 1980.svg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Cold_War_Map_1980.svg/1280px-Cold_War_Map_1980.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Cold_War_Map_1980.svg",
+      "width": 1280,
+      "height": 650,
+      "licence": "CC BY-SA 3.0",
+      "artist": "Chabacano , basado en el trabajo de es:Usuario:Sancebau This W3C-unspecified vec",
+      "description": "World map in 1980, during the later stages of the Cold War."
+    }
+  ]
+}

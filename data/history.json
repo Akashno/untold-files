@@ -334,5 +334,12 @@
     "category": "india",
     "summary": "Mysore's iron-cased rockets stunned the British in India, were copied by William Congreve, and were fired at Fort McHenry in 1814, inspiring \"the rockets' red glare\".",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-28-1400",
+    "title": "The sunlight on clouds that nearly started a nuclear war",
+    "category": "disaster",
+    "summary": "In 1983 a Soviet satellite warning system mistook sunlight on clouds for US missiles, and officer Stanislav Petrov judged it a false alarm.",
+    "status": "rendered"
   }
 ]
