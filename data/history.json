@@ -341,5 +341,12 @@
     "category": "disaster",
     "summary": "In 1983 a Soviet satellite warning system mistook sunlight on clouds for US missiles, and officer Stanislav Petrov judged it a false alarm.",
     "status": "posted"
+  },
+  {
+    "date": "2026-11-28-1900",
+    "title": "The empty gas tank that was not empty and became Teflon",
+    "category": "invention",
+    "summary": "In 1938 DuPont chemist Roy Plunkett found a gas cylinder that was heavy but would not release gas; inside was PTFE, Teflon, later used in the Manhattan Project and then on frying pans.",
+    "status": "rendered"
   }
 ]

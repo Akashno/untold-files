@@ -1,0 +1,126 @@
+{
+  "category": "invention",
+  "title": "The empty gas tank that was not empty and became Teflon",
+  "hook": "A gas tank that looked empty gave us Teflon.",
+  "headline": {
+    "top": "AN EMPTY TANK",
+    "bottom": "THAT WASN'T EMPTY"
+  },
+  "summary": "In 1938 DuPont chemist Roy Plunkett found a gas cylinder that was heavy but would not release gas; inside was PTFE, Teflon, later used in the Manhattan Project and then on frying pans.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Polytetrafluoroethylene and Roy J. Plunkett: discovered April 1938 at DuPont's Jackson Laboratory; a tetrafluoroethylene cylinder would not release gas but weighed as if full; cut open, waxy slippery white powder found.",
+    "Science History Institute: Roy Plunkett and the discovery of Teflon; use of PTFE in Manhattan Project seals and gaskets, later cookware."
+  ],
+  "lines": [
+    {
+      "text": "A gas tank that looked empty gave us Teflon.",
+      "caps": "A gas *tank | that looked *empty | gave us *Teflon",
+      "image": {
+        "wiki": "Polytetrafluoroethylene"
+      }
+    },
+    {
+      "text": "In nineteen thirty-eight, chemist Roy Plunkett opened a valve, and no gas came out.",
+      "caps": "In *1938, | chemist Roy *Plunkett | opened a *valve, | and no *gas came out",
+      "image": {
+        "wiki": "Roy J. Plunkett"
+      }
+    },
+    {
+      "text": "But the tank weighed as much as a full one, so he cut it open.",
+      "caps": "But it *weighed | as *much as | a *full one, | so he *cut it open",
+      "image": {
+        "search": "DuPont Jackson Laboratory Deepwater New Jersey"
+      }
+    },
+    {
+      "text": "Inside was a slippery white powder, a brand new plastic.",
+      "caps": "Inside was a *slippery | white *powder, | a brand new *plastic"
+    },
+    {
+      "text": "Almost nothing could stick to it, and chemicals could not eat it.",
+      "caps": "Almost *nothing | *could stick to it, | and *chemicals | *could not eat it",
+      "image": {
+        "wiki": "Non-stick surface"
+      }
+    },
+    {
+      "text": "That made it perfect for the Manhattan Project's pipes and seals.",
+      "caps": "*Perfect for the | *Manhattan Project's | pipes and *seals",
+      "image": {
+        "wiki": "Manhattan Project"
+      }
+    },
+    {
+      "text": "Only later did it coat frying pans, all because he weighed an empty tank.",
+      "caps": "Only *later, | *frying pans, | all because he *weighed | an empty *tank",
+      "image": {
+        "wiki": "Frying pan"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A heavy tank that gave out no gas changed every kitchen.\nWould you have cut the tank open, or thrown it away?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (Atlas of Medical Foreign Bodies, CC BY-SA 2.0; NASA Johnson Space Center, public domain; Unknown (see ticket), public domain; Jebulon, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#science",
+      "#teflon",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "A gas tank that looked empty gave us Teflon #shorts",
+    "xText": "A tank that looked empty but weighed full gave the world Teflon, first used in the Manhattan Project."
+  },
+  "photos": [
+    {
+      "ask": "search:Polytetrafluoroethylene",
+      "title": "File:PTFE (polytetrafluoroethylene) - Teflon (49615920942).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/PTFE_%28polytetrafluoroethylene%29_-_Teflon_%2849615920942%29.jpg/1280px-PTFE_%28polytetrafluoroethylene%29_-_Teflon_%2849615920942%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:PTFE_(polytetrafluoroethylene)_-_Teflon_(49615920942).jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 2.0",
+      "artist": "Atlas of Medical Foreign Bodies",
+      "description": "Most synthetic vascular grafts currently used are made of either polyester (Dacron) or Teflon. This graft is composed of polytetrafluoroethylene (PTFE) commonly known as Teflon. Image contributed by D"
+    },
+    null,
+    null,
+    null,
+    {
+      "ask": "search:Non-stick surface",
+      "title": "File:View of footpad of Apollo 11 Lunar Module as it rested on lunar surface (as11-40-5917).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/View_of_footpad_of_Apollo_11_Lunar_Module_as_it_rested_on_lunar_surface_%28as11-40-5917%29.jpg/1280px-View_of_footpad_of_Apollo_11_Lunar_Module_as_it_rested_on_lunar_surface_%28as11-40-5917%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:View_of_footpad_of_Apollo_11_Lunar_Module_as_it_rested_on_lunar_surface_(as11-40-5917).jpg",
+      "width": 1280,
+      "height": 1280,
+      "licence": "Public domain",
+      "artist": "NASA Johnson Space Center",
+      "description": "A close-up view of a footpad of the Apollo 11 Lunar Module as it rested on the surface of the Moon. The stick-like protruding object is a lunar surface sensing probe. This photograph was take with a 7"
+    },
+    {
+      "ask": "search:Manhattan Project",
+      "title": "File:Ames Process pressure vessel lower.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Ames_Process_pressure_vessel_lower.jpg/1280px-Ames_Process_pressure_vessel_lower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Ames_Process_pressure_vessel_lower.jpg",
+      "width": 1280,
+      "height": 1907,
+      "licence": "Public domain",
+      "artist": "Unknown (see ticket)",
+      "description": "A pressure vessel being lowered into a furnace during the Manhattan Project for reduction to uranium metal. Uranium halide and sacrificial metal are in the vessel. This is part of the Ames process. At"
+    },
+    {
+      "ask": "search:Frying pan",
+      "title": "File:Frying pan Naxos NAMA20935.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Frying_pan_Naxos_NAMA20935.jpg/1280px-Frying_pan_Naxos_NAMA20935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Frying_pan_Naxos_NAMA20935.jpg",
+      "width": 1280,
+      "height": 1250,
+      "licence": "CC0",
+      "artist": "Jebulon",
+      "description": "A so-called \" frying pans \", votive object, vessel of Chlorite schist. Probably from Naxos provenance. Early cycladic era, 3200-2300 BCE. N°20935"
+    }
+  ]
+}
