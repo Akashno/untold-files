@@ -1,0 +1,150 @@
+{
+  "category": "disaster",
+  "title": "The dropped oxygen tank that crippled Apollo 13",
+  "hook": "A dropped oxygen tank nearly stranded three astronauts near the Moon.",
+  "headline": {
+    "top": "A TWO-INCH DROP",
+    "bottom": "NEAR THE MOON"
+  },
+  "summary": "A tank dropped in 1968 and heater switches rated for the wrong voltage set up the Apollo 13 explosion, yet the crew survived using the lunar module as a lifeboat.",
+  "music": "tension",
+  "sources": [
+    "NASA Apollo 13 Review Board report (Cortright Report), 1970: tank dropped about two inches in 1965 handling, thermostats rated 28 V exposed to 65 V ground power, insulation damaged.",
+    "Encyclopaedia Britannica and Wikipedia, Apollo 13: explosion on April 13, 1970, crew used lunar module as lifeboat, splashdown April 17."
+  ],
+  "lines": [
+    {
+      "text": "A dropped oxygen tank nearly stranded three astronauts near the Moon.",
+      "caps": "A *dropped | oxygen *tank | nearly *stranded | three *astronauts",
+      "image": {
+        "wiki": "Apollo 13"
+      }
+    },
+    {
+      "text": "Years earlier, workers let it fall about two inches.",
+      "caps": "*Years earlier, | it *fell | two *inches",
+      "image": {
+        "wiki": "Apollo command and service module"
+      }
+    },
+    {
+      "text": "Later, its heater was tested on sixty-five volts, but its switches were built for twenty-eight.",
+      "caps": "*Sixty-five | *volts, but | built for *twenty-eight",
+      "image": {
+        "wiki": "Kennedy Space Center"
+      }
+    },
+    {
+      "text": "They welded shut, and the wire insulation inside burned away.",
+      "caps": "The switches *welded | and the *insulation | burned *away"
+    },
+    {
+      "text": "On Apollo Thirteen, a spark in that tank blew off a panel.",
+      "caps": "A *spark | blew off a *panel",
+      "image": {
+        "wiki": "Apollo 13"
+      }
+    },
+    {
+      "text": "Air and power ran low, so the crew used their landing craft as a lifeboat.",
+      "caps": "Air and *power | ran *low, | a *lifeboat",
+      "image": {
+        "wiki": "Apollo Lunar Module"
+      }
+    },
+    {
+      "text": "All three splashed down safely.",
+      "caps": "All *three | splashed down *safely",
+      "image": {
+        "wiki": "Jim Lovell"
+      }
+    },
+    {
+      "text": "One unchecked switch almost ended the mission.",
+      "caps": "One *unchecked | *switch | almost *ended it"
+    }
+  ],
+  "post": {
+    "caption": "A tiny switch rated for the wrong voltage set up one of space's biggest rescues.\nWould you have trusted the lifeboat?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (NASA, public domain; NASA, public domain; Gzzz, CC BY-SA 4.0; NASA, public domain; NASA, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#apollo13",
+      "#space",
+      "#nasa"
+    ],
+    "youtubeTitle": "A dropped tank nearly stranded three astronauts #shorts",
+    "xText": "A dropped tank and the wrong voltage nearly stranded Apollo 13."
+  },
+  "photos": [
+    {
+      "ask": "wiki:Apollo 13",
+      "title": "File:Apollo 13-insignia.png",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Apollo_13-insignia.png/1280px-Apollo_13-insignia.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Apollo_13-insignia.png",
+      "width": 1280,
+      "height": 1282,
+      "licence": "Public domain",
+      "artist": "NASA",
+      "description": "Logo Apollo 13 This is the insignia of the Apollo 13 lunar landing mission. The Apollo 13 prime crew were the astronauts James A. Lovell Jr., commander; Thomas K. Mattingly II, command module pilot; a"
+    },
+    {
+      "ask": "wiki:Apollo command and service module",
+      "title": "File:Apollo CSM lunar orbit.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Apollo_CSM_lunar_orbit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Apollo_CSM_lunar_orbit.jpg",
+      "width": 1280,
+      "height": 1015,
+      "licence": "Public domain",
+      "artist": "NASA",
+      "description": "The Apollo 15 Service Module as viewed from the Apollo Lunar Module. Image has been cropped and rotated."
+    },
+    {
+      "ask": "search:Kennedy Space Center",
+      "title": "File:Atlantis Kennedy Space Center Visitor Complex 4.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1280px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg",
+      "width": 1280,
+      "height": 788,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Gzzz",
+      "description": "The Space Shuttle Atlantis displayed at the Kennedy Space Center Visitor Complex in Merritt Island, Florida (USA)."
+    },
+    null,
+    {
+      "ask": "wiki:Apollo 13",
+      "title": "File:Apollo 13-insignia.png",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Apollo_13-insignia.png/1280px-Apollo_13-insignia.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Apollo_13-insignia.png",
+      "width": 1280,
+      "height": 1282,
+      "licence": "Public domain",
+      "artist": "NASA",
+      "description": "Logo Apollo 13 This is the insignia of the Apollo 13 lunar landing mission. The Apollo 13 prime crew were the astronauts James A. Lovell Jr., commander; Thomas K. Mattingly II, command module pilot; a"
+    },
+    {
+      "ask": "wiki:Apollo Lunar Module",
+      "title": "File:Apollo 14 Lunar Module (LM) on the moon.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Apollo_14_Lunar_Module_%28LM%29_on_the_moon.jpg/1280px-Apollo_14_Lunar_Module_%28LM%29_on_the_moon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Apollo_14_Lunar_Module_(LM)_on_the_moon.jpg",
+      "width": 1280,
+      "height": 1280,
+      "licence": "Public domain",
+      "artist": "NASA",
+      "description": "AS14-66-9277 (5 Feb. 1971) --- An excellent view of the Apollo 14 Lunar Module (LM) on the moon, as photographed during the first Apollo 14 extravehicular activity (EVA) on the lunar surface. The astr"
+    },
+    {
+      "ask": "wiki:Jim Lovell",
+      "title": "File:James Lovell.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/James_Lovell.jpg/1280px-James_Lovell.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:James_Lovell.jpg",
+      "width": 1280,
+      "height": 1600,
+      "licence": "Public domain",
+      "artist": "NASA",
+      "description": "Portrait of astronaut James A. Lovell Jr. (1928–2025) in his space suit beside a model of the Moon."
+    },
+    null
+  ]
+}

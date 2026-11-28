@@ -1,0 +1,166 @@
+{
+  "category": "invention",
+  "title": "The melted chocolate bar that led to the microwave oven",
+  "hook": "A melted candy bar in an engineer's pocket led to the microwave oven.",
+  "headline": {
+    "top": "A MELTED CANDY BAR",
+    "bottom": "MADE THE MICROWAVE"
+  },
+  "summary": "Engineer Percy Spencer noticed a candy bar melting near a radar tube in 1945, tested popcorn and an egg, and Raytheon turned it into the first microwave oven, though he had never finished grammar school.",
+  "music": "bed",
+  "sources": [
+    "Wikipedia: Percy Spencer. Raytheon engineer, 1945 magnetron observation, candy bar melting, popcorn test, little formal schooling.",
+    "Wikipedia: Microwave oven. Raytheon patent 1945, Radarange 1947 about 340 kg (750 lb) and about 1.8 m tall.",
+    "Smithsonian Magazine and Raytheon history on Percy Spencer and the Radarange."
+  ],
+  "lines": [
+    {
+      "text": "A melted chocolate bar led to the microwave oven.",
+      "caps": "A melted *chocolate | *led to the | *microwave oven",
+      "image": {
+        "wiki": "Microwave oven"
+      }
+    },
+    {
+      "text": "In nineteen forty-five, engineer Percy Spencer was standing near a radar tube.",
+      "caps": "In *1945, | engineer *Percy Spencer | *stood near | a *radar tube",
+      "image": {
+        "wiki": "Percy Spencer"
+      }
+    },
+    {
+      "text": "The candy bar in his pocket turned to goo.",
+      "caps": "His *candy bar | turned to *goo",
+      "image": {
+        "wiki": "Cavity magnetron"
+      }
+    },
+    {
+      "text": "So he tried popcorn kernels, and they popped across the lab.",
+      "caps": "So he *tried | *popcorn, | and it *popped",
+      "image": {
+        "wiki": "Popcorn"
+      }
+    },
+    {
+      "text": "Next he tried an egg, which exploded.",
+      "caps": "*Next, | an *egg | *exploded",
+      "image": {
+        "wiki": "Egg as food"
+      }
+    },
+    {
+      "text": "Raytheon built the first oven two years later.",
+      "caps": "*Raytheon | built the first *oven | in *1947",
+      "image": {
+        "wiki": "Raytheon"
+      }
+    },
+    {
+      "text": "It was nearly six feet tall and weighed over seven hundred pounds.",
+      "caps": "Nearly *six feet tall, | over *700 pounds",
+      "image": {
+        "search": "Raytheon Radarange 1947 microwave oven"
+      }
+    },
+    {
+      "text": "Spencer had never even finished grammar school.",
+      "caps": "He never *finished | *grammar school",
+      "image": {
+        "wiki": "Percy Spencer"
+      }
+    },
+    {
+      "text": "A war radar part now warms lunch in kitchens everywhere.",
+      "caps": "A *radar part | now warms *lunch | *everywhere",
+      "image": {
+        "wiki": "Radar"
+      }
+    }
+  ],
+  "post": {
+    "caption": "A snack melting in a pocket changed every kitchen on Earth.\nWhat accidental invention do you use every day?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (Mrbeastmodeallday, CC BY-SA 4.0; Schrauber5, CC BY-SA 4.0; Bill Ebbesen, CC BY-SA 3.0; Artemas Ward, public domain; Coolcaesar at English Wikipedia, CC BY-SA 3.0; US Army, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#invention",
+      "#science",
+      "#microwave",
+      "#didyouknow"
+    ],
+    "youtubeTitle": "A melted candy bar led to the microwave oven #shorts",
+    "xText": "A melted candy bar near a radar tube gave us the microwave oven. The engineer never finished grammar school."
+  },
+  "photos": [
+    {
+      "ask": "wiki:Microwave oven",
+      "title": "File:Panasonic NN-SD69LS 20220410.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Panasonic_NN-SD69LS_20220410.jpg/1280px-Panasonic_NN-SD69LS_20220410.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Panasonic_NN-SD69LS_20220410.jpg",
+      "width": 1280,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Mrbeastmodeallday",
+      "description": "Panasonic microwave oven NN-SD69LS"
+    },
+    null,
+    {
+      "ask": "search:Cavity magnetron",
+      "title": "File:Magnetron detail.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Magnetron_detail.jpg/1280px-Magnetron_detail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Magnetron_detail.jpg",
+      "width": 1280,
+      "height": 879,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Schrauber5",
+      "description": "1) Central heated cathode 2) Copper anode 3) Permanent magnet 4) Cavity resonators for microwaves 5) Coaxial line to couple out the microwave 6) Outlet pin Notes: cathode may contain radioactive thori"
+    },
+    {
+      "ask": "wiki:Popcorn",
+      "title": "File:Popcorn - Studio - 2011.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Popcorn_-_Studio_-_2011.jpg/1280px-Popcorn_-_Studio_-_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Popcorn_-_Studio_-_2011.jpg",
+      "width": 1280,
+      "height": 852,
+      "licence": "CC BY-SA 3.0",
+      "artist": "Bill Ebbesen",
+      "description": "Unpopped corn kernels, prepared for popping. – Studio photo of Popcorn. Taken in 2011."
+    },
+    {
+      "ask": "search:Egg as food",
+      "title": "File:Chinese preserved eggs, illustration from The Encyclopedia of Food by Artemas Ward.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Chinese_preserved_eggs%2C_illustration_from_The_Encyclopedia_of_Food_by_Artemas_Ward.jpg/1280px-Chinese_preserved_eggs%2C_illustration_from_The_Encyclopedia_of_Food_by_Artemas_Ward.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Chinese_preserved_eggs,_illustration_from_The_Encyclopedia_of_Food_by_Artemas_Ward.jpg",
+      "width": 1280,
+      "height": 915,
+      "licence": "Public domain",
+      "artist": "Artemas Ward",
+      "description": "Chinese preserved eggs, illustration from The Encyclopedia of Food by Artemas Ward; two years old - part of the clay coat removed from the whole egg"
+    },
+    {
+      "ask": "wiki:Raytheon",
+      "title": "File:Raytheon headquarters.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Raytheon_headquarters.jpg/1280px-Raytheon_headquarters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Raytheon_headquarters.jpg",
+      "width": 1280,
+      "height": 1008,
+      "licence": "CC BY-SA 3.0",
+      "artist": "Coolcaesar at English Wikipedia",
+      "description": "Raytheon headquarters in Waltham, Massachusetts ."
+    },
+    null,
+    null,
+    {
+      "ask": "wiki:Radar",
+      "title": "File:Radar antenna.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Radar_antenna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Radar_antenna.jpg",
+      "width": 1280,
+      "height": 1634,
+      "licence": "Public domain",
+      "artist": "US Army",
+      "description": "This RADAR is the A RPA L ong-Range T racking A nd I nstrumentation R adar (ALTAIR) located in the Kwajalein atoll on the island of Roi-Namur in the Ronald Reagan Ballistic Missile Defense Test Site ."
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "title": "The king who traded land in India for five hundred war elephants",
+  "category": "ancient",
+  "hook": "A Greek king gave away lands for five hundred elephants, and the elephants won him a kingdom.",
+  "headline": {
+    "top": "500 ELEPHANTS.",
+    "bottom": "THE PRICE OF LAND"
+  },
+  "summary": "Seleucus, a general of Alexander, gave up eastern lands to India's Chandragupta Maurya for 500 war elephants, which helped him win the Battle of Ipsus.",
+  "music": "bed",
+  "sources": [
+    "Encyclopaedia Britannica, Seleucus I Nicator and Chandragupta Maurya: treaty around 305 BC, 500 elephants, Battle of Ipsus 301 BC",
+    "Plutarch, Life of Alexander, and Strabo, Geography 15.2.9: Seleucus ceded territory and received 500 elephants"
+  ],
+  "props": [
+    {
+      "name": "elephant",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"140\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"110\" y=\"250\" width=\"45\" height=\"85\" rx=\"12\" fill=\"#7A7F88\"/><rect x=\"240\" y=\"250\" width=\"45\" height=\"85\" rx=\"12\" fill=\"#5E636C\"/><ellipse cx=\"205\" cy=\"215\" rx=\"110\" ry=\"80\" fill=\"#8C919A\"/><ellipse cx=\"250\" cy=\"240\" rx=\"60\" ry=\"50\" fill=\"#6F747D\"/><circle cx=\"110\" cy=\"170\" r=\"58\" fill=\"#8C919A\"/><ellipse cx=\"140\" cy=\"185\" rx=\"32\" ry=\"48\" fill=\"#767B84\"/><path d=\"M70 190 Q40 250 65 300 Q80 310 85 295 Q70 250 95 215 Z\" fill=\"#7F848D\"/><path d=\"M88 205 Q70 215 62 235 Q85 230 100 212 Z\" fill=\"#F4EDD8\"/><circle cx=\"95\" cy=\"160\" r=\"6\" fill=\"#222\"/><rect x=\"150\" y=\"135\" width=\"110\" height=\"30\" rx=\"10\" fill=\"#B3262B\"/><rect x=\"160\" y=\"112\" width=\"90\" height=\"26\" rx=\"8\" fill=\"#D9A441\"/><ellipse cx=\"160\" cy=\"170\" rx=\"20\" ry=\"50\" fill=\"#fff\" opacity=\".18\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A Greek king gave away lands for five hundred elephants.",
+      "caps": "A Greek *king | gave away *lands | for *500 elephants",
+      "scene": {
+        "type": "action",
+        "setting": "desert",
+        "actors": [
+          {
+            "art": "prop:elephant",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "left"
+          },
+          {
+            "art": "person:king",
+            "x": 0.2,
+            "y": 0.65,
+            "size": "medium",
+            "move": "still",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Seleucus was a general under Alexander the Great.",
+      "caps": "*Seleucus | served *Alexander | the *Great",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "figures": [
+          {
+            "role": "officer",
+            "label": "Seleucus",
+            "skin": "light",
+            "hair": "brown"
+          }
+        ],
+        "action": "stand"
+      }
+    },
+    {
+      "text": "Around three hundred five BC, he marched into India.",
+      "caps": "Around *305 BC, | he *marched | into *India",
+      "scene": {
+        "type": "map",
+        "title": "305 BC",
+        "land": "continent",
+        "mover": "army",
+        "places": [
+          {
+            "name": "Babylon",
+            "x": 0.2,
+            "y": 0.45
+          },
+          {
+            "name": "Indus River",
+            "x": 0.6,
+            "y": 0.5
+          },
+          {
+            "name": "Pataliputra",
+            "x": 0.85,
+            "y": 0.55
+          }
+        ]
+      }
+    },
+    {
+      "text": "But Chandragupta Maurya's empire there was too strong.",
+      "caps": "But *Chandragupta | was *too strong",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "figures": [
+          {
+            "role": "king",
+            "label": "Chandragupta",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ],
+        "action": "stand"
+      }
+    },
+    {
+      "text": "So they made a deal. Seleucus gave up his eastern lands.",
+      "caps": "So they made a *deal. | Seleucus *gave up | his *lands",
+      "scene": {
+        "type": "people",
+        "setting": "hall",
+        "figures": [
+          {
+            "role": "king",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "king",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ],
+        "action": "stand"
+      }
+    },
+    {
+      "text": "In return, he received five hundred war elephants.",
+      "caps": "In *return, | *500 | war *elephants",
+      "scene": {
+        "type": "count",
+        "setting": "desert",
+        "items": [
+          {
+            "text": "500 ELEPHANTS",
+            "on": "five"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Then, at Ipsus in three hundred one BC, those elephants helped him win.",
+      "caps": "At *Ipsus, | in *301 BC, | elephants *helped him win",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "prop:elephant",
+            "x": 0.3,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "prop:elephant",
+            "x": 0.65,
+            "y": 0.62,
+            "size": "large",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Land he could not hold bought him a kingdom.",
+      "caps": "Land he *could not hold | bought a *kingdom",
+      "scene": {
+        "type": "object",
+        "object": "crown",
+        "setting": "hall"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Seleucus swapped land he could not keep for the animals that won him a kingdom.\nWould you have made that trade?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#ancienthistory",
+      "#indianhistory",
+      "#truestory",
+      "#maurya"
+    ],
+    "youtubeTitle": "A king traded land for 500 war elephants #shorts",
+    "xText": "A Greek king traded lands in India for 500 war elephants, and they won him a kingdom."
+  }
+}

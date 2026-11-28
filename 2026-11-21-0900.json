@@ -1,0 +1,196 @@
+{
+  "title": "The rocket that destroyed itself because of one number",
+  "category": "disaster",
+  "hook": "A rocket blew itself up because one number was too big.",
+  "headline": {
+    "top": "ONE NUMBER.",
+    "bottom": "ONE EXPLOSION."
+  },
+  "summary": "In 1996 Europe's first Ariane 5 rocket destroyed itself 37 seconds after launch because old Ariane 4 software could not hold a larger number.",
+  "music": "tension",
+  "sources": [
+    "ESA/CNES Ariane 501 Inquiry Board report (1996): first flight 4 June 1996, failure about 37 seconds after lift-off, 64-bit float to 16-bit integer overflow in inertial reference system reused from Ariane 4, backup ran identical software",
+    "Encyclopaedia Britannica / Wikipedia 'Ariane flight V88': Kourou, French Guiana, Cluster satellites lost, no injuries, about ten years of development"
+  ],
+  "props": [
+    {
+      "name": "numbox",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"150\" y=\"170\" width=\"100\" height=\"150\" rx=\"8\" fill=\"#C9CDD3\"/><rect x=\"215\" y=\"170\" width=\"35\" height=\"150\" rx=\"8\" fill=\"#9AA1AC\"/><rect x=\"162\" y=\"180\" width=\"14\" height=\"125\" rx=\"7\" fill=\"#fff\" opacity=\".35\"/><rect x=\"60\" y=\"90\" width=\"280\" height=\"70\" rx=\"10\" fill=\"#C2302B\"/><rect x=\"270\" y=\"90\" width=\"70\" height=\"70\" rx=\"10\" fill=\"#9E2A2A\"/><rect x=\"72\" y=\"98\" width=\"120\" height=\"12\" rx=\"6\" fill=\"#fff\" opacity=\".35\"/><rect x=\"90\" y=\"110\" width=\"30\" height=\"40\" fill=\"#F2C14E\"/><rect x=\"135\" y=\"110\" width=\"30\" height=\"40\" fill=\"#F2C14E\"/><rect x=\"180\" y=\"110\" width=\"30\" height=\"40\" fill=\"#F2C14E\"/><rect x=\"225\" y=\"110\" width=\"30\" height=\"40\" fill=\"#F2C14E\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A rocket blew itself up because one number was too big.",
+      "caps": "A *rocket | blew itself *up | one *number | *too big",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "actors": [
+          {
+            "art": "rocket",
+            "x": 0.5,
+            "y": 0.6,
+            "size": "large",
+            "move": "split",
+            "on": "blew"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In nineteen ninety-six, Europe's Ariane Five made its first launch.",
+      "caps": "In *1996, | Europe's *Ariane Five | first *launch",
+      "scene": {
+        "type": "map",
+        "land": "continent",
+        "title": "French Guiana",
+        "places": [
+          {
+            "name": "Kourou",
+            "x": 0.5,
+            "y": 0.4
+          }
+        ],
+        "focus": "Kourou",
+        "mover": "plane",
+        "route": false
+      }
+    },
+    {
+      "text": "It reused trusted software from the older Ariane Four.",
+      "caps": "It *reused | trusted *software | older *Ariane Four",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "figures": [
+          {
+            "role": "scientist",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "scientist",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ],
+        "action": "point",
+        "text": "OLD SOFTWARE",
+        "on": "software"
+      }
+    },
+    {
+      "text": "But it flew faster, so one number grew too large.",
+      "caps": "But it *flew faster, | one *number | grew too *large",
+      "scene": {
+        "type": "object",
+        "object": "prop:numbox",
+        "setting": "room",
+        "text": "TOO BIG",
+        "on": "large"
+      }
+    },
+    {
+      "text": "The computer had no room for it.",
+      "caps": "No *room | for *it",
+      "scene": {
+        "type": "count",
+        "setting": "room",
+        "items": [
+          {
+            "text": "16 BIT BOX",
+            "on": "room"
+          }
+        ]
+      }
+    },
+    {
+      "text": "The guidance system failed, and the identical backup failed too.",
+      "caps": "Guidance *failed, | the *backup | failed *too",
+      "scene": {
+        "type": "people",
+        "setting": "room",
+        "figures": [
+          {
+            "role": "scientist",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ],
+        "action": "stand",
+        "text": "BACKUP FAILED",
+        "on": "backup"
+      }
+    },
+    {
+      "text": "Thirty-seven seconds up, the rocket turned, broke apart, and destroyed itself.",
+      "caps": "*Thirty-seven seconds, | the rocket *turned, | broke *apart",
+      "scene": {
+        "type": "action",
+        "setting": "sky",
+        "actors": [
+          {
+            "art": "rocket",
+            "x": 0.5,
+            "y": 0.55,
+            "size": "large",
+            "move": "split",
+            "on": "apart"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Nobody was hurt, but the satellites were lost.",
+      "caps": "Nobody *hurt, | satellites *lost",
+      "scene": {
+        "type": "people",
+        "setting": "day",
+        "figures": [
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "worker",
+            "skin": "tan",
+            "hair": "black"
+          }
+        ],
+        "action": "stand"
+      }
+    },
+    {
+      "text": "Ten years of work, undone by one number.",
+      "caps": "Ten *years | undone by *one number",
+      "scene": {
+        "type": "count",
+        "setting": "parchment",
+        "items": [
+          {
+            "text": "10 YEARS",
+            "on": "Ten"
+          },
+          {
+            "text": "1 NUMBER",
+            "on": "one"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "Ten years of work, lost in thirty-seven seconds. Nobody was hurt, but one tiny number did it all.\nHave you ever had a small bug ruin a big plan?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#space",
+      "#engineering",
+      "#disaster"
+    ],
+    "youtubeTitle": "A rocket blew itself up because of one number #shorts",
+    "xText": "In 1996 a brand new rocket destroyed itself in 37 seconds. The cause: one number that did not fit."
+  }
+}

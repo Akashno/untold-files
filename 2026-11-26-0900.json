@@ -1,0 +1,163 @@
+{
+  "category": "survival",
+  "headline": {
+    "top": "ALONE IN ICE.",
+    "bottom": "HE MISSED HIS SHIP"
+  },
+  "title": "The explorer who walked home alone across Antarctica",
+  "hook": "A man fell into an Antarctic crevasse alone and hung by a rope",
+  "summary": "In 1913 Douglas Mawson lost both companions in Antarctica, survived a crevasse fall alone, and reached base hours after his ship left.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia: Douglas Mawson; Australasian Antarctic Expedition. Ninnis fell into a crevasse in December 1912 with a sledge and most food; Mertz died in January 1913.",
+    "Australian Antarctic Division: Mawson fell into a crevasse, was held by his sledge rope, climbed out, reached Cape Denison in February 1913 after the Aurora had sailed; he stayed another winter."
+  ],
+  "lines": [
+    {
+      "text": "A man fell into an Antarctic crevasse, alone, and hung by a rope.",
+      "caps": "A man *fell | into a *crevasse, | alone, hanging *by a rope",
+      "image": {
+        "wiki": "Douglas Mawson"
+      }
+    },
+    {
+      "text": "Douglas Mawson was a month from base, and both companions were dead.",
+      "caps": "A *month from base, | both companions *dead",
+      "image": {
+        "wiki": "Australasian Antarctic Expedition"
+      }
+    },
+    {
+      "text": "One fell into a crevasse with the food. The other died on the trek.",
+      "caps": "One *fell | with the *food. | The other *died",
+      "image": {
+        "wiki": "Belgrave Ninnis"
+      }
+    },
+    {
+      "text": "Then the snow gave way under Mawson, and he dangled over darkness.",
+      "caps": "Then the *snow | gave *way",
+      "image": {
+        "search": "Crevasse Antarctica"
+      }
+    },
+    {
+      "text": "Somehow he climbed out, and kept walking.",
+      "caps": "He *climbed | out, and *walked on"
+    },
+    {
+      "text": "He reached the base hours after his ship sailed away.",
+      "caps": "Hours *after | his *ship left",
+      "image": {
+        "wiki": "SY Aurora"
+      }
+    },
+    {
+      "text": "Six men had stayed behind, so he waited one more winter.",
+      "caps": "Six men *stayed, | one more *winter",
+      "image": {
+        "wiki": "Cape Denison"
+      }
+    },
+    {
+      "text": "Alone, he had outwalked death.",
+      "caps": "He *outwalked | *death",
+      "image": {
+        "wiki": "Douglas Mawson"
+      }
+    }
+  ],
+  "post": {
+    "caption": "Mawson walked for weeks with no one beside him, then missed his ship by hours.\nWould you have kept walking?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (South Australian government photographer, public domain; Charles Hoadley, public domain; Frank Hurley, public domain; Apcbg, CC BY-SA 4.0; Frank Hurley, public domain; Frank Hurley, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#survival",
+      "#antarctica",
+      "#explorers"
+    ],
+    "youtubeTitle": "He fell into an Antarctic crevasse alone and climbed out #shorts",
+    "xText": "Douglas Mawson lost both companions, fell into a crevasse alone, climbed out, and reached base hours after his ship left."
+  },
+  "photos": [
+    {
+      "ask": "search:Douglas Mawson",
+      "title": "File:Dr Douglas Mawson arriving in South Australia(GN00710).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Dr_Douglas_Mawson_arriving_in_South_Australia%28GN00710%29.jpg/1280px-Dr_Douglas_Mawson_arriving_in_South_Australia%28GN00710%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Dr_Douglas_Mawson_arriving_in_South_Australia(GN00710).jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC0",
+      "artist": "South Australian government photographer",
+      "description": "Dr Douglas Mawson arriving in South Australia - showing Dr Mawson, and two other men, in a car at Semaphore greeted by several other men. Mawson and his party had just returned from the Antarctic. The"
+    },
+    {
+      "ask": "search:Australasian Antarctic Expedition",
+      "title": "File:Australian Antarctic Expedition Hoadley SLNSW FL20824513.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Australian_Antarctic_Expedition_Hoadley_SLNSW_FL20824513.jpg/1280px-Australian_Antarctic_Expedition_Hoadley_SLNSW_FL20824513.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Australian_Antarctic_Expedition_Hoadley_SLNSW_FL20824513.jpg",
+      "width": 1280,
+      "height": 988,
+      "licence": "Public domain",
+      "artist": "Charles Hoadley",
+      "description": "Western sledging party setting out from the Grottos, Shackleton Ice Shelf, 1912, taken on Mawson's Australasian Antarctic Expedition, 1912, by Charles Hoadley, State Library of New South Wales, ON 144"
+    },
+    {
+      "ask": "search:Belgrave Ninnis",
+      "title": "File:Mertz and Ninnis arrive at Aladdin's Cave.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Mertz_and_Ninnis_arrive_at_Aladdin%27s_Cave.jpg/1280px-Mertz_and_Ninnis_arrive_at_Aladdin%27s_Cave.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Mertz_and_Ninnis_arrive_at_Aladdin%27s_Cave.jpg",
+      "width": 1280,
+      "height": 969,
+      "licence": "Public domain",
+      "artist": "Frank Hurley",
+      "description": "Xavier Mertz and Belgrave Edward Sutton Ninnis arrive at Aladdin's Cave with the dogs at the start of the Far Eastern party , during the Australasian Antarctic Expedition ."
+    },
+    {
+      "ask": "search:Crevasse Antarctica",
+      "title": "File:Crevasse-Tangra-Mountains.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Crevasse-Tangra-Mountains.jpg/1280px-Crevasse-Tangra-Mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Crevasse-Tangra-Mountains.jpg",
+      "width": 1280,
+      "height": 958,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Apcbg",
+      "description": "Partly open crevasse in Tangra Mountains , Livingston Island in Antarctica"
+    },
+    null,
+    {
+      "ask": "wiki:SY Aurora",
+      "title": "File:Aurora anchored to floe-ice off the West Base.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Aurora_anchored_to_floe-ice_off_the_West_Base.jpg/1280px-Aurora_anchored_to_floe-ice_off_the_West_Base.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Aurora_anchored_to_floe-ice_off_the_West_Base.jpg",
+      "width": 1280,
+      "height": 901,
+      "licence": "Public domain",
+      "artist": "Frank Hurley",
+      "description": "The ship Aurora anchored to floe-ice off the West Base, Shackleton Ice Shelf, Australasian Antarctic Expedition, 1913, by Frank Hurley, plate glass negative, State Library of New South Wales, ON 144/H"
+    },
+    {
+      "ask": "wiki:Cape Denison",
+      "title": "File:Blizzard at Cape Denison ~ Cape Denison, Antarctica, c. 1912. Frank Hurley. carbon print (6433918107).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Blizzard_at_Cape_Denison_~_Cape_Denison%2C_Antarctica%2C_c._1912._Frank_Hurley._carbon_print_%286433918107%29.jpg/1280px-Blizzard_at_Cape_Denison_~_Cape_Denison%2C_Antarctica%2C_c._1912._Frank_Hurley._carbon_print_%286433918107%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Blizzard_at_Cape_Denison_~_Cape_Denison,_Antarctica,_c._1912._Frank_Hurley._carbon_print_(6433918107).jpg",
+      "width": 1280,
+      "height": 1040,
+      "licence": "Public domain",
+      "artist": "Frank Hurley",
+      "description": "Blizzard at Cape Denison, Antarctica, 1912, Frank Hurley, vintage carbon print, State Library of New South Wales Native name State Library of New South Wales Parent institution Macquarie Street East P"
+    },
+    {
+      "ask": "search:Douglas Mawson",
+      "title": "File:Dr Douglas Mawson arriving in South Australia(GN00710).jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Dr_Douglas_Mawson_arriving_in_South_Australia%28GN00710%29.jpg/1280px-Dr_Douglas_Mawson_arriving_in_South_Australia%28GN00710%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Dr_Douglas_Mawson_arriving_in_South_Australia(GN00710).jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC0",
+      "artist": "South Australian government photographer",
+      "description": "Dr Douglas Mawson arriving in South Australia - showing Dr Mawson, and two other men, in a car at Semaphore greeted by several other men. Mawson and his party had just returned from the Antarctic. The"
+    }
+  ]
+}

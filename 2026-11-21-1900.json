@@ -1,0 +1,188 @@
+{
+  "title": "The woman left alone on an Arctic island with a cat",
+  "category": "survival",
+  "hook": "A young mother was left alone on an Arctic island with only a cat.",
+  "headline": {
+    "top": "ALONE IN ARCTIC",
+    "bottom": "WITH ONE CAT"
+  },
+  "summary": "Ada Blackjack, hired as a seamstress for the 1921 Wrangel Island expedition, became its only survivor and was rescued in 1923 after teaching herself to hunt.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia: Ada Blackjack - hired 1921 as seamstress for the Wrangel Island expedition, only survivor, rescued August 1923 by Harold Noice",
+    "Jennifer Niven, Ada Blackjack (2003); Smithsonian Magazine - three men left January 1923 and vanished, Lorne Knight died of scurvy, Ada survived with cat Vic"
+  ],
+  "props": [
+    {
+      "name": "tent",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"150\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><polygon points=\"200,80 70,330 330,330\" fill=\"#D9C9A3\"/><polygon points=\"200,80 330,330 230,330\" fill=\"#B5A57F\"/><polygon points=\"200,80 150,330 70,330\" fill=\"#EADDBB\"/><polygon points=\"200,190 165,330 235,330\" fill=\"#4A3B2A\"/><rect x=\"195\" y=\"50\" width=\"10\" height=\"45\" fill=\"#6B4F2E\"/><polygon points=\"205,52 245,65 205,78\" fill=\"#C2302B\"/><path d=\"M60 335 Q200 310 340 335 L340 345 L60 345Z\" fill=\"#fff\"/></svg>"
+    },
+    {
+      "name": "cat",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"335\" rx=\"120\" ry=\"18\" fill=\"#000\" opacity=\".15\"/><ellipse cx=\"200\" cy=\"260\" rx=\"95\" ry=\"80\" fill=\"#8A8A8A\"/><ellipse cx=\"230\" cy=\"270\" rx=\"60\" ry=\"70\" fill=\"#6E6E6E\"/><circle cx=\"200\" cy=\"150\" r=\"65\" fill=\"#9A9A9A\"/><polygon points=\"145,110 150,50 190,95\" fill=\"#9A9A9A\"/><polygon points=\"255,110 250,50 210,95\" fill=\"#7C7C7C\"/><ellipse cx=\"175\" cy=\"135\" rx=\"22\" ry=\"30\" fill=\"#B8B8B8\" opacity=\".5\"/><circle cx=\"178\" cy=\"150\" r=\"9\" fill=\"#2E7D32\"/><circle cx=\"222\" cy=\"150\" r=\"9\" fill=\"#2E7D32\"/><polygon points=\"200,165 192,175 208,175\" fill=\"#E58E9A\"/><path d=\"M285 280 Q340 250 330 190\" stroke=\"#6E6E6E\" stroke-width=\"18\" fill=\"none\" stroke-linecap=\"round\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "She was left alone on an Arctic island with only a cat.",
+      "caps": "Left *alone | on an Arctic *island | with only a *cat",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "woman",
+            "skin": "medium",
+            "hair": "black",
+            "label": "Ada Blackjack"
+          }
+        ],
+        "item": "prop:cat",
+        "action": "stand",
+        "setting": "snow"
+      }
+    },
+    {
+      "text": "In nineteen twenty-one, Ada Blackjack joined four men to claim Wrangel Island.",
+      "caps": "In *1921, | Ada joined *four men | to claim *Wrangel Island",
+      "scene": {
+        "type": "map",
+        "title": "ARCTIC 1921",
+        "places": [
+          {
+            "name": "Alaska",
+            "x": 0.15,
+            "y": 0.6
+          },
+          {
+            "name": "Wrangel Island",
+            "x": 0.55,
+            "y": 0.35
+          },
+          {
+            "name": "Siberia",
+            "x": 0.85,
+            "y": 0.6
+          }
+        ],
+        "mover": "ship",
+        "focus": "Wrangel Island",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "She took the job to pay for her son's medicine.",
+      "caps": "She took the *job | to *pay for her | *son's medicine",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "woman",
+            "skin": "medium",
+            "hair": "black"
+          },
+          {
+            "role": "child",
+            "skin": "medium",
+            "hair": "black"
+          }
+        ],
+        "action": "stand",
+        "setting": "room"
+      }
+    },
+    {
+      "text": "Two years later, food ran short, and three men went for help.",
+      "caps": "Two years *later, | *food ran short, | three men went for *help",
+      "scene": {
+        "type": "action",
+        "setting": "snow",
+        "actors": [
+          {
+            "art": "person:man",
+            "x": 0.3,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:man",
+            "x": 0.5,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "person:man",
+            "x": 0.7,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "They never returned. The fourth man, too ill to walk, died.",
+      "caps": "They *never returned. | The fourth man, *too ill | to walk, *died",
+      "scene": {
+        "type": "object",
+        "object": "prop:tent",
+        "setting": "snow",
+        "night": true
+      }
+    },
+    {
+      "text": "Ada taught herself to hunt, with a cat for company.",
+      "caps": "Ada taught *herself | to *hunt, | with a *cat",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "woman",
+            "skin": "medium",
+            "hair": "black",
+            "label": "Ada"
+          }
+        ],
+        "item": "prop:cat",
+        "action": "point",
+        "setting": "snow",
+        "text": "HUNTING ALONE",
+        "on": "hunt"
+      }
+    },
+    {
+      "text": "A ship finally came, and she was the only one to go home.",
+      "caps": "A *ship finally came, | she was the *only one | to go *home",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.6,
+            "y": 0.6,
+            "size": "large",
+            "move": "float"
+          }
+        ]
+      }
+    }
+  ],
+  "post": {
+    "caption": "Ada Blackjack took a job to pay for her son's medicine and ended up alone on an Arctic island.\nWould you have survived alone out there?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#survival",
+      "#arctic",
+      "#adablackjack"
+    ],
+    "youtubeTitle": "A young mother was left alone on an Arctic island with a cat #shorts",
+    "xText": "Ada Blackjack was the only one of five to survive Wrangel Island. She had a cat."
+  }
+}

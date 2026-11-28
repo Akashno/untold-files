@@ -1,0 +1,151 @@
+{
+  "category": "war",
+  "title": "The night Los Angeles fired at an enemy that never came",
+  "hook": "Los Angeles fired over a thousand shells at an enemy that never came.",
+  "headline": {
+    "top": "1,400 SHELLS.",
+    "bottom": "NO ENEMY."
+  },
+  "summary": "In February 1942, days after a Japanese submarine shelled California, Los Angeles blacked out and fired about 1,400 anti-aircraft shells at unidentified objects; no enemy planes were found, yet five people died.",
+  "music": "tension",
+  "sources": [
+    "Wikipedia, Battle of Los Angeles: air raid alert on 24-25 February 1942, about 1,430 anti-aircraft shells fired, five civilian deaths, Navy Secretary Knox called it a false alarm",
+    "Wikipedia, Bombardment of Ellwood: Japanese submarine I-17 shelled an oil field near Santa Barbara on 23 February 1942",
+    "U.S. Army Center of Military History / Office of Air Force History account of the 1942 Los Angeles air raid"
+  ],
+  "lines": [
+    {
+      "text": "Los Angeles fired over one thousand shells at an enemy that never came.",
+      "caps": "*Los Angeles | fired over *1,000 | shells at an *enemy",
+      "image": {
+        "wiki": "Battle of Los Angeles"
+      }
+    },
+    {
+      "text": "It was February nineteen forty-two, weeks after Pearl Harbor.",
+      "caps": "*February 1942, | *weeks after | *Pearl Harbor",
+      "image": {
+        "wiki": "Attack on Pearl Harbor"
+      }
+    },
+    {
+      "text": "A Japanese submarine had just shelled an oil field nearby.",
+      "caps": "A Japanese *submarine | *shelled an | *oil field",
+      "image": {
+        "wiki": "Bombardment of Ellwood"
+      }
+    },
+    {
+      "text": "So when radar spotted something unknown, sirens wailed and the city went dark.",
+      "caps": "*Radar | spotted something *unknown, | the city went *dark",
+      "image": {
+        "wiki": "Los Angeles"
+      }
+    },
+    {
+      "text": "Searchlights swept the sky while guns fired at shapes nobody could name.",
+      "caps": "*Searchlights | *swept the sky, | guns fired at *shapes",
+      "image": {
+        "search": "Battle of Los Angeles 1942 searchlights photograph"
+      }
+    },
+    {
+      "text": "No enemy plane was ever found.",
+      "caps": "No *enemy | *plane was | ever *found"
+    },
+    {
+      "text": "But falling shells killed three people, and two more died of heart attacks.",
+      "caps": "But falling *shells | killed *three people, | two more *heart attacks"
+    },
+    {
+      "text": "The Navy called it a false alarm.",
+      "caps": "The *Navy | *called it a | *false alarm",
+      "image": {
+        "wiki": "Frank Knox"
+      }
+    }
+  ],
+  "post": {
+    "caption": "In 1942, a whole city fought a battle against nothing. To this day, nobody agrees on what the searchlights chased.\nWould you have believed it was a real attack?\nFollow @unt.oldfiles for a new untold story every day.\n\nImages: Wikimedia Commons (LA Times., public domain; Imperial Japanese Navy, public domain; User:Antandrus, public domain; Dietmar Rabich, CC BY-SA 4.0; Unknown author, public domain; Official U.S. Navy Photograph, Photo #: 80-G-399009, public domain)",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#losangeles",
+      "#mystery"
+    ],
+    "youtubeTitle": "Los Angeles fired 1,400 shells at an enemy that never came #shorts",
+    "xText": "In 1942, Los Angeles fired about 1,400 shells at an enemy that was never there. Five people died."
+  },
+  "photos": [
+    {
+      "ask": "wiki:Battle of Los Angeles",
+      "title": "File:Battle of Los Angeles LATimes.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Battle_of_Los_Angeles_LATimes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Battle_of_Los_Angeles_LATimes.jpg",
+      "width": 1280,
+      "height": 1172,
+      "licence": "Public domain",
+      "artist": "LA Times.",
+      "description": "Page B of the February 26, 1942, Los Angeles Times, showing the coverage of the so-called Battle of Los Angeles and its aftermath (lots of articles on people finding dud shells, unexploded ordnance, e"
+    },
+    {
+      "ask": "wiki:Attack on Pearl Harbor",
+      "title": "File:Attack on Pearl Harbor Japanese planes view.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Attack_on_Pearl_Harbor_Japanese_planes_view.jpg/1280px-Attack_on_Pearl_Harbor_Japanese_planes_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Attack_on_Pearl_Harbor_Japanese_planes_view.jpg",
+      "width": 1280,
+      "height": 908,
+      "licence": "Public domain",
+      "artist": "Imperial Japanese Navy",
+      "description": "Photograph taken from a Japanese plane during the torpedo attack on ships moored on both sides of Ford Island shortly after the beginning of the Pearl Harbor attack. View looks about east, with the su"
+    },
+    {
+      "ask": "wiki:Bombardment of Ellwood",
+      "title": "File:EllwoodDetail.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/EllwoodDetail.jpg/1280px-EllwoodDetail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:EllwoodDetail.jpg",
+      "width": 1280,
+      "height": 989,
+      "licence": "Public domain",
+      "artist": "User:Antandrus",
+      "description": "Detail map of Ellwood and Ellwood Offshore Oil Field, showing location of Luton-Bell Well No. 17, damaged by Japanese shelling 23 Feb 1942"
+    },
+    {
+      "ask": "search:Los Angeles",
+      "title": "File:Los Angeles (California, USA), South Olive Street -- 2012 -- 4847.jpg",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Los_Angeles_%28California%2C_USA%29%2C_South_Olive_Street_--_2012_--_4847.jpg/1280px-Los_Angeles_%28California%2C_USA%29%2C_South_Olive_Street_--_2012_--_4847.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Los_Angeles_(California,_USA),_South_Olive_Street_--_2012_--_4847.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "artist": "Dietmar Rabich",
+      "description": "Fountain and amphitheater at California Plaza — on Bunker Hill in Downtown Los Angeles , California , USA"
+    },
+    {
+      "ask": "search:battle los angeles",
+      "title": "File:Battle of Los Angeles, 1942.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Battle_of_Los_Angeles%2C_1942.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Battle_of_Los_Angeles,_1942.jpg",
+      "width": 1280,
+      "height": 794,
+      "licence": "Public domain",
+      "artist": "Unknown author",
+      "description": "Searchlights converging during the Battle of Los Angeles, 1942"
+    },
+    null,
+    null,
+    {
+      "ask": "wiki:Frank Knox",
+      "title": "File:FrankKnox c1943 g399009 (cropped 3x4) (b).jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/FrankKnox_c1943_g399009_%28cropped_3x4%29_%28b%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:FrankKnox_c1943_g399009_(cropped_3x4)_(b).jpg",
+      "width": 1280,
+      "height": 1708,
+      "licence": "Public domain",
+      "artist": "Official U.S. Navy Photograph, Photo #: 80-G-399009",
+      "description": "Secretary of the Navy Frank Knox — At his desk in the Navy Department, Washington, D.C., circa 1943."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "title": "The Navy ship that vanished with about 300 people and sent no call for help",
+  "category": "mystery",
+  "hook": "A huge US Navy ship vanished with about three hundred people and never called for help.",
+  "headline": {
+    "top": "300 PEOPLE GONE.",
+    "bottom": "NO CALL FOR HELP"
+  },
+  "summary": "In 1918 the USS Cyclops, a huge Navy ship, disappeared after leaving Barbados with about 300 people, leaving no wreckage, and her two sister ships vanished the same way in 1941.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica and Naval History and Heritage Command: USS Cyclops (AC-4), a collier, left Barbados on 4 March 1918 for Baltimore and was lost with about 300 people aboard; no distress call and no wreckage were found.",
+    "Naval History and Heritage Command: Cyclops carried a heavy load of manganese ore and had a damaged engine; it is the largest non-combat loss of life in US Naval history.",
+    "Naval History and Heritage Command: sister ships USS Proteus and USS Nereus disappeared in late 1941 on the Atlantic route, carrying heavy ore."
+  ],
+  "props": [
+    {
+      "name": "ore",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"150\" ry=\"22\" fill=\"#000\" opacity=\".15\"/><polygon points=\"50,330 140,170 215,110 300,180 355,330\" fill=\"#4A4A55\"/><polygon points=\"215,110 300,180 355,330 250,330\" fill=\"#2E2E38\"/><polygon points=\"140,170 215,110 200,200\" fill=\"#7A7A88\"/><polygon points=\"90,300 130,240 175,300\" fill=\"#5E5E6C\"/><polygon points=\"230,300 270,230 320,300\" fill=\"#23232B\"/><circle cx=\"180\" cy=\"150\" r=\"10\" fill=\"#9A9AAA\"/><circle cx=\"160\" cy=\"260\" r=\"8\" fill=\"#8A8A99\"/><circle cx=\"110\" cy=\"320\" r=\"14\" fill=\"#3A3A44\"/><circle cx=\"290\" cy=\"315\" r=\"12\" fill=\"#3A3A44\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A huge US Navy ship vanished with three hundred people, and never called for help.",
+      "caps": "A huge *Navy ship | *vanished with | three hundred *people, | never called for *help",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "night": true,
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "sink",
+            "on": "vanished"
+          }
+        ]
+      }
+    },
+    {
+      "text": "In March nineteen eighteen, the USS Cyclops left Barbados for Baltimore.",
+      "caps": "In *March 1918, | the USS *Cyclops | left *Barbados",
+      "scene": {
+        "type": "map",
+        "title": "ATLANTIC, 1918",
+        "land": "continent",
+        "places": [
+          {
+            "name": "Barbados",
+            "x": 0.55,
+            "y": 0.8
+          },
+          {
+            "name": "Baltimore",
+            "x": 0.4,
+            "y": 0.2
+          }
+        ],
+        "mover": "ship",
+        "focus": "Barbados"
+      }
+    },
+    {
+      "text": "She carried heavy ore, and one engine was damaged.",
+      "caps": "She carried *heavy ore, | one *engine damaged",
+      "scene": {
+        "type": "object",
+        "object": "prop:ore",
+        "text": "HEAVY ORE",
+        "on": "ore"
+      }
+    },
+    {
+      "text": "She never arrived. No wreckage, no bodies, no radio message.",
+      "caps": "She *never arrived. | No *wreckage, | no *bodies",
+      "scene": {
+        "type": "people",
+        "setting": "sea",
+        "action": "stand",
+        "figures": [
+          {
+            "role": "sailor",
+            "skin": "light",
+            "hair": "brown"
+          },
+          {
+            "role": "officer",
+            "skin": "light",
+            "hair": "grey"
+          }
+        ],
+        "text": "NO WRECKAGE",
+        "on": "wreckage"
+      }
+    },
+    {
+      "text": "The Navy searched for months and found nothing.",
+      "caps": "The Navy *searched | for *months, | found *nothing",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.3,
+            "y": 0.65,
+            "size": "medium",
+            "move": "float"
+          },
+          {
+            "art": "plane",
+            "x": 0.6,
+            "y": 0.3,
+            "size": "small",
+            "move": "fly",
+            "dir": "right"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Maybe the overloaded ship broke apart. Nobody knows.",
+      "caps": "Maybe she *broke apart. | Nobody *knows",
+      "scene": {
+        "type": "action",
+        "setting": "sea",
+        "actors": [
+          {
+            "art": "ship",
+            "x": 0.5,
+            "y": 0.62,
+            "size": "large",
+            "move": "split",
+            "on": "apart"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Then in nineteen forty-one, her two sister ships vanished on the same route.",
+      "caps": "In *1941, | her *two sister ships | *vanished too",
+      "scene": {
+        "type": "count",
+        "setting": "sea",
+        "night": true,
+        "items": [
+          {
+            "text": "1918: CYCLOPS",
+            "on": "nineteen"
+          },
+          {
+            "text": "1941: TWO MORE SHIPS",
+            "on": "sister"
+          }
+        ]
+      }
+    },
+    {
+      "text": "To this day, nobody knows why.",
+      "caps": "To *this day, | nobody *knows why",
+      "scene": {
+        "type": "date",
+        "text": "STILL UNSOLVED",
+        "setting": "sea",
+        "night": true,
+        "sub": "About 300 never found",
+        "subOn": "knows"
+      }
+    }
+  ],
+  "post": {
+    "caption": "The Cyclops is the biggest non-combat loss of life in US Navy history, and no one has found a trace.\nWhat do you think happened to it?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#mystery",
+      "#truestory",
+      "#navy",
+      "#unsolved"
+    ],
+    "youtubeTitle": "The Navy ship that vanished with 300 people and no call for help #shorts",
+    "xText": "In 1918 a giant US Navy ship vanished with about 300 people. No wreckage, no radio call. It has never been found."
+  }
+}

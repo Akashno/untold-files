@@ -1,0 +1,205 @@
+{
+  "title": "The man who invented twenty-seven spies and fooled Hitler",
+  "category": "war",
+  "hook": "A Spanish man invented twenty-seven spies, and Germany paid every one.",
+  "headline": {
+    "top": "27 SPIES.",
+    "bottom": "ALL FAKE!"
+  },
+  "summary": "Juan Pujol García, rejected by Britain, became a German spy, invented a network of fake agents from Lisbon, and helped hide the D-Day landings; he got medals from both sides.",
+  "music": "tension",
+  "sources": [
+    "Encyclopaedia Britannica / Wikipedia: Juan Pujol García (Garbo): Spanish, rejected by British, recruited by Abwehr 1941, invented fictitious network, ran in Lisbon then Britain.",
+    "Britain's National Archives / MI5: Garbo's false reports about Normandy as a diversion kept German forces at Pas de Calais; he received the Iron Cross and an MBE."
+  ],
+  "props": [
+    {
+      "name": "guidebook",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><ellipse cx=\"200\" cy=\"340\" rx=\"130\" ry=\"20\" fill=\"#000\" opacity=\".15\"/><rect x=\"95\" y=\"70\" width=\"220\" height=\"270\" rx=\"12\" fill=\"#2F6B8F\"/><rect x=\"255\" y=\"70\" width=\"60\" height=\"270\" rx=\"12\" fill=\"#245470\"/><rect x=\"85\" y=\"80\" width=\"20\" height=\"250\" rx=\"8\" fill=\"#1F4760\"/><rect x=\"115\" y=\"90\" width=\"18\" height=\"230\" rx=\"9\" fill=\"#fff\" opacity=\".25\"/><rect x=\"135\" y=\"120\" width=\"140\" height=\"90\" rx=\"6\" fill=\"#E8D9A8\"/><path d=\"M150 190 L185 150 L215 180 L255 135\" stroke=\"#C2302B\" stroke-width=\"8\" fill=\"none\"/><circle cx=\"255\" cy=\"135\" r=\"10\" fill=\"#C2302B\"/><rect x=\"135\" y=\"235\" width=\"140\" height=\"14\" rx=\"7\" fill=\"#E8D9A8\"/><rect x=\"135\" y=\"265\" width=\"100\" height=\"14\" rx=\"7\" fill=\"#E8D9A8\"/></svg>"
+    }
+  ],
+  "lines": [
+    {
+      "text": "A Spanish man invented twenty-seven spies, and Germany paid every one.",
+      "caps": "A *Spanish man | invented *27 spies, | and Germany *paid | *every one",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "night": true,
+        "actors": [
+          {
+            "art": "person:man",
+            "x": 0.35,
+            "y": 0.68,
+            "size": "medium",
+            "move": "still",
+            "skin": "light",
+            "hair": "black"
+          },
+          {
+            "art": "prop:guidebook",
+            "x": 0.65,
+            "y": 0.6,
+            "size": "medium",
+            "move": "grow",
+            "on": "spies"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Britain refused him, so Juan Pujol offered to spy for Germany.",
+      "caps": "Britain *refused him, | so *Pujol offered | to spy for *Germany",
+      "scene": {
+        "type": "people",
+        "figures": [
+          {
+            "role": "man",
+            "skin": "light",
+            "hair": "black",
+            "label": "Juan Pujol"
+          }
+        ],
+        "action": "stand",
+        "setting": "city"
+      }
+    },
+    {
+      "text": "He stayed in Lisbon, copying from guidebooks.",
+      "caps": "He stayed in *Lisbon, | copying from *guidebooks",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Lisbon",
+            "x": 0.2,
+            "y": 0.7
+          },
+          {
+            "name": "London",
+            "x": 0.45,
+            "y": 0.2
+          }
+        ],
+        "mover": "arrow",
+        "focus": "Lisbon",
+        "title": "1941",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "Then he invented agents, and Berlin sent money for every one.",
+      "caps": "He invented *agents, | and Berlin sent *money | for *every one",
+      "scene": {
+        "type": "action",
+        "setting": "room",
+        "actors": [
+          {
+            "art": "prop:guidebook",
+            "x": 0.3,
+            "y": 0.6,
+            "size": "medium",
+            "move": "still"
+          },
+          {
+            "art": "moneybag",
+            "x": 0.5,
+            "y": 0.2,
+            "size": "medium",
+            "move": "fly",
+            "dir": "left",
+            "on": "money"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Britain finally hired him. On D-Day, his messages said Normandy was a trick.",
+      "caps": "Britain *hired him. | On *D-Day, | Normandy was a *trick",
+      "scene": {
+        "type": "map",
+        "places": [
+          {
+            "name": "Normandy",
+            "x": 0.3,
+            "y": 0.6
+          },
+          {
+            "name": "Calais",
+            "x": 0.6,
+            "y": 0.35
+          }
+        ],
+        "mover": "army",
+        "focus": "Calais",
+        "title": "JUNE 1944",
+        "land": "continent"
+      }
+    },
+    {
+      "text": "So German tanks waited for a second invasion that never came.",
+      "caps": "German *tanks waited | for a second *invasion | that never *came",
+      "scene": {
+        "type": "action",
+        "setting": "field",
+        "actors": [
+          {
+            "art": "person:soldier",
+            "x": 0.3,
+            "y": 0.7,
+            "size": "medium",
+            "move": "walk",
+            "dir": "right"
+          },
+          {
+            "art": "tank",
+            "x": 0.65,
+            "y": 0.65,
+            "size": "medium",
+            "move": "shake",
+            "on": "waited"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Germany gave him the Iron Cross. Britain gave him an MBE.",
+      "caps": "Germany: the *Iron Cross. | Britain: an *MBE",
+      "scene": {
+        "type": "object",
+        "object": "medal",
+        "setting": "hall"
+      }
+    },
+    {
+      "text": "Two medals, and not one real spy.",
+      "caps": "*Two medals, | not one real *spy",
+      "scene": {
+        "type": "count",
+        "items": [
+          {
+            "text": "2 MEDALS"
+          },
+          {
+            "text": "0 REAL SPIES",
+            "on": "spy"
+          }
+        ],
+        "setting": "parchment"
+      }
+    }
+  ],
+  "post": {
+    "caption": "He barely left Lisbon, yet two enemy governments trusted him.\nWould you have fallen for his lies?\nFollow @unt.oldfiles for a new untold story every day.",
+    "hashtags": [
+      "#untoldfiles",
+      "#history",
+      "#truestory",
+      "#ww2",
+      "#dday",
+      "#spy"
+    ],
+    "youtubeTitle": "A man invented 27 spies and fooled Hitler #shorts",
+    "xText": "He invented 27 spies, and Germany paid every one."
+  }
+}
